@@ -1,0 +1,61 @@
+body{
+    font-family:'Poppins', sans-serif;
+    margin: auto;
+    color: white;
+
+}
+header{
+    display: flex;
+    flex-direction: column;
+}
+ul {
+    display: flex;
+    flex-direction: Row;
+}
+li {
+    list-style-type: none;
+    margin-right: 20px;
+    letter-spacing: 2px;
+}
+/* menu chinh */
+.menu-two {
+    background-color: orange;
+    display: flex;
+    flex-direction: Row;
+    justify-content: space-between;
+    height: 50px;
+}
+.menu-two ul{
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0;
+}
+.menu-two img{
+    margin-left: 25px;
+}
+/* menu phu */
+.menu-one ul{
+    margin: inherit;
+    justify-content: space-between;
+    font-size: 12px;
+
+}
+.menu-one{
+    background-color: #5c3911;
+}
+.menu-one ul div{
+    display: flex;
+    flex-direction: Row;
+    
+}
+/* Icon */
+.icon{
+    display: flex;
+    flex-direction: row;
+    align-items: Center;
+    margin-right: 25px;
+}
+.icon a {
+    color: white;
+    margin-right: 20px;
+}
