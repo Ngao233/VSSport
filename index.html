@@ -1,26 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VSSport</title>
-</head>
-<body>
-  <header>
-    <nav>
-      <ul>
-        <li>Trang chủ</li>
-        <li>Sản Phẩm</li>
-        <li>Đăng ký</li>
-        <li>Đăng nhập</li>
-        <li>Thông tin</li>
-      </ul>
-    </nav>
-    <section id="banner-header">
-      <img src="" alt="">
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>In Sản Phẩm</title>  
+     
+</head>  
+<body>  
+    <section>
+        <div class="sp-in">
+            <div class="image">
+                <img src="image 94.png" alt="">
+                <div class="text-nhan" id="textN">
+
+                </div>
+                <div class="number-nhan" id="numberN">
+
+                </div>
+            </div>
+            <div class="form">
+                <h2 class="tensp" id="tensp">Manchester City
+                    Away Jersey 2024/25</h2>
+                <h3>Giá sản phẩm</h3>
+                <p>271.000 đ</p>
+                <h3>Nhập tên và nhập số áo bạn muốn</h3>
+                <input onchange="Textaction()" type="text" id="nametext" placeholder="Nhập tên vào đây">
+                <input onchange="Numberr()" type="number" id="numbertext" placeholder="Nhập số vào đây">
+                <h3>Chọn kích thước</h3>
+                <label class="kichco"><input type="radio" name="size" value="S">
+                    <div>S</div>
+                </label>
+                <label class="kichco"><input type="radio" name="size" value="M">
+                    <div>M</div>
+                </label>
+                <label class="kichco"><input type="radio" name="size" value="L">
+                    <div>L</div>
+                </label>
+                <label class="kichco"><input type="radio" name="size" value="XL">
+                    <div>XL</div>
+                </label>
+                <label class="kichco"><input type="radio" name="size" value="XLL">
+                    <div>XLL</div>
+                </label> <br><br><br><br><br>
+                <h3>Lưu ý</h3>
+                <p>Món hàng không hoàn trả</p>
+                <p>Giao hàng từ 3 - 5 ngày</p>
+                <div>
+                    <button class="tgh">Thêm giỏ hàng</button>
+                </div>
+            </div>
+            
     </section>
-  </header>
+    <script src="javascrip.js">
 
-
-</body>
+    </script>
+</body>  
 </html>
