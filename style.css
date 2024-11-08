@@ -11,7 +11,7 @@
     width: 80%;
     height: 40px;
     padding: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .sp-in .form input::placeholder {  
     color: #888; 
@@ -21,7 +21,8 @@
 }
 .sp-in .form .tensp{
     font-size: 32px;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    margin-top: -10px;
     font-family: 'Poppins', sans-serif;
    
 }
@@ -32,7 +33,7 @@
 
 .sp-in .form .kichco{
     float: left;
-    padding: 15px;
+    margin-left: 15px;
     width: 20px;
 
 }
@@ -41,6 +42,10 @@
     width: 80%;
     background-color: orange;
     border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
 }
 
 .sp-in .form .price{
@@ -52,7 +57,12 @@
     height: 40px;
     padding: auto;
 }
-
+.sp-in .form .price {
+    color: orange;
+    font-size: 30px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
 .sp-in .image {  
     
     position: relative; /* Thiết lập vị trí cho cha */  
@@ -96,4 +106,80 @@
     color: white; /* Màu chữ trắng để nổi bật trên nền tối */  
     text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Thêm bóng chữ */  
     font-family: 'Poppins', sans-serif;  
+}
+.sanpham-moi{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+  
+}
+.sp-moi{
+    width: 1290px;
+    border: solid 1px black;
+    margin-left: 100px;
+    height: 400px;
+}
+/**/
+header{
+    display: flex;
+    flex-direction: column;
+    font-family:'Poppins', sans-serif;
+}
+
+/* menu chinh */
+.menu-two {
+    background-color: orange;
+    display: flex;
+    flex-direction: Row;
+    justify-content: space-between;
+    height: 50px;
+}
+.menu-two ul{
+    font-weight: bold;
+    font-size: 13px;
+    padding: 0;
+    display: flex;
+    flex-direction: Row;
+    color: white;
+}
+.menu-two ul li{
+    list-style-type: none;
+    margin-right: 20px;
+    letter-spacing: 2px;
+}
+.menu-two img{
+    margin-left: 25px;
+}
+/* menu phu */
+.menu-one ul{
+    margin: inherit;
+    justify-content: space-between;
+    font-size: 12px;
+    display: flex;
+    flex-direction: Row;
+    color: white;
+
+}
+.menu-one{
+    background-color: #5c3911;
+}
+.menu-one ul div{
+    display: flex;
+    flex-direction: Row;
+    
+}
+.menu-one ul li {
+    list-style-type: none;
+    margin-right: 20px;
+    letter-spacing: 2px;
+}
+/* Icon */
+.icon{
+    display: flex;
+    flex-direction: row;
+    align-items: Center;
+    margin-right: 25px;
+}
+.icon a {
+    color: white;
+    margin-right: 20px;
 }
