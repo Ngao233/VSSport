@@ -16,6 +16,7 @@ header{
     flex-direction: Row;
     justify-content: space-between;
     height: 50px;
+    width: 100vw;
 }
 .menu-two ul{
     font-weight: bold;
@@ -43,6 +44,7 @@ header{
 }
 .menu-one{
     background-color: #5c3911;
+    width: 100vw;
 }
 .menu-one ul div{
     display: flex;
@@ -64,4 +66,25 @@ header{
 .icon a {
     color: white;
     margin-right: 20px;
+}
+
+/**banner**/
+.banner {
+    width: 100vw;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    max-height: 1100px;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    min-width: 100vw;
+    box-sizing: border-box;
+}
+.slides .slide img {
+    width: 100vw;
+    max-height: 80vh;
 }

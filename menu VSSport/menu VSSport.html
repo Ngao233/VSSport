@@ -43,11 +43,24 @@
       </div>
 
     </nav>
-    <section id="banner-header">
-      <img src="" alt="">
+    <section class="banner">
+      <div class="slides" id="slides">
+          <div class="slide"><img src="../image/banner1.png" alt="Hình ảnh 1"></div>
+          <div class="slide"><img src="../image/banner2.png" alt="Hình ảnh 2"></div>
     </section>
   </header>
 
+  <script>
+    let currentIndex = 0;
+    const slides = document.getElementById('slides');
+    const totalSlides = slides.children.length;
 
+    function showNextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    setInterval(showNextSlide, 3000); 
+</script>
 </body>
 </html>
