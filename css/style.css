@@ -1,11 +1,11 @@
 .sp-in{
-    width: 1290px;
+    width: 80%;
     height: auto;  
     display: grid;
     grid-template-columns: repeat(2,1fr);
     gap: 20px;
     padding: 10px; 
-    margin-left: 100px;
+    margin-left: 10%;
     margin-top: -80px;
 }
 .sp-in .form input {
@@ -131,9 +131,9 @@
   
 }
 .sp-moi{
-    width: 1290px;
+    width: 80%;
     border: solid 1px black;
-    margin-left: 100px;
+    margin-left: 10%;
     height: 400px;
 }
 /**/
@@ -222,13 +222,15 @@ header{
     max-height: 85%;
 }
 .banner-ad{
+    
     width: 100%;
     padding: 0;
     margin: 0;
     height: auto;
 }
 .banner-img img{
-    width: 1290px;
+    margin-top:20px;
+    width: 100%;
     height: auto;
 }
 
