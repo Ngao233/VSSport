@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <link rel="stylesheet" href="a.css">
+    <!-- Thêm Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app" class="product-page">
+        <!-- Phần Hình ảnh Bên Trái -->
+        <div class="image-section">
+            <div class="main-image-container">
+                <!-- Liên kết hình ảnh động với currentImage -->
+                <img :src="currentImage" alt="Main Product Image" class="main-image">
+            </div>
+            <div class="thumbnail-section">
+                <img v-for="(image, index) in thumbnails" 
+                     :key="index" 
+                     :src="image.src" 
+                     :alt="image.alt" 
+                     class="thumbnail"
+                     @click="changeImage(image.src)">
+            </div>
+        </div>
+
+        <!-- Phần Chi Tiết Sản Phẩm Bên Phải -->
+        <div class="details-section">
+            <h1 class="product-title">Quần áo bóng đá Bulbal Strivend Inter Milan 2024/25</h1>
+            <p class="price">
+                <span class="original-price">139,000₫</span>
+                <span class="discounted-price">129,000₫</span>
+                <span class="discount">-8%</span>
+            </p>
+
+            <!-- Phần Khuyến mãi -->
+            <div class="promotions">
+                <h3>Khuyến mãi - Ưu đãi</h3>
+                <ul>
+                    <li>Hỗ trợ 20k phí SHIP cho đơn từ 280k (Nhập mã HTS20)</li>
+                    <li>Giao GẤP 2h Sài Gòn</li>
+                    <li>Đặc biệt: Mua càng nhiều - Giá càng giảm sâu!</li>
+                </ul>
+            </div>
+            <br>
+            <p>Màu sắc:</p>
+            <div class="color-options">
+                <span v-for="(color, index) in colors" 
+                      :key="index" 
+                      :class="['color', color]" 
+                      @click="selectColor(color)">
+                </span>
+            </div>
+
+            <!-- Chọn Kích Thước -->
+            <div class="size-selection">
+                <label>Size:</label>
+                <div class="size-options">
+                    <button class="size-option">S</button>
+                    <button class="size-option">M</button>
+                    <button class="size-option">L</button>
+                    <button class="size-option">XL</button>
+                    <button class="size-option">XXL</button>
+                </div>
+            </div>
+
+            <!-- Nút Thao Tác -->
+            <div class="action-buttons">
+                <button class="add-to-cart">Thêm vào giỏ</button>
+                <button class="buy-now">Mua ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Liên kết tới file JavaScript -->
+    <script src="script.js"></script>
+
+    <!-- Vue.js script -->
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                currentColor: 'black',  // Màu hiện tại
+                currentImage: 'hinh/black.png',  // Hình ảnh mặc định (màu đen)
+                colors: ['black', 'gray', 'red', 'white'],  // Các màu sắc có sẵn
+                thumbnails: [  // Các thumbnail cho mỗi màu
+                    { src: 'hinh/black.png', alt: 'Black' },
+                    { src: 'hinh/while.png', alt: 'Gray' },
+                    { src: 'hinh/red.png', alt: 'Red' },
+                ]
+            },
+            methods: {
+    selectColor(color) {
+        console.log("Color selected:", color);  // Kiểm tra màu đã chọn
+        this.currentColor = color;
+        this.currentImage = `hinh/${color}.png`;
+    },
+    changeImage(image) {
+        console.log("Thumbnail clicked:", image);  // Kiểm tra hình ảnh từ thumbnail
+        this.currentImage = image;
+    }
+}
+        })
+    </script>
+</body>
+</html>
