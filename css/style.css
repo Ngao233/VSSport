@@ -5,9 +5,7 @@
     grid-template-columns: repeat(2,1fr);
     gap: 20px;
     padding: 10px; 
-    margin-left: 10%;
-    position: relative;
-    margin-top: 10%;
+    margin-left: 100px;
 }
 .sp-in .form input {
     width: 80%;
@@ -133,8 +131,9 @@
   
 }
 .sp-moi{
-    width: 80%;
-    margin-left: 10%;
+    width: 1290px;
+    border: solid 1px black;
+    margin-left: 100px;
     height: 400px;
     display: flex;
     position: relative;
