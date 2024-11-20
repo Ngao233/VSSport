@@ -1,3 +1,8 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
 .sp-in{
     width: 80%;
     height: auto;  
@@ -128,24 +133,26 @@
 .sanpham-moi{
     font-family: 'Montserrat', sans-serif;
     width: 100%;
+    padding: 0;
+    margin: 0;
   
 }
 .sp-moi{
-    width: 1290px;
-    border: solid 1px black;
-    margin-left: 100px;
-    height: 400px;
+    width: 100%;
+    height: auto;
     display: flex;
     position: relative;
     justify-items: center;
     justify-content: center;
     text-align: center;
     align-items: center;
+    margin-top: -5%;
+    margin-bottom: 5%;
 
 }
 .sanpham-moi .sp-moi .khoisp{
     text-align: center;
-    width: 20%;
+    width: 15%;
     padding: 5% 10px 0 10px;
     margin-top: 0;
     margin-bottom: 0;
@@ -197,12 +204,16 @@ header{
     padding: 0;
     display: flex;
     flex-direction: Row;
-    color: white;
+    color: white !important;
 }
 .menu-two ul li{
     list-style-type: none;
     margin-right: 20px;
     letter-spacing: 2px;
+    color: white;
+}
+.menu-two ul li a{
+    color: white;
 }
 .menu-two img{
     margin-left: 25px;
@@ -214,7 +225,7 @@ header{
     font-size: 12px;
     display: flex;
     flex-direction: Row;
-    color: white;
+    color: white !important;
 
 }
 .menu-one{
@@ -229,6 +240,9 @@ header{
     list-style-type: none;
     margin-right: 20px;
     letter-spacing: 2px;
+}
+.menu-one ul li a{
+    color: white;
 }
 /* Icon */
 .icon{
@@ -273,6 +287,32 @@ header{
     width: 100%;
     height: auto;
 }
+
+/*Tin tức*/
+
+.tinTuc{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.oTinTuc{
+    width: 20%;
+    height: auto;
+    margin: 3%;
+    
+}
+.oTinTuc img{
+    width: 100%;
+    height: 50%;
+}
+
+
 
 /*footer */
 
