@@ -1,0 +1,54 @@
+/* Tùy chỉnh sidebar */  
+#sidebar {  
+    background-color: #ffa031; /* Đổi màu nền thành cam */  
+    color: white;  
+    min-height: 100vh;  
+}  
+
+#sidebar .nav-link {  
+    color: #ffffff; /* Đổi màu link thành trắng */  
+}  
+
+#sidebar .nav-link:hover {  
+    background-color: #ffa031; /* Nền cam khi hover */  
+    color: white;  
+}  
+
+#sidebar .nav-link.active {  
+    background-color: #ffa031; /* Nền cam khi active */  
+    color: white;  
+}  
+
+/* Tùy chỉnh stats card */  
+.card {  
+    border-radius: 8px;  
+    overflow: hidden;  
+}  
+
+.card-header {  
+    font-weight: bold;  
+}  
+
+.card-body {  
+    display: flex;  
+    align-items: center;  
+    justify-content: space-between;  
+}  
+
+/* Tùy chỉnh table */  
+.table-responsive {  
+    background-color: white;  
+    padding: 20px;  
+    border-radius: 8px;  
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+}  
+
+/* Box shadow cho card */  
+.card.shadow {  
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);  
+}  
+
+img {  
+    width: 200px;  
+    margin: 10px;  
+}
