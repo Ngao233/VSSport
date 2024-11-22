@@ -1,0 +1,48 @@
+.khungsp{
+  display: flex;
+}
+
+.sidebar {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    border: 1px solid gray; 
+    text-align: center; 
+
+}
+
+
+.sidebar select {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid gray; 
+    border-radius: 4px; 
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sidebar select option {
+    border: 1px solid gray; 
+}
+
+.sidebar button{
+  padding: 10px;
+  background-color: orange;
+  color: #ffffff;
+  border: none;
+}
+
+.sanpham-moi{
+  width: 70%;
+}
+
+
+.sanpham-moi{
+  width: 100%;
+}
+
+.sanpham-moi .sp-moi .khoisp{
+  width: 20%;
+}
