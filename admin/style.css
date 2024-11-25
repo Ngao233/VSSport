@@ -49,6 +49,7 @@
 }  
 
 img {  
-    width: 200px;  
-    margin: 10px;  
+    width: 180px;  
+    padding: 10px;
+    margin-left: 10px;  
 }
