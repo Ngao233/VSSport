@@ -4,7 +4,7 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Trang Chủ</title>  
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
         rel="stylesheet">
@@ -15,7 +15,13 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
         rel="stylesheet">
         <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
-     
+     <style>
+        body h2{
+            font-family: 'Montserrat', sans-serif;
+            margin-left: 10%;
+            margin-top: 40px;
+        }
+     </style>
 </head>  
 <body>  
     <header>
@@ -31,7 +37,7 @@
           </nav>
           <!-- menu chinh -->
           <nav class="menu-two">
-              <a href="#"><img src="image/logo.png" alt="" style="width: 155px ;"></a>
+              <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
             <ul>
               <li><a href="#">TRANG CHỦ</a></li>
               <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
@@ -57,44 +63,63 @@
           </section>
         </header>
         <hr>
-<!-- Danh mục -->
 
-    <section>
-        <h2 id="title-categogy">Danh mục</h3>
-        <div class="product-category">
-            <div class="category">
-                <a href="#">
-                    <img src="image/category1.png" alt="Sản phẩm 1">
-                    <h3>Áo đá bóng</h3>
-                </a>
- 
-            </div>
-            <div class="category">
-                <a href="#">
+    <div class="title-categogy">
+        <h2>Danh Mục Sản Phẩm</h2>
+    </div>
+    <section class="Category">
+        
+        <div class="block-top-left">
+            <a href="">
+            <img src="image/Category1.png" alt="">
+            <p>Giày Thể Thao</p>
+        </a>
+        </div>
+        
 
-                </a>
-                <img src="image/category2.png" alt="Sản phẩm 2">
-                <h3>Giày thể thao</h3>
-            </div>
-            <div class="category">
-                <a href="#">
-                    <img src="image/category3.png" alt="Sản phẩm 3">
-                    <h3>Bóng đá</h3>
-                </a>
-                
-            </div>
-            <div class="category">
-                <a href="#">
-                    <img src="image/category4.png" alt="Sản phẩm 4">
-                    <h3>Áo khoác</h3>
-                </a>
-            </div>
-        </div>     
+
+        </div>
+        <div class="block-center-left">
+            <a href="">
+            <img src="image/Category2.png" alt="">
+            <p>Áo Bóng đá</p>
+        </a>
+        </div>
+        
+        <div class="block-top-right">
+            <a href="">
+            <img src="image/Category3.png" alt="">
+            <p>Áo khoác thể thao</p>
+        </a>
+        </div>
+        <div class="block-botoom-right">
+            <a href="">
+            <img src="image/Category4.png" alt="">
+            <p>Quần thể thao</p>
+        </a>
+        </div>
+        <div class="block-botoom-left">
+            <a href="">
+            <img src="image/Category5.png" alt="">
+            <p>Giày Bóng Đá</p>
+        </a>
+        </div>
+        
+      
+        <div class="rong">
+            <a href="">
+            <img src="image/Category6.png" alt="">
+            <p>Các Loại bóng</p>
+        </a>
+
+
+        </div>
+
     </section>
-    <hr>
 <!-- Sản phẩm-->
 
-    <section class="sanpham-moi">
+    <!-- <section class="sanpham-moi">
+        
         <h2 id="title-categogy">Sản phẩm khuyến mãi</h3>
         <div class="sp-moi">
             <div class="khoisp">
@@ -134,7 +159,39 @@
             </div>
 
         </div>
+    </section> -->
+    <h2>Sản Phẩm Khuyến Mại</h2>
+    <section class="product-sale-home">
+        <div class="pro-sale">
+            <img src="image/mc-chinh.webp" alt="">
+            <div class="circle">
+                <a href="">
+                    <i class="fa-solid fa-heart"></i>
+                </a>
+            </div>
+        
+        <div>
+            <p class="p-product-sale-name">Áo Manchester City</p>
+            <div class="p-product-sale">
+            <p class="price-sale-home">230000 đ</p> <p>190000 đ</p>
+            </div>
+            <button>Thêm giỏ hàng</button>
+        </div>
+        </div>
+        <div class="pro-sale">
+
+        </div>
+        <div class="pro-sale">
+
+        </div>
+        <div class="pro-sale">
+
+        </div>
+        <div class="pro-sale">
+
+        </div>
     </section>
+    
     <!-- Tùy chỉnh áo đấu-->
 
     <section>
