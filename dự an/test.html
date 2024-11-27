@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+        rel="stylesheet">
+        <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
     <style>
     section{display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -15,7 +25,7 @@
     margin-right: 10%;
 }
     section div{
-        background-color: blue;
+        
 
     }
     header{
@@ -115,7 +125,7 @@
     font-size: 24px;
 }
 .price{
-    font-weight: none;font-size: 16px;color:#FFA031;
+    font-weight: none;font-size: 20px;color:#FFA031;
 }
 .e{background-color: #FFA031;  
     color: white;  
@@ -125,9 +135,9 @@
     cursor: pointer;  
     text-align: center;  
     display: block;  
-    width: 10%;  
+    width: 17%;  
     font-size: 16px;  
-    margin: 5px; 
+    margin: 7px; 
     display: inline-block;}
     .h img{
         margin-left: 10px;
@@ -136,6 +146,29 @@
     .size-options label{
         font-size: 20px;
     }
+    .i{
+        width: 100%;
+        padding: 20px 25px;
+        font-size: 20px;
+        border: 2px solid;
+        border-radius: 5px;}
+    
+    .i.clicked {  
+    background-color: #FFA031; /* Màu nền khi hover */  
+    color: white; /* Màu chữ khi hover */  
+    border-color: #FFA031;}
+    .i i{
+        margin-left:12px;
+    }
+    .q{
+        width: 100%;
+        padding: 20px 25px;
+        font-size: 20px;
+        border: 2px solid;
+        border-radius: 5px;}
+        .q i{
+            margin-left:12px;
+        }
 </style>
 </head>
 <body>
@@ -173,7 +206,7 @@
         <div>
             <div>
                 <body onload="loadImgs()">
-                    <div ><img src="img/pic-0.jpg" id="hoa" onmouseover="mouseover()" onmouseout="mouseout()" width="500px"></div>
+                    <div ><img src="img/pic-0.jpg" id="hoa" onmouseover="mouseover()" onmouseout="mouseout()" width="600px"></div>
               </div>
         </div>
         <div>
@@ -202,11 +235,32 @@
                   document.getElementById("hoa").src = imgArr[i].src;
                   console.log(document.getElementById("hoa").src);
                 }
+                
                 </script>
         </div>   
         <br>
-            <div class="price">271,000 VNĐ</div>  
-            <button><i class="fa-regular fa-heart"></i>Thêm vào sản phẩm yêu thích</button>
+            <div class="price">Giá:<br>271,000 VNĐ</div>  
+            <button class="i" onclick="changeColor(this)"> 
+                <i class="fa-regular fa-heart"></i> 
+                Thêm vào yêu thích  
+            </button>  <br><br>
+            <a href="admin.html"><button class="q"><i class="fa-solid fa-pen-to-square"></i> Tùy chỉnh</button></a>
+            </script>
+            
+            <script>  
+                // Hàm thay đổi màu nút khi nhấp  
+                function changeColor(button) {  
+                    button.classList.toggle('clicked'); // Thêm hoặc bớt class 'clicked' khi nhấp
+                    // Kiểm tra trạng thái và thay đổi nội dung    
+                    if (button.classList.contains('clicked')) {  
+                button.textContent = 'Đã thêm vào yêu thích'; // Văn bản mới khi nhấp  
+            } else {  
+                button.textContent = 'Thêm vào yêu thích'; // Văn bản ban đầu  
+            }  
+            
+                }  
+         
+            </script>  
             <div class="size-options">  
                 <label for="size">Chọn kích thước</label>  
                   <br>
