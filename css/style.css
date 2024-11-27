@@ -485,10 +485,12 @@ footer .footer-column-right a{
 }
 /* Sản phẩm ở trang chủ  */
 .Product-home-Product{
-    width: 77%;
+    width: 79%;
     margin-left: 10%;
     margin-right: 10%;
-    background-color: #c9c7c7;
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    height: auto;
 }
 .product-home1{
     width:90%;
@@ -502,4 +504,18 @@ footer .footer-column-right a{
 .product-home-one{
     height: 350px;
     background-color: #ffffff;
+    border-radius: 10px;
+    border: solid 1px #FFA031;
+    box-shadow: 1px 0px 0px 0px #FFA031,   
+               -1px 0px 0px 0px #FFA031,  
+                0px 1px 0px 0px #FFA031,   
+                0px -1px 0px 0px #FFA031;
+}
+.menu-product-home{
+    height: 50px;
+    background-color: white;
+    border: solid 1px #FFA031;
+    border-radius: 10px;
+    
+    width: 100%;
 }
