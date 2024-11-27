@@ -435,7 +435,10 @@ footer .footer-column-right a{
 .pro-sale {
     position: relative;
     border:solid 1px #FFA031;
-    box-shadow: 1px 0px 0px 0px #FFA031;
+    box-shadow: 1px 0px 0px 0px #FFA031,   
+               -1px 0px 0px 0px #FFA031,  
+                0px 1px 0px 0px #FFA031,   
+                0px -1px 0px 0px #FFA031;
 }
 .pro-sale .circle{
     background-color: white;
