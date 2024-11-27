@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "VSSport",
+			"path": "../gifhub/VSSport"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Dự án"
+	}
+}

@@ -1,0 +1,14 @@
+.product-card{
+    text-align: center;
+}
+.product-card p{
+    font-family:'Times New Roman', Times, serif;    
+}
+.product-card h3{
+    font-weight: lighter;    
+    color: gray;
+    font-size: 16px;
+}
+.button{
+    background-color: orange;
+}
