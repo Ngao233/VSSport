@@ -1,0 +1,93 @@
+
+.pay {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px; /* Tăng khoảng cách giữa hai bảng */
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+.form-pay, .summary-pay {
+    background: #e9e9e9;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.form-pay {
+    width: 65%;
+}
+.summary-pay {
+    width: 30%;
+}
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 15px;
+    display: block;
+}
+input, textarea {
+    width: 90%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+input[type="checkbox"], input[type="radio"] {
+    width: auto;
+    margin-right: 10px;
+}
+.flex-input {
+    display: flex;
+    gap: 10px;
+}
+.flex-input input {
+    width: calc(46% - 23px);
+}
+textarea {
+    resize: none;
+    height: 60px;
+}
+.shipping-options, .payment-options {
+    margin-top: 15px;
+}
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ff704d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+button:hover {
+    background-color: #ef1414;
+}
+.summary-pay h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+.summary-pay .item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.summary-pay .total {
+    font-size: 16px;
+    margin-top: 20px;
+}
+select{
+    width: 93%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
