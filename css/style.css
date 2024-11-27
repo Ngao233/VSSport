@@ -515,7 +515,33 @@ footer .footer-column-right a{
     height: 50px;
     background-color: white;
     border: solid 1px #FFA031;
-    border-radius: 10px;
-    
+    border-radius: 10px;  
+   
     width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    text-align: center;
+    position: relative;
+    
+}
+
+.menu-product-home div a{
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 35px;
+    
+}
+.menu-product-home div a img{
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+    background-color: aqua;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    
+}
+.Category-product-home{
+    border-right: solid 1px #FFA031;
+    border-radius: 5px;
 }
