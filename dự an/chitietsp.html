@@ -1,0 +1,120 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Sản Phẩm Áo Đá Banh</title>  
+    <link rel="stylesheet" href="chitietsp.css">  
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+        rel="stylesheet">
+</head>  
+<body>  
+    <header>
+        <!-- menu phu -->
+          <nav class="menu-one">
+            <ul>
+              <li>VSSport.vn</li>
+                  <div>
+                  <li><a href="#">Giúp đỡ</a></li>
+                  <li><a href="#">Ngôn ngữ</a></li>
+                  </div>
+            </ul>
+          </nav>
+          <!-- menu chinh -->
+          <nav class="menu-two">
+              <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
+            <ul>
+              <li><a href="#">TRANG CHỦ</a></li>
+              <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
+              <li><a href="#">THÔNG TIN</a></li>
+              <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
+              <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+            </ul>
+            <!-- icon bao gom "shoping" "user" "seach" -->
+            <div class="icon">
+              <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+              <a href="#"><i class="fa-solid fa-user"></i></a>
+              <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+      
+          </nav>
+   
+
+        </header>
+        <div class="container">  
+            <section>
+              <div>
+                <body onload="loadImgs()">
+                    <div ><img src="img/pic-0.jpg" id="hoa" onmouseover="mouseover()" onmouseout="mouseout()" width="600px"></div>
+              </div>    
+              <div>
+                    <div class="product-info">  
+                <h2>Manchester City Away Jersey 2024/25</h2>  
+                <div class="price">271,000 VNĐ</div>  
+                <div class="size-options">  
+                    <label for="size">Chọn kích thước:</label>  
+                    <select id="size">  
+                        <option value="S">S</option>  
+                        <option value="M">M</option>  
+                        <option value="L">L</option>  
+                        <option value="XL">XL</option>  
+                        <option value="XXL">XXL</option>  
+                    </select>  
+                    <div class="h">
+                        <img src="img/pic-0.jpg" width="100px" onclick="showimage(0)">
+                        <img src="img/pic-1.jpg" width="100px" onclick="showimage(1)">
+                        <img src="img/pic-2.jpg" width="100px" onclick="showimage(2)">
+                        <img src="img/pic-3.jpg" width="100px" onclick="showimage(3)">
+    
+                      </div>
+                      
+                      
+                      
+                       
+                       <script>
+                       var imgArr = [];
+                        var curIndex = 0;
+                        
+                        function loadImgs(){
+                          for (let i=0; i<=4; i++ ){
+                            imgArr[i] = new Image();
+                            imgArr[i].src = "img/pic-" + i + ".jpg";
+                          }
+                        }
+                        function showimage(i){
+                          document.getElementById("hoa").src = imgArr[i].src;
+                          console.log(document.getElementById("hoa").src);
+                        }
+                        </script>
+                </div>  
+                <button class="button">Thêm giỏ hàng</button>  
+                <button class="button">Mua Ngay</button> 
+                    </div>  
+                  </div>
+          </section>
+            <div class="details">  
+                <h3>Chi tiết sản phẩm</h3>  
+                <p>Danh mục: Thời trang Thể thao</p>  
+                <p>Màu sắc: Đen/Xanh</p>  
+                <p>Chất liệu: Polyester</p>  
+                <p>Thương hiệu: Manchester City</p>  
+            </div>  
+        
+            <div class="description">  
+                <h3>Mô tả sản phẩm</h3>  
+                <p>Ao thun phong cách thể thao không chỉ là một trang phục đơn giản mà còn là biểu tượng của sự năng động và hiện đại.</p>  
+                <p>Là sản phẩm chính thức của CLB Manchester City, áo giúp bạn thể hiện tình yêu với đội bóng yêu thích.</p>  
+            </div>  
+        
+            <div class="reviews">  
+                <h3>Đánh giá sản phẩm</h3>  
+                <div class="rating">Tổng: 4.5 ★</div>  
+                <p><strong>Dunszy:</strong> Chất lượng tuyệt vời cho các tín đồ thể thao!</p>  
+                <p><strong>Nánh:</strong> Chất liệu tốt!</p>  
+                <!-- Thêm nhiều đánh giá nếu cần -->  
+            </div>  
+        </div>  
+        
+</body>  
+</html>  
