@@ -13,18 +13,22 @@
 .khungDN .background-image{
 
   position: relative;
-  height: 600px;
+  height: 500px;
   width: 100%;
-  background-image: url('../image/banner2.png');
   background-size: cover;
   background-position: center;
   opacity: 0.2;
-  margin-bottom: -7%;
+  margin-bottom: 3%;
+}
+
+.khungDN .background-image img{
+  width: 100%;
+  height: auto;
 }
 .dangnhap{
   position: absolute;
   top: 10%;
-  width: 300px;
+  width: 500px;
   padding: 20px;
   border: 1px solid #ffffff;
   border-radius: 5px;
@@ -34,7 +38,7 @@
 }
 
 input {
-  padding: 8px 25px;
+  padding: 8px 50px;
   margin: 5px;
 }
 .cachDN button{
@@ -47,12 +51,13 @@ input {
   width: 250px;
 }
 button {
-  padding: 8px 20px;
-  background-color: #4CAF50;
+  padding: 8px 30px;
+  background-color: orangered;
   color: white;
   border: none;
   cursor: pointer;
   margin: 10px;
+  border-radius: 5px;
 }
 
 .fa {
