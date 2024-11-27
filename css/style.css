@@ -483,3 +483,23 @@ footer .footer-column-right a{
     font-weight: bold;
     font-size: 16px;
 }
+/* Sản phẩm ở trang chủ  */
+.Product-home-Product{
+    width: 77%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #c9c7c7;
+}
+.product-home1{
+    width:90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    margin-left: 40px;
+    padding: 20px;
+}
+.product-home-one{
+    height: 350px;
+    background-color: #ffffff;
+}
