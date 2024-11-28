@@ -1,0 +1,591 @@
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+.sp-in{
+    width: 80%;
+    height: auto;  
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+    padding: 10px; 
+    margin-left: 100px;
+}
+.sp-in .form input {
+    width: 80%;
+    height: 40px;
+    padding: auto;
+    margin-bottom: 10px;
+}
+.sp-in .form input::placeholder {  
+    color: #888; 
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    padding: 10px;
+}
+.sp-in .form .tensp{
+    font-size: 32px;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    font-family: 'Poppins', sans-serif;
+   
+}
+.sp-in .form{
+    margin-left: 10%;
+    font-family: 'Montserrat', 'Raleway', 'Lato', 'Rubik', sans-serif;
+}
+
+.sp-in .form .kichco{
+    float: left;
+    margin-left: 15px;
+    width: 20px;
+    margin-top: -20px;
+
+}
+.sp-in .form .kichco .size-placeholder{
+    margin-top: -12px;
+    margin-left: 7px;
+}
+.sp-in .form .tgh{
+    margin-top: 20px;
+    width: 80%;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+}
+
+.sp-in .form .price{
+    font-size: 18px;
+}
+
+.sp-in .form  button{
+    width: 100px;
+    height: 40px;
+    padding: auto;
+}
+.sp-in .form .price {
+    color: orange;
+    font-size: 30px;
+    margin-top: -5px;
+    margin-bottom: -5px;
+}
+.sp-in .image {  
+    
+    position: relative; /* Thiết lập vị trí cho cha */  
+    display: inline-block; /* Cho phép định dạng như một khối nhỏ */  
+}  
+
+.sp-in  .image img {  
+    display: block; /* Đảm bảo không có khoảng cách dưới hình ảnh */  
+    width: 110%; /* Đảm bảo hình ảnh chiếm toàn bộ chiều rộng của div */  
+    height: auto; /* Cân bằng chiều cao theo tỷ lệ hình ảnh */  
+}  
+ .sp-tuongtu{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 20%;
+    gap: 10px;
+    
+}
+.sp-tuongtu img{
+   width: 50px;
+   height: auto;
+   border: solid black 1px;
+
+}
+.sp-in  .text-nhan, .number-nhan {  
+    position: absolute; /* Định vị tuyệt đối so với div cha (image) */  
+    color: white; /* Màu chữ */  
+    text-align: center; /* Canh giữa chữ */  
+    width: 100%; /* Chiếm toàn bộ chiều rộng của div cha */  
+   
+}  
+
+.sp-in .text-nhan {  
+    top: 12%; /* Độ cao từ trên xuống */  
+    font-size: 45px; /* Kích thước chữ */  
+    font-weight: bold; /* Làm đậm chữ */  
+    font-variant: small-caps;
+    left: -5px;
+    color: white; /* Màu chữ trắng để nổi bật trên nền tối */  
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Thêm bóng chữ */ 
+    font-family: 'Poppins', sans-serif;  
+}  
+
+.sp-in  .number-nhan {  
+
+    top: 15%; /* Độ cao từ đáy lên */  
+    left: -0px; /* Dịch trái */  
+    font-size: 250px; /* Kích thước chữ cho số */  
+    font-weight: bold; /* Làm đậm chữ */  
+    font-family:'Times New Roman', Times, serif; 
+    font-stretch:narrower;
+    letter-spacing: -15px;
+    color: white; /* Màu chữ trắng để nổi bật trên nền tối */  
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8); /* Thêm bóng chữ */  
+    font-family: 'Poppins', sans-serif;  
+}
+/*muc san pham*/
+.sanpham-moi{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  
+}
+.sp-moi{
+    width: 100%;
+    height: auto;
+    display: flex;
+    position: relative;
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-top: -5%;
+    margin-bottom: 5%;
+
+}
+.sanpham-moi .sp-moi .khoisp{
+    text-align: center;
+    width: 15%;
+    padding: 5% 10px 0 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    
+}
+.sanpham-moi .sp-moi .khoisp img{
+    width: 100%;
+    padding: 10px 0 10px;
+    
+}
+.sanpham-moi .sp-moi .khoisp p{
+    margin: 10px 0;
+}
+.sanpham-moi .sp-moi .khoisp h4{
+    width: 100%;
+    text-align: center;
+    color: #888;
+    padding: 0 10px 0 10px ;
+    margin: 15px 0;
+}
+.sanpham-moi .sp-moi .khoisp #nutthem{
+    border-radius: 20px;
+    color: white;
+    background-color: orange;
+    border: none;
+    justify-items: center;
+    padding: 10px;
+    margin-left: 20px;    
+}
+
+/**/
+
+header{
+    display: flex;
+    flex-direction: column;
+    font-family:'Poppins', sans-serif;
+}
+
+/* menu chinh */
+.menu-two {
+    background-color: #FFA031;
+    display: flex;
+    flex-direction: Row;
+    justify-content: space-between;
+    height: 50px;
+}
+.menu-two ul{
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0;
+    display: flex;
+    flex-direction: Row;
+    color: white !important;
+}
+.menu-two ul li{
+    list-style-type: none;
+    margin-right: 20px;
+    letter-spacing: 2px;
+    color: white;
+}
+.menu-two ul li a{
+    color: white;
+}
+.menu-two img{
+    margin-left: 25px;
+}
+/* menu phu */
+.menu-one ul{
+    margin: inherit;
+    justify-content: space-between;
+    font-size: 12px;
+    display: flex;
+    flex-direction: Row;
+    color: white !important;
+
+}
+.menu-one{
+    background-color: #5c3911;
+}
+.menu-one ul div{
+    display: flex;
+    flex-direction: Row;
+    
+}
+.menu-one ul li {
+    list-style-type: none;
+    margin-right: 20px;
+    letter-spacing: 2px;
+}
+.menu-one ul li a{
+    color: white;
+}
+/* Icon */
+.icon{
+    display: flex;
+    flex-direction: row;
+    align-items: Center;
+    margin-right: 25px;
+}
+.icon a {
+    color: white;
+    margin-right: 20px;
+}
+/*Banner*/
+.banner {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    align-items: center;
+    height: auto;
+}
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+.slides .slide img {
+    width: 100%;
+    max-height: 100%;
+}
+.banner-ad{
+    
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: auto;
+}
+.banner-img img{
+    margin-top:20px;
+    width: 100%;
+    height: auto;
+}
+
+/*Tin tức*/
+
+.tinTuc{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+.oTinTuc{
+    width: 20%;
+    height: auto;
+    margin: 3%;
+    
+}
+.oTinTuc img{
+    width: 100%;
+    height: 50%;
+}
+
+
+
+/*footer */
+
+footer{
+    background-image: url("../image/banner4.png");
+    width: 100%;
+    height: 320px;
+    background-size: cover; 
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+}
+footer .footer-column-left{
+    text-align: left;
+    margin-left: 200px;
+    color: white;
+    font-family: sans-serif;
+
+}
+footer .footer-column-right{
+    text-align: center;
+    margin-right: 200px;
+    color: white;
+    font-family: sans-serif;
+    font-size: larger;
+    line-height: 1.5;
+}
+footer .footer-column-right a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+
+}
+
+
+
+
+.Category {  
+   display: grid;
+   grid-template-columns: repeat(4,1fr);
+   width: 80%;
+   height: auto;
+   margin-left: 10%;
+   text-align: center;
+   grid-template-rows: 130px 130px ;
+   gap: 10px;
+   grid-template-columns:330px 250px 250px 330px;
+   font-family: 'Montserrat', sans-serif;
+   
+}
+.Category div{
+    border-radius: 5px;
+    background-color: #e9e9e9;
+}
+.block-center-left{
+    grid-row: span 2;    
+}
+.block-center-left img{
+    
+    height: 200px !important;
+    width: 80% !important;
+    margin-top: 10px !important;   
+}
+.block-center-left p{
+    margin-top: 10px !important;
+}
+.block-top-right img{
+    height: 200px !important;
+    width: 80% !important;
+    margin-top: 10px !important;   
+}
+.block-top-right p{
+    margin-top: 10px !important;    
+}
+.block-top-right{
+    grid-row: span 2;
+}
+.Category div img{
+    height: 80px;
+    width: auto;
+    margin-top: 10px;
+}
+.Category div p{
+    margin-top: 0px;
+}
+/* Sản phẩm giảm giá trang chủ */
+.product-sale-home{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    width: 80%;
+    margin-left: 10%;
+    gap: 27px;
+    grid-template-columns: 18% 18% 18% 18% 18%;
+    grid-template-rows: 350px;
+    margin-right: 10%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;   
+    
+}
+.product-sale-home div{
+    border-radius: 5px;
+    background-color: #ffffff;
+    
+}
+
+.product-sale-home .pro-sale img{
+    width: 100%;
+    margin-top: 15px;
+
+}
+.pro-sale i{
+    color:#a8a8a8;
+    padding: 13px;
+    
+}
+
+.pro-sale {
+    position: relative;
+    border:solid 1px #FFA031;
+    box-shadow: 1px 0px 0px 0px #FFA031,   
+               -1px 0px 0px 0px #FFA031,  
+                0px 1px 0px 0px #FFA031,   
+                0px -1px 0px 0px #FFA031;
+}
+.pro-sale .circle{
+    background-color: white;
+    position: absolute;
+    border-radius: 50px;
+    top: 5px;
+    right: 6px;
+    border:solid 1px #a8a8a8;
+}
+.pro-sale .circle :hover{
+    background-color: #FFA031;
+    border-radius: 50px;
+    color: white;
+    border:none;
+}
+.p-product-sale{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: -20px;
+    width: 80%;
+    margin-left: 10%;
+}
+.p-product-sale .price-sale-home{
+    text-decoration: line-through;  
+    color: #c9c7c7;
+    font-size: 12px;
+    margin-top: 19px;
+}
+.pro-sale button{
+    background-color: #ff9f313e;
+    padding: 8px;
+    margin-top: -20px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold;
+    color: #FFA031;
+    border: none;
+}
+
+.price-down-home{
+    color: red;
+    font-weight: bold;
+<<<<<<< HEAD
+}
+.web-Sp-container { 
+    display: flex; /* Sử dụng Flexbox để bố trí */  
+    margin: 0 0 2% 4%   ;
+
+  } 
+  .web-Sp-container  #san-pham-WebSp-section,.filter-container{
+    
+  }
+  #san-pham-WebSp-section {  
+    display: grid;
+    margin-left: 5%;
+    gap: 60px;
+    grid-template-columns: 18% 18% 18% 18%;
+    grid-template-rows: 320px;
+    margin-left: 5%;
+  }
+  .san-pham-WebSp{
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(150deg, #FFA031 50%, #f0f0f0 50%); /* Tạo dải chéo */
+    padding: 20px; /* Khoảng cách bên trong */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .san-pham-WebSp img{
+    width: 100%;
+    height: auto;
+  }
+  .san-pham-WebSp:hover img{
+    transform: scale(1.05);
+  }
+  .san-pham-WebSp-name {
+    font-size: 14px;
+    color: #333;
+    padding: 2% 0;
+    margin: 0;
+  }
+  .san-pham-WebSp-info {
+    position: absolute;
+    visibility: hidden;
+    bottom: 26%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    background-color: #FFA031;
+  }
+  
+  .san-pham-WebSp:hover .san-pham-WebSp-info {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .san-pham-WebSp-price{
+    font-size: 100%;
+    color:#FFA031;
+    margin: 0;
+  }
+  .san-pham-WebSp-button {
+    background-color: #FFA500; /* Màu cam */
+    color: white; /* Chữ màu trắng */
+    border: none; /* Bỏ viền */
+    padding: 10px 20px; /* Căn chỉnh kích thước */
+    font-size: 16px; /* Kích thước chữ */
+  }
+  .san-pham-WebSp-link{
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Đảm bảo thẻ <a> bao toàn bộ khối sản phẩm */
+  }
+  .filter-container {
+    font-family: 'Montserrat', sans-serif;  
+    background-color: orange; /* Màu nền cho bộ lọc */  
+    padding: 20px;  
+    width: 20%; /* Kích thước có thể điều chỉnh */  
+    border-radius: 8px;  
+    color: black; /* Màu chữ */  
+  }  
+  
+  .filter-section {  
+    margin-bottom: 15px;  
+  }  
+  
+  .filter-section label {  
+    display: block; /* Hiển thị label trên một dòng */  
+    margin-bottom: 5px;  
+  }  
+  
+  .price-filter {  
+    display: flex; /* Sử dụng Flexbox */  
+    align-items: center; /* Căn giữa theo chiều dọc */  
+    margin-top: 5px; /* Khoảng cách giữa tiêu đề và checkbox */  
+  }  
+  
+  .price-filter input[type="checkbox"] {  
+    margin-right: 8px; /* Khoảng cách giữa checkbox và nhãn */  
+  }
+=======
+    font-size: 16px;
+}
+>>>>>>> 79fbb2f41169322bb8c92beb08cefc77bd35c361
