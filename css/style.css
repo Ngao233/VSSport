@@ -551,3 +551,106 @@ footer .footer-column-right a{
 .Category-product-home-ĐB{
     position: relative;
 }
+.web-Sp-container { 
+    display: flex; /* Sử dụng Flexbox để bố trí */  
+    margin: 0 0 2% 4%   ;
+
+  } 
+  .web-Sp-container  #san-pham-WebSp-section,.filter-container{
+    
+  }
+  #san-pham-WebSp-section {  
+    display: grid;
+    margin-left: 5%;
+    gap: 60px;
+    grid-template-columns: 18% 18% 18% 18%;
+    grid-template-rows: 320px;
+    margin-left: 5%;
+  }
+  .san-pham-WebSp{
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(150deg, #FFA031 50%, #f0f0f0 50%); /* Tạo dải chéo */
+    padding: 20px; /* Khoảng cách bên trong */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .san-pham-WebSp img{
+    width: 100%;
+    height: auto;
+  }
+  .san-pham-WebSp:hover img{
+    transform: scale(1.05);
+  }
+  .san-pham-WebSp-name {
+    font-size: 14px;
+    color: #333;
+    padding: 2% 0;
+    margin: 0;
+  }
+  .san-pham-WebSp-info {
+    position: absolute;
+    visibility: hidden;
+    bottom: 26%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    background-color: #FFA031;
+  }
+  
+  .san-pham-WebSp:hover .san-pham-WebSp-info {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .san-pham-WebSp-price{
+    font-size: 100%;
+    color:#FFA031;
+    margin: 0;
+  }
+  .san-pham-WebSp-button {
+    background-color: #FFA500; /* Màu cam */
+    color: white; /* Chữ màu trắng */
+    border: none; /* Bỏ viền */
+    padding: 10px 20px; /* Căn chỉnh kích thước */
+    font-size: 16px; /* Kích thước chữ */
+  }
+  .san-pham-WebSp-link{
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Đảm bảo thẻ <a> bao toàn bộ khối sản phẩm */
+  }
+  .filter-container {
+    font-family: 'Montserrat', sans-serif;  
+    background-color: orange; /* Màu nền cho bộ lọc */  
+    padding: 20px;  
+    width: 20%; /* Kích thước có thể điều chỉnh */  
+    border-radius: 8px;  
+    color: black; /* Màu chữ */  
+  }  
+  
+  .filter-section {  
+    margin-bottom: 15px;  
+  }  
+  
+  .filter-section label {  
+    display: block; /* Hiển thị label trên một dòng */  
+    margin-bottom: 5px;  
+  }  
+  
+  .price-filter {  
+    display: flex; /* Sử dụng Flexbox */  
+    align-items: center; /* Căn giữa theo chiều dọc */  
+    margin-top: 5px; /* Khoảng cách giữa tiêu đề và checkbox */  
+  }  
+  
+  .price-filter input[type="checkbox"] {  
+    margin-right: 8px; /* Khoảng cách giữa checkbox và nhãn */  
+  }
+
