@@ -650,4 +650,80 @@ footer .footer-column-right a{
   .price-filter input[type="checkbox"] {  
     margin-right: 8px; /* Khoảng cách giữa checkbox và nhãn */  
   }
+.duy{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 80%;
+    margin-left: 10%;
+    gap: 10px;
+    grid-template-columns: 49% 49%;
+    grid-template-rows: 300px;
+    margin-right: 10%;
+}
 
+.time, .food{  
+    display: block;  
+    width: 100%;  
+    margin: 10px 0;  
+    padding: 20px 25px;  
+    background-color: rgb(231, 231, 231);  
+    color: black;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;        
+    font-weight: bold;
+    font-size: 16px;
+}  
+.time.active {  
+    background-color: #FFA031; /* Màu đỏ */  
+}
+.minh {  
+    display: inline-block; /* Hoặc dùng 'flex' nếu bạn muốn */  
+    margin-right: 10px;
+    margin-left: 15px; /* Khoảng cách giữa các nút */  
+    padding: 10px;  
+    background-color: #FFA031;  
+    color: black;  
+    border: 1px solid;  
+    border-radius: 5px;  
+    cursor: pointer;   
+    width: 45%;
+    font-weight: bold;
+    }  
+    
+.minh {  
+        flex: 1; /* Cho phép nút chiếm không gian bằng nhau */  
+        padding: 10px;  
+        background-color: #FFA031;  
+        color: black;  
+        border: 1px solid;  
+        border-radius: 5px;  
+        cursor: pointer;  
+    }  
+    
+  
+.size {  
+    width:18%;
+    margin:4px;  
+    padding: 8px 13px;  
+    background-color: white;  
+    color: black;  
+    border: 1px solid;  
+    border-radius: 5px;  
+    cursor: pointer;
+    font-weight: bold;
+}
+.size.active {  
+    background-color: #FFA031;
+}
+.time i{margin-right:5px;}
+.food i{margin-right:5px;}
+.nham{border: 1px solid;
+border-radius: 5px;
+margin-right: 5px;
+}
+.ngu{color:red;
+font-size: 16px;}
+.ngum{font-size: 16px;
+font-weight: bold;}
+#hoa{margin-left: 10%;}

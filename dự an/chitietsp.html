@@ -1,0 +1,138 @@
+
+    <!DOCTYPE html>
+    <html lang="vi">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang Chủ</title>
+        <link rel="stylesheet" href="../css/style.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
+        <style>
+            body h2 {
+                font-family: 'Montserrat', sans-serif;
+                margin-left: 10%;
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <header>
+            <!-- menu phu -->
+            <nav class="menu-one">
+                <ul>
+                    <li><a href="#">VSSport.vn</a></li>
+                    <div>
+                        <li><a href="#">Giúp đỡ</a></li>
+                        <li><a href="#">Ngôn ngữ</a></li>
+                    </div>
+                </ul>
+            </nav>
+            <!-- menu chinh -->
+            <nav class="menu-two">
+                <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
+                <ul>
+                    <li><a href="#">TRANG CHỦ</a></li>
+                    <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
+                    <li><a href="#">THÔNG TIN</a></li>
+                    <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
+                    <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+                </ul>
+                <!-- icon bao gom "shoping" "user" "seach" -->
+                <div class="icon">
+                    <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+    
+            </nav>
+            </section>
+        </header><br>
+        <section class="duy">
+            <div>
+              <body onload="loadImgs()">
+                  
+                  <div><img src="img/pic-0.jpg" id="hoa" onmouseover="mouseover()" onmouseout="mouseout()" width="540px"/></div>
+                 
+                 
+            </div>
+            <div><h1><span>Manchester City 
+                Away Jersey 2024/25</h1>
+                <hr>
+                <div >
+                    <img src="img/pic-0.jpg"class="nham" width="70px" onclick="showimage(0)">
+                    <img src="img/pic-1.jpg"class="nham" width="70px" onclick="showimage(1)">
+                    <img src="img/pic-2.jpg"class="nham" width="70px" onclick="showimage(2)">
+                    <img src="img/pic-3.jpg"class="nham" width="70px" onclick="showimage(3)">
+                   
+                  </div>
+                  
+                  
+                  
+                   
+                   <script>
+                   var imgArr = [];
+                    var curIndex = 0;
+                    
+                    function loadImgs(){
+                      for (let i=0; i<=4; i++ ){
+                        imgArr[i] = new Image();
+                        imgArr[i].src = "img/pic-" + i + ".jpg";
+                      }
+                    }
+                    function showimage(i){
+                      document.getElementById("hoa").src = imgArr[i].src;
+                      console.log(document.getElementById("hoa").src);
+                    }
+                    </script>
+                  <p class="ngum">Giá Sản Phẩm</p><p class="ngu"> 271.000VNĐ</p>
+                <button class="time" ><i class="fa-solid fa-heart"></i>Thêm vào yêu thích</button>  
+                <script>  
+                     
+                    document.querySelector('.time').addEventListener('click', function() {  
+                        this.classList.toggle('active'); // Thay đổi trạng thái của lớp 'active'  
+                        if (this.classList.contains('active')) {  
+                            this.textContent = 'Đã thêm vào yêu thích'; // Thay đổi chữ trên nút  
+                        } else {  
+                            this.textContent = 'Thêm vào yêu thích'; // Trả lại chữ cũ  
+                        }  
+                    });  
+                </script>  
+                <a href="#"><button class="food"><i class="fa-solid fa-pen-to-square"></i>Tùy chỉnh</button></a>  
+                <div class="size-selection">  
+                    <p>Chọn kích thước:</p>  
+                    <button class="size">S</button>  
+                    <button class="size">M</button>  
+                    <button class="size">L</button>  
+                    <button class="size">XL</button>  
+                    <button class="size">XXL</button>  
+                </div> <br>
+                <script>  
+                    const sizeButtons = document.querySelectorAll('.size');  
+                
+                    sizeButtons.forEach(button => {  
+                        button.addEventListener('click', function() {  
+                            // Xóa lớp 'active' khỏi tất cả các nút  
+                            sizeButtons.forEach(btn => btn.classList.remove('active'));  
+                            // Thêm lớp 'active' vào nút đã nhấp  
+                            this.classList.add('active');  
+                        });  
+                    });  
+                </script>  
+                <button class="minh">Thêm giỏ hàng</button>  
+                <a href="#"><button class="minh">Mua Ngay</button></a>  
+                </div>  
+                 </body>
+                 
+            </div>
+        </section>
