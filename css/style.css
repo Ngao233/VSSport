@@ -294,27 +294,56 @@ header{
 /*Tin tức*/
 
 .tinTuc{
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-}
-.oTinTuc{
-    width: 20%;
+    width: 79%;
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     height: auto;
-    margin: 3%;
+    background-color: #e9e9e9;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 40px;
     
 }
+.oTinTuc{
+    width: 90%;
+    height: 300px;
+    margin: 5%;
+    background-color: white;
+    border-radius: 5px;
+    position: relative;
+}
+.oTinTuc p {
+    padding: 10px;
+}
 .oTinTuc img{
-    width: 100%;
-    height: 50%;
+    width: 50%;
+    margin-left: 25%;
+    height: auto;
+    max-height: 80%;
+    border-radius: 5px;
 }
 
+.News-home button {
+    float: right;
+    margin-right: 11%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #FFA031;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    width: 150px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.News-home h2{
+    margin-bottom: -35px;
+    margin-top: 80px !important;
+}
 
 
 /*footer */
@@ -531,10 +560,11 @@ footer .footer-column-right a{
 .menu-product-home div a img{
     height: auto;
     width: 30px;
-    border-radius: 5px;
+    border-radius: 50px;
     position: absolute;
     left: 15px;
     top: 10px;
+    background-color: white;
     
 }
 .Category-product-home{
@@ -566,7 +596,7 @@ footer .footer-column-right a{
 .product-home-one{
     font-family: 'Montserrat', sans-serif;
     position: relative;
-    height: 350px;
+    height: 280px;
     overflow: hidden;
     text-align: center;
     background: linear-gradient(150deg, #FFA031 50%, #f0f0f0 50%); /* Tạo dải chéo */
