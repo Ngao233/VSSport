@@ -559,9 +559,8 @@ footer .footer-column-right a{
   #san-pham-WebSp-section {  
     display: grid;
     margin-left: 5%;
-    gap: 60px;
-    grid-template-columns: 18% 18% 18% 18%;
-    grid-template-rows: 320px;
+    gap: 0 6%;
+    grid-template-columns: 18% 18% 18% 18%  ;
     margin-left: 5%;
   }
   .san-pham-WebSp{
@@ -574,6 +573,7 @@ footer .footer-column-right a{
     padding: 20px; /* Khoảng cách bên trong */
     border-radius: 10px; /* Bo góc */
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    height: 80%;
   }
   
   .san-pham-WebSp img{
@@ -627,7 +627,7 @@ footer .footer-column-right a{
     font-family: 'Montserrat', sans-serif;  
     background-color: orange; /* Màu nền cho bộ lọc */  
     padding: 20px;  
-    width: 20%; /* Kích thước có thể điều chỉnh */  
+    width: 50%; /* Kích thước có thể điều chỉnh */  
     border-radius: 8px;  
     color: black; /* Màu chữ */  
   }  
