@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh Toán</title>
+    <link rel="stylesheet" href="../css/thanhtoan.css">
+</head>
+<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang Chủ</title>
+       
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
+        <style>
+            body h2 {
+                font-family: 'Montserrat', sans-serif;
+                margin-left: 10%;
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+    <header>
+        <!-- menu phu -->
+        <nav class="menu-one">
+            <ul>
+                <li><a href="#">VSSport.vn</a></li>
+                <div>
+                    <li><a href="#">Giúp đỡ</a></li>
+                    <li><a href="#">Ngôn ngữ</a></li>
+                </div>
+            </ul>
+        </nav>
+        <!-- menu chinh -->
+        <nav class="menu-two">
+            <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
+            <ul>
+                <li><a href="#">TRANG CHỦ</a></li>
+                <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
+                <li><a href="#">THÔNG TIN</a></li>
+                <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
+                <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+            </ul>
+            <!-- icon bao gom "shoping" "user" "seach" -->
+            <div class="icon">
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="#"><i class="fa-solid fa-user"></i></a>
+                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+            </div>
+
+        </nav>
+    </header>
+    <div class="pay">
+        <!-- Form thanh toán -->
+        <div class="form-pay">
+            <h2>Thanh Toán</h2>
+            <label>Email</label>
+            <input type="email" placeholder="email....">
+            
+            <h3>Địa chỉ giao hàng</h3>
+            <label>Quốc gia</label>
+            <select>
+                <option value="vietnam" class="button-qg">Vietnam</option>
+            </select>
+            <label>Tên</label>
+            <div class="flex-input">
+                <input type="text" placeholder="Tên...">
+                <input type="text" placeholder="Tên đệm...">
+            </div>
+            <label>Địa chỉ</label>
+            <input type="text" placeholder="Địa chỉ....">
+            <label>Mã bưu điện</label>
+            <div class="flex-input">
+                <input type="text" placeholder="Mã biểu điện...">
+                <input type="text" placeholder="Thành phố...">
+            </div>
+            <label>Số điện thoại</label>
+            <input type="text" placeholder="STD....">
+
+            <h3>Tùy chọn giao hàng</h3>
+            <div class="shipping-options">
+                <input type="checkbox" id="freeShipping" checked> Miễn phí shipping
+            </div>
+
+            <h3>Tùy chọn thanh toán</h3>
+            <div class="payment-options">
+                <input type="radio" name="payment" checked> Tiền mặt
+                <input type="radio" name="payment"> Chuyển khoản
+            </div>
+
+            <h3>Thông tin bổ sung</h3>
+            <textarea placeholder="Ghi chú...."></textarea>
+            <hr>
+            <div>
+                <q>
+                    Bằng cách tiến hành mua hàng, bạn phải điền đầy đủ thông tin của chúng tôi.
+                </q>
+            </div>
+
+            <button>Đặt hàng</button>
+        </div>
+
+        <!-- Tóm tắt đơn hàng -->
+        <div class="summary-pay">
+            <h3>Tóm tắt đơn hàng</h3>
+            <!-- Sản phẩm 1 -->
+            <div class="item">
+                <img src="img/4.jpg" alt="Áo Manchester United" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
+                <span>Áo Manchester United</span>
+                <span>50,000 đ</span>
+            </div>
+            <!-- Sản phẩm 2 -->
+            <div class="item">
+                <img src="img/4.jpg" alt="Áo Manchester United" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px; margin-right: 10px;">
+                <span>Áo Manchester United</span>
+                <span>50,000 đ</span>
+            </div>
+            <hr>
+            <div>
+            <div class="item total">
+                <span>Tạm tính</span>
+                <span> 100,000đ</span>
+            </div>
+            <!--Giao hàng-->
+            <div class="item total" id="shippingCost">
+                <span>Giao hàng đến VietNam</span>
+            </div>
+            <!-- Tổng tiền -->
+            <div class="item total">
+                <span style="font-weight: bold; font-size: 1.1em;">Tổng</span>
+                <span style="font-weight: bold; font-size: 1.1em;">100,000đ</span>
+            </div>
+            </div>
+        </div>        
+    </div>
+    <!--js mien phi shipping-->
+    <script>
+        // Lấy checkbox và phần hiển thị phí giao hàng
+        const freeShippingCheckbox = document.getElementById("freeShipping");
+        const shippingCostElement = document.getElementById("shippingCost");
+    
+        // Lắng nghe sự kiện thay đổi trạng thái của checkbox
+        freeShippingCheckbox.addEventListener("change", function () {
+            if (this.checked) {
+                // Nếu "Miễn phí shipping" được chọn
+                shippingCostElement.innerHTML = 
+                    '<span>Giao hàng đến VietNam</span>' +
+                    '<span>Miễn phí</span>';
+            } else {
+                // Nếu "Miễn phí shipping" không được chọn
+                shippingCostElement.innerHTML = 
+                    '<span>Giao hàng đến VietNam</span>' +
+                    '<span>30,000đ</span>';
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>
