@@ -535,10 +535,9 @@ footer .footer-column-right a{
     
 }
 .menu-product-home div a img{
-    height: 30px;
+    height: auto;
     width: 30px;
     border-radius: 5px;
-    background-color: aqua;
     position: absolute;
     left: 15px;
     top: 10px;
@@ -557,9 +556,7 @@ footer .footer-column-right a{
     margin: 0 0 2% 4%   ;
 
   } 
-  .web-Sp-container  #san-pham-WebSp-section,.filter-container{
-    
-  }
+
   #san-pham-WebSp-section {  
     display: grid;
     margin-left: 5%;
