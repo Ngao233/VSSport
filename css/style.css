@@ -673,33 +673,36 @@ footer .footer-column-right a{
     cursor: pointer;        
     font-weight: bold;
     font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    
 }  
 .time.active {  
     background-color: #FFA031; /* Màu đỏ */  
 }
 .minh {  
-    display: inline-block; /* Hoặc dùng 'flex' nếu bạn muốn */  
-    margin-right: 10px;
-    margin-left: 15px; /* Khoảng cách giữa các nút */  
+    display: inline-block;  
+    margin-right: 10px;  
+    margin-left: 15px;  
     padding: 10px;  
-    background-color: #FFA031;  
     color: black;  
     border: 1px solid;  
     border-radius: 5px;  
-    cursor: pointer;   
-    width: 45%;
-    font-weight: bold;
-    }  
-    
-.minh {  
-        flex: 1; /* Cho phép nút chiếm không gian bằng nhau */  
-        padding: 10px;  
-        background-color: #FFA031;  
-        color: black;  
-        border: 1px solid;  
-        border-radius: 5px;  
-        cursor: pointer;  
-    }  
+    cursor: pointer;  
+    width: 45%;  
+    font-weight: bold; 
+    font-family: 'Montserrat', sans-serif; 
+}  
+
+.add-to-cart {  
+    background-color: #ffffff; /* Màu cho nút "Thêm giỏ hàng" */  
+    font-family: 'Montserrat', sans-serif;
+   
+}  
+
+.buy-now {  
+    background-color: #FFA031; /* Màu cho nút "Mua Ngay" */  
+    font-family: 'Montserrat', sans-serif;
+}
     
   
 .size {  
@@ -711,19 +714,38 @@ footer .footer-column-right a{
     border: 1px solid;  
     border-radius: 5px;  
     cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
 }
 .size.active {  
     background-color: #FFA031;
 }
-.time i{margin-right:5px;}
+.time i{margin-right:5px; }
 .food i{margin-right:5px;}
 .nham{border: 1px solid;
 border-radius: 5px;
 margin-right: 5px;
 }
 .ngu{color:red;
-font-size: 16px;}
-.ngum{font-size: 16px;
-font-weight: bold;}
+font-size: 20px;
+font-family: 'Montserrat', sans-serif;}
+.ngum{font-size: 20px;
+font-weight: bold;
+font-family: 'Montserrat', sans-serif;}
 #hoa{margin-left: 10%;}
+.enzo{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 80%;
+    margin-left: 17%;
+    gap: 10px;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-template-rows: 300px;
+    margin-right: 10%;
+}
+.enzo div{background-color: #FFA500;}
+.weywie{
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+.hhhhh{font-family: 'Montserrat', sans-serif;}
