@@ -84,7 +84,7 @@ button {
   height: 400px;
   top: 10%;
   left: 10%;
-  width: 300px;
+  width: 25%;
   padding: 20px;
   border: 1px solid #ffffff;
   border-radius: 5px;
@@ -127,7 +127,7 @@ button {
   text-align: left;
   top: 10%;
   right: 10%;
-  width: 600px;
+  width: 45%;
   padding: 20px;
   border: 1px solid #ffffff;
   border-radius: 5px;
