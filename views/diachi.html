@@ -3,9 +3,9 @@
 <head>  
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Trang Chủ</title>  
+    <title>Địa chỉ</title>  
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/hoso.css">
+    <link rel="stylesheet" href="../css/diachi.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
         rel="stylesheet">
@@ -75,41 +75,31 @@
         </div>
       </div>
       <div class="right-box">
-        <div class="leftin-box">
-          <h2>Hồ sơ của tôi</h2>
-          <div class="little-input">
-            <h3>Tên đăng nhập</h3><input type="text" id="username" placeholder="Nhập tên tài khoảng">
-          </div>
-          <div class="little-input">
-            <h3>Mật khẩu </h3><input type="password" id="password" placeholder="Nhập mật khẩu">
-          </div>
-          <div class="little-input">
-            <h3>Email </h3><input type="password" id="repassword" placeholder="Nhập lại mật khẩu">
-          </div>
-          <div class="little-input">
-            <h3>Số điện thoại</h3><input type="text" id="age" placeholder="Nhập số điện thoại">
-          </div>
-          <div class="little-input">
-            <h3>Giới tính</h3><input type="text" id="age" placeholder="Nhập ">
-          </div>
-          <div class="little-input">
-            <h3>Ngày sinh</h3><input type="text" id="age" placeholder="Nhập tuổi">
-          </div>
+        <h2>Hồ sơ của tôi</h2>
+        <form>
+          <label for="city">Thành phố/Tỉnh:</label>
+          <select id="city">
+              <option value="hanoi">Hà Nội</option>
+              <option value="hochiminh">Hồ Chí Minh</option>
+          </select>
           <br>
-          <button onclick="editProfile()"><i class="fas fa-sign-in-alt"></i> Đăng ký</button>
+          <label for="province">Quận/Huyện:</label>
+          <select id="province">
+              <option value="danang">Đà Nẵng</option>
+              <option value="hue">Huế</option>
+          </select>
+          <br>
+          <label for="district">Phường/Xã:</label>
+          <select id="district">
+              <option value="ba-dinh">Ba Đình</option>
+              <option value="hoan-kiem">Hoàn Kiếm</option>
+          </select>
+          <label>Chi tiết</label>
+          <input type="text" id="address" placeholder="Nhập địa chỉ chi tiết">
+        </form>
 
-        </div>
-        <div class="rightin-box">
-          <div class="image-profile">
-            <i class="fas fa-camera"></i>
-          </div>
-          <div class="fixbutton">
-            <br>
-            <button class="edit-profile"><i class="fas fa-pen"></i>Sửa ảnh</button>
-            
-
-          </div>
-        </div>
+        <button onclick="editProfile()"><i class="fas fa-sign-in-alt"></i> Cập nhật</button>
+      </div>
   
       </div>
     </div>
