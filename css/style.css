@@ -770,6 +770,7 @@ footer .footer-column-right a{
     top: auto;
     right: auto;
 }
+/* icon gio hang */
 .cart-icon {
     font-size: 20px;
     position: relative;
@@ -783,8 +784,8 @@ footer .footer-column-right a{
     right: -8px;
     background-color: red;
     color: white;
-    border-radius: 50%;
-    padding: 4px;
+    border-radius: 40%;
+    padding: 3px;
     font-size: 12px;
     font-weight: bold;
 }
