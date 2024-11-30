@@ -3,6 +3,7 @@
     background-color: #ffa031; /* Đổi màu nền thành cam */  
     color: white;  
     min-height: 100vh;  
+    
 }  
 
 #sidebar .nav-link {  
@@ -41,7 +42,12 @@
     padding: 20px;  
     border-radius: 8px;  
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  
+    text-align: center;
 }  
+.table-responsive td {
+    border-right: solid 1px black;
+    min-width: 20%;
+  }
 
 /* Box shadow cho card */  
 .card.shadow {  
@@ -49,8 +55,8 @@
 }  
 
 img {  
-    width: 100%;  
-    padding: 10px;
+    height: auto;
+    width: 30%;
     margin-left: 10px;  
     margin-right: 2%;
 }

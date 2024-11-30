@@ -1,6 +1,6 @@
 .khungDN{
   width: 100%;
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -13,7 +13,7 @@
 .khungDN .background-image{
 
   position: relative;
-  height: 600px;
+  height: 550px;
   width: 100%;
   background-image: url('../image/banner2.png');
   background-size: cover;
@@ -22,9 +22,10 @@
   margin-bottom: -7%;
 }
 .dangnhap{
+  font-family: 'Montserrat', sans-serif;
   position: absolute;
   top: 10%;
-  width: 300px;
+  width: 40%;
   padding: 20px;
   border: 1px solid #ffffff;
   border-radius: 5px;
@@ -34,10 +35,13 @@
 }
 
 input {
+  font-family: 'Montserrat', sans-serif;
+  width: 46%;
   padding: 8px 25px;
   margin: 5px;
 }
 .cachDN button{
+  font-family: 'Montserrat', sans-serif;
   padding: 8px 20px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
@@ -48,7 +52,7 @@ input {
 }
 button {
   padding: 8px 20px;
-  background-color: #4CAF50;
+  background-color: #ff8800;
   color: white;
   border: none;
   cursor: pointer;
