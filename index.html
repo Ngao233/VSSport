@@ -45,32 +45,39 @@
                 </div>
             </ul>
         </nav>
-        <!-- menu chinh -->
-        <nav class="menu-two">
-            <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
-            <ul>
-                <li><a href="#">TRANG CHỦ</a></li>
-                <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
-                <li><a href="#">THÔNG TIN</a></li>
-                <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
-                <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+            <!-- menu chinh -->
+    <nav class="menu-two">
+        <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
+        <ul>
+            <li><a href="#">TRANG CHỦ</a></li>
+            <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
+            <li><a href="#">THÔNG TIN</a></li>
+            <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
+            <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+        </ul>
+        <!-- icon bao gom "shoping" "user" "seach" -->
+        <div class="icon">
+          <form action="/search" method="get">
+            <input type="text" name="q" placeholder="Nhập từ khóa..." required>
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div class="cart-container">
+          <div class="cart-icon" onmouseover="showCart()" onmouseout="hideCart()" onclick="goToCart()">
+              <i class="fa-solid fa-cart-shopping" ></i> <span id="cart-count">0</span>
+          </div>
+          <div id="cart-popup" class="cart-popup">
+            <ul id="cart-items">
+              <p><strong>Sản phẩm trong giỏ hàng:</strong></p>
             </ul>
-            <!-- icon bao gom "shoping" "user" "seach" -->
-            <div class="icon">
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="#"><i class="fa-solid fa-user"></i></a>
-                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+            <div class="cart-total">
+              <p>Tổng tiền: <span id="total-price">0đ</span></p>
             </div>
-
-        </nav>
-
+          </div>
+          </div>
+            <a href="#"><i class="fa-solid fa-user"></i></a>   
+        </div> 
+      </nav>
         <img src="" alt="">
-        </section>
-        <section class="banner">
-            <div class="slides" id="slides">
-                <div class="slide"><img src="image/banner1.png" alt="Hình ảnh 1"></div>
-                <div class="slide"><img src="image/banner2.png" alt="Hình ảnh 2"></div>
-        </section>
     </header>
     <hr>
 
@@ -214,6 +221,7 @@
                 <button>Thêm giỏ hàng</button>
             </div>
         </div>
+        
     </section>
 <!-- Sản phẩm- home -->
  <h2>Sản Phẩm</h2>
@@ -255,7 +263,7 @@
             </a>
         </div>
           <div class="product-home-one-info">
-            <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+            <button  class="product-home-one-button" >Thêm vào giỏ hàng</button>
           </div>
             <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
             <p class="product-home-one-price">300,000đ</p>
