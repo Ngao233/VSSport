@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <!DOCTYPE html>
+    <html lang="vi">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang Chủ</title>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
+        <style>
+            body h2 {
+                font-family: 'Montserrat', sans-serif;
+                margin-left: 10%;
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+
+<body>
+    <header>
+        <!-- menu phu -->
+        <nav class="menu-one">
+            <ul>
+                <li><a href="#">VSSport.vn</a></li>
+                <div>
+                    <li><a href="#">Giúp đỡ</a></li>
+                    <li><a href="#">Ngôn ngữ</a></li>
+                </div>
+            </ul>
+        </nav>
+            <!-- menu chinh -->
+    <nav class="menu-two">
+        <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
+        <ul>
+            <li><a href="#">TRANG CHỦ</a></li>
+            <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
+            <li><a href="#">THÔNG TIN</a></li>
+            <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
+            <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+        </ul>
+        <!-- icon bao gom "shoping" "user" "seach" -->
+        <div class="icon">
+          <form action="/search" method="get">
+            <input type="text" name="q" placeholder="Nhập từ khóa..." required>
+            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div class="cart-container">
+          <div class="cart-icon" onmouseover="showCart()" onmouseout="hideCart()" onclick="goToCart()">
+              <i class="fa-solid fa-cart-shopping" ></i> <span id="cart-count">0</span>
+          </div>
+          <div id="cart-popup" class="cart-popup">
+            <ul id="cart-items">
+              <p><strong>Sản phẩm trong giỏ hàng:</strong></p>
+            </ul>
+            <div class="cart-total">
+              <p>Tổng tiền: <span id="total-price">0đ</span></p>
+            </div>
+          </div>
+          </div>
+            <a href="#"><i class="fa-solid fa-user"></i></a>   
+        </div> 
+      </nav>
+        <img src="" alt="">
+    </header>
+    <hr>
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ hàng</title>
+    <link rel="stylesheet" href="shopping-cart-style.css">
+</head>
+<body>
+    <div class="shopping-cart-container">
+        <h1>Giỏ Hàng</h1>
+        <div class="shopping-cart-header">
+            <span>Chọn</span>
+            <span>Sản phẩm</span>
+            <span>Giá</span>
+            <span>Số lượng</span>
+            <span>Tổng</span>
+            <span>Xóa</span>
+        </div>
+        <div id="shopping-cart-items">
+            <!-- Các sản phẩm sẽ được thêm ở đây -->
+        </div>
+        <div class="shopping-cart-footer">
+            <button id="select-all-items">Chọn Tất Cả</button>
+            <span>Tổng cộng: <span id="total-cart-price">0</span>₫</span>
+            <button id="checkout-items">Thanh Toán</button>
+        </div>
+    </div>
+    <script src="shopping-cart-script.js"></script>
+<!-- Sản phẩm- home -->
+ <h2>Sản Phẩm</h2>
+ <section class="Product-home-Product">  
+    <div class="menu-product-home">  
+        <div class="Category-product-home" data-category="manchester-united">  
+            <br>  
+            <a href="#"> <img src="image/logoMu.png" alt=""> Manchester United</a>  
+        </div>  
+        <div class="Category-product-home" data-category="real-madrid">  
+            <br>  
+            <a href="#"><img src="image/logoReal.png" alt=""> Real Madrid</a>  
+        </div>  
+        <div class="Category-product-home" data-category="liverpool">  
+            <br>  
+            <a href="#"> <img src="image/logoLiverpool.png" alt=""> Liverpool</a>  
+        </div>  
+        <div class="Category-product-home" data-category="manchester-city">  
+            <br>  
+            <a href="#"> <img src="image/logo-mc.png" alt=""> Manchester City</a>  
+        </div>  
+        <div class="Category-product-home" data-category="chelsea">  
+            <br>  
+            <a href="#"> <img src="image/logoChelsea.png" alt=""> Chelsea</a>  
+        </div>  
+        <div class="Category-product-home" data-category="barcelona">  
+            <br>  
+            <a href="#"> <img src="image/logoBar.png" alt=""> Barcelona</a>  
+        </div>  
+    </div>  
+    <div class="product-home1">  
+        <div class="product-home-one" data-product-category="manchester-united">
+            <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+            <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+          </a>
+          <div class="circle">
+            <a href="">
+                <i class="fa-solid fa-heart"></i>
+            </a>
+        </div>
+          <div class="product-home-one-info">
+            <button  class="product-home-one-button" >Thêm vào giỏ hàng</button>
+          </div>
+            <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+            <p class="product-home-one-price">300,000đ</p>
+
+            </div>
+
+            <div class="product-home-one" data-product-category="manchester-united">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AkMu.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-united">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AkMu.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-united">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AkMu.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-united">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AkMu.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-united">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AkMu.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-united">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AkMu.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-united">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AkMu.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+
+            </div>
+
+            <div class="product-home-one" data-product-category="real-madrid"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="real-madrid"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="real-madrid"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="real-madrid"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="real-madrid"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="real-madrid"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="real-madrid"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="real-madrid"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+
+            <div class="product-home-one" data-product-category="liverpool"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="liverpool"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="liverpool"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="liverpool"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="liverpool"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="liverpool"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="liverpool"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="liverpool"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+
+            <div class="product-home-one" data-product-category="manchester-city"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-city"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-city"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-city"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-city"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-city"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-city"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="manchester-city"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+
+            <div class="product-home-one" data-product-category="chelsea"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="chelsea"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="chelsea"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="chelsea"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="chelsea"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="chelsea"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="chelsea"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="chelsea">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+
+            <div class="product-home-one" data-product-category="barcelona"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="barcelona"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="barcelona"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="barcelona"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="barcelona"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="barcelona"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="barcelona"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            <div class="product-home-one" data-product-category="barcelona"><a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+        </div>
+    </section>
+   <div class="News-home">
+    <h2>Tin Tức Mới</h2> 
+    <button>Xem Thêm</button>
+   </div>
+    <section>
+        <div class="tinTuc">
+            
+            <div class="oTinTuc">
+                <a href="#">
+                    <img src="image/tintuc1.png" alt="">
+                    <p>Áo thun phong cách thể thao,
+                        sản phẩm đc săn đón khi ra mắt
+                    </p>
+                </a>
+
+            </div>
+            <div class="oTinTuc">
+                <a href="#">
+                    <img src="image/tintuc2.png" alt="">
+                    <p>Trái bóng được săn đón nhiều
+                        nhất tính từ Euro 2024
+                    </p>
+                </a>
+
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer-->
+
+    <script src="js/javascrip.js">
+
+    </script>
+
+    <footer>
+        <div class="footer-column-left">
+            <h3>Liên hệ</h3>
+            <hr>
+            <h3>Hotline: </h3>
+            <p>(+84)098765432</p>
+            <h3>Email: </h3>
+            <p>support@gmail.com</p>
+            <h3>Thời gian làm việc</h3>
+            <p>06:00 - 18:00 hằng ngày</p>
+        </div>
+        <div class="footer-column-left">
+
+        </div>
+        <div class="footer-column-right">
+            <h3>Theo dõi tại</h3>
+            <hr>
+            <a href="#">Facebook</a><br>
+            <a href="#">Twitter</a><br>
+            <a href="#">Youtube</a><br>
+            <a href="#">Instagram</a><br>
+
+        </div>
+    </footer>
+</body>
+
+</html>
