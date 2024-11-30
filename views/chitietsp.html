@@ -222,5 +222,56 @@
                     <button>Thêm giỏ hàng</button>
                 </div>
             </div>
-        </section>
+        </section><br><br>
+        <section class="DI">
+<div><h2>Chi Tiết Sản Phẩm</h2>
+<p>-Danh Mục:Thời Trang Thể Thao<br> 
+    -Kho 289<br>
+    -Loại hình thể thao: Bóng đá ngoài trời & trong nhà<br>
+    -Tính năng trang phục
+    -Thấm hút mồ hôi<br>
+    -Đội bóng đá: Manchester City<br>
+    -Chiều dài tay áo: NGẮN TAY<br>
+    -Gửi từ: TP. Hồ Chí Minh</p>
+</div>
+<div><h2>Mô tả Sản Phẩm</h2>
+<p>-Áo thun phong cách thể thao không chỉ là một trang phục đơn giản mà còn là biểu tượng<br> của phong cách sống năng động và hiện đại.<br>
+
+    -Lợi Ích Của Việc Sở Hữu Áo Thun Thể Thao<br>
+    -Tăng Khả Năng Vận Động: Chất liệu co giãn và thiết kế phù hợp giúp người mặc dễ dàng vận động mà không bị gò bó.<br>
+    -Thể Hiện Đẳng Cấp Thời Trang: Áo thun thể thao không chỉ dành cho thể thao mà<br> còn trở thành xu hướng thời trang hiện đại, phù hợp với nhiều hoàn cảnh.<br>
+    -Giá Thành Hợp Lý: So với các loại trang phục khác, áo thun thể thao thường có mức<br> giá khá phải chăng, phù hợp cho mọi đối tượng.</p>
+</div>
+        </section><br><br><br><br>
+<section class="min">
+    <div>
+        <div class="enzont">  
+            <h1>Bình Luận</h1>  
+            <div class="comment-section">  
+                <h2>Viết bình luận</h2>  
+                <textarea id="commentInput" rows="4" placeholder="Nhập bình luận của bạn..."></textarea><br>  
+                <button onclick="addComment()">Gửi</button>  
+            </div>  
+    
+            <div class="new-comments" id="commentSection"></div>  
+        </div>  
+    
+        <script>  
+            function addComment() {  
+                var commentText = document.getElementById('commentInput').value;  
+                if (commentText) {  
+                    var commentSection = document.getElementById('commentSection');  
+                    var newComment = document.createElement('div');  
+                    newComment.classList.add('comment');  
+                    newComment.innerHTML = `<strong>Bạn:</strong><p>${commentText}</p>`;  
+                    commentSection.appendChild(newComment);  
+                    document.getElementById('commentInput').value = ''; // Clear input  
+                } else {  
+                    alert('Vui lòng nhập bình luận!');  
+                }  
+            }  
+        </script>  
+    </div>
+</section>
     </body>
+</html>
