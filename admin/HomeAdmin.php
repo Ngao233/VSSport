@@ -1,23 +1,9 @@
-<!DOCTYPE html>  
-<html lang="en">  
-
-<head>  
-  <meta charset="UTF-8">  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <title>Admin Dashboard</title>  
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">  
-  <link rel="stylesheet" href="style.css">
-  <link
-            href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
-            rel="stylesheet">
-</head>  
-
 <body>  
   <div class="container-fluid">  
     <div class="row">  
       <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar">  
         <div class="position-sticky pt-3">  
-          <img src="VSSp rt.png" alt="Logo">  
+          <img src="public/image/VSSp rt.png" alt="Logo">  
           <ul class="nav flex-column mt-4">  
             <li class="nav-item">  
               <a class="nav-link active" href="admin.html">  
@@ -68,46 +54,36 @@
               <tr>  
                 <th>#</th>  
                 <th>Tên sản phẩm</th>  
-                <th>Danh mục</th>  
+                <th>Mô Tả</th>  
                 <th>Giá</th>  
                 <th>Số lượng</th>  
-                <th>Trạng thái</th>  
-                <th>Thao tác</th>  
+                <th>Hình Ảnh</th>  
+                <th>Kích Thước</th>  
+                <th>Màu Sắc</th>
+                <th>Thao Tác</th>  
               </tr>  
             </thead>  
-            <tbody>  
+            <tbody> 
+            <?php foreach ($product as $product){?> 
               <tr>  
-                <td>1</td>  
-                <td>Sản phẩm A</td>  
-                <td>Danh mục 1</td>  
-                <td>$100</td>  
-                <td>50</td>  
-                <td><span class="badge bg-success">Đang bán</span></td>  
-                <td>  
-                  <button class="btn btn-sm btn-warning">  
-                    <i data-feather="edit"></i> Sửa  
-                  </button>  
+                <td><?=$product["id_SanPham"]?></td>  
+                <td><?=$product["TenSanPham"]?></td>  
+                <td><?=$product["MoTa"]?></td>  
+                <td><?=$product["Gia"]?></td>  
+                <td><?=$product["SoLuong"]?></td>  
+                <td><?=$product["HinhAnh"]?></td>
+                <td><?=$product["KichThuoc"]?></td>
+                <td><?=$product["MauSac"]?></td>
+                <td>
+                <a href="editproduct/<?=$product["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a> 
+               <br>  
                   <button class="btn btn-sm btn-danger">  
                     <i data-feather="trash-2"></i> Xóa  
                   </button>  
                 </td>  
               </tr>  
-              <tr>  
-                <td>2</td>  
-                <td>Sản phẩm B</td>  
-                <td>Danh mục 2</td>  
-                <td>$150</td>  
-                <td>20</td>  
-                <td><span class="badge bg-secondary">Hết hàng</span></td>  
-                <td>  
-                  <button class="btn btn-sm btn-warning">  
-                    <i data-feather="edit"></i> Sửa  
-                  </button>  
-                  <button class="btn btn-sm btn-danger">  
-                    <i data-feather="trash-2"></i> Xóa  
-                  </button>  
-                </td>  
-              </tr>  
+              <?php }?>
+             
             </tbody>  
           </table>  
         </div>  
@@ -121,5 +97,3 @@
     feather.replace();  
   </script>  
 </body>  
-
-</html> 
