@@ -34,7 +34,7 @@
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="orders.html">  
+              <a class="nav-link" href="HomeAdmin.php">  
                 <i data-feather="shopping-cart"></i> Đơn hàng  
               </a>  
             </li>  

@@ -94,6 +94,12 @@ switch ($action) {
                 deleteProduct($id);
                 header("Location: $base_url");
                 break;
+    case '':
+        $oder = getOder();
+        include "admin/HeaderAdmin.php";
+        include "admin/oder/HomeOder.php";
+        include "admin/FooterAdmin.php";
+        break;
 }
     
             
