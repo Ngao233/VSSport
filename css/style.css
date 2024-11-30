@@ -859,3 +859,87 @@ font-family: 'Montserrat', sans-serif;}
     font-family: 'Montserrat', sans-serif;
 }
 .hhhhh{font-family: 'Montserrat', sans-serif;}
+.DI div{background-color: white;
+}
+.DI{display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 80%;
+    margin-left: 10%;
+    gap: 10px;
+    grid-template-columns: 49% 49%;
+    grid-template-rows: 300px;
+    margin-right: 10%;}
+.DI p{margin-left: 10px;
+    font-family: 'Montserrat', sans-serif;}
+.min{display: grid;
+    grid-template-columns: repeat(1,1fr);
+    width: 80%;
+    margin-left: 10%;
+    gap: 10px;
+    grid-template-columns: 100%;
+    grid-template-rows: 300px;
+    margin-right: 10%;
+margin-bottom: 20px;
+font-family: 'Montserrat', sans-serif;
+
+}
+
+.enzont {  
+    width: 100%;      
+    background-color: #ffffff;  
+    margin-bottom: 12px;
+    border-radius: 5px;
+}  
+
+.enzont h1 {  
+    text-align: center;  
+    color: #007bff;  
+}  
+.enzont h2{
+    margin: 10px;
+
+}
+.comment {  
+    border-bottom: 1px solid #ccc;  
+    padding: 10px 0;  
+    margin-left: 10px;
+}  
+
+.comment strong {  
+    color: #007bff;  
+}  
+
+.comment-section {  
+    margin-top: 20px;  
+}  
+
+textarea {  
+    width: 97%;  
+    margin: 12px;
+    border: 1px solid #000000;  
+    border-radius: 5px;  
+    margin-bottom: 10px;  
+    font-size: 16px;  
+    resize: none;  
+}  
+
+.enzont button {  
+    background-color: #007bff;  
+    color: white;  
+    padding: 10px 15px;  
+    border: none;  
+    border-radius: 5px;  
+    cursor: pointer;  
+    font-size: 16px;  
+    transition: background-color 0.3s;  
+    margin-left: 10px;
+}  
+
+.enzont button:hover {  
+    background-color: #0056b3;  
+}  
+
+.new-comments {  
+    margin-top: 20px;  
+    margin-bottom: 20px;
+}
