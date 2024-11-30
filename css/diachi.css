@@ -1,6 +1,6 @@
 .khung{
   width: 100%;
-  font-family: Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -23,10 +23,13 @@
 }
 
 input {
+  font-family: 'Montserrat', sans-serif;
+
   padding: 8px 25px;
   margin: 5px;
 }
 .cachDN button{
+  font-family: 'Montserrat', sans-serif;
   padding: 8px 20px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
@@ -37,7 +40,7 @@ input {
 }
 button {
   padding: 8px 20px;
-  background-color: #4CAF50;
+  background-color: orange;
   color: white;
   border: none;
   cursor: pointer;
@@ -80,6 +83,7 @@ button {
 
 /* khung bên trái*/
 .left-box{
+  font-family: 'Montserrat', sans-serif;
   position: absolute;
   height: 400px;
   top: 10%;
@@ -120,6 +124,7 @@ button {
 /* khung bên phải*/
 
 .right-box{
+  font-family: 'Montserrat', sans-serif;
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -136,43 +141,7 @@ button {
   background-color: #ffffff;
 }
 
-.little-input{
-  display: flex;
-}
-
-.little-input h3{
-  width: 125px;
-  font-weight: 100;
-  font-size: medium;
-  color: #6d6d6d;
-
-
-}
-.little-input input{
-  margin: 0 0 5px 0px;
-  padding-right: 20%;
-  
-}
-
-.right-box{
-  display: flex;
-  flex-direction: row;
-}
-.right-box h3{
-  margin: 0 0;
-  width: auto;
-  color: #848484;
-  width: 125px;
-}
-
-.rightin-box{
-  justify-content: center;
-  justify-items: center;
-  align-items: center;
-  align-content: center;
-  
-}
-
+ 
 
 
 
@@ -192,26 +161,38 @@ button {
 }
 
 
-
-
-.leftin-box{
-  width: 80%;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  justify-content: center;
+label {
+  display: block;
+  margin-bottom: 5px;
 }
-.leftin-box h3,h2{
-  margin-left: 5%;
-  margin-right: 2%;
+select, input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
-
-
-.leftin-box button{
-  float: right;
+button {
+  background-color: orange;
   color: white;
-  background: orange;
-  margin-right: 14%;
+  padding: 10px 20px;
   border: none;
-  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgb(255, 89, 0);
+}
+.little-input {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 4px;
+}
+h2 {
+  color: #333;
+}
+.right-box h4{
+  padding: 0;
+  margin: 0;
 }

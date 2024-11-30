@@ -6,19 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">  
   <title>Admin Dashboard</title>  
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">  
-  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="public/css/styleAdmin.css">
   <link
             href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
             rel="stylesheet">
-    
-</head>  
-
+</head> 
+<style>
+    body{
+        font-family: 'Montserrat', sans-serif;
+    }
+</style> 
 <body>  
   <div class="container-fluid">  
     <div class="row">  
       <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar">  
         <div class="position-sticky pt-3">  
-          <img src="VSSp rt.png" alt="Logo">  
+          <img src="public/image/VSSp rt.png" alt="Logo">  
           <ul class="nav flex-column mt-4">  
             <li class="nav-item">  
               <a class="nav-link active" href="admin.html">  
@@ -54,45 +57,5 @@
         </div>  
       </nav>  
 
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">  
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">  
-          <h1 class="h2">Dashboard</h1>  
-          <button type="button" class="btn btn-primary">Thêm mới</button>  
-        </div>  
-
-        <h2 class="mb-3">Danh sách sản phẩm</h2>  
-        <input type="text" class="form-control mb-3" placeholder="Tìm kiếm sản phẩm...">  
-        
-        <div class="table-responsive">  
-          <table class="custom-table">  
-            <thead>  
-              <tr>  
-                <th>#</th>  
-                <th>Tên sản phẩm</th>  
-                <th>Mô Tả</th>  
-                <th>Giá</th>  
-                <th>Số lượng</th>  
-                <th>Hình Ảnh</th>  
-                <th>Kích Thước</th>  
-                <th>Màu Sắc</th>  
-                <th>Thao Tác</th>  
-              </tr>  
-            </thead>  
-            <tbody>  
-              
-               
-            </tbody>  
-          </table>  
-        </div>
-      </main>  
-    </div>  
-  </div>  
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
-  <script src="https://unpkg.com/feather-icons"></script>  
-  <script>  
-    feather.replace();  
-  </script>  
-</body>  
-
-</html> 
+     
+ 
