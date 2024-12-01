@@ -245,9 +245,10 @@
             </div>
         </div>
         <div class="product-home1">
+        <?php foreach ($product as $product){?>
             <div class="product-home-one" data-product-category="manchester-united">
                 <a href="chi-tiet-san-pham.html" class="product-home-one-link">
-                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                    <img src="image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-image" />
                 </a>
                 <div class="circle">
                     <a href="">
@@ -257,10 +258,11 @@
                 <div class="product-home-one-info">
                     <button class="product-home-one-button">Thêm vào giỏ hàng</button>
                 </div>
-                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
-                <p class="product-home-one-price">300,000đ</p>
+                <p class="sproduct-home-one-name"><?=$product["TenSanPham"]?></p>
+                <p class="product-home-one-price"><?=$product["Gia"]?>/p>
 
             </div>
+            <?php }?> 
 
  
             <div class="product-home-one" data-product-category="real-madrid">

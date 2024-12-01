@@ -14,22 +14,27 @@
     <thead class="table-dark">  
       <tr>  
         <th>#</th>  
-        <th>Ngày đặt hàng</th>  
-        <th>Trạng thái</th>  
-        <th>Thao tác</th>
-
+        <th>Tên sản phẩm</th>  
+        <th>Mô Tả</th>  
+        <th>Giá</th>  
+        <th>Số lượng</th>  
+        <th>Hình Ảnh</th>  
+        <th>Trạng Thái</th> 
       </tr>  
     </thead>  
     <tbody>  
-      <?php foreach ($oder as $oder){?>   
+      <?php foreach ($user as $user){?>   
       <tr>  
-        <td><?=$oder["id_DonHang"]?></td>  
-        <td><?=$oder["NgayDatHang"]?></td>  
-        <td><?=$oder["TrangThai"]?></td>  
+        <td><?=$user["id_KhachHang"]?></td>  
+        <td><?=$user["Ho"]?><?=$user["Ten"]?></td>  
+        <td><?=$user["Sdt"]?></td>  
+        <td><?=$user["Email"]?></td>  
+        <td><?=$user["MatKhau"]?></td> 
+        <td><?=$user["AnhDaiDien"]?></td>  
         <td>  
-          <a href="editoder/<?=$oder["id_DonHang"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+          <a href="edituser/<?=$user["id_KhachHang"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
           <br>  
-          <a href="deleteoder/<?=$oder["id_DonHang"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
+          <a href="deleteuser/<?=$user["id_KhachHang"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
         </td>  
       </tr>  
       <?php }?>  

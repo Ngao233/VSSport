@@ -39,7 +39,7 @@
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="users.html">  
+              <a class="nav-link" href="usersAdmin">  
                 <i data-feather="users"></i> Người dùng  
               </a>  
             </li>  
