@@ -1125,3 +1125,41 @@ textarea {
 .shopping-cart-footer button:hover {
     background-color: #e64a19;
 }
+.raz{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    width: 80%;
+    margin-left: 10%;
+    gap: 10px;
+    grid-template-columns: 100%;
+    grid-template-rows: 160px;
+    margin-right: 10%;
+margin-bottom: 20px;
+font-family: 'Montserrat', sans-serif;
+}
+.raz div{
+    background-color:   ;
+   
+   
+}
+.muya img{
+   height: 150px;
+    margin-left: 10px;
+    float:left;
+}
+.muya h3{
+    font-family: 'Montserrat', sans-serif;
+    text-align:left ;
+    font-weight: bold;
+    font-size: 20px;
+    
+    margin-left:40px;
+}
+.muya p{
+    font-family: 'Montserrat', sans-serif;
+    margin-left:20px;
+}
+.thai{
+    margin-left: 10%;
+    font-family: 'Montserrat', sans-serif;
+}
