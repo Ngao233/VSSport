@@ -50,10 +50,10 @@
             <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
             <ul>
                 <li><a href="#">TRANG CHỦ</a></li>
-                <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
+                <li><a href="">SẢN PHẨM</a></li>
                 <li><a href="#">THÔNG TIN</a></li>
-                <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
-                <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+                <li><a href="register">ĐĂNG KÝ</a></li>
+                <li><a href="">ĐĂNG NHẬP</a></li>
             </ul>
             <!-- icon bao gom "shoping" "user" "seach" -->
             <div class="icon">
@@ -245,22 +245,27 @@
             </div>
         </div>
         <div class="product-home1">
-            <div class="product-home-one" data-product-category="manchester-united">
-                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
-                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
-                </a>
-                <div class="circle">
-                    <a href="">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
-                </div>
-                <div class="product-home-one-info">
-                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
-                </div>
-                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
-                <p class="product-home-one-price">300,000đ</p>
-
-            </div>
+        <?php foreach ($product as $product){ ?>  
+    <div class="product-home-one" data-product-category="manchester-united">  
+        <a href="chi-tiet-san-pham.php?id=<?= $product['id_SanPham'] ?>" class="product-home-one-link">  
+            <img src="image/<?= $product['HinhAnh'] ?>" alt="<?= $product['TenSanPham'] ?>" class="product-home-one-image" />  
+        </a>  
+        <div class="circle">  
+            <a href="">  
+                <i class="fa-solid fa-heart"></i>  
+            </a>  
+        </div>  
+        <div class="product-home-one-info">  
+            <form method="POST" action="your_cart_handling_script.php" class="add-to-cart-form">  
+                <input type="hidden" name="product_id" value="<?= $product['id_SanPham'] ?>">  
+                <input type="text" name="identifier" placeholder="Nhập email hoặc số điện thoại" required>  
+                <button type="submit" class="product-home-one-button">Thêm vào giỏ hàng</button>  
+            </form>  
+        </div>  
+        <p class="product-home-one-name"><?= $product['TenSanPham'] ?></p>  
+        <p class="product-home-one-price"><?= number_format($product['Gia'], 0, ',', '.') ?> VNĐ</p>  
+    </div>  
+<?php } ?>
 
  
             <div class="product-home-one" data-product-category="real-madrid">

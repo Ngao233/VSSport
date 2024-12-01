@@ -1,15 +1,16 @@
 <?php 
 //include_once "models/Category.php";
-// include_once "models/product.php";
+include_once "model/product.php";
 // include_once "models/contact.php";
 switch ($action) {
     case 'home':
-    
+        $product = getProduct();
         include "views/home.php";
         break; 
-    // case 'home':
-    //     include "views/welcome.php";
-    //     break;
+    case 'register':
+        $product = getProduct();
+        include "views/register.php";
+        break;
     // case 'product':
     //     $product = getProduct();
     //     include "views/layouts/header.php";
