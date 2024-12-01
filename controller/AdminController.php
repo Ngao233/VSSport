@@ -101,6 +101,32 @@ switch ($action) {
         include "admin/oder/HomeOder.php";
         include "admin/FooterAdmin.php";
         break;
+    case 'editoder':
+        $id = $_GET["id"] ?? "";  
+        $oder = getoderid($id);
+        include "admin/oder/edit.php";
+        break; 
+    case "updateoder":
+        $errors=[];
+        $NgayDatHang=trim($_POST["NgayDatHang"])??"";
+        if($NgayDatHang==""){
+                array_push($errors, "Vui lòng nhập ngày ");
+        }
+            $TrangThai=trim($_POST["TrangThai"]) ?? "";
+            if($TrangThai==""){
+            array_push($errors, "Vui lòng nhập trạng thái");
+            }
+        
+        $id=$_GET["id"]??"";
+        $oder = getoderid($id);
+        include "admin/oder/edit.php";
+        if(count($errors)==0){
+            updateoder($id,$NgayDatHang,$TrangThai);
+            header("Location: $base_url");
+            }  
+            case 'addoder':
+                include "admin/oder/add.php";
+            break;     
 }
     
             
