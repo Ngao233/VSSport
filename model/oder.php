@@ -9,24 +9,19 @@ function getOder($sort="DESC"){
 }
 function getOderid($id){
     global $conn;
-    $sql = "SELECT * FROM sanpham WHERE id_SanPham = :id";   
+    $sql = "SELECT * FROM donhang WHERE id_DonHang = :id";   
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
     $Oder = $stmt->fetch();
     return $Oder; 
 }
-function updateOder($id,$TenSanPham,$MoTa,$Gia,$SoLuong,$HinhAnh,$KichThuoc,$MauSac){
+function updateOder($id,$NgayDatHang,$TrangThai){
     global $conn;
-    $sql = "UPDATE sanpham SET TenSanPham = :TenSanPham, MoTa = :MoTa ,Gia = :Gia, SoLuong = :SoLuong, HinhAnh= :HinhAnh , KichThuoc = :KichThuoc, MauSac = :MauSac WHERE id_SanPham = :id";   
+    $sql = "UPDATE donhang SET NgayDatHang = :NgayDatHang, TrangThai = :TrangThai WHERE id_DonHang = :id";   
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':TenSanPham', $TenSanPham); 
-    $stmt->bindParam(':MoTa', $MoTa); 
-    $stmt->bindParam(':Gia', $Gia);  
-    $stmt->bindParam(':SoLuong', $SoLuong); 
-    $stmt->bindParam(':HinhAnh', $HinhAnh);
-    $stmt->bindParam(':KichThuoc', $KichThuoc);
-    $stmt->bindParam(':MauSac', $MauSac);
+    $stmt->bindParam(':NgayDatHang', $NgayDatHang); 
+    $stmt->bindParam(':TrangThai', $TrangThai); 
     $stmt->bindParam(':id', $id);  
     $stmt->execute();
 }
@@ -56,7 +51,7 @@ function searchOder($search, $sort="DESC") {
 }
 function deleteOder($id){
     global $conn;
-    $sql = "DELETE FROM sanpham WHERE id_SanPham = :id";   
+    $sql = "DELETE FROM donhang WHERE id_DonHang = :id";   
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':id', $id);
     $stmt->execute();

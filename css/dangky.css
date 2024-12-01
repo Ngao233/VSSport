@@ -11,26 +11,27 @@
   
 }
 .khungDN .background-image{
-
   position: relative;
-  height: 550px;
+  height: 650px;
   width: 100%;
   background-image: url('../image/banner2.png');
   background-size: cover;
   background-position: center;
   opacity: 0.2;
   margin-bottom: -7%;
+
 }
 .dangnhap{
   font-family: 'Montserrat', sans-serif;
   position: absolute;
   top: 10%;
   width: 40%;
-  padding: 20px;
+  padding: 10px;
   border: 1px solid #ffffff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 40px 0;
+  margin: 50px;
+  text-align: center;
   background-color: #ffffff;
 }
 
@@ -48,7 +49,7 @@ input {
   cursor: pointer;
   margin: 10px;
   border: 1px solid black;
-  width: 250px;
+  width: 330px;
 }
 button {
   padding: 8px 20px;
@@ -57,6 +58,7 @@ button {
   border: none;
   cursor: pointer;
   margin: 10px;
+  border-radius: 5px;
 }
 
 .fa {
