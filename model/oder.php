@@ -1,11 +1,11 @@
 <?php
 function getOder($sort="DESC"){
     global $conn;
-    $sql = "SELECT * FROM sanpham ORDER BY id_SanPham $sort";
+    $sql = "SELECT * FROM donhang ORDER BY id_DonHang $sort";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $Oder = $stmt->fetchAll();
-    return $Oder; 
+    $oder = $stmt->fetchAll();
+    return $oder; 
 }
 function getOderid($id){
     global $conn;
