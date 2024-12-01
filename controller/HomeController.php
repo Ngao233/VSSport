@@ -34,4 +34,5 @@ switch ($action) {
             exit; // Thêm exit sau header để dừng thực hiện mã tiếp theo  
         }    
         break;  
+    
 }
