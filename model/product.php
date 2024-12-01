@@ -16,19 +16,30 @@ function getProductid($id){
     $product = $stmt->fetch();
     return $product; 
 }
-function updateProduct($id,$TenSanPham,$MoTa,$Gia,$SoLuong,$HinhAnh,$KichThuoc,$MauSac){
-    global $conn;
-    $sql = "UPDATE sanpham SET TenSanPham = :TenSanPham, MoTa = :MoTa ,Gia = :Gia, SoLuong = :SoLuong, HinhAnh= :HinhAnh , KichThuoc = :KichThuoc, MauSac = :MauSac WHERE id_SanPham = :id";   
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':TenSanPham', $TenSanPham); 
-    $stmt->bindParam(':MoTa', $MoTa); 
+function updateProduct($id, $TenSanPham, $MoTa, $Gia, $SoLuong, $HinhAnh, $KichThuoc, $MauSac, $id_DanhMuc) {  
+    global $conn;  
+    $sql = "UPDATE sanpham   
+            SET TenSanPham = :TenSanPham,   
+                MoTa = :MoTa,   
+                Gia = :Gia,   
+                SoLuong = :SoLuong,   
+                HinhAnh = :HinhAnh,   
+                KichThuoc = :KichThuoc,   
+                MauSac = :MauSac,   
+                id_DanhMuc = :id_DanhMuc   
+            WHERE id_SanPham = :id";  
+            
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':TenSanPham', $TenSanPham);  
+    $stmt->bindParam(':MoTa', $MoTa);  
     $stmt->bindParam(':Gia', $Gia);  
-    $stmt->bindParam(':SoLuong', $SoLuong); 
-    $stmt->bindParam(':HinhAnh', $HinhAnh);
-    $stmt->bindParam(':KichThuoc', $KichThuoc);
-    $stmt->bindParam(':MauSac', $MauSac);
+    $stmt->bindParam(':SoLuong', $SoLuong);  
+    $stmt->bindParam(':HinhAnh', $HinhAnh);  
+    $stmt->bindParam(':KichThuoc', $KichThuoc);  
+    $stmt->bindParam(':MauSac', $MauSac);  
+    $stmt->bindParam(':id_DanhMuc', $id_DanhMuc);  
     $stmt->bindParam(':id', $id);  
-    $stmt->execute();
+    $stmt->execute();  
 }
 function addProduct($TenSanPham,$MoTa,$Gia,$SoLuong,$HinhAnh,$KichThuoc,$MauSac)
 {  

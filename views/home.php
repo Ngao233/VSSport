@@ -85,9 +85,6 @@
                 <p>Giày Thể Thao</p>
             </a>
         </div>
-
-
-
         </div>
         <div class="block-center-left">
             <a href="">
@@ -95,7 +92,6 @@
                 <p>Áo Bóng đá</p>
             </a>
         </div>
-
         <div class="block-top-right">
             <a href="">
                 <img src="image/Category3.png" alt="">
@@ -114,15 +110,11 @@
                 <p>Giày Bóng Đá</p>
             </a>
         </div>
-
-
         <div class="rong">
             <a href="">
                 <img src="image/Category6.png" alt="">
                 <p>Các Loại bóng</p>
             </a>
-
-
         </div>
 
     </section>
