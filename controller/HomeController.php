@@ -2,11 +2,11 @@
 //include_once "models/Category.php";
 // include_once "models/product.php";
 // include_once "models/contact.php";
-// switch ($action) {
-//     case 'admin':
+switch ($action) {
+    case 'home':
     
-//         include "views/welcome.php";
-//         break; 
+        include "views/home.php";
+        break; 
     // case 'home':
     //     include "views/welcome.php";
     //     break;
@@ -30,4 +30,4 @@
     //     include "views/product/login.php";
     //     include "views/layouts/footer.php";
     //     break;
-// }
+}
