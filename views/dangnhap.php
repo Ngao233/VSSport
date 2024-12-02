@@ -52,7 +52,7 @@
   <div class="khungDN">
       <div class="background-image"></div>
       <div class="dangnhap">
-      <form method="POST" action="test"> 
+      <form method="POST" action="login"> 
         <h1>Đăng nhập</h1>
         <input type="text" name="Email" id="Email" placeholder="Nhập Email">
         <br>
