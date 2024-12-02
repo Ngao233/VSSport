@@ -74,7 +74,7 @@
     <thead class="table-dark">  
     <tr>
         <th>ID Tin Tuc</th>
-        <th>ID San Pham</th>
+
         <th>Tieu De</th>
         <th>Ngay Dang</th>
         <th>Hình Ảnh</th> 

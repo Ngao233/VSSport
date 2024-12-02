@@ -30,20 +30,21 @@
     </div>
   </div>
   <tbody>  
-  <?php foreach ($tintuc as $tintuc){?>  
+    <?php foreach ($tintuc as $haha): ?>  
     <tr>  
-        <td><?=$tintuc["id_TinTuc"]?></td>   
-        <td><?=$tintuc["Tieu De"]?></td>  
-        <td><?=$tintuc["Ngay Dang"]?></td>  
-        <td><img src="<?=$tintuc["HinhAnh"]?>" alt="<?=$tintuc["TinTuc"]?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->
-        <td><?=$tintuc["NoiDung"]?></td>      
+        <td><?=$haha["id_TinTuc"]?></td>    
+  
+        <td><?=$haha["TieuDe"]?></td>  
+        <td><?=$haha["NgayDang"]?></td>  
+        <td><img src="<?=$haha["HinhAnh"]?>" alt="<?=$haha["TinTuc"]?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->  
+        <td><?=$haha["NoiDung"]?></td>   
         <td>  
-          <a href="edittintuc/<?=$tintuc["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
-          <br>  
-          <a href="deletetintuc/<?=$tintuc["id_TinTuc"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
+            <a href="editproduct/<?=$haha["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+            <br>  
+            <a href="deleteproduct/<?=$haha["id_TinTuc"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Xóa</a>  
         </td>  
-      </tr>  
-      <?php }?>  
+    </tr>  
+<?php endforeach; ?>  
     </tbody>  
   </table>  
 </div>
@@ -56,4 +57,4 @@
   <script>  
     feather.replace();  
   </script>  
-</body>
+</body>  
