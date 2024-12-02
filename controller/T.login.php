@@ -8,19 +8,23 @@ switch ($action) {
         include "views/dangnhap.php";  
         break;  
         case 'login':
-            $product = getProduct();  
-            header("Location: $base_url/"); 
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
+                $email = $_POST['Email'] ?? '';  
+                $matKhau = $_POST['MatKhau'] ?? '';  
+                $loginSuccess = login($email, $matKhau); 
+            
+                if ($loginSuccess) {  
+                    $product = getProduct();  
+                    header("Location: $base_url/"); 
+                    exit();  
+                }  
+            }  
+            
             break;
 
-    case 'profile':  
-        if (Islogin()) {  
-            $user = UserLogin($_SESSION['id_KhachHang']);  
-            header("Location: $base_url/profile");  
-        } else {  
-            header("Location: $base_url/dangnhap");  
-            exit();  
-        }  
-        break;  
+        case 'profile':
+            include "views/profile.php"; 
+            break;
         
 
     include_once "views/footer.php";  

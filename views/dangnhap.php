@@ -38,17 +38,48 @@
         <li><a href="sanpham.html">SẢN PHẨM</a></li>
         <li><a href="#">THÔNG TIN</a></li>
         <li><a href="dangky.html">ĐĂNG KÝ</a></li>
-        <li><a href="dangnhap.html">ĐĂNG NHẬP</a></li>
+        <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
       </ul>
       <!-- icon bao gom "shoping" "user" "seach" -->
       <div class="icon">
         <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="#"><i class="fa-solid fa-user"></i></a>
+        <a href="profile"><i class="fa-solid fa-user"></i></a>
         <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
       </div>
       
     </nav>
   </header>
+  <?php  
+
+
+// Xử lý đăng nhập  
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
+    $email = $_POST['email'] ?? '';  
+    $matKhau = $_POST['matKhau'] ?? '';  
+
+    $sql = "SELECT id_KhachHang, MatKhau FROM khachhang WHERE Email = :Email";  
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':Email', $email);  
+    $stmt->execute();  
+
+    if ($stmt->rowCount() > 0) {  
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);  
+
+        // So sánh mật khẩu trực tiếp nếu mật khẩu lưu dưới dạng plain text  
+        if ($matKhau === $row['MatKhau']) {  
+            session_start(); // Đảm bảo khởi động session nếu chưa khởi động  
+            $_SESSION['id_KhachHang'] = $row['id_KhachHang'];  
+            header("Location: profile"); // Chuyển hướng thành công  
+            exit();  
+        } else {  
+            echo "Mật khẩu không chính xác."; // Thông báo lỗi mật khẩu  
+        }  
+    } else {  
+        echo "Không tìm thấy tài khoản với email này."; // Thông báo lỗi tài khoản  
+    }  
+}  
+?>  
+
   <div class="khungDN">
       <div class="background-image"></div>
       <div class="dangnhap">
