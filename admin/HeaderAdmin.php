@@ -52,10 +52,14 @@
               <a class="nav-link" href="settings.html">  
                 <i data-feather="settings"></i> Cài đặt  
               </a>  
-            </li>  
+            </li>
+            <li class="nav-item">  
+              <a class="nav-link" href="tintuc">  
+                <i data-feather="settings"></i> Cài đặt  
+              </a>  
+            </li> 
           </ul>  
         </div>  
       </nav>  
-
      
  
