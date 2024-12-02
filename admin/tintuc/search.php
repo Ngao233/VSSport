@@ -76,22 +76,32 @@
         <th>#</th>  
         <th>Tên sản phẩm</th>  
         <th>Mô Tả</th>  
-
+        <th>Giá</th>  
+        <th>Số lượng</th>  
+        <th>Hình Ảnh</th>  
+        <th>Kích Thước</th>  
+        <th>Màu Sắc</th>  
+        <th>Thao Tác</th>  
       </tr>  
     </thead>  
     <tbody>  
-    <?php if (!empty($oder)): ?>  
-        <<?php foreach ($oder as $oder) ?>   
+    <?php if (!empty($tintuc)): ?>  
+        <?php foreach ($tintuc as $tintuc): ?> 
       <tr>  
-        <td><?=$oder["id_DonHang"]?></td>  
-        <td><?=$oder["NgayDatHang"]?></td>  
-        <td><?=$oder["TrangThai"]?></td>  
+        <td><?=htmlspecialchars($tintuc["id_TinTuc"])?></td>  
+        <td><?=htmlspecialchars($tintuc["id_SanPham"])?></td>  
+        <td><?=htmlspecialchars($tintuc["TieuDe"])?></td>  
+        <td><?=htmlspecialchars($tintuc["NgayDang"])?></td>  
+        <td><img src="<?=htmlspecialchars($tintuc["HinhAnh"])?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->  
+        <td><?=htmlspecialchars($tintuc["NoiDung"])?></td>  
         <td>  
-          <a href="editoder/<?=$oder["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+          <a href="editproduct/<?=$product["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
           <br>  
-          <a href="oder/<?=$oder["id_SanPham"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
+          <button class="btn btn-sm btn-danger">  
+            <i data-feather="trash-2"></i> Xóa  
+          </button>  
         </td>  
-      </tr> 
+      </tr>  
       <?php endforeach; ?>  
                 <?php else: ?>  
                     <tr>  
