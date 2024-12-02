@@ -17,7 +17,6 @@
             <thead class="table-dark">
               <tr>
                 <th>ID Tin Tuc</th>
-                <th>ID San Pham</th>
                 <th>Tieu De</th>
                 <th>Ngay Dang</th>
                 <th>Hình Ảnh</th> 
@@ -31,7 +30,7 @@
     </div>
   </div>
   <tbody>  
-  <?php foreach ($oder as $oder){?>  
+  <?php foreach ($tintuc as $tintuc){?>  
     <tr>  
         <td><?=$tintuc["id_TinTuc"]?></td>   
         <td><?=$tintuc["Tieu De"]?></td>  
