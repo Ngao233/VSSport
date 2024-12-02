@@ -1,7 +1,7 @@
 <?php 
 //include_once "models/Category.php";
 include_once "model/product.php";
-include_once "model/oder.php";
+include_once "model/order.php";
 // include_once "models/contact.php";
 switch ($action) {
     case '':
@@ -95,18 +95,18 @@ switch ($action) {
                 deleteProduct($id);
                 header("Location: $base_url");
                 break;
-    case 'oderAdmin':
-        $oder = getOder();
+    case 'orderAdmin':
+        $order = getorder();
         include "admin/HeaderAdmin.php";
-        include "admin/oder/HomeOder.php";
+        include "admin/order/Homeorder.php";
         include "admin/FooterAdmin.php";
         break;
-    case 'editoder':
+    case 'editorder':
         $id = $_GET["id"] ?? "";  
-        $oder = getoderid($id);
-        include "admin/oder/edit.php";
+        $order = getorderid($id);
+        include "admin/order/edit.php";
         break; 
-    case "updateoder":
+    case "updateorder":
         $errors=[];
         $NgayDatHang=trim($_POST["NgayDatHang"])??"";
         if($NgayDatHang==""){
@@ -118,14 +118,14 @@ switch ($action) {
             }
         
         $id=$_GET["id"]??"";
-        $oder = getoderid($id);
-        include "admin/oder/edit.php";
+        $order = getorderid($id);
+        include "admin/order/edit.php";
         if(count($errors)==0){
-            updateoder($id,$NgayDatHang,$TrangThai);
+            updateorder($id,$NgayDatHang,$TrangThai);
             header("Location: $base_url");
             }  
-            case 'addoder':
-                include "admin/oder/add.php";
+            case 'addorder':
+                include "admin/order/add.php";
             break;     
 }
     

@@ -34,7 +34,7 @@
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="oderAdmin">  
+              <a class="nav-link" href="orderAdmin">  
                 <i data-feather="shopping-cart"></i> Đơn hàng  
               </a>  
             </li>  
