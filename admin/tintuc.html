@@ -1,0 +1,82 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Quản Trị Tin Tức</title>  
+    <link rel="stylesheet" href="style.css"> <!-- Kết nối file CSS nếu cần -->  
+    <style>  
+        body {  
+            font-family: Arial, sans-serif;  
+            margin: 0;  
+            padding: 20px;  
+            background-color: #f4f4f4;  
+        }  
+        h1 {  
+            color: #333;  
+        }  
+        table {  
+            width: 100%;  
+            border-collapse: collapse;  
+            margin-top: 20px;  
+        }  
+        th, td {  
+            border: 1px solid #ccc;  
+            padding: 10px;  
+            text-align: left;  
+        }  
+        th {  
+            background-color: #e2e2e2;  
+        }  
+        a {  
+            text-decoration: none;  
+            color: #007BFF;  
+        }  
+        a:hover {  
+            text-decoration: underline;  
+        }  
+        .btn {  
+            padding: 10px 15px;  
+            background-color: #007BFF;  
+            color: white;  
+            border: none;  
+            border-radius: 5px;  
+            cursor: pointer;  
+        }  
+    </style>  
+</head>  
+<body>  
+
+    <h1>Quản Trị Tin Tức</h1>  
+    <a href="add.php" class="btn">Thêm Tin Tức Mới</a>  
+
+    <table>  
+        <thead>  
+            <tr>  
+                <th>ID</th>  
+                <th>Tiêu đề</th>  
+                <th>Hành động</th>  
+            </tr>  
+        </thead>  
+        <tbody>  
+            <!-- Đây là phần dữ liệu sẽ được chèn bằng PHP -->  
+            <?php  
+            // Kết nối với cơ sở dữ liệu  
+            include 'database.php';   
+            $stmt = $pdo->query("SELECT * FROM news");  
+            while ($row = $stmt->fetch()) {  
+                echo '<tr>';  
+                echo '<td>' . htmlspecialchars($row['id']) . '</td>';  
+                echo '<td>' . htmlspecialchars($row['title']) . '</td>';  
+                echo '<td>  
+                        <a href="edit.php?id=' . $row['id'] . '">Sửa</a> |  
+                        <a href="delete.php?id=' . $row['id'] . '" onclick="return confirm(\'Bạn có chắc chắn muốn xóa không?\')">Xóa</a>  
+                      </td>';  
+                echo '</tr>';  
+            }  
+            ?>  
+        </tbody>  
+    </table>  
+
+</body>  
+</html>
