@@ -52,13 +52,13 @@
                 <li><a href="#">TRANG CHỦ</a></li>
                 <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
                 <li><a href="#">THÔNG TIN</a></li>
-                <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
-                <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+                <li><a href="register">ĐĂNG KÝ</a></li>
+                <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
             </ul>
             <!-- icon bao gom "shoping" "user" "seach" -->
             <div class="icon">
                 <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="#"><i class="fa-solid fa-user"></i></a>
+                <a href="profile"><i class="fa-solid fa-user"></i></a>
                 <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
             </div>
 
@@ -85,9 +85,6 @@
                 <p>Giày Thể Thao</p>
             </a>
         </div>
-
-
-
         </div>
         <div class="block-center-left">
             <a href="">
@@ -95,7 +92,6 @@
                 <p>Áo Bóng đá</p>
             </a>
         </div>
-
         <div class="block-top-right">
             <a href="">
                 <img src="image/Category3.png" alt="">
@@ -114,15 +110,11 @@
                 <p>Giày Bóng Đá</p>
             </a>
         </div>
-
-
         <div class="rong">
             <a href="">
                 <img src="image/Category6.png" alt="">
                 <p>Các Loại bóng</p>
             </a>
-
-
         </div>
 
     </section>
@@ -245,9 +237,10 @@
             </div>
         </div>
         <div class="product-home1">
+        <?php foreach ($product as $product){?>
             <div class="product-home-one" data-product-category="manchester-united">
                 <a href="chi-tiet-san-pham.html" class="product-home-one-link">
-                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                    <img src="image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-image" />
                 </a>
                 <div class="circle">
                     <a href="">
@@ -257,10 +250,11 @@
                 <div class="product-home-one-info">
                     <button class="product-home-one-button">Thêm vào giỏ hàng</button>
                 </div>
-                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
-                <p class="product-home-one-price">300,000đ</p>
+                <p class="sproduct-home-one-name"><?=$product["TenSanPham"]?></p>
+                <p class="product-home-one-price"><?=$product["Gia"]?>/p>
 
             </div>
+            <?php }?> 
 
  
             <div class="product-home-one" data-product-category="real-madrid">
