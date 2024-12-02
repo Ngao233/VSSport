@@ -1,20 +1,20 @@
 <?php
-function getorder($sort="DESC"){
+function getOrder($sort="DESC"){
     global $conn;
-    $sql = "SELECT * FROM donhang ORDER BY id_DonHang $sort";
+    $sql = "SELECT * FROM donhang Order BY id_DonHang $sort";
     $stmt = $conn->prepare($sql);
     $stmt->execute();
-    $order = $stmt->fetchAll();
-    return $order; 
+    $Order = $stmt->fetchAll();
+    return $Order; 
 }
-function getorderid($id){
+function getOrderid($id){
     global $conn;
     $sql = "SELECT * FROM sanpham WHERE id_SanPham = :id";   
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':id', $id);
     $stmt->execute();
-    $order = $stmt->fetch();
-    return $order; 
+    $Order = $stmt->fetch();
+    return $Order; 
 }
 function updateOrder($id, $ngayDatHang, $trangThai) {  
     global $conn;  
@@ -25,7 +25,7 @@ function updateOrder($id, $ngayDatHang, $trangThai) {
     $stmt->bindParam(':id', $id);  
     $stmt->execute();  
 }
-function addorder($ngayDatHang, $trangThai, $khachHangId) {  
+function addOrder($ngayDatHang, $trangThai, $khachHangId) {  
     global $conn;  
     $sql = "INSERT INTO donhang(NgayDatHang, TrangThai, id_KhachHang) VALUES(:ngayDatHang, :trangThai, :khachHangId)";  
     $stmt = $conn->prepare($sql);  
@@ -36,13 +36,13 @@ function addorder($ngayDatHang, $trangThai, $khachHangId) {
 }
 function searchOrder($search, $sort="DESC") {  
     global $conn;  
-    $sql = "SELECT * FROM donhang WHERE TenSanPham LIKE :search ORDER BY id_DonHang $sort";  
+    $sql = "SELECT * FROM donhang WHERE TenSanPham LIKE :search Order BY id_DonHang $sort";  
     $stmt = $conn->prepare($sql);  
     $searchTerm = '%' . $search . '%';  
     $stmt->bindParam(':search', $searchTerm);  
     $stmt->execute();  
-    $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);  
-    return $orders;  
+    $Orders = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+    return $Orders;  
 }
 function deleteOrder($id) {  
     global $conn;  
@@ -51,7 +51,7 @@ function deleteOrder($id) {
     $stmt->bindParam(':id', $id);  
     $stmt->execute();  
 }
-// model/order.php  
+// model/Order.php  
 function getAllOrders() {  
     global $conn;  
 
@@ -59,10 +59,10 @@ function getAllOrders() {
     $stmt = $conn->prepare($sql);  
     $stmt->execute();  
 
-    $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+    $Orders = $stmt->fetchAll(PDO::FETCH_ASSOC);  
 
     // Trả về mảng (có thể rỗng) hoặc rỗng nếu không lấy được  
-    return $orders ?: []; // Nếu không có đơn hàng trả về mảng rỗng  
+    return $Orders ?: []; // Nếu không có đơn hàng trả về mảng rỗng  
 }
 function getOrderStatusById($id) {  
     global $conn;  // Giả sử bạn đã kết nối CSDL ở nơi khác  
@@ -76,7 +76,7 @@ function getOrderStatusById($id) {
 
 function updateOrderStatus($Id, $trangThai) {
     // Cập nhật trạng thái đơn hàng trong database
-    $sql = "UPDATE orders SET TrangThai = ? WHERE id_DonHang = ?";
+    $sql = "UPDATE Orders SET TrangThai = ? WHERE id_DonHang = ?";
     executeQuery($sql, [$trangThai, $Id]);
 }
 

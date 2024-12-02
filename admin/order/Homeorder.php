@@ -1,47 +1,54 @@
-<?php
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['approve'])) {
-        $orderId = $_POST['order_id'];
-        // Cập nhật trạng thái đơn hàng
-        updateOrderStatus($orderId, 'approved');
-    } elseif (isset($_POST['delete'])) {
-        $orderId = $_POST['order_id'];
-        $order = getOrderById($orderId); // Lấy chi tiết đơn hàng
-        if ($order['TrangThai'] === 'pending') {
-            deleteOrder($orderId); // Xóa đơn hàng
-        } else {
-            echo "<script>alert('Không thể xóa đơn hàng đã được duyệt!');</script>";
-        }
-    }
-}
-?>
+<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">  
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 bOrder-bottom">  
+          <h1 class="h2">Dashboard</h1>  
+          <a href="addOrder" class="btn btn-primary">Thêm Sản Phẩm Mới</a> 
+        </div>  
 
-<h3>Danh Sách Đơn Hàng</h3>  
-<table>  
-    <thead>  
-        <tr>  
-            <th>ID Đơn Hàng</th>  
-            <th>Ngày Đặt Hàng</th>  
-            <th>Trạng Thái</th>  
-            <th>Hành Động</th>  
-        </tr>  
+        <h2 class="mb-3">Danh sách sản phẩm</h2>  
+        <form action="searchOrder" method="post">
+        <input type="search" class="form-control mb-3" name="search" placeholder="Tìm kiếm sản phẩm...">
+        <button class="btn btn-primary">Tìm</button>       
+        </form>
+ <div class="table-responsive">  
+  <table class="table table-striped table-sm">  
+    <thead class="table-dark">  
+      <tr>  
+        <th>ID sản Phẩm</th>
+        <th>ID Danh Mục</th>  
+        <th>Tên sản phẩm</th>  
+      </tr>  
     </thead>  
     <tbody>  
-        <?php foreach ($order as $order): ?>  
-            <tr>  
-                <td><?= $order['id_DonHang'] ?></td>  
-                <td><?= $order['NgayDatHang'] ?></td>  
-                <td><?= $order['TrangThai'] === 'approved' ? 'Đã duyệt' : 'Chưa duyệt' ?></td>
-                <td>
-                        <form method="POST" style="display:inline;">
-                            <input type="hidden" name="order_id" value="<?= $order['id_DonHang'] ?>">
-                            <?php if ($order['TrangThai'] === 'pending'): ?>
-                                <button type="submit" name="approve">Duyệt</button>
-                            <?php endif; ?>
-                            <button type="submit" name="delete" onclick="return confirm('Bạn có chắc chắn muốn xóa?');">Xóa</button>
-                        </form>
-                    </td>
-            </tr>  
-        <?php endforeach; ?>  
+    <?php if (!empty($order) && is_array($order)): ?>
+    <?php foreach ($Orders as $Order): ?>  
+    <tr>  
+        <td><?=$Order["id_DonHang"]?></td>  
+        <?php   
+        // Gọi hàm để lấy tên danh mục từ id_DonHang  
+        $categoryName = getCategoryNameByOrderId($Order["id_DonHang"]);   
+        ?>  
+
+        <td><?= htmlspecialchars($categoryName) ?></td> <!-- Đây là tên danh mục -->  
+        <td><?=$Order["TrangThai"]?></td>  
+        <td><?=$Order["NgayDatHang"]?></td>  
+        <td><?=$Order["HanhDong"]?></td>  
+        <td>  
+            <a href="editOrder/<?=$Order["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+            <br>  
+            <a href="deleteOrder/<?=$Order["id_SanPham"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Xóa</a>  
+        </td>  
+    </tr>  
+<?php endforeach; ?>  
     </tbody>  
-</table>
+  </table>  
+</div>
+      </main>  
+    </div>  
+  </div>  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
+  <script src="https://unpkg.com/feather-icons"></script>  
+  <script>  
+    feather.replace();  
+  </script>  
+</body>  

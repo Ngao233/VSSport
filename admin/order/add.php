@@ -1,6 +1,6 @@
 
 <h3>Thêm Đơn Hàng</h3>  
-<form action="<?=$base_url?>/addorder" method="post">  
+<form action="<?=$base_url?>/addOrder" method="post">  
     <input type="text" name="NgayDatHang" placeholder="Nhập ngày đặt hàng"> <br>  
     <input type="text" name="TrangThai" placeholder="Nhập trạng thái"> <br>  
     <input type="number" name="KhachHangId" placeholder="Nhập ID Khách hàng"> <br>  

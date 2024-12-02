@@ -1,7 +1,6 @@
 <?php 
 //include_once "models/Category.php";
 include_once "model/product.php";
-include_once "model/oder.php";
 // include_once "models/contact.php";
 switch ($action) {
     case '':
@@ -95,12 +94,6 @@ switch ($action) {
                 deleteProduct($id);
                 header("Location: $base_url");
                 break;
-    case 'oderAdmin':
-        $oder = getOder();
-        include "admin/HeaderAdmin.php";
-        include "admin/oder/HomeOder.php";
-        include "admin/FooterAdmin.php";
-        break;
 }
     
             

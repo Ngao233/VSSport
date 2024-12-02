@@ -35,7 +35,7 @@
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="orders.html">  
+              <a class="nav-link" href="Orders.html">  
                 <i data-feather="shopping-cart"></i> Đơn hàng  
               </a>  
             </li>  
@@ -59,13 +59,13 @@
       </nav>  
 
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">  
-      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">  
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 bOrder-bottom">  
           <h1 class="h2">Dashboard</h1>  
-          <a href="addorder" class="btn btn-primary">Thêm Sản Phẩm Mới</a> 
+          <a href="addOrder" class="btn btn-primary">Thêm Sản Phẩm Mới</a> 
         </div>  
 
         <h2 class="mb-3">Danh sách sản phẩm</h2>  
-        <form action="searchorder" method="post">
+        <form action="searchOrder" method="post">
         <input type="search" class="form-control mb-3" name="search" placeholder="Tìm kiếm sản phẩm...">
         <button class="btn btn-primary">Tìm</button>       
         </form> 
@@ -80,16 +80,16 @@
       </tr>  
     </thead>  
     <tbody>  
-    <?php if (!empty($order)): ?>  
-        <<?php foreach ($order as $order){?>   
+    <?php if (!empty($Order)): ?>  
+        <<?php foreach ($Order as $Order){?>   
       <tr>  
-        <td><?=$order["id_DonHang"]?></td>  
-        <td><?=$order["NgayDatHang"]?></td>  
-        <td><?=$order["TrangThai"]?></td>  
+        <td><?=$Order["id_DonHang"]?></td>  
+        <td><?=$Order["NgayDatHang"]?></td>  
+        <td><?=$Order["TrangThai"]?></td>  
         <td>  
-          <a href="editorder/<?=$order["id_DonHang"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+          <a href="editOrder/<?=$Order["id_DonHang"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
           <br>  
-          <a href="order/<?=$order["id_DonHang"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
+          <a href="Order/<?=$Order["id_DonHang"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
         </td>  
       </tr> 
       <?php endforeach; ?>  
