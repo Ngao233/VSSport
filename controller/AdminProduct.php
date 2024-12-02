@@ -4,13 +4,13 @@ include_once "model/product.php";
 include_once "model/category.php";
 // include_once "models/contact.php";
 switch ($action) {
-    case 'admin2':
+   case 'admin2':
         
         $product = getProduct();
         include "admin/HeaderAdmin.php";
         include "admin/product/HomeAdmin.php";
         include "admin/FooterAdmin.php";
-        break; 
+        break;  
     case 'editproduct':
         $id = $_GET["id"] ?? "";  
         $product = getProductid($id);
