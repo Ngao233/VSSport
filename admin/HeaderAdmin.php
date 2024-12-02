@@ -47,17 +47,17 @@
               <a class="nav-link" href="statistics.html">  
                 <i data-feather="bar-chart-2"></i> Thống kê  
               </a>  
+            </li> 
+            <li class="nav-item">  
+              <a class="nav-link" href="tintucAdmin">  
+                <i data-feather="settings"></i> Tin Tuc  
+              </a>  
             </li>  
             <li class="nav-item">  
               <a class="nav-link" href="settings.html">  
                 <i data-feather="settings"></i> Cài đặt  
               </a>  
             </li>
-            <li class="nav-item">  
-              <a class="nav-link" href="tintuc">  
-                <i data-feather="settings"></i> Cài đặt  
-              </a>  
-            </li> 
           </ul>  
         </div>  
       </nav>  

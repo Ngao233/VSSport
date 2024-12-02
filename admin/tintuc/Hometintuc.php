@@ -16,55 +16,45 @@
           <table class="table table-striped table-sm">
             <thead class="table-dark">
               <tr>
-                <th>ID bài viết</th>
-                <th>Tiêu đề</th>
-                <th>Danh mục</th>
+                <th>ID Tin Tuc</th>
+                <th>ID San Pham</th>
+                <th>Tieu De</th>
+                <th>Ngay Dang</th>
+                <th>Hình Ảnh</th> 
+                <th>Noi Dung</th>
                 <th>Thao tác</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Bảng tin 1</td>
-                <td>Danh mục 1</td>
-                <td>
-                  <button class="btn btn-sm btn-warning">Sửa</button>
-                  <button class="btn btn-sm btn-danger">Xóa</button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Bảng tin 2</td>
-                <td>Danh mục 2</td>
-                <td>
-                  <button class="btn btn-sm btn-warning">Sửa</button>
-                  <button class="btn btn-sm btn-danger">Xóa</button>
-                </td>
-              </tr>
-              <!-- Thêm sản phẩm tùy ý -->
-            </tbody>
           </table>
         </div>
       </main>
     </div>
   </div>
   <tbody>  
-      <?php foreach ($tintuc as $tintuc){?>   
-      <tr>  
-        <td><?=$oder["id_TinTuc"]?></td>  
-        <td><?=$oder["id_SanPham"]?></td>  
-        <td><?=$oder["TieuDe"]?></td>  
+  <?php foreach ($oder as $oder){?>  
+    <tr>  
+        <td><?=$tintuc["id_TinTuc"]?></td>   
+        <td><?=$tintuc["Tieu De"]?></td>  
+        <td><?=$tintuc["Ngay Dang"]?></td>  
+        <td><img src="<?=$tintuc["HinhAnh"]?>" alt="<?=$tintuc["TinTuc"]?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->
+        <td><?=$tintuc["NoiDung"]?></td>      
         <td>  
-          <a href="editoder/<?=$oder["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+          <a href="edittintuc/<?=$tintuc["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
           <br>  
-          <a href="deleteoder/<?=$oder["id_TinTuc"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
+          <a href="deletetintuc/<?=$tintuc["id_TinTuc"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
         </td>  
       </tr>  
       <?php }?>  
-    </tbody> 
+    </tbody>  
+  </table>  
+</div>
+      </main>  
+    </div>  
+  </div>  
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://unpkg.com/feather-icons"></script>
-  <script>
-    feather.replace()
-  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>  
+  <script src="https://unpkg.com/feather-icons"></script>  
+  <script>  
+    feather.replace();  
+  </script>  
+</body>

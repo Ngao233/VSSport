@@ -72,30 +72,27 @@
 <div class="table-responsive">  
   <table class="table table-striped table-sm">  
     <thead class="table-dark">  
-      <tr>  
-        <th>#</th>  
-        <th>Tên sản phẩm</th>  
-        <th>Mô Tả</th>  
-        <th>Giá</th>  
-        <th>Số lượng</th>  
-        <th>Hình Ảnh</th>  
-        <th>Kích Thước</th>  
-        <th>Màu Sắc</th>  
-        <th>Thao Tác</th>  
-      </tr>  
+    <tr>
+        <th>ID Tin Tuc</th>
+        <th>ID San Pham</th>
+        <th>Tieu De</th>
+        <th>Ngay Dang</th>
+        <th>Hình Ảnh</th> 
+        <th>Noi Dung</th>
+        <th>Thao tác</th>
+      </tr>
     </thead>  
     <tbody>  
     <?php if (!empty($tintuc)): ?>  
         <?php foreach ($tintuc as $tintuc): ?> 
       <tr>  
-        <td><?=htmlspecialchars($tintuc["id_TinTuc"])?></td>  
-        <td><?=htmlspecialchars($tintuc["id_SanPham"])?></td>  
+        <td><?=htmlspecialchars($tintuc["id_TinTuc"])?></td>   
         <td><?=htmlspecialchars($tintuc["TieuDe"])?></td>  
         <td><?=htmlspecialchars($tintuc["NgayDang"])?></td>  
         <td><img src="<?=htmlspecialchars($tintuc["HinhAnh"])?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->  
         <td><?=htmlspecialchars($tintuc["NoiDung"])?></td>  
         <td>  
-          <a href="editproduct/<?=$product["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+          <a href="edittintuc/<?=$tintuc["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
           <br>  
           <button class="btn btn-sm btn-danger">  
             <i data-feather="trash-2"></i> Xóa  

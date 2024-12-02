@@ -1,26 +1,25 @@
 <?php 
 //include_once "models/Category.php";
 include_once "model/tintuc.php";
-include_once "model/product.php";
+
 // include_once "models/contact.php";
 switch ($action) {
     case 'tintucAdmin':
-        $oder = getOder();
+        $oder = getTinTuc();
         include "admin/HeaderAdmin.php";
-        include "admin/tintuc/HomeOder.php";
+        include "admin/tintuc/HomeTinTuc.php";
         include "admin/FooterAdmin.php";
         break;
     case 'edittintuc':
             $id = $_GET["id"] ?? "";  
             $tintuc = getTinTucid($id);
-            $product = getProductid();
+            $tintuc = getTinTuc();
             include "admin/tintuc/edit.php";
             break;
         
             case "updatetintuc":
                 $id = $_GET["id"] ?? "";
-                $tintuc = getTinTucid($id);
-                $product = getProductid(); 
+                $tintuc = getTinTucid($id); 
 
                 $TieuDe=trim($_POST["TieuDe"])??"";
                 
@@ -28,7 +27,7 @@ switch ($action) {
 
                 $HinhAnh = trim($_POST["HinhAnh"] ?? "");
 
-                $NoiDung = trim($_POST["Noidung"] ?? "");
+                $NoiDung = trim($_POST["Noidung"] ?? "");  
 
                 $id=$_GET["id"]??"";
                 $tintuc = getTinTucid($id);
