@@ -5,7 +5,6 @@ include_once "model/register.php";
 
 switch ($action) {  
     case '':  
-        
         $product = getProduct();  
         include "views/home.php";  
         break;   
@@ -34,5 +33,11 @@ switch ($action) {
             exit; // Thêm exit sau header để dừng thực hiện mã tiếp theo  
         }    
         break;  
-    
-}
+        case 'dangnhap':
+            include "model/login.php";
+            include "views/dangnhap.php";  
+            break;
+        case 'profile':
+            include "views/profile.php";
+            break;
+        }

@@ -7,6 +7,7 @@
     <title>Trang Chủ</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dangky.css">
+    <link rel="stylesheet" href="css/hoso.css">
     <!DOCTYPE html>
     <html lang="vi">
 
@@ -53,8 +54,8 @@
                 <li><a href="#">TRANG CHỦ</a></li>
                 <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
                 <li><a href="#">THÔNG TIN</a></li>
-                <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
-                <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+                <li><a href="register">ĐĂNG KÝ</a></li>
+                <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
             </ul>
             <!-- icon bao gom "shoping" "user" "seach" -->
             <div class="icon">

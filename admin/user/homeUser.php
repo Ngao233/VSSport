@@ -13,11 +13,11 @@
   <table class="table table-striped table-sm">  
     <thead class="table-dark">  
       <tr>  
-        <th>#</th>  
-        <th>Tên sản phẩm</th>  
-        <th>Mô Tả</th>  
-        <th>Giá</th>  
-        <th>Số lượng</th>  
+        <th>ID</th>  
+        <th>Họ Tên</th>  
+        <th>Số Điện Thoại</th>
+        <th>Email</th>  
+        <th>Mật Khẩu</th>  
         <th>Hình Ảnh</th>  
         <th>Trạng Thái</th> 
       </tr>  
