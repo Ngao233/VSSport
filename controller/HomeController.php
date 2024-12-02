@@ -2,6 +2,7 @@
 include_once "model/category.php";  
 include_once "model/product.php";  
 include_once "model/register.php";  
+include_once "views/header.php";
 
 switch ($action) {  
     case '':  
@@ -42,3 +43,4 @@ switch ($action) {
             include "views/profile.php";
             break;
         }
+        include_once "views/footer.php";

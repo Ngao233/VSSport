@@ -5,7 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="public/css/style.css">
+     <link rel="stylesheet" href="public/css/dangky.css">
+     <link rel="stylesheet" href="public/css/dangnhap.css">
+     <link rel="stylesheet" href="public/css/diachi.css">
+     <link rel="stylesheet" href="public/css/doimatkhau.css">
+     <link rel="stylesheet" href="public/css/hoso.css">
+     <link rel="stylesheet" href="public/css/sanpham.css">
+     <link rel="stylesheet" href="public/css/styleAdmin.css">
+     <link rel="stylesheet" href="public/css/thanhtoan.css">
+     <link rel="stylesheet" href="public/css/tintuc.css">
     <!DOCTYPE html>
     <html lang="vi">
 
