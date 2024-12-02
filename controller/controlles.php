@@ -1,5 +1,8 @@
 <?php
-include "HomeController.php";
+include "T.home.php";
 include "AdminProduct.php";
 include "AdminUser.php";
 include "AdminOder.php";
+include "T.login.php";
+include "T.register.php";
+include "T.profile.php";
