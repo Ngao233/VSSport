@@ -24,11 +24,9 @@
                 <th>Thao tác</th>
               </tr>
             </thead>
-          </table>
-        </div>
-      </main>
-    </div>
-  </div>
+         
+        
+      
   <tbody>  
     <?php foreach ($tintuc as $haha): ?>  
     <tr>  
@@ -36,12 +34,12 @@
   
         <td><?=$haha["TieuDe"]?></td>  
         <td><?=$haha["NgayDang"]?></td>  
-        <td><img src="<?=$haha["HinhAnh"]?>" alt="<?=$haha["TinTuc"]?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->  
+        <td><img src="public/image/<?=$haha["HinhAnh"]?>" width="20px"></td> <!-- Hiển thị hình ảnh nhỏ -->  
         <td><?=$haha["NoiDung"]?></td>   
         <td>  
-            <a href="editproduct/<?=$haha["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+            <a href="edittintuc/<?=$haha["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
             <br>  
-            <a href="deleteproduct/<?=$haha["id_TinTuc"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Xóa</a>  
+            <a href="deletetintuc/<?=$haha["id_TinTuc"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Xóa</a>  
         </td>  
     </tr>  
 <?php endforeach; ?>  
