@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/dangky.css">
-    <link rel="stylesheet" href="css/hoso.css">
     <!DOCTYPE html>
     <html lang="vi">
 
@@ -60,10 +58,17 @@
             <!-- icon bao gom "shoping" "user" "seach" -->
             <div class="icon">
                 <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="#"><i class="fa-solid fa-user"></i></a>
+                <a href="profile"><i class="fa-solid fa-user"></i></a>
                 <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
             </div>
 
         </nav>
 
         <img src="" alt="">
+        </section>
+        <section class="banner">
+            <div class="slides" id="slides">
+                <div class="slide"><img src="image/banner1.png" alt="Hình ảnh 1"></div>
+                <div class="slide"><img src="image/banner2.png" alt="Hình ảnh 2"></div>
+        </section>
+    </header>

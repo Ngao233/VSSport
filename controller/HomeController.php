@@ -35,7 +35,8 @@ switch ($action) {
         break;  
         case 'dangnhap':
             include "model/login.php";
-            include "views/dangnhap.php";  
+            $product = getProduct();  
+            include "views/home.php";  
             break;
         case 'profile':
             include "views/profile.php";

@@ -29,10 +29,7 @@ include 'views/header.php';
       </div>
       <div class="right-box">
         <div class="leftin-box">
-          <h2>Hồ sơ của tôi</h2>
-          <div class="little-input">
-            <h3>Tên đăng nhập</h3><input type="text" id="username" placeholder="Nhập tên tài khoảng">
-          </div>
+          <h3>Hồ sơ của tôi</h3>
           <div class="little-input">
             <h3>Mật khẩu </h3><input type="password" id="password" placeholder="Nhập mật khẩu">
           </div>
@@ -45,11 +42,8 @@ include 'views/header.php';
           <div class="little-input">
             <h3>Giới tính</h3><input type="text" id="age" placeholder="Nhập ">
           </div>
-          <div class="little-input">
-            <h3>Ngày sinh</h3><input type="text" id="age" placeholder="Nhập tuổi">
-          </div>
           <br>
-          <button onclick="editProfile()"><i class="fas fa-sign-in-alt"></i> Đăng ký</button>
+          <button onclick="editProfile()"><i class="fas fa-sign-in-alt"></i>Cập Nhật</button>
 
         </div>
         <div class="rightin-box">
