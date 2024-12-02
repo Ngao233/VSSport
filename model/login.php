@@ -1,40 +1,47 @@
 <?php  
-function login($email, $matKhau) {  
-    global $conn;  
 
-    $sql = "SELECT id_KhachHang, MatKhau FROM khachhang WHERE Email = :Email";  
-    $stmt = $conn->prepare($sql);  
-    
+function login($email, $matKhau) {  
+    global $pdo; // Giả sử bạn đã kết nối với PDO trước đó  
+
+    $stmt = $pdo->prepare("SELECT id_KhachHang, MatKhau FROM khachhang WHERE Email = :Email");  
     $stmt->bindParam(':Email', $email);  
     $stmt->execute();  
-    
-    if ($stmt->rowCount() > 0) {  
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);  
-        if (password_verify($matKhau, $row['MatKhau'])) {  
-            $_SESSION['id_KhachHang'] = $row['id_KhachHang'];  
-            return true; // Đăng nhập thành công 
 
+    // Kiểm tra nếu có kết quả  
+    if ($stmt->rowCount() > 0) {  
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);  
+        
+        // Sử dụng password_verify để kiểm tra mật khẩu  
+        if (password_verify($matKhau, $user['MatKhau'])) {  
+            // Lưu ID khách hàng vào phiên  
+            $_SESSION['id_KhachHang'] = $user['id_KhachHang'];  
+            return true; // Đăng nhập thành công  
+        } else {  
+            // Mật khẩu không đúng  
+            return false; // Đăng nhập thất bại  
         }  
     }  
     
-    return false; // Đăng nhập không thành công  
+    // Không tìm thấy email trong cơ sở dữ liệu  
+    return false; // Đăng nhập thất bại  
 }
-function Islogin(){
-    return isset($_SESSION['id_KhachHang']);
+function Islogin() {  
+    session_start();
+    return isset($_SESSION['id_KhachHang']);  
 }
-
-function UserLogin($id){
-    $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':id_KhachHang', $id);  
+function UserLogin($id) {  
+    global $conn; // Đảm bảo sử dụng biến toàn cục  
+    $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id";  
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':id', $id);  // Sửa tham số này  
     $stmt->execute();  
-    return $stmt->fetch(PDO::FETCH_ASSOC);
+    return $stmt->fetch(PDO::FETCH_ASSOC);  
+}
+// function Logout(){
+//     session_start();  
+//     session_destroy();
+//     header("Location: dangnhap");  
+//     exit();  
+// }
 
-}
-function Logout(){
-    session_start();  
-    session_destroy();
-    header("Location: dangnhap");  
-    exit();  
-}
 ?>

@@ -49,18 +49,18 @@
       
     </nav>
   </header>
-<div class="khungDN">
+  <div class="khungDN">
       <div class="background-image"></div>
       <div class="dangnhap">
-      <form method="post" action="dangnhap">  
-    <h1>Đăng nhập</h1>  
-    <input type="text" name="Email" id="Email" placeholder="Nhập Email" required>  
-    <br>  
-    <input type="text" name="MatKhau" placeholder="Nhập mật khẩu" required>  
-    <br>  
-    <button type="submit"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>  
-    <br>  
-</form>  
+      <form method="POST" action="test"> 
+        <h1>Đăng nhập</h1>
+        <input type="text" name="Email" id="Email" placeholder="Nhập Email">
+        <br>
+        <input type="text" name="MatKhau" placeholder="Nhập mật khẩu">
+        <br>
+        <button type="submit"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+        <br>
+        </form>
         <p>Đăng nhập bằng cách khác</p>
         <div class="cachDN">
           <button onclick="loginWithGoogle()"><i class="fab fa-google"></i> Đăng nhập bằng Google</button>
@@ -69,6 +69,7 @@
         </div>
   
       </div>
+    </div>
     </div>
     <?php  
 include 'views/footer.php';  
