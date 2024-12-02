@@ -1,7 +1,7 @@
 <?php 
 //include_once "models/Category.php";
 include_once "model/product.php";
-include_once "model/order.php";
+include_once "model/oder.php";
 // include_once "models/contact.php";
 switch ($action) {
     case '':
@@ -95,38 +95,12 @@ switch ($action) {
                 deleteProduct($id);
                 header("Location: $base_url");
                 break;
-    case 'orderAdmin':
-        $order = getorder();
+    case 'oderAdmin':
+        $oder = getOder();
         include "admin/HeaderAdmin.php";
-        include "admin/order/Homeorder.php";
+        include "admin/oder/HomeOder.php";
         include "admin/FooterAdmin.php";
         break;
-    case 'editorder':
-        $id = $_GET["id"] ?? "";  
-        $order = getorderid($id);
-        include "admin/order/edit.php";
-        break; 
-    case "updateorder":
-        $errors=[];
-        $NgayDatHang=trim($_POST["NgayDatHang"])??"";
-        if($NgayDatHang==""){
-                array_push($errors, "Vui lòng nhập ngày ");
-        }
-            $TrangThai=trim($_POST["TrangThai"]) ?? "";
-            if($TrangThai==""){
-            array_push($errors, "Vui lòng nhập trạng thái");
-            }
-        
-        $id=$_GET["id"]??"";
-        $order = getorderid($id);
-        include "admin/order/edit.php";
-        if(count($errors)==0){
-            updateorder($id,$NgayDatHang,$TrangThai);
-            header("Location: $base_url");
-            }  
-            case 'addorder':
-                include "admin/order/add.php";
-            break;     
 }
     
             

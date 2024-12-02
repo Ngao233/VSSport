@@ -13,7 +13,8 @@
   <table class="table table-striped table-sm">  
     <thead class="table-dark">  
       <tr>  
-        <th>#</th>  
+        <th>ID sản Phẩm</th>
+        <th>ID Danh Mục</th>  
         <th>Tên sản phẩm</th>  
         <th>Mô Tả</th>  
         <th>Giá</th>  
@@ -25,9 +26,16 @@
       </tr>  
     </thead>  
     <tbody>  
-      <?php foreach ($product as $product){?>   
-      <tr>  
+    <?php foreach ($product as $product): ?>  
+    <tr>  
         <td><?=$product["id_SanPham"]?></td>  
+        
+        <?php   
+        // Gọi hàm để lấy tên danh mục từ id_DanhMuc  
+        $categoryName = getCategoryNameByProductId($product["id_DanhMuc"]);   
+        ?>  
+
+        <td><?= htmlspecialchars($categoryName) ?></td> <!-- Đây là tên danh mục -->  
         <td><?=$product["TenSanPham"]?></td>  
         <td><?=$product["MoTa"]?></td>  
         <td><?=$product["Gia"]?></td>  
@@ -36,12 +44,12 @@
         <td><?=$product["KichThuoc"]?></td>  
         <td><?=$product["MauSac"]?></td>  
         <td>  
-          <a href="editproduct/<?=$product["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
-          <br>  
-          <a href="deleteproduct/<?=$product["id_SanPham"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
+            <a href="editproduct/<?=$product["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+            <br>  
+            <a href="deleteproduct/<?=$product["id_SanPham"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Xóa</a>  
         </td>  
-      </tr>  
-      <?php }?>  
+    </tr>  
+<?php endforeach; ?>  
     </tbody>  
   </table>  
 </div>

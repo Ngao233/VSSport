@@ -1,33 +1,44 @@
-<?php 
-//include_once "models/Category.php";
-// include_once "models/product.php";
-// include_once "models/contact.php";
-// switch ($action) {
-//     case 'admin':
-    
-//         include "views/welcome.php";
-//         break; 
-    // case 'home':
-    //     include "views/welcome.php";
-    //     break;
-    // case 'product':
-    //     $product = getProduct();
-    //     include "views/layouts/header.php";
-    //     include "views/product/product.php";
-    //     include "views/layouts/footer.php";
-    //     break;
-    // case 'contact':
-    //     $contact = getContact();
-    //     include "views/layouts/header.php";
-    //     include "views/product/contact.php";
-    //     include "views/layouts/footer.php";
-    //     break;
-    // case 'dk':
-    //     include "views/product/dk.php";
-    //     break;
-    // case 'login':
-    //     include "views/layouts/header.php";
-    //     include "views/product/login.php";
-    //     include "views/layouts/footer.php";
-    //     break;
-// }
+<?php   
+include_once "model/category.php";  
+include_once "model/product.php";  
+include_once "model/register.php";  
+
+switch ($action) {  
+    case '':  
+        $product = getProduct();  
+        include "views/home.php";  
+        break;   
+    case 'register':  
+        include "views/register.php";  
+        break;  
+    case 'postuser':  
+        $Ho = trim($_POST["Ho"]) ?? "";  
+        $Ten = trim($_POST["Ten"]) ?? "";  
+        $MatKhau = trim($_POST["MatKhau"]) ?? "";  
+        $Email = trim($_POST["Email"]) ?? "";  
+        $Sdt = trim($_POST["Sdt"]) ?? "";  
+
+        // Sử dụng truy vấn chuẩn với PDO  
+        $query = "SELECT COUNT(*) FROM khachhang WHERE Email = :email";  
+        $stmt = $conn->prepare($query);  
+        $stmt->bindValue(':email', $Email);   
+        $stmt->execute();  
+        $count = $stmt->fetchColumn();  
+
+        if ($count > 0) {  
+            echo "Email đã được sử dụng, vui lòng nhập email khác.";  
+        } else {  
+            addUser($Ho, $Ten, $MatKhau, $Email, $Sdt);  
+            header("Location: $base_url/register");  
+            exit; // Thêm exit sau header để dừng thực hiện mã tiếp theo  
+        }    
+        break;  
+        case 'dangnhap':
+            include "model/login.php";
+            $product = getProduct();  
+            include "views/home.php";  
+            break;
+        case 'profile':
+            include "views/profile.php";
+            break;
+        }

@@ -1,0 +1,187 @@
+/* Tổng thể bài viết */
+.news-container-a {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px; /* Tăng kích thước mặc định */
+    line-height: 1.6; /* Tăng khoảng cách dòng */
+  }
+  
+  /* Tiêu đề và thông tin meta */
+  .article-title-a {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .article-meta-a {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+  }
+  
+  .article-intro-a {
+    font-size: 20px; /* Tăng từ 18px lên 20px */
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Hình ảnh minh họa */
+  .article-thumbnail-a img,
+  .article-content-a img {
+    width: 70%; /* Giảm kích thước hình ảnh */
+    height: auto;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+  }
+  
+  /* Link sản phẩm và liên hệ */
+  .product-links-a {
+    margin: 20px 0;
+    font-size: 16px;
+  }
+  
+  .product-links-a {
+    color: #1e88e5;
+    text-decoration: none;
+  }
+  
+  .product-links-a a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Phần các tin liên quan */
+  .related-news-a {
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .related-news-a h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .related-news-a ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .related-news-a ul li {
+    margin-bottom: 10px;
+  }
+  
+  .related-news-a ul li a {
+    color: #1e88e5;
+    text-decoration: none;
+  }
+  
+  .related-news-a ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Đánh giá sản phẩm */
+  .product-rating {
+    margin: 20px 0;
+    padding: 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .product-rating p {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .product-rating button {
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .product-rating button:hover {
+    background-color: #166bb7;
+  }
+  
+  /* Phần bình luận */
+  .comments-section-a {
+    margin-top: 30px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .comments-section-a .comment {
+    margin-bottom: 20px;
+  }
+  
+  .comments-section-a .comment strong {
+    display: block;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+  }
+  
+  .comments-section-a .comment p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .comments-section-a .add-comment-a h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .comments-section-a .add-comment-a textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .comments-section-a .add-comment-a button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .comments-section-a .add-comment-a button:hover {
+    background-color: #166bb7;
+  }
+  
+  #rating-stars {
+    margin-bottom: 10px; /* Tăng khoảng cách bên dưới */
+    position: relative;
+    top: -5px; /* Di chuyển ngôi sao lên trên */
+  }
+  
+  #rating-stars span {
+    cursor: pointer;
+    font-size: 20px;
+    color: #ccc;
+  }
+  
+  #rating-stars span:hover,
+  #rating-stars span.active {
+    color: #f39c12;
+  }

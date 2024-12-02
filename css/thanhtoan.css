@@ -30,7 +30,7 @@ label {
     margin-top: 15px;
     display: block;
 }
-input, textarea {
+.input-onea, textarea {
     width: 90%;
     padding: 10px;
     margin-top: 5px;
@@ -38,15 +38,15 @@ input, textarea {
     border-radius: 5px;
     font-size: 14px;
 }
-input[type="checkbox"], input[type="radio"] {
+.input-onea[type="checkbox"], .input-onea[type="radio"] {
     width: auto;
     margin-right: 10px;
 }
-.flex-input {
+.flex-inputa {
     display: flex;
     gap: 10px;
 }
-.flex-input input {
+.flex-inputa .input-onea {
     width: calc(46% - 23px);
 }
 textarea {
@@ -74,7 +74,7 @@ button:hover {
     margin-bottom: 15px;
     font-size: 20px;
 }
-.summary-pay .item {
+.summary-pay .item-onea {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -92,7 +92,7 @@ select{
     font-size: 14px;
 }
 
-header{
+.header-onea{
     display: flex;
     flex-direction: column;
     font-family:'Poppins', sans-serif;
@@ -156,13 +156,13 @@ header{
     text-decoration: none;
 }
 /* Icon */
-.icon{
+.icon-a{
     display: flex;
     flex-direction: row;
     align-items: Center;
     margin-right: 25px;
 }
-.icon a {
+.icon-a a {
     color: white;
     margin-right: 20px;
 }

@@ -1,0 +1,331 @@
+
+
+    <div class="title-categogy">
+        <h2>Danh Mục Sản Phẩm</h2>
+    </div>
+    <section class="Category">
+
+        <div class="block-top-left">
+            <a href="">
+                <img src="image/Category1.png" alt="">
+                <p>Giày Thể Thao</p>
+            </a>
+        </div>
+        </div>
+        <div class="block-center-left">
+            <a href="">
+                <img src="image/Category2.png" alt="">
+                <p>Áo Bóng đá</p>
+            </a>
+        </div>
+        <div class="block-top-right">
+            <a href="">
+                <img src="image/Category3.png" alt="">
+                <p>Áo khoác thể thao</p>
+            </a>
+        </div>
+        <div class="block-botoom-right">
+            <a href="">
+                <img src="image/Category4.png" alt="">
+                <p>Quần thể thao</p>
+            </a>
+        </div>
+        <div class="block-botoom-left">
+            <a href="">
+                <img src="image/Category5.png" alt="">
+                <p>Giày Bóng Đá</p>
+            </a>
+        </div>
+        <div class="rong">
+            <a href="">
+                <img src="image/Category6.png" alt="">
+                <p>Các Loại bóng</p>
+            </a>
+        </div>
+
+    </section>
+
+    <h2>Sản Phẩm Khuyến Mại</h2>
+    <section class="product-sale-home">
+        <div class="pro-sale">
+            <img src="image/mc-chinh.webp" alt="">
+            <div class="circle">
+                <a href="">
+                    <i class="fa-solid fa-heart"></i>
+                </a>
+            </div>
+
+            <div>
+                <p class="p-product-sale-name">Áo Manchester City</p>
+                <div class="p-product-sale">
+                    <p class="price-sale-home">230000 đ</p>
+                    <p class="price-down-home">190000 đ</p>
+                </div>
+                <button>Thêm giỏ hàng</button>
+            </div>
+        </div>
+        <div class="pro-sale">
+            <img src="image/mc-chinh.webp" alt="">
+            <div class="circle">
+                <a href="">
+                    <i class="fa-solid fa-heart"></i>
+                </a>
+            </div>
+
+            <div>
+                <p class="p-product-sale-name">Áo Manchester City</p>
+                <div class="p-product-sale">
+                    <p class="price-sale-home">230000 đ</p>
+                    <p class="price-down-home">190000 đ</p>
+                </div>
+                <button>Thêm giỏ hàng</button>
+            </div>
+        </div>
+        <div class="pro-sale">
+            <img src="image/mc-chinh.webp" alt="">
+            <div class="circle">
+                <a href="">
+                    <i class="fa-solid fa-heart"></i>
+                </a>
+            </div>
+
+            <div>
+                <p class="p-product-sale-name">Áo Manchester City</p>
+                <div class="p-product-sale">
+                    <p class="price-sale-home">230000 đ</p>
+                    <p class="price-down-home">190000 đ</p>
+                </div>
+                <button>Thêm giỏ hàng</button>
+            </div>
+        </div>
+        <div class="pro-sale">
+            <img src="image/mc-chinh.webp" alt="">
+            <div class="circle">
+                <a href="">
+                    <i class="fa-solid fa-heart"></i>
+                </a>
+            </div>
+
+            <div>
+                <p class="p-product-sale-name">Áo Manchester City</p>
+                <div class="p-product-sale">
+                    <p class="price-sale-home">230000 đ</p>
+                    <p class="price-down-home">190000 đ</p>
+                </div>
+                <button>Thêm giỏ hàng</button>
+            </div>
+        </div>
+        <div class="pro-sale">
+            <img src="image/mc-chinh.webp" alt="">
+            <div class="circle">
+                <a href="">
+                    <i class="fa-solid fa-heart"></i>
+                </a>
+            </div>
+
+            <div>
+                <p class="p-product-sale-name">Áo Manchester City</p>
+                <div class="p-product-sale">
+                    <p class="price-sale-home">230000 đ</p>
+                    <p class="price-down-home">190000 đ</p>
+                </div>
+                <button>Thêm giỏ hàng</button>
+            </div>
+        </div>
+    </section>
+    <!-- Sản phẩm- home -->
+    <h2>Sản Phẩm</h2>
+    <section class="Product-home-Product">
+        <div class="menu-product-home">
+            <div class="Category-product-home" data-category="manchester-united">
+                <br>
+                <a href="#"> <img src="image/logoMu.png" alt=""> Manchester United</a>
+            </div>
+            <div class="Category-product-home" data-category="real-madrid">
+                <br>
+                <a href="#"><img src="image/logoReal.png" alt=""> Real Madrid</a>
+            </div>
+            <div class="Category-product-home" data-category="liverpool">
+                <br>
+                <a href="#"> <img src="image/logoLiverpool.png" alt=""> Liverpool</a>
+            </div>
+            <div class="Category-product-home" data-category="manchester-city">
+                <br>
+                <a href="#"> <img src="image/logo-mc.png" alt=""> Manchester City</a>
+            </div>
+            <div class="Category-product-home" data-category="chelsea">
+                <br>
+                <a href="#"> <img src="image/logoChelsea.png" alt=""> Chelsea</a>
+            </div>
+            <div class="Category-product-home" data-category="barcelona">
+                <br>
+                <a href="#"> <img src="image/logoBar.png" alt=""> Barcelona</a>
+            </div>
+        </div>
+        <div class="product-home1">
+        <?php foreach ($product as $product){?>
+            <div class="product-home-one" data-product-category="manchester-united">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name"><?=$product["TenSanPham"]?></p>
+                <p class="product-home-one-price"><?=$product["Gia"]?> đ</p>
+
+            </div>
+            <?php }?> 
+
+ 
+            <div class="product-home-one" data-product-category="real-madrid">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+ 
+
+            <div class="product-home-one" data-product-category="liverpool">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+
+            <div class="product-home-one" data-product-category="manchester-city">
+                <a href="chi-tiet-san-pham.html"class="product-home-one-link">
+                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+            
+            <div class="product-home-one" data-product-category="chelsea">
+                <a href="chi-tiet-san-pham.html" class="product-home-one-link">
+                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+
+            <div class="product-home-one" data-product-category="barcelona">
+                <a href="chi-tiet-san-pham.html"
+                    class="product-home-one-link">
+                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                </a>
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+                <div class="product-home-one-info">
+                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
+                </div>
+                <p class="sproduct-home-one-name">Áo đấu Manchester United</p>
+                <p class="product-home-one-price">300,000đ</p>
+            </div>
+           
+        </div>
+    </section>
+    <div class="News-home">
+        <h2>Tin Tức Mới</h2>
+        <button>Xem Thêm</button>
+    </div>
+    <section>
+        <div class="tinTuc">
+
+            <div class="oTinTuc">
+                <a href="#">
+                    <img src="image/tintuc1.png" alt="">
+                    <p>Áo thun phong cách thể thao,
+                        sản phẩm đc săn đón khi ra mắt
+                    </p>
+                </a>
+
+            </div>
+            <div class="oTinTuc">
+                <a href="#">
+                    <img src="image/tintuc2.png" alt="">
+                    <p>Trái bóng được săn đón nhiều
+                        nhất tính từ Euro 2024
+                    </p>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer-->
+
+    <script src="js/javascrip.js">
+
+    </script>
+
+    <footer>
+        <div class="footer-column-left">
+            <h3>Liên hệ</h3>
+            <hr>
+            <h3>Hotline: </h3>
+            <p>(+84)098765432</p>
+            <h3>Email: </h3>
+            <p>support@gmail.com</p>
+            <h3>Thời gian làm việc</h3>
+            <p>06:00 - 18:00 hằng ngày</p>
+        </div>
+        <div class="footer-column-left">
+
+        </div>
+        <div class="footer-column-right">
+            <h3>Theo dõi tại</h3>
+            <hr>
+            <a href="#">Facebook</a><br>
+            <a href="#">Twitter</a><br>
+            <a href="#">Youtube</a><br>
+            <a href="#">Instagram</a><br>
+
+        </div>
+    </footer>
+</body>
+
+</html>
