@@ -2,7 +2,7 @@
     <section class="duy">
         <div>
             <body onload="loadImgs()">
-                <div><img src="img/pic-0.jpg" id="hoa" onmouseover="mouseover()" onmouseout="mouseout()" width="540px" /></div>
+                <div><img src="" id="hoa" onmouseover="mouseover()" onmouseout="mouseout()" width="540px" /></div>
             </body>
         </div>
         <div>

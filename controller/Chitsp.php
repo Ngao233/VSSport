@@ -1,13 +1,14 @@
 <?php 
 //include_once "models/Category.php";
-include_once "model/oder.php";
+include_once "model/product_detail.php";
+include_once "model/product.php";
 
 // include_once "models/contact.php";
 switch ($action) {
     case 'chitiepsp':
         $oder = getOder();
-        include "admin/HeaderAdmin.php";
-        include "admin/oder/HomeOder.php";
-        include "admin/FooterAdmin.php";
+        include "views/header.php";
+        include "views/chitietsanpham.php";
+        include "views/ footer.php";
         break;
     }
