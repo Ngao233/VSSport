@@ -32,7 +32,7 @@ switch ($action) {
             $id_DanhMuc = $_POST["id_DanhMuc"] ?? "";  
         
             updateProduct($id, $TenSanPham, $MoTa, $Gia, $SoLuong, $HinhAnh, $KichThuoc, $MauSac, $id_DanhMuc);  
-            header("Location: $base_url");  
+            header("Location: $base_url/admin2");  
             exit;
 
     case 'addproduct':
