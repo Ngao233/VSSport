@@ -19,11 +19,18 @@ function getTinTucid($id){
 function updateTinTuc($id, $TieuDe, $NgayDang, $HinhAnh, $NoiDung) {  
     global $conn;  
     $sql = "UPDATE tintuc  
+<<<<<<< HEAD
             SET TinTuc = :TinTuc,   
                 TieuDe = :TieuDe,   
                 NgayDang = :NgayDang,      
                 HinhAnh = :HinhAnh,
                 NoiDung = :NoiDung,      
+=======
+            SET TieuDe = :TieuDe,   
+                NgayDang = :NgayDang,      
+                HinhAnh = :HinhAnh,
+                NoiDung = :NoiDung      
+>>>>>>> main
             WHERE id_TinTuc = :id";  
             
     $stmt = $conn->prepare($sql);  
@@ -34,6 +41,11 @@ function updateTinTuc($id, $TieuDe, $NgayDang, $HinhAnh, $NoiDung) {
     $stmt->bindParam(':id', $id);  
     $stmt->execute();  
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main
 function addTinTuc($TieuDe,$NgayDang,$HinhAnh,$NoiDung)
 {  
     global $conn;  

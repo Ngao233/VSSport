@@ -25,9 +25,9 @@ switch ($action) {
             echo "Email đã được sử dụng, vui lòng nhập email khác.";  
         } else {  
             addUser($Ho, $Ten, $MatKhau, $Email, $Sdt);  
-            header("Location: $base_url/register");  
+            header("Location: $base_url/");  
             exit; // Thêm exit sau header để dừng thực hiện mã tiếp theo  
-        }    
+        }       
         break;  
         }
         

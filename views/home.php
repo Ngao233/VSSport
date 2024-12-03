@@ -303,7 +303,7 @@
 
     <!-- Footer-->
 
-    <script src="js/javascrip.js">
+    <script src="public/js/javascrip.js">
 
     </script>
 
