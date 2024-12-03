@@ -38,7 +38,7 @@ switch ($action) {
                     exit;
 
                 case 'addttintuc':
-                    include "admin/tintuc/add.php";
+                    include "/admin/tintuc/add.php";
                 break;
 
                 
