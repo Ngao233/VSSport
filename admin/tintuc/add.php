@@ -1,6 +1,6 @@
 <h3>Thêm Tin Tức</h3>
 <section class="right-admin">
-<form action="<?=$base_url?>/tintuc" method="post" class="formthem">
+<form action="<?=$base_url?>/posttintuc" method="post" class="formthem">
 <input type="text" name="TieuDe" placeholder="Tiêu Đề " value="<?=$_POST["TieuDe"] ?? $tintuc["TieuDe"] ?? ''?>"> <br>  
 <input type="text" name="NgayDang" placeholder="Ngày Đăng" value="<?=$_POST["NgayDang"] ?? $tintuc["NgayDang"] ?? ''?>"><br>  
 <input type="text" name="HinhAnh" placeholder="Hinh Ảnh " value="<?=$_POST["HinhAnh"] ?? $tintuc["HinhAnh"] ?? ''?>"> <br>  

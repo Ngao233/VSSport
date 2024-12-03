@@ -37,8 +37,8 @@ switch ($action) {
                     header("Location: $base_url/tintucAdmin");
                     exit;
 
-                case 'addttintuc':
-                    include "/admin/tintuc/add.php";
+                case 'addtintuc':
+                    include "admin/tintuc/add.php";
                 break;
 
                 
@@ -55,7 +55,7 @@ switch ($action) {
                 $NoiDung = trim($_POST["NoiDung"] ?? "");
                     include "admin/tintuc/add.php";
                         addTinTuc($id,$TieuDe,$NgayDang,$HinhAnh, $NoiDung);
-                        header("Location: $base_url");    
+                        header("Location: $base_url/tintucAdmin");    
                     break; 
 
                 
