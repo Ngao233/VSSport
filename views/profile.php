@@ -93,7 +93,7 @@ if (!$customer) {
             <a href="#" class="little">Đổi mật khẩu</a><br>
             <li class="fa fa-book"></li><a href="#">Lịch sử mua</a><br>
             <li class="fa fa-heart"></li><a href="#">Sản phẩm yêu thích</a><br>
-            <a href="#">Đăng xuất</a><br>
+            <a href="logout">Đăng xuất</a><br>
 
           </ul>
         </div>

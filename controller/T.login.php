@@ -1,5 +1,5 @@
 <?php   
-include_once "model/category.php";  
+
 include_once "model/product.php";  
 include_once "model/login.php";  
 
@@ -22,11 +22,12 @@ switch ($action) {
             
             break;
 
-        case 'profile':
-            include "views/profile.php"; 
-            break;
+        // case 'profile':
+        //     include "views/profile.php"; 
+        //     break;
+        // case 'logout':
+        // break;
         
 
-    include_once "views/footer.php";  
-    break; 
+    
 }
