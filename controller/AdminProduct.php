@@ -10,12 +10,8 @@ switch ($action) {
         include "admin/HeaderAdmin.php";
         include "admin/product/HomeAdmin.php";
         include "admin/FooterAdmin.php";
-<<<<<<< HEAD
-        break;  
-=======
         break; 
-
->>>>>>> main
+        
     case 'editproduct':
         $id = $_GET["id"] ?? "";  
         $product = getProductid($id);
