@@ -59,7 +59,7 @@
         <nav class="menu-two">
             <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
             <ul>
-                <li><a href="index.php?action=">TRANG CHỦ</a></li>
+                <li><a href="index.php?action=home">TRANG CHỦ</a></li>
                 <li><a href="#">THÔNG TIN</a></li>
                 <li><a href="index.php?action=register">ĐĂNG KÝ</a></li>
                 <li><a href="index.php?action=dangnhap">ĐĂNG NHẬP</a></li>
