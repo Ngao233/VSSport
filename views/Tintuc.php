@@ -129,7 +129,7 @@
 
     document.getElementById('submit-rating').addEventListener('click', function () {
         if (selectedRating > 0) {
-            alert(`Cảm ơn bạn đã đánh giá ${selectedRating} sao!`);
+            alert(Cảm ơn bạn đã đánh giá ${selectedRating} sao!);
         } else {
             alert('Vui lòng chọn số sao trước khi gửi đánh giá.');
         }
@@ -152,10 +152,10 @@ document.addEventListener('DOMContentLoaded', function () {
         // Tạo một phần tử bình luận mới
         const newComment = document.createElement('div');
         newComment.classList.add('comment');
-        newComment.innerHTML = `
+        newComment.innerHTML = 
             <strong>Người dùng:</strong>
             <p>${comment}</p>
-        `;
+        ;
 
         // Thêm bình luận mới lên đầu danh sách
         if (commentList.firstChild) {
@@ -174,5 +174,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 </script>
-
-</html>
