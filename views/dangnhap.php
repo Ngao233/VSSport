@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($matKhau === $row['MatKhau']) {  
             session_start(); // Đảm bảo khởi động session nếu chưa khởi động  
             $_SESSION['id_KhachHang'] = $row['id_KhachHang'];  
-            header("Location: profile"); // Chuyển hướng thành công  
+            header("Location:index.php?action=profile"); // Chuyển hướng thành công  
             exit();  
         } else {  
             echo "Mật khẩu không chính xác."; // Thông báo lỗi mật khẩu  
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="khungDN">
       <div class="background-image"></div>
       <div class="dangnhap">
-      <form method="POST" action="login"> 
+      <form method="POST" action="index.php?action=login"> 
         <h1>Đăng nhập</h1>
         <input type="text" name="Email" id="Email" placeholder="Nhập Email">
         <br>

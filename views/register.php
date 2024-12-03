@@ -37,8 +37,8 @@
         <li><a href="../index.html">TRANG CHỦ</a></li>
         <li><a href="sanpham.html">SẢN PHẨM</a></li>
         <li><a href="#">THÔNG TIN</a></li>
-        <li><a href="dangky.html">ĐĂNG KÝ</a></li>
-        <li><a href="dangnhap.html">ĐĂNG NHẬP</a></li>
+        <li><a href="index.php?action=register">ĐĂNG KÝ</a></li>
+        <li><a href="index.php?action=dangnhap">ĐĂNG NHẬP</a></li>
       </ul>
       <!-- icon bao gom "shoping" "user" "seach" -->
       <div class="icon">
@@ -53,7 +53,7 @@
     <div class="background-image"></div>  
     <div class="dangnhap">  
         <h1>Đăng ký</h1>         
-        <form action="<?=$base_url?>/postuser" method="post" >  
+        <form action="<?=$base_url?>/index.php?action=postuser" method="post" >  
             <input type="text" name="Ho" id="username" placeholder="Nhập họ của bạn" value="<?=$_POST["Ho"] ?? ""?>" required>  
             <br>
             <input type="text" name="Ten" id="username" placeholder="Nhập tên của bạn" value="<?=$_POST["Ten"] ?? ""?>" required>  

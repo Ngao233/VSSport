@@ -1,5 +1,5 @@
 <h3>Sửa danh mục</h3>  
-<form action="<?=$base_url?>/updateoder/<?=$oder["id_DonHang"]?>" method="post">  
+<form action="<?=$base_url?>/index.php?action=updateoder/<?=$oder["id_DonHang"]?>" method="post">  
     <input type="text" name="NgayDatHang" placeholder="Nhập ngày đặt hàng " value="<?=$_POST["NgayDatHang"] ?? $oder["NgayDatHang"] ?? ''?>"> <br>  
     <input type="text" name="TrangThai" placeholder="Nhập trạng thái" value="<?=$_POST["TrangThai"] ?? $oder["TrangThai"] ?? ''?>"><br>  
 

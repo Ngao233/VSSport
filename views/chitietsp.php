@@ -1,84 +1,292 @@
 
-    <section class="duy">
-        <div>
-            <body onload="loadImgs()">
-                <div><img src="" id="hoa" onmouseover="mouseover()" onmouseout="mouseout()" width="540px" /></div>
-            </body>
-        </div>
-        <div>
-            <h1 class="hhhhh"><span>Manchester City Away Jersey 2024/25</span></h1>
-            <hr>
-            <div>
-                <?php
-                // Hiển thị các hình ảnh dưới dạng vòng lặp
-                for ($i = 0; $i < 4; $i++) {
-                    echo '<img src="img/pic-' . $i . '.jpg" class="nham" width="70px" onclick="showimage(' . $i . ')">';
-                }
-                ?>
-            </div>
-            <script>
-                var imgArr = [];
-                var curIndex = 0;
+<?php if ($product): ?>  
+    <h1><?= htmlspecialchars($product['TenSanPham']) ?></h1>  
+    <p>Giá: <?= htmlspecialchars($product['Gia']) ?> đ</p>  
+    <img src="public/image/<?= htmlspecialchars($product['HinhAnh']) ?>" alt="<?= htmlspecialchars($product['TenSanPham']) ?>">  
+    <h2>Mô tả sản phẩm:</h2>  
+    <p><?= htmlspecialchars($product['MoTa']) ?></p>  
+    <h2>Thông số kỹ thuật:</h2>  
+    <p><?= htmlspecialchars($product['ThongSoKyThuat']) ?></p>  
+<?php else: ?>  
+    <p>Sản phẩm không tồn tại hoặc không tìm thấy.</p>  
+    <?php if (isset($productId)): ?> <!-- Kiểm tra xem $productId có tồn tại không -->  
+        <p>ID sản phẩm yêu cầu: <?= htmlspecialchars($productId) ?></p> <!-- Hiển thị ID sản phẩm -->  
+    <?php endif; ?>  
+<?php endif; ?>
 
-                function loadImgs() {
-                    for (let i = 0; i <= 4; i++) {
-                        imgArr[i] = new Image();
-                        imgArr[i].src = "img/pic-" + i + ".jpg";
-                    }
-                }
-
-                function showimage(i) {
-                    document.getElementById("hoa").src = imgArr[i].src;
-                }
-            </script>
-            <p class="ngum">Giá Sản Phẩm</p>
-            <p class="ngu">271.000VNĐ</p>
-            <button class="time"><i class="fa-solid fa-heart"></i>Thêm vào yêu thích</button>
-            <script>
-                document.querySelector('.time').addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    if (this.classList.contains('active')) {
-                        this.textContent = 'Đã thêm vào yêu thích';
-                    } else {
-                        this.textContent = 'Thêm vào yêu thích';
-                    }
-                });
-            </script>
-            <div class="size-selection">
-                <p class="p-product-sale-name">Chọn kích thước:</p>
-                <?php
-                // Tạo các nút kích thước thông qua vòng lặp
-                $sizes = ['S', 'M', 'L', 'XL', 'XXL'];
-                foreach ($sizes as $size) {
-                    echo '<button class="size">' . $size . '</button>';
-                }
-                ?>
-            </div>
-        </div>
-    </section>
-    <section class="product-sale-home">
-        <h1 class="weywie">Sản phẩm tương tự</h1>
-        <?php
-        // Hiển thị sản phẩm mẫu thông qua PHP
-        for ($i = 0; $i < 5; $i++) {
-            echo '
-                <div class="pro-sale">
-                    <img src="../image/mc-chinh.webp" alt="">
-                    <div class="circle">
-                        <a href=""><i class="fa-solid fa-heart"></i></a>
-                    </div>
+<!DOCTYPE html>
+    <html lang="vi">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang Chủ</title>
+        <link rel="stylesheet" href="public/css/style.css">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
+        <style>
+            body h2 {
+                font-family: 'Montserrat', sans-serif;
+                margin-left: 10%;
+                margin-top: 40px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <header>
+            <!-- menu phu -->
+            <nav class="menu-one">
+                <ul>
+                    <li><a href="#">VSSport.vn</a></li>
                     <div>
-                        <p class="p-product-sale-name">Áo Manchester City</p>
-                        <div class="p-product-sale">
-                            <p class="price-sale-home">230000 đ</p>
-                            <p class="price-down-home">190000 đ</p>
-                        </div>
-                        <button>Thêm giỏ hàng</button>
+                        <li><a href="#">Giúp đỡ</a></li>
+                        <li><a href="#">Ngôn ngữ</a></li>
                     </div>
-                </div>';
-        }
-        ?>
-    </section>
-</body>
+                </ul>
+            </nav>
+            <!-- menu chinh -->
+            <nav class="menu-two">
+                <a href="#"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
+                <ul>
+                    <li><a href="#">TRANG CHỦ</a></li>
+                    <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
+                    <li><a href="#">THÔNG TIN</a></li>
+                    <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
+                    <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+                </ul>
+                <!-- icon bao gom "shoping" "user" "seach" -->
+                <div class="icon">
+                    <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                </div>
+    
+            </nav>
+            </section>
+        </header><br>
+        <section class="duy">
+            <div>
+              <body onload="loadImgs()">
+                  
+                  <div><img src="public/image/pic-0.jpg" id="hoa" onmouseover="mouseover()" onmouseout="mouseout()" width="540px"/></div>
+                 
+                 
+            </div>
+            <div><h1 class="hhhhh"><span>Manchester City 
+                Away Jersey 2024/25</span></h1>
+                <hr>
+                <div >
+                    <img src="public/image/pic-0.jpg"class="nham" width="70px" onclick="showimage(0)">
+                    <img src="public/image/pic-1.jpg"class="nham" width="70px" onclick="showimage(1)">
+                    <img src="public/image/pic-2.jpg"class="nham" width="70px" onclick="showimage(2)">
+                    <img src="public/image/pic-3.jpg"class="nham" width="70px" onclick="showimage(3)">
+                   
+                  </div>
+                  
+                  
+                  
+                   
+                   <script>
+                   var imgArr = [];
+                    var curIndex = 0;
+                    
+                    function loadImgs(){
+                      for (let i=0; i<=4; i++ ){
+                        imgArr[i] = new Image();
+                        imgArr[i].src = "public/image/pic-" + i + ".jpg";
+                      }
+                    }
+                    function showimage(i){
+                      document.getElementById("hoa").src = imgArr[i].src;
+                      console.log(document.getElementById("hoa").src);
+                    }
+                    </script>
+                  <p class="ngum">Giá Sản Phẩm</p><p class="ngu"> 271.000VNĐ</p>
+                <button class="time" ><i class="fa-solid fa-heart"></i>Thêm vào yêu thích</button>  
+                <script>  
+                     
+                    document.querySelector('.time').addEventListener('click', function() {  
+                        this.classList.toggle('active'); // Thay đổi trạng thái của lớp 'active'  
+                        if (this.classList.contains('active')) {  
+                            this.textContent = 'Đã thêm vào yêu thích'; // Thay đổi chữ trên nút  
+                        } else {  
+                            this.textContent = 'Thêm vào yêu thích'; // Trả lại chữ cũ  
+                        }  
+                    });  
+                </script>  
+                <a href="#"><button class="food"><i class="fa-solid fa-pen-to-square"></i>Tùy chỉnh</button></a>  
+                <div class="size-selection">  
+                    <p class="p-product-sale-name">Chọn kích thước:</p>  
+                    <button class="size">S</button>  
+                    <button class="size">M</button>  
+                    <button class="size">L</button>  
+                    <button class="size">XL</button>  
+                    <button class="size">XXL</button>  
+                </div> <br>
+                <script>  
+                    const sizeButtons = document.querySelectorAll('.size');  
+                
+                    sizeButtons.forEach(button => {  
+                        button.addEventListener('click', function() {  
+                            // Xóa lớp 'active' khỏi tất cả các nút  
+                            sizeButtons.forEach(btn => btn.classList.remove('active'));  
+                            // Thêm lớp 'active' vào nút đã nhấp  
+                            this.classList.add('active');  
+                        });  
+                    });  
+                </script>  
+                <button class="minh add-to-cart">Thêm giỏ hàng</button>  
+<a href="#"><button class="minh buy-now">Mua Ngay</button></a>  
+                </div>  
+                 </body>
+            </div>
+        </section><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <h1 class="weywie">Sản phẩm tương tự</h1>
+        <section class="product-sale-home">
+            <div class="pro-sale">
+                <img src="public/image/mc-chinh.webp" alt="">
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+    
+                <div>
+                    <p class="p-product-sale-name">Áo Manchester City</p>
+                    <div class="p-product-sale">
+                        <p class="price-sale-home">230000 đ</p>
+                        <p class="price-down-home">190000 đ</p>
+                    </div>
+                    <button>Thêm giỏ hàng</button>
+                </div>
+            </div>
+            <div class="pro-sale">
+                <img src="public/image/mc-chinh.webp" alt="">
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+    
+                <div>
+                    <p class="p-product-sale-name">Áo Manchester City</p>
+                    <div class="p-product-sale">
+                        <p class="price-sale-home">230000 đ</p>
+                        <p class="price-down-home">190000 đ</p>
+                    </div>
+                    <button>Thêm giỏ hàng</button>
+                </div>
+            </div>
+            <div class="pro-sale">
+                <img src="public/image/mc-chinh.webp" alt="">
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+    
+                <div>
+                    <p class="p-product-sale-name">Áo Manchester City</p>
+                    <div class="p-product-sale">
+                        <p class="price-sale-home">230000 đ</p>
+                        <p class="price-down-home">190000 đ</p>
+                    </div>
+                    <button>Thêm giỏ hàng</button>
+                </div>
+            </div>
+            <div class="pro-sale">
+                <img src="public/image/mc-chinh.webp" alt="">
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+    
+                <div>
+                    <p class="p-product-sale-name">Áo Manchester City</p>
+                    <div class="p-product-sale">
+                        <p class="price-sale-home">230000 đ</p>
+                        <p class="price-down-home">190000 đ</p>
+                    </div>
+                    <button>Thêm giỏ hàng</button>
+                </div>
+            </div>
+            <div class="pro-sale">
+                <img src="public/image/mc-chinh.webp" alt="">
+                <div class="circle">
+                    <a href="">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                </div>
+    
+                <div>
+                    <p class="p-product-sale-name">Áo Manchester City</p>
+                    <div class="p-product-sale">
+                        <p class="price-sale-home">230000 đ</p>
+                        <p class="price-down-home">190000 đ</p>
+                    </div>
+                    <button>Thêm giỏ hàng</button>
+                </div>
+            </div>
+        </section><br><br>
+        <section class="DI">
+<div><h2>Chi Tiết Sản Phẩm</h2>
+<p>-Danh Mục:Thời Trang Thể Thao<br> 
+    -Kho 289<br>
+    -Loại hình thể thao: Bóng đá ngoài trời & trong nhà<br>
+    -Tính năng trang phục
+    -Thấm hút mồ hôi<br>
+    -Đội bóng đá: Manchester City<br>
+    -Chiều dài tay áo: NGẮN TAY<br>
+    -Gửi từ: TP. Hồ Chí Minh</p>
+</div>
+<div><h2>Mô tả Sản Phẩm</h2>
+<p>-Áo thun phong cách thể thao không chỉ là một trang phục đơn giản mà còn là biểu tượng<br> của phong cách sống năng động và hiện đại.<br>
 
+    -Lợi Ích Của Việc Sở Hữu Áo Thun Thể Thao<br>
+    -Tăng Khả Năng Vận Động: Chất liệu co giãn và thiết kế phù hợp giúp người mặc dễ dàng vận động mà không bị gò bó.<br>
+    -Thể Hiện Đẳng Cấp Thời Trang: Áo thun thể thao không chỉ dành cho thể thao mà<br> còn trở thành xu hướng thời trang hiện đại, phù hợp với nhiều hoàn cảnh.<br>
+    -Giá Thành Hợp Lý: So với các loại trang phục khác, áo thun thể thao thường có mức<br> giá khá phải chăng, phù hợp cho mọi đối tượng.</p>
+</div>
+        </section><br><br><br><br>
+<section class="min">
+    <div>
+        <div class="enzont">  
+            <h1>Bình Luận</h1>  
+            <div class="comment-section">  
+                <h2>Viết bình luận</h2>  
+                <textarea id="commentInput" rows="4" placeholder="Nhập bình luận của bạn..."></textarea><br>  
+                <button onclick="addComment()">Gửi</button>  
+            </div>  
+    
+            <div class="new-comments" id="commentSection"></div>  
+        </div>  
+    
+        <script>  
+            function addComment() {  
+                var commentText = document.getElementById('commentInput').value;  
+                if (commentText) {  
+                    var commentSection = document.getElementById('commentSection');  
+                    var newComment = document.createElement('div');  
+                    newComment.classList.add('comment');  
+                    newComment.innerHTML = `<strong>Bạn:</strong><p>${commentText}</p>`;  
+                    commentSection.appendChild(newComment);  
+                    document.getElementById('commentInput').value = ''; // Clear input  
+                } else {  
+                    alert('Vui lòng nhập bình luận!');  
+                }  
+            }  
+        </script>  
+    </div>
+</section>
+    </body>
 </html>
