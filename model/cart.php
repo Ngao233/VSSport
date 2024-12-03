@@ -40,6 +40,7 @@ function updateCartQuantity($id_GioHang, $SoLuong, $conn) {
     } else {
         return "Lỗi khi cập nhật!";
     }
+}
     function deleteCartItem($id_GioHang, $conn) {
         $sql = "DELETE FROM giohang WHERE id_GioHang = :id_GioHang";
     
@@ -47,12 +48,12 @@ function updateCartQuantity($id_GioHang, $SoLuong, $conn) {
         $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);
     
         if ($stmt->execute()) {
-            return "Xóa sản phẩm thành công!";
+            return "";
         } else {
             return "Lỗi khi xóa sản phẩm!";
         }
     }
-}
+    
 
 ?>
 

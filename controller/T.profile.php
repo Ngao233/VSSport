@@ -5,7 +5,7 @@ switch ($action) {
         include_once "views/footer.php";
         break;
         }
-<?php   
+
 
 include_once "model/product.php";  
 include_once "model/login.php";  

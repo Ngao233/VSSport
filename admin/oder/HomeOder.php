@@ -14,7 +14,7 @@
     <thead class="table-dark">  
       <tr>  
         <th>#</th>  
-        <th>Ngày đặt hàng</th>  
+        <th>Ngày đặt hàng</th>
         <th>Trạng thái</th>  
         <th>Thao tác</th>
 
@@ -23,7 +23,8 @@
     <tbody>  
       <?php foreach ($oder as $oder){?>   
       <tr>  
-        <td><?=$oder["id_DonHang"]?></td>  
+        <td><?=$oder["id_DonHang"]?></td>
+        
         <td><?=$oder["NgayDatHang"]?></td>  
         <td><?=$oder["TrangThai"]?></td>  
         <td>  

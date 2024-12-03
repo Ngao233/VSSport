@@ -18,7 +18,6 @@ switch ($action) {
     case "postoder":
         $NgayDatHang=trim($_POST["NgayDatHang"]) ?? "";
         $TrangThai=trim($_POST["TrangThai"]) ?? "";
-
         include "admin/oder/add.php";
             addoder($NgayDatHang,$TrangThai);
             header("Location: $base_url");    

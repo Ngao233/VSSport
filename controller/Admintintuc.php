@@ -10,21 +10,20 @@ switch ($action) {
         include "admin/tintuc/HomeTinTuc.php";
         include "admin/FooterAdmin.php";
         break;
-<<<<<<< HEAD
-=======
 
->>>>>>> main
+
+
     case 'edittintuc':
             $id = $_GET["id"] ?? "";  
             $tintuc = getTinTucid($id);
             include "admin/tintuc/edit.php";
             break;
-<<<<<<< HEAD
+
         
-=======
+
             //update tin tuc//
             
->>>>>>> main
+
             case "updatetintuc":
                 $id = $_GET["id"] ?? "";
                 $tintuc = getTinTucid($id); 
@@ -35,20 +34,20 @@ switch ($action) {
 
                 $HinhAnh = trim($_POST["HinhAnh"] ?? "");
 
-<<<<<<< HEAD
+
                 $NoiDung = trim($_POST["Noidung"] ?? "");  
 
                 $id=$_GET["id"]??"";
-=======
+
                 $NoiDung = trim($_POST["NoiDung"] ?? "");  
 
                 $id=$_GET["id"]??"";    
->>>>>>> main
+
                 $tintuc = getTinTucid($id);
                 include "admin/tintuc/edit.php";
                 updateTinTuc($id,$TieuDe,$NgayDang,$HinhAnh,$NoiDung);
                     header("Location: $base_url/tintucAdmin");
-<<<<<<< HEAD
+
      
                 break; 
                 case "deleteoder":
@@ -56,7 +55,7 @@ switch ($action) {
                     deleteTinTuc($id);
                     header("Location: $base_url/oderAdmin");
                     break;
-=======
+
                     exit;
 
                 case 'addttintuc':
@@ -106,6 +105,4 @@ switch ($action) {
                         header("Location: $base_url");
                         break;
                     
-                        
->>>>>>> main
                 }
