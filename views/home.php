@@ -190,28 +190,32 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="product-home1">
         
-        <?php foreach ($product as $product) { ?>
-    <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">
-        <a href="chitietsp/<?=$product['id_SanPham']?>" class="product-home-one-link">
-            <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />
-        </a>
+        <?php foreach ($product as $product) { ?>  
+    <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">  
+        <a href="chitietsp/<?=$product['id_SanPham']?>" class="product-home-one-link">  
+            <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />  
+        </a>  
 
-        <div class="circle">
-            <a href="">
-                <i class="fa-solid fa-heart"></i>
-            </a>
-        </div>
+        <div class="circle">  
+            <a href="">  
+                <i class="fa-solid fa-heart"></i>  
+            </a>  
+        </div>  
         
-        <div class="product-home-one-info">
-            <!-- Link thêm sản phẩm vào giỏ hàng -->
-            <a href="addtocart/<?=$product['id_SanPham']?>" class="product-home-one-button">
-                Thêm vào giỏ hàng
-            </a>
-        </div>
+        <div class="product-home-one-info">   
+        <form action="addtocart" method="post" class="formhome">  
+        <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>" >  
+        <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
+        <button class="product-home-one-button" type="submit">  
+        Thêm vào giỏ hàng  
+    </button>  
+</form>
+        </div>  
 
-        <p class="sproduct-home-one-name"><?=$product["TenSanPham"]?></p>
-        <p class="product-home-one-price"><?=$product["Gia"]?> đ</p>
-    </div>
+        <p class="product-home-one-name"><?=$product["TenSanPham"]?></p>  
+        <p class="product-home-one-price"><?=$product["Gia"]?> đ</p>  
+        
+    </div>  
 <?php } ?>
            
         </div>
@@ -289,5 +293,15 @@ categoriProductH.forEach(link => {
         });  
     });  
 });
+document.querySelectorAll('.formhome').forEach(form => {  
+        const quantityInput = form.querySelector('.quantity-input');  
+        
+        form.addEventListener('submit', () => {  
+            // Đảm bảo rằng số lượng tối thiểu là 1  
+            if (parseInt(quantityInput.value) < 1) {  
+                quantityInput.value = 1;  
+            }  
+        });  
+    }); 
     </script>
     

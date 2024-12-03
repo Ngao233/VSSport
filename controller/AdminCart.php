@@ -32,7 +32,6 @@ switch ($action) {
             include "admin/FooterAdmin.php";
             break;
             case 'addtocart':
-             $id = $_GET["id"] ?? ""; 
             include 'model/addtocart.php';
             break;
               

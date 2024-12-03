@@ -40,6 +40,9 @@
                 margin-left: 10%;
                 margin-top: 40px;
             }
+            .formhome input{
+                display:none;
+            }
         </style>
     </head>
 
