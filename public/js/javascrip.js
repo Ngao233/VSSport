@@ -14,13 +14,13 @@ const products = document.querySelectorAll('.product-home-one');
  
 categoriProductH[0].classList.add('active');  
 products[0].classList.add('active'); 
-// products[1].classList.add('active'); 
-// products[2].classList.add('active'); 
-// products[3].classList.add('active'); 
-// products[4].classList.add('active'); 
-// products[5].classList.add('active'); 
-// products[6].classList.add('active'); 
-// products[7].classList.add('active'); 
+products[1].classList.add('active'); 
+products[2].classList.add('active'); 
+products[3].classList.add('active'); 
+products[4].classList.add('active'); 
+products[5].classList.add('active'); 
+products[6].classList.add('active'); 
+products[7].classList.add('active'); 
 
 
 categoriProductH.forEach(link => {  

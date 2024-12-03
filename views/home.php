@@ -142,34 +142,34 @@
     <h2>Sản Phẩm</h2>
     <section class="Product-home-Product">
         <div class="menu-product-home">
-            <div class="Category-product-home" data-category="manchester-united">
+            <div class="Category-product-home" data-category="1">
                 <br>
-                <a href="#"> <img src="public/image/logoMu.png" alt=""> Manchester United</a>
+                <a href="#">  Giày Thể Thao</a>
             </div>
-            <div class="Category-product-home" data-category="real-madrid">
+            <div class="Category-product-home" data-category="2">
                 <br>
-                <a href="#"><img src="public/image/logoReal.png" alt=""> Real Madrid</a>
+                <a href="#"> Giày Bóng Đá</a>
             </div>
-            <div class="Category-product-home" data-category="liverpool">
+            <div class="Category-product-home" data-category="3">
                 <br>
-                <a href="#"> <img src="public/image/logoLiverpool.png" alt=""> Liverpool</a>
+                <a href="#"> Áo Bóng Đá</a>
             </div>
-            <div class="Category-product-home" data-category="manchester-city">
+            <div class="Category-product-home" data-category="4">
                 <br>
-                <a href="#"> <img src="public/image/logo-mc.png" alt=""> Manchester City</a>
+                <a href="#">  Áo Khoác Thể Thao</a>
             </div>
-            <div class="Category-product-home" data-category="chelsea">
+            <div class="Category-product-home" data-category="5">
                 <br>
-                <a href="#"> <img src="public/image/logoChelsea.png" alt=""> Chelsea</a>
+                <a href="#">  Quần Thể Thao</a>
             </div>
-            <div class="Category-product-home" data-category="barcelona">
+            <div class="Category-product-home" data-category="6">
                 <br>
-                <a href="#"> <img src="public/image/logoBar.png" alt=""> Barcelona</a>
+                <a href="#">  Các Loại Bóng</a>
             </div>
         </div>
         <div class="product-home1">
         <?php foreach ($product as $product){?>
-            <div class="product-home-one" data-product-category="manchester-united">
+            <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">
                 <a href="chi-tiet-san-pham.html" class="product-home-one-link">
                     <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />
                 </a>
