@@ -75,9 +75,4 @@
 
         <img src="" alt="">
         </section>
-        <section class="banner">
-            <div class="slides" id="slides">
-                <div class="slide"><img src="image/banner1.png" alt="Hình ảnh 1"></div>
-                <div class="slide"><img src="image/banner2.png" alt="Hình ảnh 2"></div>
-        </section>
-    </header>
+        

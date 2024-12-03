@@ -1,9 +1,56 @@
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Trang Chủ</title>  
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/hoso.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-<?php  
-include 'views/header.php';  
-// Gọi hàm xử lý đăng ký  
-?>  
-<div class="khung">
+</head>  
+<body>  
+  <header>
+  <!-- menu phu -->
+    <nav class="menu-one">
+      <ul>
+        <li><a href="#">VSSport.vn</a></li>
+        <div>
+          <li><a href="#">Giúp đỡ</a></li>
+          <li><a href="#">Ngôn ngữ</a></li>
+        </div>
+      </ul>
+    </nav>
+    <!-- menu chinh -->
+    <nav class="menu-two">
+      <a href="#"><img src="image/logo.png" alt="" style="width: 155px ;"></a>
+      <ul>
+        <li><a href="../index.html">TRANG CHỦ</a></li>
+        <li><a href="sanpham.html">SẢN PHẨM</a></li>
+        <li><a href="#">THÔNG TIN</a></li>
+        <li><a href="dangky.html">ĐĂNG KÝ</a></li>
+        <li><a href="dangnhap.html">ĐĂNG NHẬP</a></li>
+      </ul>
+      <!-- icon bao gom "shoping" "user" "seach" -->
+      <div class="icon">
+        <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="#"><i class="fa-solid fa-user"></i></a>
+        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+      </div>
+      
+    </nav>
+  </header>
+<!-- Form đăng nhập-->
+    <div class="khung">
       <div class="background-image"></div>
       <div class="left-box">
         <div class="profile-container">
@@ -29,7 +76,10 @@ include 'views/header.php';
       </div>
       <div class="right-box">
         <div class="leftin-box">
-          <h3>Hồ sơ của tôi</h3>
+          <h2>Hồ sơ của tôi</h2>
+          <div class="little-input">
+            <h3>Tên đăng nhập</h3><input type="text" id="username" placeholder="Nhập tên tài khoảng">
+          </div>
           <div class="little-input">
             <h3>Mật khẩu </h3><input type="password" id="password" placeholder="Nhập mật khẩu">
           </div>
@@ -42,8 +92,11 @@ include 'views/header.php';
           <div class="little-input">
             <h3>Giới tính</h3><input type="text" id="age" placeholder="Nhập ">
           </div>
+          <div class="little-input">
+            <h3>Ngày sinh</h3><input type="text" id="age" placeholder="Nhập tuổi">
+          </div>
           <br>
-          <button onclick="editProfile()"><i class="fas fa-sign-in-alt"></i>Cập Nhật</button>
+          <button onclick="editProfile()"><i class="fas fa-sign-in-alt"></i> Đăng ký</button>
 
         </div>
         <div class="rightin-box">
@@ -60,7 +113,10 @@ include 'views/header.php';
   
       </div>
     </div>
-    <?php  
-include 'views/footer.php';  
-// Gọi hàm xử lý đăng ký  
-?>  
+    
+    
+
+
+<!-- Footer-->
+
+    

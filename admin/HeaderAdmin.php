@@ -34,7 +34,7 @@
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="orderAdmin">  
+              <a class="nav-link" href="oderAdmin">  
                 <i data-feather="shopping-cart"></i> Đơn hàng  
               </a>  
             </li>  
@@ -47,15 +47,19 @@
               <a class="nav-link" href="statistics.html">  
                 <i data-feather="bar-chart-2"></i> Thống kê  
               </a>  
+            </li> 
+            <li class="nav-item">  
+              <a class="nav-link" href="tintucAdmin">  
+                <i data-feather="settings"></i> Tin Tuc  
+              </a>  
             </li>  
             <li class="nav-item">  
               <a class="nav-link" href="settings.html">  
                 <i data-feather="settings"></i> Cài đặt  
               </a>  
-            </li>  
+            </li>
           </ul>  
         </div>  
       </nav>  
-
      
  
