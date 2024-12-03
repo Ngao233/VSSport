@@ -20,4 +20,28 @@ function getProductDetailsByCartId($id_SanPham) {
     // Trả về thông tin sản phẩm
     return $product;
 }
+function updateCartQuantity($id_GioHang, $SoLuong, $conn) {
+    // Kiểm tra số lượng nhập vào có hợp lệ không
+    if ($SoLuong < 1 || $SoLuong > 100) {
+        return "Số lượng không hợp lệ!";
+    }
+
+    // Câu lệnh SQL để cập nhật số lượng
+    $sql = "UPDATE giohang SET SoLuong = :SoLuong WHERE id_GioHang = :id_GioHang";
+
+    // Sử dụng prepared statement với PDO
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':SoLuong', $SoLuong, PDO::PARAM_INT);
+    $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);
+
+    // Thực thi câu lệnh
+    if ($stmt->execute()) {
+        return ;
+    } else {
+        return "Lỗi khi cập nhật!";
+    }
+}
+
 ?>
+
+

@@ -164,11 +164,13 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <h2><?= htmlspecialchars($product['TenSanPham']); ?></h2>
                         <p>Giá: <?= number_format($product['Gia'], 0, ',', '.'); ?>đ</p>
                         <p>Danh mục: <?= getCategoryNameByProductId($product['id_DanhMuc']); ?></p>
-                        <div class="quantity">
-                            <button>-</button>
-                            <input type="number" value="<?= htmlspecialchars($item['SoLuong']); ?>" min="1">
-                            <button>+</button>
-                        </div>
+                        <form method="POST" action="cart_update">
+                            <div class="quantity">
+                                <input type="number" name="SoLuong" value="<?= htmlspecialchars($item['SoLuong']); ?>" min="1" max="100">
+                                <button type="submit">Cập nhật</button>     
+                            </div>
+                            <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">
+                        </form>
                         <button class="remove-btn">Xóa</button>
                     </div>
                 </div>
