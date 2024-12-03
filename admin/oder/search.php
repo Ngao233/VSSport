@@ -81,7 +81,7 @@
     </thead>  
     <tbody>  
     <?php if (!empty($oder)): ?>  
-        <<?php foreach ($oder as $oder){?>   
+        <<?php foreach ($oder as $oder) ?>   
       <tr>  
         <td><?=$oder["id_DonHang"]?></td>  
         <td><?=$oder["NgayDatHang"]?></td>  

@@ -1,8 +1,54 @@
-<?php  
-include 'views/header.php';  
-// Gọi hàm xử lý đăng ký  
-?>  
+<!DOCTYPE html>  
+<html lang="vi">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Trang Chủ1</title>  
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/dangky.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+</head>  
+<body>
+<header>
+  <!-- menu phu -->
+    <nav class="menu-one">
+      <ul>
+        <li><a href="#">VSSport.vn</a></li>
+        <div>
+          <li><a href="#">Giúp đỡ</a></li>
+          <li><a href="#">Ngôn ngữ</a></li>
+        </div>
+      </ul>
+    </nav>
+    <!-- menu chinh -->
+    <nav class="menu-two">
+      <a href="#"><img src="image/logo.png" alt="" style="width: 155px ;"></a>
+      <ul>
+        <li><a href="../index.html">TRANG CHỦ</a></li>
+        <li><a href="sanpham.html">SẢN PHẨM</a></li>
+        <li><a href="#">THÔNG TIN</a></li>
+        <li><a href="dangky.html">ĐĂNG KÝ</a></li>
+        <li><a href="dangnhap.html">ĐĂNG NHẬP</a></li>
+      </ul>
+      <!-- icon bao gom "shoping" "user" "seach" -->
+      <div class="icon">
+        <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="#"><i class="fa-solid fa-user"></i></a>
+        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+      </div>
+      
+    </nav>
+  </header>
 <div class="khungDN">  
     <div class="background-image"></div>  
     <div class="dangnhap">  
@@ -29,7 +75,33 @@ include 'views/header.php';
         </form>  
     </div>  
 </div>  
+<script src="../js/javascrip.js">
 
-<?php  
-include 'views/footer.php';  
-?>
+</script>
+
+<footer>
+    <div class="footer-column-left">
+        <h3>Liên hệ</h3>
+        <hr>
+        <h3>Hotline: </h3>
+        <p>(+84)098765432</p>
+        <h3>Email: </h3>
+        <p>support@gmail.com</p>
+        <h3>Thời gian làm việc</h3>
+        <p>06:00 - 18:00 hằng ngày</p>
+    </div>
+    <div class="footer-column-left">
+        
+    </div>
+    <div class="footer-column-right">
+        <h3>Theo dõi tại</h3>
+        <hr>
+        <a href="#">Facebook</a><br>
+        <a href="#">Twitter</a><br>
+        <a href="#">Youtube</a><br>
+        <a href="#">Instagram</a><br>
+
+    </div>
+</footer>
+</body>  
+</html>

@@ -6,14 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
     <link rel="stylesheet" href="public/css/style.css">
-     <link rel="stylesheet" href="public/css/dangky.css">
-     <link rel="stylesheet" href="public/css/dangnhap.css">
-     <link rel="stylesheet" href="public/css/diachi.css">
-     <link rel="stylesheet" href="public/css/doimatkhau.css">
-     <link rel="stylesheet" href="public/css/hoso.css">
+     <!-- <link rel="stylesheet" href="public/css/dangky.css"> -->
+     <!-- <link rel="stylesheet" href="public/css/dangnhap.css"> -->
+     <!-- <link rel="stylesheet" href="public/css/diachi.css"> -->
+     <!-- <link rel="stylesheet" href="public/css/doimatkhau.css"> -->
+     <!-- <link rel="stylesheet" href="public/css/hoso.css"> -->
+
      <link rel="stylesheet" href="public/css/sanpham.css">
      <link rel="stylesheet" href="public/css/styleAdmin.css">
-     <link rel="stylesheet" href="public/css/thanhtoan.css">
+     <!-- <link rel="stylesheet" href="public/css/thanhtoan.css"> -->
      <link rel="stylesheet" href="public/css/tintuc.css">
     <!DOCTYPE html>
     <html lang="vi">
@@ -75,9 +76,4 @@
 
         <img src="" alt="">
         </section>
-        <section class="banner">
-            <div class="slides" id="slides">
-                <div class="slide"><img src="image/banner1.png" alt="Hình ảnh 1"></div>
-                <div class="slide"><img src="image/banner2.png" alt="Hình ảnh 2"></div>
-        </section>
-    </header>
+        

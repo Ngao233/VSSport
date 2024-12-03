@@ -1,16 +1,11 @@
 <?php   
-include_once "model/category.php";  
-include_once "model/product.php";  
 include_once "model/register.php";  
-include_once "views/header.php";
+
 
 switch ($action) {  
-    case '':  
-        $product = getProduct();  
-        include "views/home.php";  
-        break;   
     case 'register':  
-        include "views/register.php";  
+        include "views/register.php"; 
+        
         break;  
     case 'postuser':  
         $Ho = trim($_POST["Ho"]) ?? "";  
@@ -30,17 +25,10 @@ switch ($action) {
             echo "Email đã được sử dụng, vui lòng nhập email khác.";  
         } else {  
             addUser($Ho, $Ten, $MatKhau, $Email, $Sdt);  
-            header("Location: $base_url/register");  
+            header("Location: $base_url/");  
             exit; // Thêm exit sau header để dừng thực hiện mã tiếp theo  
-        }    
+        }       
         break;  
-        case 'dangnhap':
-            include "model/login.php";
-            $product = getProduct();  
-            include "views/home.php";  
-            break;
-        case 'profile':
-            include "views/profile.php";
-            break;
         }
-        include_once "views/footer.php";
+        
+      

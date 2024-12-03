@@ -3,5 +3,11 @@ $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "vssport";
-$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+try {  
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);  
+    // Thiết lập chế độ báo lỗi  
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+} catch (PDOException $e) {  
+    echo "Connection failed: " . $e->getMessage();  
+}  
 

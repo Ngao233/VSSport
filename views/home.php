@@ -1,4 +1,9 @@
-
+<section class="banner">
+            <div class="slides" id="slides">
+                <div class="slide"><img src="image/banner1.png" alt="Hình ảnh 1"></div>
+                <div class="slide"><img src="image/banner2.png" alt="Hình ảnh 2"></div>
+        </section>
+    </header>
 
     <div class="title-categogy">
         <h2>Danh Mục Sản Phẩm</h2>
@@ -7,38 +12,38 @@
 
         <div class="block-top-left">
             <a href="">
-                <img src="image/Category1.png" alt="">
+                <img src="public/image/Category1.png" alt="">
                 <p>Giày Thể Thao</p>
             </a>
         </div>
         </div>
         <div class="block-center-left">
             <a href="">
-                <img src="image/Category2.png" alt="">
+                <img src="public/image/Category2.png" alt="">
                 <p>Áo Bóng đá</p>
             </a>
         </div>
         <div class="block-top-right">
             <a href="">
-                <img src="image/Category3.png" alt="">
+                <img src="public/image/Category3.png" alt="">
                 <p>Áo khoác thể thao</p>
             </a>
         </div>
         <div class="block-botoom-right">
             <a href="">
-                <img src="image/Category4.png" alt="">
+                <img src="public/image/Category4.png" alt="">
                 <p>Quần thể thao</p>
             </a>
         </div>
         <div class="block-botoom-left">
             <a href="">
-                <img src="image/Category5.png" alt="">
+                <img src="public/image/Category5.png" alt="">
                 <p>Giày Bóng Đá</p>
             </a>
         </div>
         <div class="rong">
             <a href="">
-                <img src="image/Category6.png" alt="">
+                <img src="public/image/Category6.png" alt="">
                 <p>Các Loại bóng</p>
             </a>
         </div>
@@ -48,7 +53,7 @@
     <h2>Sản Phẩm Khuyến Mại</h2>
     <section class="product-sale-home">
         <div class="pro-sale">
-            <img src="image/mc-chinh.webp" alt="">
+            <img src="public/image/mc-chinh.webp" alt="">
             <div class="circle">
                 <a href="">
                     <i class="fa-solid fa-heart"></i>
@@ -65,7 +70,7 @@
             </div>
         </div>
         <div class="pro-sale">
-            <img src="image/mc-chinh.webp" alt="">
+            <img src="public/image/mc-chinh.webp" alt="">
             <div class="circle">
                 <a href="">
                     <i class="fa-solid fa-heart"></i>
@@ -82,7 +87,7 @@
             </div>
         </div>
         <div class="pro-sale">
-            <img src="image/mc-chinh.webp" alt="">
+            <img src="public/image/mc-chinh.webp" alt="">
             <div class="circle">
                 <a href="">
                     <i class="fa-solid fa-heart"></i>
@@ -99,7 +104,7 @@
             </div>
         </div>
         <div class="pro-sale">
-            <img src="image/mc-chinh.webp" alt="">
+            <img src="public/image/mc-chinh.webp" alt="">
             <div class="circle">
                 <a href="">
                     <i class="fa-solid fa-heart"></i>
@@ -116,7 +121,7 @@
             </div>
         </div>
         <div class="pro-sale">
-            <img src="image/mc-chinh.webp" alt="">
+            <img src="public/image/mc-chinh.webp" alt="">
             <div class="circle">
                 <a href="">
                     <i class="fa-solid fa-heart"></i>
@@ -139,34 +144,34 @@
         <div class="menu-product-home">
             <div class="Category-product-home" data-category="manchester-united">
                 <br>
-                <a href="#"> <img src="image/logoMu.png" alt=""> Manchester United</a>
+                <a href="#"> <img src="public/image/logoMu.png" alt=""> Manchester United</a>
             </div>
             <div class="Category-product-home" data-category="real-madrid">
                 <br>
-                <a href="#"><img src="image/logoReal.png" alt=""> Real Madrid</a>
+                <a href="#"><img src="public/image/logoReal.png" alt=""> Real Madrid</a>
             </div>
             <div class="Category-product-home" data-category="liverpool">
                 <br>
-                <a href="#"> <img src="image/logoLiverpool.png" alt=""> Liverpool</a>
+                <a href="#"> <img src="public/image/logoLiverpool.png" alt=""> Liverpool</a>
             </div>
             <div class="Category-product-home" data-category="manchester-city">
                 <br>
-                <a href="#"> <img src="image/logo-mc.png" alt=""> Manchester City</a>
+                <a href="#"> <img src="public/image/logo-mc.png" alt=""> Manchester City</a>
             </div>
             <div class="Category-product-home" data-category="chelsea">
                 <br>
-                <a href="#"> <img src="image/logoChelsea.png" alt=""> Chelsea</a>
+                <a href="#"> <img src="public/image/logoChelsea.png" alt=""> Chelsea</a>
             </div>
             <div class="Category-product-home" data-category="barcelona">
                 <br>
-                <a href="#"> <img src="image/logoBar.png" alt=""> Barcelona</a>
+                <a href="#"> <img src="public/image/logoBar.png" alt=""> Barcelona</a>
             </div>
         </div>
         <div class="product-home1">
         <?php foreach ($product as $product){?>
             <div class="product-home-one" data-product-category="manchester-united">
                 <a href="chi-tiet-san-pham.html" class="product-home-one-link">
-                    <img src="image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-image" />
+                    <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />
                 </a>
                 <div class="circle">
                     <a href="">
@@ -185,7 +190,7 @@
  
             <div class="product-home-one" data-product-category="real-madrid">
                 <a href="chi-tiet-san-pham.html" class="product-home-one-link">
-                    <img src="image/AkReal.png" alt="" class="product-home-one-image" />
+                    <img src="public/image/AkReal.png" alt="" class="product-home-one-public/image" />
                 </a>
                 <div class="circle">
                     <a href="">
@@ -202,7 +207,7 @@
 
             <div class="product-home-one" data-product-category="liverpool">
                 <a href="chi-tiet-san-pham.html" class="product-home-one-link">
-                    <img src="image/AtLiver.png" alt="" class="product-home-one-image" />
+                    <img src="public/image/AtLiver.png" alt="" class="product-home-one-public/image" />
                 </a>
                 <div class="circle">
                     <a href="">
@@ -218,7 +223,7 @@
 
             <div class="product-home-one" data-product-category="manchester-city">
                 <a href="chi-tiet-san-pham.html"class="product-home-one-link">
-                    <img src="image/mc-chinh.webp" alt="" class="product-home-one-image" />
+                    <img src="public/image/mc-chinh.webp" alt="" class="product-home-one-public/image" />
                 </a>
                 <div class="circle">
                     <a href="">
@@ -234,7 +239,7 @@
             
             <div class="product-home-one" data-product-category="chelsea">
                 <a href="chi-tiet-san-pham.html" class="product-home-one-link">
-                    <img src="image/AtChelsea.png" alt="" class="product-home-one-image" />
+                    <img src="public/image/AtChelsea.png" alt="" class="product-home-one-public/image" />
                 </a>
                 <div class="circle">
                     <a href="">
@@ -251,7 +256,7 @@
             <div class="product-home-one" data-product-category="barcelona">
                 <a href="chi-tiet-san-pham.html"
                     class="product-home-one-link">
-                    <img src="image/AtBar.png" alt="" class="product-home-one-image" />
+                    <img src="public/image/AtBar.png" alt="" class="product-home-one-public/image" />
                 </a>
                 <div class="circle">
                     <a href="">
@@ -276,7 +281,7 @@
 
             <div class="oTinTuc">
                 <a href="#">
-                    <img src="image/tintuc1.png" alt="">
+                    <img src="public/image/tintuc1.png" alt="">
                     <p>Áo thun phong cách thể thao,
                         sản phẩm đc săn đón khi ra mắt
                     </p>
@@ -285,7 +290,7 @@
             </div>
             <div class="oTinTuc">
                 <a href="#">
-                    <img src="image/tintuc2.png" alt="">
+                    <img src="public/image/tintuc2.png" alt="">
                     <p>Trái bóng được săn đón nhiều
                         nhất tính từ Euro 2024
                     </p>
@@ -298,7 +303,7 @@
 
     <!-- Footer-->
 
-    <script src="js/javascrip.js">
+    <script src="public/js/javascrip.js">
 
     </script>
 
