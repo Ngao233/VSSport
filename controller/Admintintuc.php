@@ -10,12 +10,14 @@ switch ($action) {
         include "admin/tintuc/HomeTinTuc.php";
         include "admin/FooterAdmin.php";
         break;
+
     case 'edittintuc':
             $id = $_GET["id"] ?? "";  
             $tintuc = getTinTucid($id);
             include "admin/tintuc/edit.php";
             break;
-        
+            //update tin tuc//
+            
             case "updatetintuc":
                 $id = $_GET["id"] ?? "";
                 $tintuc = getTinTucid($id); 
@@ -33,15 +35,14 @@ switch ($action) {
                 include "admin/tintuc/edit.php";
                 updateTinTuc($id,$TieuDe,$NgayDang,$HinhAnh,$NoiDung);
                     header("Location: $base_url/tintucAdmin");
-     
-                break; 
-                case "deletetintuc":
-                    $id=$_GET["id"]??"";
-                    deleteTinTuc($id);
-                    header("Location: $base_url/oderAdmin");
-                    break;
+                    exit;
+
+                case 'addttintuc':
+                    include "admin/tintuc/add.php";
+                break;
+
                 
-                
+                //ghi ra tin tuc//
                 case "posttintuc":
                 $tintuc = getTinTucid($id); 
 
@@ -53,7 +54,35 @@ switch ($action) {
 
                 $NoiDung = trim($_POST["NoiDung"] ?? "");
                     include "admin/tintuc/add.php";
-                        addTinTuc($id,$TieuDe,$NgayDang,$HinhAnh,$NoiDung);
+                        addTinTuc($id,$TieuDe,$NgayDang,$HinhAnh, $NoiDung);
                         header("Location: $base_url");    
-                    break;   
+                    break; 
+
+                
+                case 'searchtintuc':  
+                    if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
+                        $search = trim($_POST["search"] ?? ""); // Nhận từ khóa tìm kiếm  
+                    
+                        if ($search != "") {  
+                           
+                            $tintuc = searchTinTuc($search);
+                            if ($product) {  
+                                
+                                include "admin/tintuc/search.php";
+                                
+                            } else {  
+                                $errors[] = "Không có kết quả nào được tìm thấy.";  
+                                
+                            }  
+                        
+                        }  
+                    }  
+                    break; 
+                    case "deletetintuc":
+                        $id=$_GET["id"]??"";
+                        deleteTinTuc($id);
+                        header("Location: $base_url");
+                        break;
+                    
+                        
                 }

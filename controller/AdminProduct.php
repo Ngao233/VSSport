@@ -11,12 +11,14 @@ switch ($action) {
         include "admin/product/HomeAdmin.php";
         include "admin/FooterAdmin.php";
         break; 
+
     case 'editproduct':
         $id = $_GET["id"] ?? "";  
         $product = getProductid($id);
         $categories = getAllCategories();
         include "admin/product/edit.php";
         break;
+
         case "updateproduct":  
             $id = $_GET["id"] ?? "";  
             $product = getProductid($id);  
@@ -33,9 +35,11 @@ switch ($action) {
             updateProduct($id, $TenSanPham, $MoTa, $Gia, $SoLuong, $HinhAnh, $KichThuoc, $MauSac, $id_DanhMuc);  
             header("Location: $base_url");  
             exit;
+
     case 'addproduct':
             include "admin/product/add.php";
         break;
+        
     case "postproduct":
         $TenSanPham=trim($_POST["TenSanPham"]) ?? "";
         $MoTa=trim($_POST["MoTa"]) ?? "";
