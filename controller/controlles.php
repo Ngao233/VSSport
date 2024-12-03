@@ -1,4 +1,7 @@
 <?php
+$action = $_GET['action'] ?? '';  
+
+// Chuyển đổi tên các case thành string biểu diễn hành động  
 
 include "T.home.php";
 include "AdminProduct.php";

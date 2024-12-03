@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['id_KhachHang'])) {  
     // Nếu người dùng chưa đăng nhập, chuyển hướng về trang đăng nhập  
-    header("Location: dangnhap"); 
+    header("Location: index.php?action=dangnhap"); 
      
     exit();  
 }  

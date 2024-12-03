@@ -25,32 +25,32 @@
           <img src="VSSp rt.png" alt="Logo">  
           <ul class="nav flex-column mt-4">  
             <li class="nav-item">  
-              <a class="nav-link active" href="admin.html">  
+              <a class="nav-link active" href="index.php?action=admin2">  
                 <i data-feather="home"></i> Home  
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="products.html">  
+              <a class="nav-link" href="index.php?action=admin2">  
                 <i data-feather="box"></i> Quản lý sản phẩm  
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="orders.html">  
+              <a class="nav-link" href="">  
                 <i data-feather="shopping-cart"></i> Đơn hàng  
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="users.html">  
+              <a class="nav-link" href="">  
                 <i data-feather="users"></i> Người dùng  
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="statistics.html">  
+              <a class="nav-link" href="">  
                 <i data-feather="bar-chart-2"></i> Thống kê  
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="settings.html">  
+              <a class="nav-link" href="">  
                 <i data-feather="settings"></i> Cài đặt  
               </a>  
             </li>  
@@ -61,11 +61,11 @@
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">  
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">  
           <h1 class="h2">Dashboard</h1>  
-          <a href="addproduct" class="btn btn-primary">Thêm Sản Phẩm Mới</a> 
+          <a href="index.php?action=addproduct" class="btn btn-primary">Thêm Sản Phẩm Mới</a> 
         </div>  
 
         <h2 class="mb-3">Danh sách sản phẩm</h2>  
-        <form action="searchproduct" method="post">
+        <form action="index.php?action=searchproduct" method="post">
         <input type="search" class="form-control mb-3" name="search" placeholder="Tìm kiếm sản phẩm...">
         <button class="btn btn-primary">Tìm</button>       
         </form> 
@@ -87,9 +87,9 @@
         <td><?=$oder["NgayDatHang"]?></td>  
         <td><?=$oder["TrangThai"]?></td>  
         <td>  
-          <a href="editoder/<?=$oder["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+          <a href="index.php?action=editoder/<?=$oder["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
           <br>  
-          <a href="oder/<?=$oder["id_SanPham"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
+          <a href="index.php?action=oder/<?=$oder["id_SanPham"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
         </td>  
       </tr> 
       <?php endforeach; ?>  

@@ -1,9 +1,13 @@
+# RewriteEngine On  
 
-RewriteEngine On
-RewriteRule ^controllers/ - [F]
-RewriteRule ^models/ - [F]
-RewriteRule ^views/ - [F]
-RewriteRule ^init/ - [F]
+# # Bảo vệ các thư mục cụ thể  
+# RewriteRule ^controllers/ - [F]  
+# RewriteRule ^models/ - [F]  
+# RewriteRule ^views/ - [F]  
+# RewriteRule ^init/ - [F]  
 
-RewriteRule ^(\w+)$ index.php?action=$1
-RewriteRule ^(\w+)/(\w+)$ index.php?action=$1&id=$2
+# # Chuyển hướng cho URL không có đuôi file  
+# RewriteCond %{REQUEST_FILENAME} !-f  
+# RewriteCond %{REQUEST_FILENAME} !-d  
+# RewriteRule ^([^/]+)$ index.php?action=\$1 [L,QSA]  
+# RewriteRule ^([^/]+)/([^/]+)$ index.php?action=\$1&id=\$2 [L,QSA]  
