@@ -9,6 +9,15 @@ switch ($action) {
         include_once "views/header.php"; 
         include "views/home.php";  
         include_once "views/footer.php";
-        break;  
-        }
+    break;
+    case 'statistics':
+        include "admin/statistics.php";
+        break;
+    case 'home':  
+        $product = getProduct(); 
+        include_once "views/header.php"; 
+        include "views/home.php";  
+        include_once "views/footer.php";
+        break;
+}
         

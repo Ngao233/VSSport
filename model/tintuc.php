@@ -64,4 +64,14 @@ function deleteTinTuc($id){
     $stmt->execute();
 }
 
+function getInfoDetail($id){
+    global $conn;
+    $sql = "SELECT * FROM tintuc WHERE id_TinTuc = :id";   
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    $getInfoDetail = $stmt->fetch();
+    return $getInfoDetail; 
+}
+
  ?>
