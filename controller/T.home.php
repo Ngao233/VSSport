@@ -9,6 +9,7 @@ switch ($action) {
         include_once "views/header.php"; 
         include "views/home.php";  
         include_once "views/footer.php";
+<<<<<<< HEAD
         break;
         case 'statistics':
             include "admin/statistics.php";
@@ -20,6 +21,8 @@ switch ($action) {
             include_once "views/footer.php";
             break;
                
+=======
+        break;  
+>>>>>>> 83cddcf9fc95eb14b763bed4cc3f09dfec9561a5
         }
         
-    

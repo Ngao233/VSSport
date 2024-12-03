@@ -1,4 +1,41 @@
+<?php  
+$productId = isset($_GET['id']) ? intval($_GET['id']) : 0; // Chuyển đổi về số (int)  
 
+if ($productId > 0) {  
+    $sql = "  
+        SELECT p.id AS id_SanPham, p.name AS TenSanPham, p.price AS Gia, p.image_url AS HinhAnh, d.description AS MoTa, d.specifications AS ThongSoKyThuat  
+        FROM sanpham p  
+        LEFT JOIN chitietsanpham d ON p.id = d.product_id  
+        WHERE p.id = :id  
+    ";  
+    
+    try {  
+        $stmt = $pdo->prepare($sql); // Chuẩn bị câu lệnh  
+        $stmt->execute(['id' => $productId]); // Thực thi câu lệnh với tham số  
+        $product = $stmt->fetch(); // Lấy kết quả  
+
+        // Kiểm tra và hiển thị dữ liệu  
+        var_dump($product); // Xem nội dung để kiểm tra  
+        
+        if ($product) {  
+            echo "<h1>" . htmlspecialchars($product['TenSanPham']) . "</h1>";  
+            echo "<p>Giá: $" . htmlspecialchars($product['Gia']) . "</p>";  
+            echo "<p>ID sản phẩm: " . htmlspecialchars($product['id_SanPham']) . "</p>";  
+            echo "<img src='" . htmlspecialchars($product['HinhAnh']) . "' alt='Hình ảnh sản phẩm'><br>";  
+            echo "<h2>Mô tả sản phẩm:</h2>";  
+            echo "<p>" . htmlspecialchars($product['MoTa']) . "</p>";  
+            echo "<h2>Thông số kỹ thuật:</h2>";  
+            echo "<p>" . htmlspecialchars($product['ThongSoKyThuat']) . "</p>";  
+        } else {  
+            echo "Sản phẩm không tìm thấy.";  
+        }  
+    } catch (PDOException $e) {  
+        echo "Có lỗi xảy ra: " . $e->getMessage();  
+    }  
+} else {  
+    echo "ID sản phẩm không hợp lệ."; // Thông báo nếu ID không hợp lệ  
+}  
+?>
 <!DOCTYPE html>
     <html lang="vi">
     

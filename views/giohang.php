@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['id_KhachHang'])) {
     $id_KhachHang = $_SESSION['id_KhachHang'];
 } else {
-    header("Location: index.php?action=dangnhap"); 
+    header("Location: dangnhap"); 
     exit();
 } 
  
@@ -164,7 +164,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <h2><?= htmlspecialchars($product['TenSanPham']); ?></h2>
                         <p>Giá: <?= number_format($product['Gia'], 0, ',', '.'); ?>đ</p>
                         <p>Danh mục: <?= getCategoryNameByProductId($product['id_DanhMuc']); ?></p>
-                        <form method="POST" action="index.php?action=cart_update">
+                        <form method="POST" action="cart_update">
                             <div class="quantity">
                                 <input type="number" name="SoLuong" value="<?= htmlspecialchars($item['SoLuong']); ?>" min="1" max="100">
                                 <button type="submit">Cập nhật</button>     

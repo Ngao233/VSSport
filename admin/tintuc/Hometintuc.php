@@ -3,7 +3,7 @@
           class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Dashboard</h1>
           <div class="btn-toolbar mb-2 mb-md-0">
-            <a href="index.php?action=addtintuc" class="btn btn-primary" >Thêm mới</a>
+            <a href="addtintuc" class="btn btn-primary" >Thêm mới</a>
           </div>
         </div>
 
@@ -37,9 +37,9 @@
         <td><img src="public/image/<?=$haha["HinhAnh"]?>" width="20px"></td> <!-- Hiển thị hình ảnh nhỏ -->  
         <td><?=$haha["NoiDung"]?></td>   
         <td>  
-            <a href="index.php?action=edittintuc/<?=$haha["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+            <a href="edittintuc/<?=$haha["id_TinTuc"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
             <br>  
-            <a href="index.php?action=deletetintuc/<?=$haha["id_TinTuc"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Xóa</a>  
+            <a href="deletetintuc/<?=$haha["id_TinTuc"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Xóa</a>  
         </td>  
     </tr>  
 <?php endforeach; ?>  
