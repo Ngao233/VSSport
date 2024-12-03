@@ -12,11 +12,11 @@ switch ($action) {
             // Kiểm tra sự tồn tại của giá trị trong $_POST trước khi sử dụng
             if (isset($_POST['id_GioHang']) && isset($_POST['SoLuong'])) {
                 // Lấy giá trị từ form gửi lên
-                $cartId = $_POST['id_GioHang'];  // ID giỏ hàng
-                $newQuantity = $_POST['SoLuong'];  // Số lượng mới
+                $cartId = $_POST['id_GioHang'];
+                $newQuantity = $_POST['SoLuong'];  
         
                  
-                    // Gọi hàm cập nhật số lượng
+                  
                     $result = updateCartQuantity($cartId, $newQuantity, $conn);
         
                     // Hiển thị kết quả cập nhật
@@ -31,5 +31,12 @@ switch ($action) {
             include "views/giohang.php";
             include "admin/FooterAdmin.php";
             break;
+            case 'addtocart':
+             $id = $_GET["id"] ?? ""; 
+            include 'model/addtocart.php';
+            break;
+              
+
+            
         
 }

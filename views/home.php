@@ -1,3 +1,24 @@
+<?php  
+session_start();   
+
+if (isset($_SESSION['id_KhachHang'])) {
+    $id_KhachHang = $_SESSION['id_KhachHang'];
+} else { 
+    exit();
+} 
+ 
+
+$id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
+
+// Truy vấn giỏ hàng của khách hàng
+$sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
+$stmt->execute();
+$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+?> 
 <section class="banner">
             <div class="slides" id="slides">
                 <div class="slide"><img src="image/banner1.png" alt="Hình ảnh 1"></div>
@@ -168,24 +189,30 @@
             </div>
         </div>
         <div class="product-home1">
-        <?php foreach ($product as $product){?>
-            <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">
-                <a href="chitietsp?id=<?=$product['id_SanPham']?>" class="product-home-one-link">
-                    <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />
-                </a>
-                <div class="circle">
-                    <a href="">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
-                </div>
-                <div class="product-home-one-info">
-                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
-                </div>
-                <p class="sproduct-home-one-name"><?=$product["TenSanPham"]?></p>
-                <p class="product-home-one-price"><?=$product["Gia"]?> đ</p>
+        
+        <?php foreach ($product as $product) { ?>
+    <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">
+        <a href="chitietsp/<?=$product['id_SanPham']?>" class="product-home-one-link">
+            <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />
+        </a>
 
-            </div>
-            <?php }?> 
+        <div class="circle">
+            <a href="">
+                <i class="fa-solid fa-heart"></i>
+            </a>
+        </div>
+        
+        <div class="product-home-one-info">
+            <!-- Link thêm sản phẩm vào giỏ hàng -->
+            <a href="addtocart/<?=$product['id_SanPham']?>" class="product-home-one-button">
+                Thêm vào giỏ hàng
+            </a>
+        </div>
+
+        <p class="sproduct-home-one-name"><?=$product["TenSanPham"]?></p>
+        <p class="product-home-one-price"><?=$product["Gia"]?> đ</p>
+    </div>
+<?php } ?>
            
         </div>
     </section>

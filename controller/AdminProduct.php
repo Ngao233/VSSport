@@ -51,7 +51,7 @@ switch ($action) {
         $MauSac=trim($_POST["MauSac"]) ?? "";
         include "admin/product/add.php";
             addProduct($TenSanPham,$MoTa,$Gia,$SoLuong,$HinhAnh,$KichThuoc,$MauSac);
-            header("Location: $base_url");    
+            header("Location: $base_url/admin2");    
         break;   
         
         case 'searchproduct':  
@@ -76,6 +76,6 @@ switch ($action) {
             case "deleteproduct":
                 $id=$_GET["id"]??"";
                 deleteProduct($id);
-                header("Location: $base_url");
+                header("Location: $base_url/admin2");
                 break;
             }
