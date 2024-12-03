@@ -150,40 +150,38 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <h1>Giỏ hàng của bạn</h1>
 
     <?php if ($cartItems): ?>
-        <?php foreach ($cartItems as $item): ?>
-            <?php
-            // Lấy thông tin sản phẩm từ id_SanPham
-            $product = getProductDetailsByCartId($item['id_SanPham']);
+    <?php 
+    $total = 0;
+    foreach ($cartItems as $item): 
+        // Lấy thông tin sản phẩm từ id_SanPham
+        $product = getProductDetailsByCartId($item['id_SanPham']);
+        $itemTotal = $product['Gia'] * $item['SoLuong']; // Tính tổng cho từng sản phẩm
+        $total += $itemTotal; // Cộng dồn vào tổng giỏ hàng
             ?>
-            <div class="cart-item">
-                <img src="public/image/<?= htmlspecialchars($product['HinhAnh']); ?>" alt="<?= htmlspecialchars($product['TenSanPham']); ?>">
-                <div class="item-details">
-                    <h2><?= htmlspecialchars($product['TenSanPham']); ?></h2>
-                    <p>Giá: <?= number_format($product['Gia'], 0, ',', '.'); ?>đ</p>
-                    <p>Danh mục: <?= getCategoryNameByProductId($product['id_DanhMuc']); ?></p>
-                    <div class="quantity">
-                        <button>-</button>
-                        <input type="number" value="<?= htmlspecialchars($item['SoLuong']); ?>" min="1">
-                        <button>+</button>
+                <div class="cart-item">
+                    <img src="public/image/<?= htmlspecialchars($product['HinhAnh']); ?>" alt="<?= htmlspecialchars($product['TenSanPham']); ?>">
+                    <div class="item-details">
+                        <h2><?= htmlspecialchars($product['TenSanPham']); ?></h2>
+                        <p>Giá: <?= number_format($product['Gia'], 0, ',', '.'); ?>đ</p>
+                        <p>Danh mục: <?= getCategoryNameByProductId($product['id_DanhMuc']); ?></p>
+                        <div class="quantity">
+                            <button>-</button>
+                            <input type="number" value="<?= htmlspecialchars($item['SoLuong']); ?>" min="1">
+                            <button>+</button>
+                        </div>
+                        <button class="remove-btn">Xóa</button>
                     </div>
-                    <button class="remove-btn">Xóa</button>
                 </div>
-            </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>Giỏ hàng của bạn đang trống.</p>
-    <?php endif; ?>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>Giỏ hàng của bạn đang trống.</p>
+        <?php endif; ?>
 
-    <!-- Hiển thị tổng cộng -->
-    <div class="cart-summary">
-        <?php
-        $total = 0;
-        foreach ($cartItems as $item) {
-            $total += $item['Gia'] * $item['SoLuong'];
-        }
-        ?>
-        <h3>Tổng cộng: <?= number_format($total, 0, ',', '.'); ?>đ</h3>
-        <button class="checkout-btn">Thanh toán</button>
+        <!-- Hiển thị tổng cộng -->
+        <div class="cart-summary">
+            <h3>Tổng cộng: <?= number_format($total, 0, ',', '.'); ?>đ</h3>
+            <button class="checkout-btn">Thanh toán</button>
+        </div>
     </div>
 </div>
 
