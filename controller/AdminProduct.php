@@ -11,7 +11,8 @@ switch ($action) {
         include "admin/HeaderAdmin.php";
         include "admin/product/HomeAdmin.php";
         include "admin/FooterAdmin.php";
-    
+        break; 
+        
     case 'editproduct':
         $id = $_GET["id"] ?? "";  
         $product = getProductid($id);
