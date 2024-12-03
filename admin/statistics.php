@@ -74,17 +74,17 @@
                   <img src="VSSp rt.png" alt="Logo">  
                   <ul class="nav flex-column mt-4">  
                     <li class="nav-item">  
-                      <a class="nav-link active" href="index.php?action=admin2">  
+                      <a class="nav-link active" href="admin.html">  
                         <i data-feather="home"></i> Home  
                       </a>  
                     </li>  
                     <li class="nav-item">  
-                      <a class="nav-link" href="index.php?action=admin2">  
+                      <a class="nav-link" href="products.html">  
                         <i data-feather="box"></i> Quản lý sản phẩm  
                       </a>  
                     </li>  
                     <li class="nav-item">  
-                      <a class="nav-link" href="">  
+                      <a class="nav-link" href="orders.html">  
                         <i data-feather="shopping-cart"></i> Đơn hàng  
                       </a>  
                     </li>  

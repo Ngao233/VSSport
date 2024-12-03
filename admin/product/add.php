@@ -1,7 +1,7 @@
 
 <h3>Thêm Sản Phẩm</h3>
 <section class="right-admin">
-<form action="<?=$base_url?>/index.php?action=postproduct" method="post" class="formthem">
+<form action="<?=$base_url?>/postproduct" method="post" class="formthem">
     <input type="text" name="TenSanPham" placeholder="Nhập tên " value="<?=$_POST["TenSanPham"] ?? ""?>"> <br>  
     <input type="text" name="MoTa" placeholder="Nhập MoTa" value="<?=$_POST["MoTa"] ?? ""?>"><br>  
     <input type="text" name="Gia" placeholder="Nhập Gia" value="<?=$_POST["Gia"] ?? ""?>"><br>  

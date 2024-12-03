@@ -59,15 +59,16 @@
         <nav class="menu-two">
             <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
             <ul>
-                <li><a href="index.php?action=home">TRANG CHỦ</a></li>
+                <li><a href="#">TRANG CHỦ</a></li>
+                <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
                 <li><a href="#">THÔNG TIN</a></li>
-                <li><a href="index.php?action=register">ĐĂNG KÝ</a></li>
-                <li><a href="index.php?action=dangnhap">ĐĂNG NHẬP</a></li>
+                <li><a href="register">ĐĂNG KÝ</a></li>
+                <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
             </ul>
             <!-- icon bao gom "shoping" "user" "seach" -->
             <div class="icon">
-                <a href="index.php?action=giohang"><i class="fa-solid fa-cart-shopping"></i></a>
-                <a href="index.php?action=profile"><i class="fa-solid fa-user"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="profile"><i class="fa-solid fa-user"></i></a>
                 <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
             </div>
 

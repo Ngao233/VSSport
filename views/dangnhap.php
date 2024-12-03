@@ -34,11 +34,11 @@
     <nav class="menu-two">
       <a href="#"><img src="image/logo.png" alt="" style="width: 155px ;"></a>
       <ul>
-        <li><a href="index.php?action=home">TRANG CHỦ</a></li>
+        <li><a href="../index.html">TRANG CHỦ</a></li>
         <li><a href="sanpham.html">SẢN PHẨM</a></li>
         <li><a href="#">THÔNG TIN</a></li>
-        <li><a href="index.php?action=register">ĐĂNG KÝ</a></li>
-        <li><a href="index.php?action=dangnhap">ĐĂNG NHẬP</a></li>
+        <li><a href="dangky.html">ĐĂNG KÝ</a></li>
+        <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
       </ul>
       <!-- icon bao gom "shoping" "user" "seach" -->
       <div class="icon">
@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($matKhau === $row['MatKhau']) {  
             session_start(); // Đảm bảo khởi động session nếu chưa khởi động  
             $_SESSION['id_KhachHang'] = $row['id_KhachHang'];  
-            header("Location:index.php?action=profile"); // Chuyển hướng thành công  
+            header("Location: profile"); // Chuyển hướng thành công  
             exit();  
         } else {  
             echo "Mật khẩu không chính xác."; // Thông báo lỗi mật khẩu  
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <div class="khungDN">
       <div class="background-image"></div>
       <div class="dangnhap">
-      <form method="POST" action="index.php?action=login"> 
+      <form method="POST" action="login"> 
         <h1>Đăng nhập</h1>
         <input type="text" name="Email" id="Email" placeholder="Nhập Email">
         <br>

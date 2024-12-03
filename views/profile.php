@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION['id_KhachHang'])) {  
     // Nếu người dùng chưa đăng nhập, chuyển hướng về trang đăng nhập  
-    header("Location: index.php?action=dangnhap"); 
+    header("Location: dangnhap"); 
      
     exit();  
 }  
@@ -58,7 +58,7 @@ if (!$customer) {
     <nav class="menu-two">
       <a href="#"><img src="image/logo.png" alt="" style="width: 155px ;"></a>
       <ul>
-        <li><a href="index.php?action=home">TRANG CHỦ</a></li>
+        <li><a href="">TRANG CHỦ</a></li>
         <li><a href="sanpham.html">SẢN PHẨM</a></li>
         <li><a href="#">THÔNG TIN</a></li>
         <li><a href="register">ĐĂNG KÝ</a></li>
