@@ -171,7 +171,11 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">
                         </form>
-                        <button class="remove-btn">Xóa</button>
+                        <form method="POST" action="controller.php?action=cart_delete">
+                            <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">
+                            <button type="submit" class="remove-btn">Xóa</button>
+                        </form>
+
                     </div>
                 </div>
             <?php endforeach; ?>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php  
 switch ($action) {  
     case 'profile':
@@ -6,8 +5,6 @@ switch ($action) {
         include_once "views/footer.php";
         break;
         }
-      
-=======
 <?php   
 
 include_once "model/product.php";  
@@ -23,4 +20,3 @@ switch ($action) {
         break;
         
 }
->>>>>>> main
