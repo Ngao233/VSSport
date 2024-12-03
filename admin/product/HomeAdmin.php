@@ -44,9 +44,9 @@
         <td><?=$product["KichThuoc"]?></td>  
         <td><?=$product["MauSac"]?></td>  
         <td>  
-            <a href="editproduct/<?=$product["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+            <a href="index.php?action=editproduct/<?=$product["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
             <br>  
-            <a href="deleteproduct/<?=$product["id_SanPham"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Xóa</a>  
+            <a href="index.php?action=deleteproduct/<?=$product["id_SanPham"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Xóa</a>  
         </td>  
     </tr>  
 <?php endforeach; ?>  

@@ -12,12 +12,11 @@ switch ($action) {
         break;
 
     case 'edittintuc':
+        include_once "model/tintuc.php";
             $id = $_GET["id"] ?? "";  
             $tintuc = getTinTucid($id);
             include "admin/tintuc/edit.php";
             break;
-            //update tin tuc//
-            
             case "updatetintuc":
                 $id = $_GET["id"] ?? "";
                 $tintuc = getTinTucid($id); 

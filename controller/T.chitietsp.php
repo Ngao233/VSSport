@@ -24,7 +24,7 @@ switch ($action) {
         }  
 
         include "views/chitietsp.php"; // Gọi view chi tiết sản phẩm  
->>>>>>> rodie
+
         break;  
 
     // Các case khác hoặc hành động khác có thể ở đây  
