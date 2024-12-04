@@ -6,6 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tin Tức Áo Thun Thể Thao</title>
   <link rel="stylesheet" href="../public/css/tintuc.css">
+  <style>
+    .add-comment-a form{
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: 0 auto;
+    }
+    .add-comment-a label {
+      display: block;
+      margin-bottom: 5px;
+      color: #555;
+    }
+    .add-comment-a input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    .add-comment-a input[type="submit"] {
+      background-color: orange;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+  }
+  </style>
 </head>
 
 <body>
@@ -79,8 +112,6 @@
         </div>
         <button id="submit-rating">Gửi đánh giá</button>
       </div>
-
-      <div class="comments-section-a">
       <h2>Bình Luận</h2>
       <div id="comment-list">
           <!-- Các bình luận đã có -->
@@ -98,12 +129,16 @@
               <p>Chưa có bình luận nào.</p>
           <?php endif; ?>
       </div>
-      <div class="add-comment-a">
-          <h3>Viết bình luận</h3>
-          <textarea id="comment-text" placeholder="Nhập bình luận của bạn..."></textarea>
-          <button id="submit-comment">Gửi</button>
-      </div>
-  </div>
+      <h3>Gửi Bình Luận</h3>
+        <form action="addcomment" method="POST" class="add-comment-a">
+            <label for="ten">Tên:</label>
+            <input type="text" id="ten" name="ten" required class="comment-text"><br><br>
+
+            <label for="binh_luan">Bình Luận:</label><br>
+            <textarea id="binh_luan" name="binh_luan" rows="4" required class="comment-text"></textarea><br><br>
+
+            <input type="submit" value="Gửi Bình Luận" id="submit-comment">
+        </form>
 
     <aside class="related-news-a">
       <h2>Các Tin Liên Quan</h2>

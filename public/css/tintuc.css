@@ -142,9 +142,11 @@
     font-size: 18px;
     margin-bottom: 10px;
     color: #333;
+    width: 100%;
+
   }
   
-  .comments-section-a .add-comment-a textarea {
+  .comments-section-a  textarea {
     width: 100%;
     height: 80px;
     margin-bottom: 10px;
@@ -153,7 +155,8 @@
     padding: 10px;
     font-size: 14px;
   }
-  
+
+
   .comments-section-a .add-comment-a button {
     display: inline-block;
     padding: 10px 20px;
