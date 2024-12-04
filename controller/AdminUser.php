@@ -9,4 +9,28 @@ switch ($action) {
                         include "admin/user/homeUser.php";
                         include "admin/FooterAdmin.php";
                         break;
+                case 'hoso':
+                        $user = getUser();
+                        include_once "views/hoso.php";
+                        break;
+                case 'update_profile':
+                        $user = getUser();
+                        include_once "views/update_profile.php";
+                        break;
+                case 'doimatkhau':
+                        $user = getUser();
+                        include_once "views/doimatkhau.php";
+                        break;
+                case 'update_password':
+                        $user = getUser();
+                        include_once "views/update_password.php";
+                        break;
+                case 'diachi':
+                        $user = getUser();
+                        include_once "views/diachi.php";
+                        break;
+                case 'save_address':
+                        $user = getUser();
+                        include_once "views/save_address.php";
+                        break;                        
 }

@@ -74,4 +74,13 @@ function getInfoDetail($id){
     return $getInfoDetail; 
 }
 
+function layNgayHienTai() {
+    // Đặt định dạng cho ngày và giờ
+    $format = 'd-m-Y'; 
+    // Lấy ngày và giờ hiện tại
+    return date($format);
+}
+
+// Gọi hàm và hiển thị kết quả
+
  ?>
