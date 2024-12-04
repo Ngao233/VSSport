@@ -148,16 +148,16 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="cart-container">
     <h1>Giỏ hàng của bạn</h1>
+    <?php
+        $total = 0; // Khởi tạo tổng tiền giỏ hàng
 
-    <?php if ($cartItems): ?>
-    <?php 
-    $total = 0;
-    foreach ($cartItems as $item): 
-        // Lấy thông tin sản phẩm từ id_SanPham
-        $product = getProductDetailsByCartId($item['id_SanPham']);
-        $itemTotal = $product['Gia'] * $item['SoLuong']; // Tính tổng cho từng sản phẩm
-        $total += $itemTotal; // Cộng dồn vào tổng giỏ hàng
-            ?>
+        if (!empty($cartItems)): // Kiểm tra nếu giỏ hàng không trống
+            foreach ($cartItems as $item): 
+                // Lấy thông tin sản phẩm từ id_SanPham
+                $product = getProductDetailsByCartId($item['id_SanPham']);
+                $itemTotal = $product['Gia'] * $item['SoLuong']; // Tính tổng cho từng sản phẩm
+                $total += $itemTotal; // Cộng dồn vào tổng giỏ hàng
+?>
                 <div class="cart-item">
                     <img src="public/image/<?= htmlspecialchars($product['HinhAnh']); ?>" alt="<?= htmlspecialchars($product['TenSanPham']); ?>">
                     <div class="item-details">
@@ -171,7 +171,10 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">
                         </form>
-                        <button class="remove-btn">Xóa</button>
+                        <form method="POST" action="cart_delete">
+                    <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">
+                    <button type="submit" class="remove-btn">Xóa</button>
+                </form>
                     </div>
                 </div>
             <?php endforeach; ?>

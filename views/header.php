@@ -60,7 +60,7 @@
         </nav>
         <!-- menu chinh -->
         <nav class="menu-two">
-            <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
+            <a href="#"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
             <ul>
                 <li><a href="#">TRANG CHỦ</a></li>
                 <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
@@ -70,7 +70,7 @@
             </ul>
             <!-- icon bao gom "shoping" "user" "seach" -->
             <div class="icon">
-                <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="giohang"><i class="fa-solid fa-cart-shopping"></i></a>
                 <a href="profile"><i class="fa-solid fa-user"></i></a>
                 <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
             </div>

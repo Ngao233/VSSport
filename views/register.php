@@ -37,8 +37,8 @@
         <li><a href="../index.html">TRANG CHỦ</a></li>
         <li><a href="sanpham.html">SẢN PHẨM</a></li>
         <li><a href="#">THÔNG TIN</a></li>
-        <li><a href="dangky.html">ĐĂNG KÝ</a></li>
-        <li><a href="dangnhap.html">ĐĂNG NHẬP</a></li>
+        <li><a href="resgister">ĐĂNG KÝ</a></li>
+        <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
       </ul>
       <!-- icon bao gom "shoping" "user" "seach" -->
       <div class="icon">

@@ -113,6 +113,18 @@ function createNewCart($id_KhachHang) {
         return false;  // Nếu có lỗi, trả về false
     }
 }
+function deleteCartItem($id_GioHang, $conn) {
+    $sql = "DELETE FROM giohang WHERE id_GioHang = :id_GioHang";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);
+
+    if ($stmt->execute()) {
+        return "";
+    } else {
+        return "Lỗi khi xóa sản phẩm!";
+    }
+}
 ?>
 
 
