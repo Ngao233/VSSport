@@ -4,9 +4,9 @@ include_once "model/cart.php";
 // include_once "models/contact.php";
 switch ($action) {
     case 'giohang':
-        include "admin/HeaderAdmin.php";
+        include "views/header.php";
         include "views/giohang.php";
-        include "admin/FooterAdmin.php";
+        include "views/footer.php";
         break; 
         case 'cart_update':
             // Kiểm tra sự tồn tại của giá trị trong $_POST trước khi sử dụng
