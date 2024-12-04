@@ -1,5 +1,5 @@
 <h3>Sửa Sản Phẩm</h3>  
-<form action="<?=($base_url) ?>/index.php?action=updateproduct/<?= ($product['id_SanPham']) ?>" method="post">  
+<form action="<?=($base_url) ?>/updateproduct/<?= ($product['id_SanPham']) ?>" method="post">  
     <input type="text" name="TenSanPham" placeholder="Nhập tên" value="<?=($_POST['TenSanPham'] ?? $product['TenSanPham'] ?? '') ?>"><br>  
     <input type="text" name="MoTa" placeholder="Nhập mô tả" value="<?=($_POST['MoTa'] ?? $product['MoTa'] ?? '') ?>"><br>  
     <input type="text" name="Gia" placeholder="Nhập giá" value="<?=($_POST['Gia'] ?? $product['Gia'] ?? '') ?>"><br>  

@@ -1,16 +1,18 @@
 <?php 
 //include_once "models/Category.php";
+
 include_once "model/product.php";
 include_once "model/category.php";
 // include_once "models/contact.php";
 switch ($action) {
    case 'admin2':
+        
         $product = getProduct();
         include "admin/HeaderAdmin.php";
         include "admin/product/HomeAdmin.php";
         include "admin/FooterAdmin.php";
         break; 
-
+        
     case 'editproduct':
         $id = $_GET["id"] ?? "";  
         $product = getProductid($id);
@@ -49,7 +51,7 @@ switch ($action) {
         $MauSac=trim($_POST["MauSac"]) ?? "";
         include "admin/product/add.php";
             addProduct($TenSanPham,$MoTa,$Gia,$SoLuong,$HinhAnh,$KichThuoc,$MauSac);
-            header("Location: $base_url");    
+            header("Location: $base_url/admin2");    
         break;   
         
         case 'searchproduct':  
@@ -74,6 +76,6 @@ switch ($action) {
             case "deleteproduct":
                 $id=$_GET["id"]??"";
                 deleteProduct($id);
-                header("Location: $base_url");
+                header("Location: $base_url/admin2");
                 break;
             }

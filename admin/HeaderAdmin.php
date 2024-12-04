@@ -24,32 +24,32 @@
           <img src="public/image/VSSp rt.png" alt="Logo">  
           <ul class="nav flex-column mt-4">  
             <li class="nav-item">  
-              <a class="nav-link active" href="index.php?action=admin2">  
+              <a class="nav-link active" href="admin.html">  
                 <i data-feather="home"></i> Home  
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="index.php?action=admin2">  
+              <a class="nav-link" href="products.html">  
                 <i data-feather="box"></i> Quản lý sản phẩm  
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="index.php?action=oderAdmin">  
+              <a class="nav-link" href="oderAdmin">  
                 <i data-feather="shopping-cart"></i> Đơn hàng  
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="index.php?action=usersAdmin">  
+              <a class="nav-link" href="usersAdmin">  
                 <i data-feather="users"></i> Người dùng  
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="index.php?action=statistics">  
+              <a class="nav-link" href="statistics.php">  
                 <i data-feather="bar-chart-2"></i> Thống kê  
               </a>  
             </li> 
             <li class="nav-item">  
-              <a class="nav-link" href="index.php?action=tintucAdmin">  
+              <a class="nav-link" href="tintucAdmin">  
                 <i data-feather="settings"></i> Tin Tuc  
               </a>  
             </li>  

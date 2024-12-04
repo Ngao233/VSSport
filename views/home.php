@@ -1,7 +1,31 @@
+<?php  
+session_start();   
+
+// Kiểm tra nếu khách hàng đã đăng nhập  
+if (isset($_SESSION['id_KhachHang'])) {  
+    $id_KhachHang = $_SESSION['id_KhachHang'];  
+
+    // Truy vấn giỏ hàng của khách hàng  
+    $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
+    $stmt->execute();  
+    $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+} else {  
+    $id_KhachHang = null;   
+    $cartItems = []; 
+}  
+
+$sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
+$stmt->execute();
+$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+?>
 <section class="banner">
             <div class="slides" id="slides">
-                <div class="slide"><img src="image/banner1.png" alt="Hình ảnh 1"></div>
-                <div class="slide"><img src="image/banner2.png" alt="Hình ảnh 2"></div>
+                <div class="slide"><img src="public/image/banner1.png" alt="Hình ảnh 1"></div>
+                <div class="slide"><img src="public/image/banner2.png" alt="Hình ảnh 2"></div>
         </section>
     </header>
 
@@ -168,24 +192,34 @@
             </div>
         </div>
         <div class="product-home1">
-        <?php foreach ($product as $product){?>
-            <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">
-                <a href="chitietsp?id=<?=$product['id_SanPham']?>" class="product-home-one-link">
-                    <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />
-                </a>
-                <div class="circle">
-                    <a href="">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
-                </div>
-                <div class="product-home-one-info">
-                    <button class="product-home-one-button">Thêm vào giỏ hàng</button>
-                </div>
-                <p class="sproduct-home-one-name"><?=$product["TenSanPham"]?></p>
-                <p class="product-home-one-price"><?=$product["Gia"]?> đ</p>
+        
+        <?php foreach ($product as $product) { ?>  
+    <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">  
+        <a href="chitietsp/<?=$product['id_SanPham']?>" class="product-home-one-link">  
+            <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />  
+        </a>  
 
-            </div>
-            <?php }?> 
+        <div class="circle">  
+            <a href="">  
+                <i class="fa-solid fa-heart"></i>  
+            </a>  
+        </div>  
+        
+        <div class="product-home-one-info">   
+        <form action="addtocart" method="post" class="formhome">  
+        <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>" >  
+        <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
+        <button class="product-home-one-button" type="submit">  
+        Thêm vào giỏ hàng  
+    </button>  
+</form>
+        </div>  
+
+        <p class="product-home-one-name"><?=$product["TenSanPham"]?></p>  
+        <p class="product-home-one-price"><?=$product["Gia"]?> đ</p>  
+        
+    </div>  
+<?php } ?>
            
         </div>
     </section>
@@ -262,5 +296,14 @@ categoriProductH.forEach(link => {
         });  
     });  
 });
+document.querySelectorAll('.formhome').forEach(form => {  
+        const quantityInput = form.querySelector('.quantity-input');  
+        
+        form.addEventListener('submit', () => {  
+            // Đảm bảo rằng số lượng tối thiểu là 1  
+            if (parseInt(quantityInput.value) < 1) {  
+                quantityInput.value = 1;  
+            }  
+        });  
+    }); 
     </script>
-    
