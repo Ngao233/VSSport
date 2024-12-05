@@ -8,26 +8,27 @@ switch ($action) {
         include "views/dangnhap.php";  
         break;  
         case 'login':
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
-                $email = $_POST['Email'] ?? '';  
-                $matKhau = $_POST['MatKhau'] ?? '';  
-                $loginSuccess = login($email, $matKhau); 
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                $email = $_POST['Email'] ?? '';
+                $matKhau = $_POST['MatKhau'] ?? '';
             
-                if ($loginSuccess) {  
-                    $product = getProduct();  
-                    header("Location: $base_url/"); 
-                    exit();  
-                }  
-            }  
+                // Kiểm tra email và mật khẩu không được rỗng
+                if (empty($email) || empty($matKhau)) {
+                    echo "Vui lòng nhập đầy đủ email và mật khẩu.";
+                    exit();
+                }
             
+                if (kiemTraDangNhap($conn, $email, $matKhau)) {
+                    header("Location: hoso"); // Chuyển hướng thành công
+                    exit();
+                } else {
+                    echo "Mật khẩu không chính xác hoặc tài khoản không tồn tại."; // Thông báo lỗi
+                }
+            }
             break;
-
-        // case 'profile':
-        //     include "views/profile.php"; 
-        //     break;
-        // case 'logout':
-        // break;
-        
+        case 'dangxuat':
+            Logout();
+            break;
 
     
 }

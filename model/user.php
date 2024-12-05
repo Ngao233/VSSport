@@ -7,3 +7,4 @@ function getUser($sort="DESC"){
     $user = $stmt->fetchAll();
     return $user; 
 }
+

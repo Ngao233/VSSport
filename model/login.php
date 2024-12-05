@@ -41,4 +41,27 @@ function Logout(){
     header("Location: dangnhap");  
     exit();  
 }
+
+function kiemTraDangNhap($conn, $email, $matKhau) {
+    // Truy vấn lấy thông tin từ cơ sở dữ liệu
+    $sql = "SELECT id_KhachHang, MatKhau FROM khachhang WHERE Email = :Email";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':Email', $email);
+    $stmt->execute();
+
+    if ($stmt->rowCount() > 0) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // So sánh mật khẩu đã hash trong cơ sở dữ liệu với mật khẩu người dùng nhập vào
+        if (password_verify($matKhau, $row['MatKhau'])) {
+            session_start(); // Khởi động session nếu chưa có
+            $_SESSION['id_KhachHang'] = $row['id_KhachHang'];
+            return true; // Đăng nhập thành công
+        } else {
+            return false; // Mật khẩu không chính xác
+        }
+    } else {
+        return false; // Tài khoản không tồn tại
+    }
+}
 ?>

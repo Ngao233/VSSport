@@ -1,6 +1,4 @@
 <?php
-session_start();
-include './init/config.php'; // Kết nối đến cơ sở dữ liệu
 
 if (!isset($_SESSION['id_KhachHang'])) {
     exit('Không có quyền truy cập.');

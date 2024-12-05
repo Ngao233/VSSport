@@ -2,31 +2,31 @@
 session_start();
 include './init/config.php'; // Kết nối đến cơ sở dữ liệu
 
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id_KhachHang = $_SESSION['id_KhachHang'];
-    $password = $_POST['password'] ?? null; // Mật khẩu có thể không được cung cấp
+    $ho = $_POST['ho'] ?? null;
+    $ten = $_POST['ten'] ?? null;
     $email = $_POST['email'];
     $phone = $_POST['phone'];
 
     try {
         // Câu lệnh SQL để cập nhật hồ sơ
-        if (!empty($password)) {
-            // Nếu có mật khẩu, cập nhật cả email, phone và password
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            $sql = "UPDATE khachhang SET Email = :email, Sdt = :phone, MatKhau = :password WHERE id_KhachHang = :id_KhachHang";
+        if (!empty($ho) && !empty($ten)) {
+            $sql = "UPDATE khachhang SET Ho = :ho, Ten = :ten, Email = :email, Sdt = :phone WHERE id_KhachHang = :id_KhachHang";
             $stmt = $conn->prepare($sql);
-            $stmt->bindParam(':password', $hashedPassword);
+            $stmt->bindParam(':ho', $ho);
+            $stmt->bindParam(':ten', $ten);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
         } else {
-            // Nếu không có mật khẩu, chỉ cập nhật email và phone
             $sql = "UPDATE khachhang SET Email = :email, Sdt = :phone WHERE id_KhachHang = :id_KhachHang";
             $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':email', $email);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
         }
-
-        // Liên kết các tham số
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':phone', $phone);
-        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
+        
         
         // Thực hiện câu lệnh
         $stmt->execute();
@@ -40,4 +40,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 } else {
     echo 'Yêu cầu không hợp lệ.';
 }
+?>
 ?>

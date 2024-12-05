@@ -15,7 +15,7 @@ switch ($action) {
                         break;
                 case 'update_profile':
                         $user = getUser();
-                        include_once "views/update_profile.php";
+                        include_once "model/update_profile.php";
                         break;
                 case 'doimatkhau':
                         $user = getUser();
@@ -23,7 +23,7 @@ switch ($action) {
                         break;
                 case 'update_password':
                         $user = getUser();
-                        include_once "views/update_password.php";
+                        include_once "model/update_password.php";
                         break;
                 case 'diachi':
                         $user = getUser();
@@ -31,6 +31,7 @@ switch ($action) {
                         break;
                 case 'save_address':
                         $user = getUser();
-                        include_once "views/save_address.php";
-                        break;                        
+                        include_once "model/save_address.php";
+                        break;  
+
 }

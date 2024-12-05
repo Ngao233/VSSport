@@ -3,11 +3,13 @@ session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-if (!isset($_SESSION['id_KhachHang'])) {
-    exit();
-} 
 
-$id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
+if (!isset($_SESSION['id_KhachHang'])) {
+    // Nếu không có id, chuyển hướng người dùng đến trang đăng nhập
+    header("Location: dangnhap");
+    exit; // Đảm bảo dừng việc thực thi mã ngay tại đây
+}
+$id_KhachHang = $_SESSION['id_KhachHang'];
 
 try {
     // Truy vấn id của khách hàng
@@ -57,8 +59,8 @@ try {
             <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
         </ul>
         <div class="icon">
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="#"><i class="fa-solid fa-user"></i></a>
+            <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="hoso"><i class="fa-solid fa-user"></i></a>
             <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
         </div>
     </nav>
@@ -90,33 +92,36 @@ try {
 
               <li class="fa fa-heart"></li><a href="#">Sản phẩm yêu thích</a><br>
 
-              <a href="#">Đăng xuất</a><br>
+              <a href="dangxuat">Đăng xuất</a><br>
             </ul>
         </div>
     </div>
     <div class="right-box">
         <div class="leftin-box">
-            <h2>Hồ sơ của tôi</h2>
-            <form action="update_profile" method="POST">
-              <div class="little-input">
-                  <h3>Mật khẩu</h3>
-                  <input type="password" name="password" placeholder="Nhập mật khẩu">
-              </div>
-              <div class="little-input">
-                  <h3>Email</h3>
-                  <input type="email" name="email" placeholder="Nhập email" required>
-              </div>
-              <div class="little-input">
-                  <h3>Số điện thoại</h3>
-                  <input type="text" name="phone" placeholder="Nhập số điện thoại" required>
-              </div>
-              <br>
-              <button type="submit"><i class="fas fa-sign-in-alt"></i> Cập nhật</button>
-
-          </form>
-          <?php if (isset($_GET['success'])): ?>
-                  <div class="notification">Cập nhật hồ sơ thành công!</div>
-              <?php endif; ?>
+        <h2>Hồ sơ của tôi</h2> 
+        <form action="update_profile" method="POST"> 
+            <div class="little-input"> 
+                <h3>Họ </h3>
+                <input type="text" id="ho" name="ho" value="<?php echo htmlspecialchars($khach['Ho'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Nhập họ"> 
+            </div> 
+            <div class="little-input"> 
+                <h3>Tên </h3>
+                <input type="text" id="ten" name="ten" value="<?php echo htmlspecialchars($khach['Ten'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Nhập tên">
+            </div> 
+            <div class="little-input"> 
+                <h3>Email</h3> 
+                <input type="email" name="email" value="<?php echo htmlspecialchars($khach['Email'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Nhập email" required> 
+            </div> 
+            <div class="little-input"> 
+                <h3>Số điện thoại</h3> 
+                <input type="text" name="phone" value="<?php echo htmlspecialchars($khach['Sdt'] ?? '', ENT_QUOTES, 'UTF-8'); ?>" placeholder="Nhập số điện thoại" required> 
+            </div> 
+            <br> 
+            <button type="submit"><i class="fas fa-sign-in-alt"></i> Cập nhật</button> 
+        </form> 
+        <?php if (isset($_GET['success'])): ?> 
+            <div class="notification">Cập nhật hồ sơ thành công!</div> 
+        <?php endif; ?>
         </div>
         <div class="rightin-box">
             <div class="image-profile">
@@ -130,10 +135,12 @@ try {
     </div>
 </div>
 
+
 <script>
     function editProfile() {
     // Lấy giá trị từ các trường nhập liệu
-    const password = document.getElementById('password').value;
+    const ten = document.getElementById('ten').value;
+    const ho = document.getElementById('ho').value;
     const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
 
@@ -145,7 +152,8 @@ try {
 
     // Tạo đối tượng dữ liệu để gửi
     const data = {
-        password: password,
+        ten:ten,
+        ho: ho,
         email: email,
         phone: phone
     };

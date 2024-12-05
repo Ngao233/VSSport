@@ -29,5 +29,6 @@ function addComment($id_TinTuc, $NoiDung, $HinhAnh = null) {
     } else {
         return false; // Trả về false nếu có lỗi
     }
+
 }
 

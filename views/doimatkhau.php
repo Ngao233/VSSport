@@ -50,15 +50,15 @@ try {
     <nav class="menu-two">
         <a href="#"><img src="image/logo.png" alt="Logo" style="width: 155px;"></a>
         <ul>
-            <li><a href="home">TRANG CHỦ</a></li>
+            <li><a href="">TRANG CHỦ</a></li>
             <li><a href="sanpham">SẢN PHẨM</a></li>
             <li><a href="#">THÔNG TIN</a></li>
             <li><a href="dangky">ĐĂNG KÝ</a></li>
             <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
         </ul>
         <div class="icon">
-            <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="#"><i class="fa-solid fa-user"></i></a>
+            <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a href="hoso"><i class="fa-solid fa-user"></i></a>
             <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
         </div>
     </nav>
