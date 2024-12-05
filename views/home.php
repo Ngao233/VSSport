@@ -76,8 +76,13 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <h2>Sản Phẩm Khuyến Mại</h2>
     <section class="product-sale-home">
+    <?php foreach ($product1 as $productItem): 
+        // Tính toán giá giảm
+        $giagiam = $productItem['Gia'] * ($productItem['GiamGia'] / 100);
+        $saugiam = $productItem['Gia'] - $giagiam;
+    ?> 
         <div class="pro-sale">
-            <img src="public/image/mc-chinh.webp" alt="">
+            <img src="public/image/<?=$productItem['HinhAnh']?>" alt="">
             <div class="circle">
                 <a href="">
                     <i class="fa-solid fa-heart"></i>
@@ -85,83 +90,18 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
 
             <div>
-                <p class="p-product-sale-name">Áo Manchester City</p>
+                <p class="p-product-sale-name"><?=$productItem['TenSanPham']?></p>
                 <div class="p-product-sale">
-                    <p class="price-sale-home">230000 đ</p>
-                    <p class="price-down-home">190000 đ</p>
+                    <p class="price-sale-home"><?= number_format($productItem['Gia'], 0, ',', '.'); ?>đ</p> <!-- Giá ban đầu -->
+                    <p class="price-down-home"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p> <!-- Giá sau giảm -->
                 </div>
                 <button>Thêm giỏ hàng</button>
-            </div>
-        </div>
-        <div class="pro-sale">
-            <img src="public/image/mc-chinh.webp" alt="">
-            <div class="circle">
-                <a href="">
-                    <i class="fa-solid fa-heart"></i>
-                </a>
-            </div>
 
-            <div>
-                <p class="p-product-sale-name">Áo Manchester City</p>
-                <div class="p-product-sale">
-                    <p class="price-sale-home">230000 đ</p>
-                    <p class="price-down-home">190000 đ</p>
-                </div>
-                <button>Thêm giỏ hàng</button>
             </div>
         </div>
-        <div class="pro-sale">
-            <img src="public/image/mc-chinh.webp" alt="">
-            <div class="circle">
-                <a href="">
-                    <i class="fa-solid fa-heart"></i>
-                </a>
-            </div>
+    <?php endforeach; ?>
+</section>
 
-            <div>
-                <p class="p-product-sale-name">Áo Manchester City</p>
-                <div class="p-product-sale">
-                    <p class="price-sale-home">230000 đ</p>
-                    <p class="price-down-home">190000 đ</p>
-                </div>
-                <button>Thêm giỏ hàng</button>
-            </div>
-        </div>
-        <div class="pro-sale">
-            <img src="public/image/mc-chinh.webp" alt="">
-            <div class="circle">
-                <a href="">
-                    <i class="fa-solid fa-heart"></i>
-                </a>
-            </div>
-
-            <div>
-                <p class="p-product-sale-name">Áo Manchester City</p>
-                <div class="p-product-sale">
-                    <p class="price-sale-home">230000 đ</p>
-                    <p class="price-down-home">190000 đ</p>
-                </div>
-                <button>Thêm giỏ hàng</button>
-            </div>
-        </div>
-        <div class="pro-sale">
-            <img src="public/image/mc-chinh.webp" alt="">
-            <div class="circle">
-                <a href="">
-                    <i class="fa-solid fa-heart"></i>
-                </a>
-            </div>
-
-            <div>
-                <p class="p-product-sale-name">Áo Manchester City</p>
-                <div class="p-product-sale">
-                    <p class="price-sale-home">230000 đ</p>
-                    <p class="price-down-home">190000 đ</p>
-                </div>
-                <button>Thêm giỏ hàng</button>
-            </div>
-        </div>
-    </section>
     <!-- Sản phẩm- home -->
     <h2>Sản Phẩm</h2>
     <section class="Product-home-Product">

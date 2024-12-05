@@ -5,6 +5,7 @@ include_once "model/product.php";
 
 switch ($action) {  
     case '':  
+        $product1 = getProductWithDiscount();
         $product = getProduct(); 
         include_once "views/header.php"; 
         include "views/home.php";  
