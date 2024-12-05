@@ -4,7 +4,7 @@
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Trang Chủ1</title>  
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/style1.css">
     <link rel="stylesheet" href="public/css/dangky.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
@@ -34,7 +34,7 @@
     <nav class="menu-two">
       <a href="#"><img src="image/logo.png" alt="" style="width: 155px ;"></a>
       <ul>
-        <li><a href="../index.html">TRANG CHỦ</a></li>
+        <li><a href="home">TRANG CHỦ</a></li>
         <li><a href="sanpham.html">SẢN PHẨM</a></li>
         <li><a href="#">THÔNG TIN</a></li>
         <li><a href="resgister">ĐĂNG KÝ</a></li>

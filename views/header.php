@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/style1.css">
      <!-- <link rel="stylesheet" href="public/css/dangky.css"> -->
      <!-- <link rel="stylesheet" href="public/css/dangnhap.css"> -->
      <!-- <link rel="stylesheet" href="public/css/diachi.css"> -->
@@ -62,9 +62,9 @@
         <nav class="menu-two">
             <a href="#"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
             <ul>
-                <li><a href="#">TRANG CHỦ</a></li>
+                <li><a href="home">TRANG CHỦ</a></li>
                 <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
-                <li><a href="#">THÔNG TIN</a></li>
+                <li><a href="#">TIN TỨC</a></li>
                 <li><a href="register">ĐĂNG KÝ</a></li>
                 <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
             </ul>
