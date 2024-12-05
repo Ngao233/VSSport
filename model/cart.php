@@ -114,6 +114,20 @@ function createNewCart($id_KhachHang) {
     }
 }
 
+function deleteCartItem($id_GioHang, $conn) {
+    $sql = "DELETE FROM giohang WHERE id_GioHang = :id_GioHang";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);
+
+    if ($stmt->execute()) {
+        return "";
+    } else {
+        return "Lỗi khi xóa sản phẩm!";
+    }
+}
+
+
 function getDiscountByProductId($productId) {
     global $conn; // Giả sử kết nối CSDL của bạn đã có trong biến $conn
     $sql = "SELECT GiamGia FROM sanpham WHERE id_SanPham = :id_SanPham";

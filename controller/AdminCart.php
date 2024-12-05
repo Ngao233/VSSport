@@ -4,9 +4,9 @@ include_once "model/cart.php";
 // include_once "models/contact.php";
 switch ($action) {
     case 'giohang':
-        include "admin/HeaderAdmin.php";
+        include "views/header.php";
         include "views/giohang.php";
-        include "admin/FooterAdmin.php";
+        include "views/footer.php";
         break; 
         case 'cart_update':
             // Kiểm tra sự tồn tại của giá trị trong $_POST trước khi sử dụng
@@ -34,6 +34,22 @@ switch ($action) {
             case 'addtocart':
             include 'model/addtocart.php';
             break;
+            case 'cart_delete':
+                if (isset($_POST['id_GioHang'])) {
+                    $cartId = $_POST['id_GioHang'];
+                    
+                    // Gọi hàm xóa sản phẩm
+                    $result = deleteCartItem($cartId, $conn);
+                    echo $result;
+                } else {
+                    echo "Dữ liệu không hợp lệ!";
+                }
+            
+                // Bao gồm các file giao diện
+                include "admin/HeaderAdmin.php";
+                include "views/giohang.php";
+                include "admin/FooterAdmin.php";
+                break;
               
 
             

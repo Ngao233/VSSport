@@ -15,6 +15,7 @@ switch ($action) {
         include "admin/statistics.php";
         break;
     case 'home':  
+        $product1 = getProductWithDiscount();
         $product = getProduct(); 
         include_once "views/header.php"; 
         include "views/home.php";  

@@ -26,7 +26,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Trang Chủ</title>  
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/style1.css">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
@@ -137,7 +137,6 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <div class="cart-container">
     <h1>Giỏ hàng của bạn</h1>
-
     <?php if ($cartItems): ?>
     <?php 
     $total = 0;
@@ -148,7 +147,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         // Tính tổng tiền sản phẩm sau giảm giá
         $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);
-        $total += $itemTotal; // Cộng dồn vào tổng giỏ hàng
+        $total += $itemTotal; 
         ?>
                 <div class="cart-item">
                     <img src="public/image/<?= htmlspecialchars($product['HinhAnh']); ?>" alt="<?= htmlspecialchars($product['TenSanPham']); ?>">
@@ -164,7 +163,10 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </div>
                             <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">
                         </form>
-                        <button class="remove-btn">Xóa</button>
+                        <form method="POST" action="cart_delete">
+                    <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">
+                    <button type="submit" class="remove-btn">Xóa</button>
+                </form>
                     </div>
                 </div>
             <?php endforeach; ?>

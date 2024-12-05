@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
-    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/style1.css">
      <!-- <link rel="stylesheet" href="public/css/dangky.css"> -->
      <!-- <link rel="stylesheet" href="public/css/dangnhap.css"> -->
      <!-- <link rel="stylesheet" href="public/css/diachi.css"> -->
@@ -38,7 +38,7 @@
             body h2 {
                 font-family: 'Montserrat', sans-serif;
                 margin-left: 10%;
-                margin-top: 40px;
+                margin-top: 60px;
             }
             .formhome input{
                 display:none;
@@ -60,9 +60,9 @@
         </nav>
         <!-- menu chinh -->
         <nav class="menu-two">
-            <a href="#"><img src="../image/logo.png" alt="" style="width: 155px ;"></a>
+            <a href="#"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
             <ul>
-                <li><a href="">TRANG CHỦ</a></li>
+                <li><a href="#">TRANG CHỦ</a></li>
                 <li><a href="sanpham">SẢN PHẨM</a></li>
                 <li><a href="#">THÔNG TIN</a></li>
                 <li><a href="dangky">ĐĂNG KÝ</a></li>
