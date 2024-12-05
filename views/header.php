@@ -38,7 +38,7 @@
             body h2 {
                 font-family: 'Montserrat', sans-serif;
                 margin-left: 10%;
-                margin-top: 40px;
+                margin-top: 60px;
             }
             .formhome input{
                 display:none;
