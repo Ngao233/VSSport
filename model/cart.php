@@ -113,6 +113,21 @@ function createNewCart($id_KhachHang) {
         return false;  // Nếu có lỗi, trả về false
     }
 }
+
+function getDiscountByProductId($productId) {
+    global $conn; // Giả sử kết nối CSDL của bạn đã có trong biến $conn
+    $sql = "SELECT GiamGia FROM sanpham WHERE id_SanPham = :id_SanPham";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id_SanPham', $productId, PDO::PARAM_INT); // Gắn giá trị vào tham số
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        return $result['GiamGia']; // Trả về giá trị giảm giá của sản phẩm
+    } else {
+        return 0; // Nếu không có giảm giá, trả về 0
+    }
+}
 ?>
 
 

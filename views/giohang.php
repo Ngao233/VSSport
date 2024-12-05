@@ -16,7 +16,7 @@ $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
 $stmt->execute();
-$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);     
 
 
 ?>  
@@ -134,17 +134,6 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>  
 <body>  
 
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giỏ hàng của bạn</title>
-    <style>
-        /* CSS giữ nguyên như bạn đã có */
-    </style>
-</head>
-<body>
 
 <div class="cart-container">
     <h1>Giỏ hàng của bạn</h1>
@@ -154,15 +143,19 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $total = 0;
     foreach ($cartItems as $item): 
         // Lấy thông tin sản phẩm từ id_SanPham
-        $product = getProductDetailsByCartId($item['id_SanPham']);
-        $itemTotal = $product['Gia'] * $item['SoLuong']; // Tính tổng cho từng sản phẩm
+        $product = getProductDetailsByCartId($item['id_SanPham']); // Hàm lấy chi tiết sản phẩm
+        $discount = getDiscountByProductId($item['id_SanPham']); // Lấy giá trị giảm giá từ bảng sản phẩm
+
+        // Tính tổng tiền sản phẩm sau giảm giá
+        $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);
         $total += $itemTotal; // Cộng dồn vào tổng giỏ hàng
-            ?>
+        ?>
                 <div class="cart-item">
                     <img src="public/image/<?= htmlspecialchars($product['HinhAnh']); ?>" alt="<?= htmlspecialchars($product['TenSanPham']); ?>">
                     <div class="item-details">
                         <h2><?= htmlspecialchars($product['TenSanPham']); ?></h2>
-                        <p>Giá: <?= number_format($product['Gia'], 0, ',', '.'); ?>đ</p>
+                        <p>Giá: <?= number_format($product['Gia'], 0, ',', '.');?>đ </p>
+                        <p>Giá Sau Khi Đã Giảm: <?= number_format($itemTotal, 0, ',', '.');?>đ</p>
                         <p>Danh mục: <?= getCategoryNameByProductId($product['id_DanhMuc']); ?></p>
                         <form method="POST" action="cart_update">
                             <div class="quantity">
@@ -178,6 +171,8 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php else: ?>
             <p>Giỏ hàng của bạn đang trống.</p>
         <?php endif; ?>
+
+
 
         <!-- Hiển thị tổng cộng -->
         <div class="cart-summary">

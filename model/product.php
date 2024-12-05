@@ -73,4 +73,15 @@ function deleteProduct($id){
     $stmt->execute();
 }
 
+function getProductWithDiscount($sort = "DESC") {
+    global $conn;
+    // Thêm điều kiện WHERE để lọc sản phẩm có GiamGia >= 1
+    $sql = "SELECT * FROM sanpham WHERE GiamGia >= 1 ORDER BY id_SanPham $sort";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $product = $stmt->fetchAll();
+    return $product;
+}
+
+
 ?>
