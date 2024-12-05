@@ -95,7 +95,14 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <p class="price-sale-home"><?= number_format($productItem['Gia'], 0, ',', '.'); ?>đ</p> <!-- Giá ban đầu -->
                     <p class="price-down-home"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p> <!-- Giá sau giảm -->
                 </div>
-                <button>Thêm giỏ hàng</button>
+                <form id="addToCartForm" class="formhome" onsubmit="return false;">  
+                <input type="hidden" name="id_SanPham" value="<?=$productItem['id_SanPham']?>">  
+                <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
+                <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$productItem['id_SanPham']?>', this)">  
+                    Thêm vào giỏ hàng  
+                </button>  
+                </form>
+
 
             </div>
         </div>
@@ -146,10 +153,10 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>  
         
         <div class="product-home-one-info">   
-        <form action="addtocart" method="post" class="formhome">  
-        <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>" >  
-        <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
-        <button class="product-home-one-button" type="submit">  
+        <form id="addToCartForm" class="formhome" onsubmit="return false;">  
+    <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>">  
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
+    <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$product['id_SanPham']?>', this)">  
         Thêm vào giỏ hàng  
     </button>  
 </form>
@@ -215,23 +222,13 @@ products[8].classList.add('active');
 categoriProductH.forEach(link => {  
     link.addEventListener('click', function(event) {  
         event.preventDefault();  
-
-        // Xóa lớp 'active' khỏi tất cả các mục  
         categoriProductH.forEach(l => l.classList.remove('active'));  
-        
-        // Xóa lớp 'active' khỏi tất cả sản phẩm  
         products.forEach(p => p.classList.remove('active'));  
-
-        // Thêm lớp 'active' cho mục đang được nhấp  
         this.classList.add('active');  
-
-        // Lấy danh mục của mục đã nhấp  
         const category = this.getAttribute('data-category');  
-
-        // Hiển thị sản phẩm tương ứng với danh mục đã chọn  
         products.forEach(p => {  
             if (p.getAttribute('data-product-category') === category) {  
-                p.classList.add('active'); // Hiển thị sản phẩm tương ứng  
+                p.classList.add('active'); 
             }  
         });  
     });  
@@ -240,10 +237,40 @@ document.querySelectorAll('.formhome').forEach(form => {
         const quantityInput = form.querySelector('.quantity-input');  
         
         form.addEventListener('submit', () => {  
-            // Đảm bảo rằng số lượng tối thiểu là 1  
+            
             if (parseInt(quantityInput.value) < 1) {  
                 quantityInput.value = 1;  
             }  
         });  
     }); 
+    function addToCart(idSanPham, button) {  
+    const form = button.closest('form');   
+    const quantity = form.querySelector('input[name="quantity"]').value;   
+    const formData = new FormData();  
+    formData.append('id_SanPham', idSanPham);  
+    formData.append('quantity', quantity);  
+
+    // Sử dụng button mà bạn đã nhấn thay vì lấy lại từ id  
+    const btn = button; // Sử dụng button được truyền vào  
+
+    fetch('addtocart', {  
+        method: 'POST',  
+        body: formData  
+    })  
+    .then(response => response.json())  
+    .then(data => {  
+        console.log(data);  
+        updateCartDisplay(data.cartDetails);   
+        btn.innerText = "Đã thêm vào giỏ hàng"; // Thay đổi văn bản  
+        btn.disabled = true; // Vô hiệu hóa button để tránh nhấn nhiều lần  
+        btn.style.backgroundColor = "#4CAF50"; // Thay đổi màu nền thành màu xanh  
+        btn.style.color = "white"; // Thay đổi màu chữ thành trắng  
+    })  
+    .catch(error => {  
+        console.error('Error:', error);  
+    });  
+}
+document.getElementById('search').addEventListener('click',()=>{
+  document.getElementById('searchInput').classList.toggle('show');
+})
     </script>

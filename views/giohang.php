@@ -135,54 +135,51 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>  
 
 
-<div class="cart-container">
-    <h1>Giỏ hàng của bạn</h1>
-    <?php if ($cartItems): ?>
-    <?php 
-    $total = 0;
-    foreach ($cartItems as $item): 
-        // Lấy thông tin sản phẩm từ id_SanPham
-        $product = getProductDetailsByCartId($item['id_SanPham']); // Hàm lấy chi tiết sản phẩm
-        $discount = getDiscountByProductId($item['id_SanPham']); // Lấy giá trị giảm giá từ bảng sản phẩm
+<div class="cart-container">  
+    <h1>Giỏ hàng của bạn</h1>  
+    <?php if ($cartItems): ?>  
+        <?php   
+        $total = 0; // Khởi tạo tổng ở đây  
+        foreach ($cartItems as $item):   
+            // Lấy thông tin sản phẩm từ id_SanPham  
+            $product = getProductDetailsByCartId($item['id_SanPham']); // Hàm lấy chi tiết sản phẩm  
+            $discount = getDiscountByProductId($item['id_SanPham']); // Lấy giá trị giảm giá từ bảng sản phẩm  
 
-        // Tính tổng tiền sản phẩm sau giảm giá
-        $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);
-        $total += $itemTotal; 
-        ?>
-                <div class="cart-item">
-                    <img src="public/image/<?= htmlspecialchars($product['HinhAnh']); ?>" alt="<?= htmlspecialchars($product['TenSanPham']); ?>">
-                    <div class="item-details">
-                        <h2><?= htmlspecialchars($product['TenSanPham']); ?></h2>
-                        <p>Giá: <?= number_format($product['Gia'], 0, ',', '.');?>đ </p>
-                        <p>Giá Sau Khi Đã Giảm: <?= number_format($itemTotal, 0, ',', '.');?>đ</p>
-                        <p>Danh mục: <?= getCategoryNameByProductId($product['id_DanhMuc']); ?></p>
-                        <form method="POST" action="cart_update">
-                            <div class="quantity">
-                                <input type="number" name="SoLuong" value="<?= htmlspecialchars($item['SoLuong']); ?>" min="1" max="100">
-                                <button type="submit">Cập nhật</button>     
-                            </div>
-                            <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">
-                        </form>
-                        <form method="POST" action="cart_delete">
-                    <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">
-                    <button type="submit" class="remove-btn">Xóa</button>
-                </form>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>Giỏ hàng của bạn đang trống.</p>
-        <?php endif; ?>
+            // Tính tổng tiền sản phẩm sau giảm giá  
+            $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);  
+            $total += $itemTotal;   
+        ?>  
+            <div class="cart-item">  
+                <img src="public/image/<?= htmlspecialchars($product['HinhAnh']); ?>" alt="<?= htmlspecialchars($product['TenSanPham']); ?>">  
+                <div class="item-details">  
+                    <h2><?= htmlspecialchars($product['TenSanPham']); ?></h2>  
+                    <p>Giá: <?= number_format($product['Gia'], 0, ',', '.');?>đ </p>  
+                   
+                    <p>Danh mục: <?= getCategoryNameByProductId($product['id_DanhMuc']); ?></p>  
+                    <form method="POST" action="cart_update">  
+                        <div class="quantity">  
+                            <input type="number" name="SoLuong" value="<?= htmlspecialchars($item['SoLuong']); ?>" min="1" max="100">  
+                            <button type="submit">Cập nhật</button>     
+                        </div>  
+                        <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">  
+                    </form>  
+                    <form method="POST" action="cart_delete">  
+                        <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">  
+                        <button type="submit" class="remove-btn">Xóa</button>  
+                    </form>  
+                </div>  
+            </div>  
+        <?php endforeach; ?>  
+        
+        <!-- Hiển thị tổng sau vòng lặp -->  
+        <div class="total">  
+            <p>Tổng cộng: <?= number_format($total, 0, ',', '.');?>đ</p>  
+        </div>  
 
-
-
-        <!-- Hiển thị tổng cộng -->
-        <div class="cart-summary">
-            <h3>Tổng cộng: <?= number_format($total, 0, ',', '.'); ?>đ</h3>
-            <button class="checkout-btn">Thanh toán</button>
-        </div>
-    </div>
-</div>
+    <?php else: ?>  
+        <p>Giỏ hàng của bạn đang trống.</p>  
+    <?php endif; ?>  
+</div>  
 
 </body>
 </html>

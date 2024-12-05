@@ -40,7 +40,7 @@
         <td><?=$product["MoTa"]?></td>  
         <td><?=$product["Gia"]?></td>  
         <td><?=$product["SoLuong"]?></td>  
-        <td><img src="<?=$product["HinhAnh"]?>" alt="<?=$product["TenSanPham"]?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->  
+        <td><img src="public/image/<?=$product["HinhAnh"]?>" alt="<?=$product["TenSanPham"]?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->  
         <td><?=$product["KichThuoc"]?></td>  
         <td><?=$product["MauSac"]?></td>  
         <td>  

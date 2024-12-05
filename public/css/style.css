@@ -1159,3 +1159,21 @@ font-family: 'Montserrat', sans-serif;
     margin-left: 10%;
     font-family: 'Montserrat', sans-serif;
 }
+.formSearchhome{
+    position: absolute;
+    right: 180px;
+    top: 35px;
+}
+.searchhome {
+    padding: 8px !important;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    display: none;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+}
+.searchhome.show {  
+    display: block; 
+    transform: translateX(0);  
+} 

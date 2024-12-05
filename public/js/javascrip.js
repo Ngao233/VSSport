@@ -116,3 +116,6 @@ function hideCart() {
     }
   }, 200); // Tránh mất popup ngay lập tức
 }
+document.getElementById('search').addEventListener('click',()=>{
+  document.getElementById('searchInput').classList.toggle('show');
+})

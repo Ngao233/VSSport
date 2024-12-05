@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ</title>
     <link rel="stylesheet" href="public/css/style1.css">
+    <link rel="stylesheet" href="public/css/search.css">
      <!-- <link rel="stylesheet" href="public/css/dangky.css"> -->
      <!-- <link rel="stylesheet" href="public/css/dangnhap.css"> -->
      <!-- <link rel="stylesheet" href="public/css/diachi.css"> -->
@@ -70,10 +71,14 @@
             </ul>
             <!-- icon bao gom "shoping" "user" "seach" -->
             <div class="icon">
-                <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
+                <a href="giohang"><i class="fa-solid fa-cart-shopping"></i></a>
                 <a href="hoso"><i class="fa-solid fa-user"></i></a>
-                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+                
             </div>
+            <form action="" class="formSearchhome">
+                <input type="text" class="searchhome" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
+            </form>
 
         </nav>
 
