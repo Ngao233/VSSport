@@ -573,7 +573,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <h1 class="weywie">Sản phẩm tương tự</h1>
         <section class="product-sale-home">
             <div class="pro-sale">
-                <img src="public/image/mc-chinh.webp" alt="">
+                <img src="../public/image/mc-chinh.webp" alt="">
                 <div class="circle">
                     <a href="">
                         <i class="fa-solid fa-heart"></i>
@@ -590,7 +590,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
             <div class="pro-sale">
-                <img src="public/image/mc-chinh.webp" alt="">
+                <img src="../public/image/mc-chinh.webp" alt="">
                 <div class="circle">
                     <a href="">
                         <i class="fa-solid fa-heart"></i>
@@ -607,7 +607,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
             <div class="pro-sale">
-                <img src="public/image/mc-chinh.webp" alt="">
+                <img src="../public/image/mc-chinh.webp" alt="">
                 <div class="circle">
                     <a href="">
                         <i class="fa-solid fa-heart"></i>
@@ -624,7 +624,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
             <div class="pro-sale">
-                <img src="public/image/mc-chinh.webp" alt="">
+                <img src="../public/image/mc-chinh.webp" alt="">
                 <div class="circle">
                     <a href="">
                         <i class="fa-solid fa-heart"></i>
@@ -641,7 +641,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </div>
             </div>
             <div class="pro-sale">
-                <img src="public/image/mc-chinh.webp" alt="">
+                <img src="../public/image/mc-chinh.webp" alt="">
                 <div class="circle">
                     <a href="">
                         <i class="fa-solid fa-heart"></i>
@@ -660,22 +660,41 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </section><br><br>
         <section class="DI">
 <div><h2>Chi Tiết Sản Phẩm</h2>
-<p>-Danh Mục:Thời Trang Thể Thao<br> 
-    -Kho 289<br>
-    -Loại hình thể thao: Bóng đá ngoài trời & trong nhà<br>
-    -Tính năng trang phục
-    -Thấm hút mồ hôi<br>
-    -Đội bóng đá: Manchester City<br>
-    -Chiều dài tay áo: NGẮN TAY<br>
+<p>Tên Sản Phẩm: <?=$product['TenSanPham']?><br> 
+   Giá: <?=$product['Gia']?><br>
+   Màu Sắc: <?=$product['MauSac']?><br>
+   Kích Thước: <?=$product['KichThuoc']?><br>
+   Số Lượng: <?=$product['SoLuong']?><b<section class="product-sale-home">
+    <?php foreach ($product1 as $productItem): 
+        // Tính toán giá giảm
+        $giagiam = $productItem['Gia'] * ($productItem['GiamGia'] / 100);
+        $saugiam = $productItem['Gia'] - $giagiam;
+    ?> 
+        <div class="pro-sale">
+            <img src="public/image/<?=$productItem['HinhAnh']?>" alt="">
+            <div class="circle">
+                <a href="">
+                    <i class="fa-solid fa-heart"></i>
+                </a>
+            </div>
+
+            <div>
+                <p class="p-product-sale-name"><?=$productItem['TenSanPham']?></p>
+                <div class="p-product-sale">
+                    <p class="price-sale-home"><?= number_format($productItem['Gia'], 0, ',', '.'); ?>đ</p> <!-- Giá ban đầu -->
+                    <p class="price-down-home"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p> <!-- Giá sau giảm -->
+                </div>
+                <button>Thêm giỏ hàng</button>
+
+            </div>
+        </div>
+    <?php endforeach; ?>
+</section>
+r>
     -Gửi từ: TP. Hồ Chí Minh</p>
 </div>
 <div><h2>Mô tả Sản Phẩm</h2>
-<p>-Áo thun phong cách thể thao không chỉ là một trang phục đơn giản mà còn là biểu tượng<br> của phong cách sống năng động và hiện đại.<br>
-
-    -Lợi Ích Của Việc Sở Hữu Áo Thun Thể Thao<br>
-    -Tăng Khả Năng Vận Động: Chất liệu co giãn và thiết kế phù hợp giúp người mặc dễ dàng vận động mà không bị gò bó.<br>
-    -Thể Hiện Đẳng Cấp Thời Trang: Áo thun thể thao không chỉ dành cho thể thao mà<br> còn trở thành xu hướng thời trang hiện đại, phù hợp với nhiều hoàn cảnh.<br>
-    -Giá Thành Hợp Lý: So với các loại trang phục khác, áo thun thể thao thường có mức<br> giá khá phải chăng, phù hợp cho mọi đối tượng.</p>
+<p><?=$product['MoTa']?></p>
 </div>
         </section><br><br><br><br>
 <section class="min">
