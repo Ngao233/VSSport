@@ -18,7 +18,7 @@ switch ($action) {
                     exit();
                 }
             
-                if (kiemTraDangNhap($conn, $email, $matKhau)) {
+                if (login( $email, $matKhau)) {
                     header("Location: hoso"); // Chuyển hướng thành công
                     exit();
                 } else {
