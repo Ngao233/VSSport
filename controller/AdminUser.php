@@ -1,6 +1,8 @@
 <?php 
 //include_once "models/Category.php";
 include_once "model/user.php";
+include_once "model/login.php";
+
 // include_once "models/contact.php";
 switch ($action) {
                 case 'usersAdmin':
@@ -12,6 +14,7 @@ switch ($action) {
                 case 'hoso':
                         $user = getUser();
                         include_once "views/hoso.php";
+                        
                         break;
                 case 'update_profile':
                         $user = getUser();

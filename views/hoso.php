@@ -1,32 +1,43 @@
-<?php  
-session_start();   
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+<?php
+session_start();
 
-if (!isset($_SESSION['id_KhachHang'])) {
-    // Nếu không có id, chuyển hướng người dùng đến trang đăng nhập
-    header("Location: dangnhap");
-    exit; // Đảm bảo dừng việc thực thi mã ngay tại đây
-}
-$id_KhachHang = $_SESSION['id_KhachHang'];
-
-try {
-    // Truy vấn id của khách hàng
-    $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id_KhachHang";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
-    $stmt->execute();
-    $khach = $stmt->fetch(PDO::FETCH_ASSOC);
+if (isset($_SESSION['id_KhachHang'])) {
+    $id_KhachHang = $_SESSION['id_KhachHang'];
     
-    if (!$khach) {
-        exit('Không tìm thấy khách hàng.');
-    }
-} catch (PDOException $e) {
-    exit('Lỗi kết nối: ' . $e->getMessage());
-}
-?> 
+    // Thực hiện truy vấn để lấy thông tin vai trò từ cơ sở dữ liệu
+    $query = "SELECT VaiTro FROM khachhang WHERE id_KhachHang = :id_KhachHang";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id_KhachHang', $id_KhachHang);
+    $stmt->execute();
+    $vaiTro = $stmt->fetchColumn();
 
+    if ($vaiTro == 1) {
+        header("Location: admin"); // Chuyển hướng đến trang admin
+        exit();
+    }
+
+    try {
+        // Truy vấn thông tin khách hàng
+        $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id_KhachHang";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
+        $stmt->execute();
+        $khach = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$khach) {
+            header("Location: dangnhap");
+            exit();
+        }
+
+        
+    } catch (PDOException $e) {
+        exit('Lỗi kết nối: ' . $e->getMessage());
+    }
+} else {
+    header("Location: dangnhap");
+    exit();
+}
+?>
 <!DOCTYPE html>  
 <html lang="vi">  
 <head>  
