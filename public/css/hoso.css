@@ -224,3 +224,6 @@
     border: 1px solid #d6e9c6; /* Đường viền xanh nhạt */
     border-radius: 5px;
 }
+.right-box h2{
+  font-size: 16px;
+}
