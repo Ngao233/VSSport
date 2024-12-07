@@ -24,8 +24,27 @@ function login($email, $matKhau) {
 }  
 
 function Islogin(){  
-    return isset($_SESSION['id_KhachHang']);  
-}  
+
+    if(isset($_SESSION['id_KhachHang'])) {
+        $id_KhachHang = $_SESSION['id_KhachHang'];
+        global $conn;  
+
+        // Thực hiện truy vấn để lấy thông tin vai trò từ cơ sở dữ liệu
+        $query = "SELECT VaiTro FROM khachhang WHERE id_KhachHang = :id_KhachHang";
+        $stmt = $conn->prepare($query);
+        $stmt->bindParam(':id_KhachHang', $id_KhachHang);
+        $stmt->execute();
+        $vaiTro = $stmt->fetchColumn();
+
+        if($vaiTro == 0) {
+            header("Location: hoso"); // Chuyển hướng đến trang hoso
+            exit();
+        } elseif($vaiTro == 1) {
+            header("Location: admin"); // Chuyển hướng đến trang admin
+            exit();
+        }
+    }
+}
 
 function UserLogin($id){  
     global $conn; 
