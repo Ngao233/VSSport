@@ -91,7 +91,24 @@
             <div class="shipping-options">
                 <input class="input-onea" type="checkbox" id="freeShipping" checked> Miễn phí shipping
             </div>
-            
+
+            <h3>Tùy chọn thanh toán</h3>
+<div class="payment-container">
+<div class="payment-options">
+<p>"Hãy chọn phương thức thanh toán"</p>
+<label>
+<input class="input-onea" type="radio" name="payment" checked onclick="toggleQR(false)"> Tiền mặt
+</label>
+<br>
+<label>
+<input class="input-onea" type="radio" name="payment" onclick="toggleQR(true)"> Chuyển khoản
+</label>
+</div>
+<div id="qr-container" style="display: none;">
+<img src="../public/image/QR.jpg" alt="Mã QR" style="width: 130px; height: 130px;">
+</div>
+</div>
+
             <style>
                 #qr-container {
                 display: none;
@@ -99,24 +116,6 @@
                 text-align: center;
                 }
             </style>
-
-<h3>Tùy chọn thanh toán</h3>
-<div class="payment-container">
-    <div class="payment-options">
-        <label>
-            <input class="input-onea" type="radio" name="payment" checked onclick="toggleQR(false)"> Tiền mặt
-        </label>
-        <br>
-        <label>
-            <input class="input-onea" type="radio" name="payment" onclick="toggleQR(true)"> Chuyển khoản
-        </label>
-    </div>
-    <div id="qr-container" style="display: none;">
-        <img src="../public/image/QR.jpg" alt="Mã QR" style="width: 150px; height: 150px;">
-    </div>
-</div>
-
-
 
             <script>
                 function toggleQR(show) {

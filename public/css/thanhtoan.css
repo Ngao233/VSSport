@@ -56,19 +56,23 @@ textarea {
 .payment-container {
     display: flex;
     align-items: center; /* Căn giữa theo chiều dọc */
-    gap: 200px; /* Khoảng cách giữa các khối */
-}
-
-.payment-options {
+    gap: 150px; /* Khoảng cách giữa các khối */
+    height: 15%; /* Đảm bảo chiếm đủ chiều cao nếu cần */
+    }
+    
+    .payment-options {
     display: flex;
     flex-direction: column;
-}
-
-#qr-container {
+    justify-content: center; /* Căn giữa nội dung trong khối */
+    text-align: left;
+    
+    }
+    
+    #qr-container {
     display: none;
     text-align: center;
-    margin-left: 10%;
-}
+    }
+
 
 
 button {
