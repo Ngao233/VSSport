@@ -1,4 +1,27 @@
+<?php  
+session_start();   
 
+// Kiểm tra nếu khách hàng đã đăng nhập  
+if (isset($_SESSION['id_KhachHang'])) {  
+    $id_KhachHang = $_SESSION['id_KhachHang'];  
+
+    // Truy vấn giỏ hàng của khách hàng  
+    $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
+    $stmt->execute();  
+    $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+} else {  
+    $id_KhachHang = null;   
+    $cartItems = []; 
+}  
+
+$sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
+$stmt->execute();
+$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+?>
 <!DOCTYPE html>  
 <html lang="vi">  
 <head>  
@@ -29,7 +52,7 @@
             margin-right: 10%;
             text-align: center;
             font-family: 'Montserrat', sans-serif;   
-            
+            margin-bottom: 20px;
         }
         .product-sale-home div{
             border-radius: 5px;
@@ -116,35 +139,7 @@
 <body>  
   <header>
   <!-- menu phu -->
-    <nav class="menu-one">
-      <ul>
-        <li><a href="#">VSSport.vn</a></li>
-        <div>
-          <li><a href="#">Giúp đỡ</a></li>
-          <li><a href="#">Ngôn ngữ</a></li>
-        </div>
-      </ul>
-    </nav>
-    <!-- menu chinh -->
-    <nav class="menu-two">
-      <a href="#"><img src="../public/image/logo.png" alt="" style="width: 155px ;"></a>
-      <ul>
-        <li><a href="">TRANG CHỦ</a></li>
-        <li><a href="sanpham.html">SẢN PHẨM</a></li>
-        <li><a href="#">THÔNG TIN</a></li>
-        <li><a href="register">ĐĂNG KÝ</a></li>
-        <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
-      </ul>
-      <!-- icon bao gom "shoping" "user" "seach" -->
-      <div class="icon">
-        <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="#"><i class="fa-solid fa-user"></i></a>
-        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
-      </div>
-      
-    </nav>
-  </header>
-<!-- Form đăng nhập-->
+    
 <h1 class="weywie">Sản phẩm yêu thích</h1>
 <section class="product-sale-home">
     <div class="pro-sale">

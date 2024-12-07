@@ -85,11 +85,11 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <a href="chitietsp/<?=$productItem['id_SanPham']?>">
             <img src="public/image/<?=$productItem['HinhAnh']?>" alt="">
                 
-            <div class="circle">
-                <a href="">
-                    <i class="fa-solid fa-heart"></i>
-                </a>
-            </div>
+            <a href="themspyt<?=$product['id_SanPham']?>">
+            <div class="circle">  
+                <i class="fa-solid fa-heart"></i>  
+            </div> 
+            </a> 
 
             <div>
                 <p class="p-product-sale-name"><?=$productItem['TenSanPham']?></p>
@@ -147,13 +147,19 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <a href="chitietsp/<?=$product['id_SanPham']?>" class="product-home-one-link">  
             <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />  
         </a>  
-
+        <a href="themspyt<?=$product['id_SanPham']?>">
         <div class="circle">  
-            <a href="">  
                 <i class="fa-solid fa-heart"></i>  
-            </a>  
-        </div>  
-        
+        </div> 
+        </a> 
+        <form id="addToCartForm" class="formhome" onsubmit="return false;">  
+    <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>">  
+    <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
+    <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$product['id_SanPham']?>', this)">  
+        Thêm vào giỏ hàng  
+    </button>  
+</form>
+
         <div class="product-home-one-info">   
         <form id="addToCartForm" class="formhome" onsubmit="return false;">  
     <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>">  
