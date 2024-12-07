@@ -1,23 +1,6 @@
-<?php 
-        session_start();   
-        
-        if (isset($_SESSION['id_KhachHang'])) {
-            $id_KhachHang = $_SESSION['id_KhachHang'];
-        } else {
-            header("Location: dangnhap"); 
-            exit();
-        } 
-        
-        
-        $id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
-        
-        // Truy vấn giỏ hàng của khách hàng
-        $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
-        $stmt->execute();
-        $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);     
-?>
+<?php
+include_once "model/cart.php";
+?> 
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -49,49 +32,52 @@
     </head>
     <body>
     <div class="pay">
-        <!-- Form thanh toán -->
-        <form class="form-pay action="" method="post">
-    <h2>Thông Tin Người Dùng</h2>
-    <label>Họ và Tên:</label>
-    <input  class="input-onea type="text" name="Ten" placeholder="Nhập họ và tên" value="<?=($_POST['Ten'] ?? $customer['Ten'] ?? '') ?>"><br>
-    
-    <label>Email:</label>
-    <input  class="input-onea type="email" name="Email" placeholder="Nhập email" value="<?=($_POST['Email'] ?? $payment['Email'] ?? '') ?>"><br>
-    
-    <label>Số điện thoại:</label>
-    <input  class="input-onea type="text" name="Sdt" placeholder="Nhập số điện thoại" value="<?=($_POST['Sdt'] ?? $payment['Sdt'] ?? '') ?>"><br>
-    
-    <label>Địa chỉ giao hàng:</label>
-    <input  class="input-onea type="text" name="DiaChi" placeholder="Nhập địa chỉ giao hàng" value="<?=($_POST['DiaChi'] ?? $payment['DiaChi'] ?? '') ?>"><br>
-    
-    <h3>Phương Thức Thanh Toán</h3>
+    <!-- Form thanh toán -->
+    <form class="form-pay" action="process_checkout.php" method="post">
+        <h2>Thông Tin Người Dùng</h2>
+
+        <label>Họ và Tên:</label>
+        <input class="input-onea" type="text" name="Ten" placeholder="Nhập họ và tên" 
+               value="<?= htmlspecialchars($customer['Ten']) ?>"><br>
+
+        <label>Email:</label>
+        <input class="input-onea" type="email" name="Email" placeholder="Nhập email" 
+               value="<?= htmlspecialchars($customer['Email']) ?>"><br>
+
+        <label>Số điện thoại:</label>
+        <input class="input-onea" type="text" name="Sdt" placeholder="Nhập số điện thoại" 
+               value="<?= htmlspecialchars($customer['Sdt']) ?>"><br>
+
+        <label>Địa chỉ giao hàng:</label>
+        <input class="input-onea" type="text" name="DiaChi" placeholder="Nhập địa chỉ giao hàng" 
+               value="<?= htmlspecialchars($shippingAddress['DiaChi']) ?>"><br>
+
+        <h3>Phương Thức Thanh Toán</h3>
         <div class="payment-options">
             <label>
                 <input class="input-onea" type="radio" name="payment" value="TienMat" 
-                    <?= ($_POST['payment'] ?? $payment['thanhtoan'] ?? '') === 'TienMat' ? 'checked' : '' ?>>
+                       <?= $payment['phuongthuc'] === 'TienMat' ? 'checked' : '' ?>>
                 Tiền mặt
             </label>
             <label>
                 <input class="input-onea" type="radio" name="payment" value="ChuyenKhoan" 
-                    <?= ($_POST['payment'] ?? $payment['thanhtoan'] ?? '') === 'ChuyenKhoan' ? 'checked' : '' ?>>
+                       <?= $payment['phuongthuc'] === 'ChuyenKhoan' ? 'checked' : '' ?>>
                 Chuyển khoản
             </label>
         </div>
-     <Label>
-    <h3>Thông tin bổ sung</h3>
-            <textarea placeholder="Ghi chú...." value="<?=($_POST['DiaChi'] ?? $payment['DiaChi'] ?? '') ?>"></textarea>
-            <hr>
-            <div>
-                <q>
-                    Bằng cách tiến hành mua hàng, bạn phải điền đầy đủ thông tin của chúng tôi.
-                </q>
-            </div>
-    </Label>
-  
 
-    
-    <button  class="input-onea type="submit">Thanh Toán</button>
-</form>
+        <h3>Thông tin bổ sung</h3>
+        <textarea name="GhiChu" placeholder="Ghi chú...."><?= htmlspecialchars($_POST['GhiChu'] ?? '') ?></textarea>
+        <hr>
+        <div>
+            <q>
+                Bằng cách tiến hành mua hàng, bạn phải điền đầy đủ thông tin của chúng tôi.
+            </q>
+        </div>
+        <button type="submit">Hoàn tất</button>
+    </form>
+
+
 <!-- Tóm tắt đơn hàng -->
     <div class="summary-pay">
         <h3>Tóm tắt đơn hàng</h3>
