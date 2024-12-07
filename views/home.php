@@ -82,7 +82,9 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $saugiam = $productItem['Gia'] - $giagiam;
     ?> 
         <div class="pro-sale">
+            <a href="chitietsp/<?=$productItem['id_SanPham']?>">
             <img src="public/image/<?=$productItem['HinhAnh']?>" alt="">
+                
             <div class="circle">
                 <a href="">
                     <i class="fa-solid fa-heart"></i>
@@ -172,31 +174,20 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </section>
     <div class="News-home">
         <h2>Tin Tức Mới</h2>
-        <button>Xem Thêm</button>
+        <a href="tonghoptt" class="btn-xem-them">Xem thêm</a>
     </div>
     <section>
-        <div class="tinTuc">
-
-            <div class="oTinTuc">
-                <a href="#">
-                    <img src="public/image/tintuc1.png" alt="">
-                    <p>Áo thun phong cách thể thao,
-                        sản phẩm đc săn đón khi ra mắt
-                    </p>
-                </a>
-
-            </div>
-            <div class="oTinTuc">
-                <a href="#">
-                    <img src="public/image/tintuc2.png" alt="">
-                    <p>Trái bóng được săn đón nhiều
-                        nhất tính từ Euro 2024
-                    </p>
-                </a>
-
-            </div>
-
+    <?php foreach ($tintuc as $tintuc2): ?>
+    <div class="tinTuc">
+        <div class="oTinTuc">
+            <a href="tintuc/<?=$tintuc2['id_TinTuc']?>">
+                <img src="public/image/<?=$tintuc2['HinhAnh']?>" alt="">
+                <p><?=$tintuc2['TieuDe']?></p>
+            </a>
         </div>
+    </div>
+<?php endforeach; ?>
+
     </section>
 
     <!-- Footer-->
