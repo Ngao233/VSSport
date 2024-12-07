@@ -10,3 +10,4 @@ include "T.profile.php";
 include "AdminTinTuc.php";
 include "AdminCart.php";
 include "T.chitietsp.php";
+include "AdminPayment.php";

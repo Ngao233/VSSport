@@ -1,11 +1,8 @@
 <?php  
 session_start();   
-if (isset($_SESSION['id_KhachHang'])) {
-    $id_KhachHang = $_SESSION['id_KhachHang'];
-} else {
-    header("Location: dangnhap"); 
-    exit();
-} 
+if (isset($_SESSION['id_KhachHang'])) {  
+    $id_KhachHang = $_SESSION['id_KhachHang']; 
+
 $id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
 // Truy vấn giỏ hàng của khách hàng
 $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
@@ -13,6 +10,10 @@ $stmt = $conn->prepare($sql);
 $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
 $stmt->execute();
 $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $id_KhachHang = null;   
+}
+
 ?> 
 <!DOCTYPE html>
     <html lang="vi">
@@ -274,7 +275,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             margin-left: 20px;    
         }
 
-        /**/
+        /* menu */
 
         header{
             display: flex;
