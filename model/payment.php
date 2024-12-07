@@ -1,6 +1,5 @@
 <?php
 
-session_start();   
 
 if (isset($_SESSION['id_KhachHang'])) {
     $id_KhachHang = $_SESSION['id_KhachHang'];

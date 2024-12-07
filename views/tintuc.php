@@ -1,20 +1,3 @@
-<!DOCTYPE html>
-    <html lang="vi">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Trang Chủ</title>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
-            rel="stylesheet">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
-            rel="stylesheet">
-        <link
-            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
-            rel="stylesheet">
-        <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
 <style>
                     
         /**/
@@ -207,78 +190,40 @@
             font-weight: bold;
             font-size: 16px;
         }
-</style>
-    </head>
-    
-    <body>
-        <header>
-            <!-- menu phu -->
-            <nav class="menu-one">
-                <ul>
-                    <li><a href="#">VSSport.vn</a></li>
-                    <div>
-                        <li><a href="#">Giúp đỡ</a></li>
-                        <li><a href="#">Ngôn ngữ</a></li>
-                    </div>
-                </ul>
-            </nav>
-            <!-- menu chinh -->
-            <nav class="menu-two">
-                <a href="#"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
-                <ul>
-                    <li><a href="#">TRANG CHỦ</a></li>
-                    <li><a href="sanpham">SẢN PHẨM</a></li>
-                    <li><a href="">THÔNG TIN</a></li>
-                    <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
-                    <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
-                </ul>
-                <!-- icon bao gom "shoping" "user" "seach" -->
-                <div class="icon">
-      <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
-        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="hoso"><i class="fa-solid fa-user"></i></a>
         
-      </div>
-      <form action="searchome" class="formSearchhome" method="post" style="top:30px">
-                <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
-            </form>
+footer{
+    background-image: url("../public/image/banner4.png");
+    width: 100%;
+    height: 320px;
+    background-size: cover; 
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+}
+footer .footer-column-left{
+    text-align: left;
+    margin-left: 200px;
+    color: white;
+    font-family: sans-serif;
 
-    <style>
-    .formSearchhome{
-    position: absolute;
-    right: 180px;
-    top: 35px;
-     }
-    .searchhome {
-    padding: 8px !important;
-    border: none;
-    border-radius: 5px;
-    width: 180px;
-    display: none;
-    transition: transform 1s ease;
-    transform: translateX(100%);
-     }
-    .searchhome.show {  
-    display: block; 
-    transform: translateX(0);  
-     }
-      </style>
+}
+footer .footer-column-right{
+    text-align: center;
+    margin-right: 200px;
+    color: white;
+    font-family: sans-serif;
+    font-size: larger;
+    line-height: 1.5;
+}
+footer .footer-column-right a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
 
-    <script>
-      document.getElementById('search').addEventListener('click',()=>{
-      document.getElementById('searchInput').classList.toggle('show');
-     })
-    </script>
+}
+</style>
 
-    
-            </nav>
-            </section>
-        </header><br>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tin Tức Áo Thun Thể Thao</title>
   <link rel="stylesheet" href="../public/css/tintuc.css">
   <style>
     .add-comment-a form{

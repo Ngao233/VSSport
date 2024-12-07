@@ -93,8 +93,11 @@ switch ($action) {
         case 'tintuc': 
             $id = $_GET["id"] ?? "";  
             $tintuc = getTinTucid($id);
+            include_once "views/header.php";
             include "views/tintuc.php"; 
             $binhluan= getComment($id);
+            include_once "views/footer.php";
+
             break;  
         
                         
