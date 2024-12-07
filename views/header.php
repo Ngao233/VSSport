@@ -76,8 +76,8 @@
                 <a href="hoso"><i class="fa-solid fa-user"></i></a>
                 
             </div>
-            <form action="" class="formSearchhome">
-                <input type="text" class="searchhome" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
+            <form action="searchome" class="formSearchhome" method="post">
+                <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
             </form>
 
         </nav>

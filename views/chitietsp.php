@@ -33,6 +33,24 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             rel="stylesheet">
         <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
 <style>
+    .formSearchhome{
+    position: absolute;
+    right: 180px;
+    top: 35px;
+}
+.searchhome {
+    padding: 8px !important;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    display: none;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+}
+.searchhome.show {  
+    display: block; 
+    transform: translateX(0);  
+}
                     body h2 {
                         font-family: 'Montserrat', sans-serif;
                         margin-left: 10%;
@@ -494,39 +512,8 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
                     <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
                     <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
                 </div>
-
-                <form action="searchhome" class="formSearchhome">
-                <input type="text" class="searchhome" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
-                </form>
-
-    <style>
-    .formSearchhome{
-    position: absolute;
-    right: 180px;
-    top: 35px;
-     }
-    .searchhome {
-    padding: 8px !important;
-    border: none;
-    border-radius: 5px;
-    width: 180px;
-    display: none;
-    transition: transform 1s ease;
-    transform: translateX(100%);
-     }
-    .searchhome.show {  
-    display: block; 
-    transform: translateX(0);  
-     }
-      </style>
-
-    <script>
-      document.getElementById('search').addEventListener('click',()=>{
-      document.getElementById('searchInput').classList.toggle('show');
-     })
-    </script>
-
     
             </nav>
             </section>
@@ -596,6 +583,9 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             this.classList.add('active');  
                         });  
                     });  
+                    document.getElementById('search').addEventListener('click',()=>{
+  document.getElementById('searchInput').classList.toggle('show');
+})
                 </script>  
                 <button class="minh add-to-cart">Thêm giỏ hàng</button>  
 <a href="#"><button class="minh buy-now">Mua Ngay</button></a>  
