@@ -70,10 +70,42 @@ if (isset($_SESSION['id_KhachHang'])) {
             <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
         </ul>
         <div class="icon">
+        <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
             <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
             <a href="hoso"><i class="fa-solid fa-user"></i></a>
-            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
         </div>
+
+        <form action="searchhome" class="formSearchhome">
+        <input type="text" class="searchhome" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
+      </form>
+
+    <style>
+    .formSearchhome{
+    position: absolute;
+    right: 180px;
+    top: 35px;
+     }
+    .searchhome {
+    padding: 8px !important;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    display: none;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+     }
+    .searchhome.show {  
+    display: block; 
+    transform: translateX(0);  
+     }
+    </style>
+
+    <script>
+      document.getElementById('search').addEventListener('click',()=>{
+      document.getElementById('searchInput').classList.toggle('show');
+     })
+    </script>
+
     </nav>
 </header>
 
@@ -101,7 +133,7 @@ if (isset($_SESSION['id_KhachHang'])) {
 
               <li class="fa fa-book"></li><a href="#">Lịch sử mua</a><br>
 
-              <li class="fa fa-heart"></li><a href="#">Sản phẩm yêu thích</a><br>
+              <li class="fa fa-heart"></li><a href="spyeuthich">Sản phẩm yêu thích</a><br>
 
               <a href="dangxuat">Đăng xuất</a><br>
             </ul>
