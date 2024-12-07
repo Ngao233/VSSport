@@ -1,26 +1,31 @@
 <?php  
-session_start();   
+
 
 // Kiểm tra nếu khách hàng đã đăng nhập  
-if (isset($_SESSION['id_KhachHang'])) {  
-    $id_KhachHang = $_SESSION['id_KhachHang'];  
+        if (isset($_SESSION['id_KhachHang'])) {  
+            $id_KhachHang = $_SESSION['id_KhachHang'];  
 
-    // Truy vấn giỏ hàng của khách hàng  
-    $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
-    $stmt = $conn->prepare($sql);  
-    $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
-    $stmt->execute();  
-    $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
-} else {  
-    $id_KhachHang = null;   
-    $cartItems = []; 
-}  
+            // Truy vấn bảng sản phẩm yêu thích 
+        $sql = "SELECT id_SanPham FROM sanphamyeuthich WHERE id_KhachHang = :id_KhachHang";  
+        $stmt = $conn->prepare($sql);  
+        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
+        $stmt->execute();  
+        $productlove = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $productIds = array_column($productlove, 'id_SanPham');
 
-$sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
-$stmt->execute();
-$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+        if (count($productIds) > 0) {
+            $placeholders = implode(',', array_fill(0, count($productIds), '?'));
+            $sql = "SELECT * FROM sanpham WHERE id_SanPham IN ($placeholders)";
+            $stmt = $conn->prepare($sql);
+            $stmt->execute($productIds);
+            $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } else {
+            $products = [];
+        }
+                } else {  
+                    $id_KhachHang = null;   
+                    $cartItems = []; 
+                }  
 ?>
 <!DOCTYPE html>  
 <html lang="vi">  
@@ -28,8 +33,8 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Trang Chủ</title>  
-    <link rel="stylesheet" href="../public/css/style.css">
-    <link rel="stylesheet" href="../public/css/hoso.css">
+    <link rel="stylesheet" href="public/css/style1.css">
+    <link rel="stylesheet" href="public/css/spyeuthich.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
         rel="stylesheet">
@@ -40,110 +45,16 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<style>
-     .product-sale-home{
-            display: grid;
-            grid-template-columns: repeat(5,1fr);
-            width: 80%;
-            margin-left: 10%;
-            gap: 27px;
-            grid-template-columns: 18% 18% 18% 18% 18%;
-            grid-template-rows: 360px;
-            margin-right: 10%;
-            text-align: center;
-            font-family: 'Montserrat', sans-serif;   
-            margin-bottom: 20px;
-        }
-        .product-sale-home div{
-            border-radius: 5px;
-            background-color: #ffffff;
-            
-        }
 
-        .product-sale-home .pro-sale img{
-            width: 100%;
-            margin-top: 15px;
-
-        }
-
-
-        .pro-sale {
-            position: relative;
-            border:solid 1px #FFA031;
-            box-shadow: 1px 0px 0px 0px #FFA031,   
-                    -1px 0px 0px 0px #FFA031,  
-                        0px 1px 0px 0px #FFA031,   
-                        0px -1px 0px 0px #FFA031;
-        }
-        .pro-sale .circle {
-            border-radius: 50px;
-        }
-        .circle i{
-            padding: 13px;
-            color:white;
-            background-color: #FFA031;
-            border-radius: 50px;
-        }
-        .circle{
-            background-color: #FFA031;
-            position: absolute;
-            border-radius: 50px;
-            top: 5px;
-            right: 6px;
-            border:solid 1px #FFA031;
-        }
-        .circle :hover{
-            background-color: white;
-            border-radius: 50px;
-            color: #a8a8a8;
-            border:solid 1px white;
-        }
-        .p-product-sale{
-            display: grid;
-            grid-template-columns: repeat(2,1fr);
-            margin-top: -20px;
-            width: 80%;
-            margin-left: 10%;
-        }
-        .p-product-sale .price-sale-home{
-            text-decoration: line-through;  
-            color: #c9c7c7;
-            font-size: 12px;
-            margin-top: 19px;
-        }
-        .pro-sale button{
-            background-color: #ff9f313e;
-            padding: 8px;
-            margin-top: -20px;
-            border-radius: 5px;
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: bold;
-            color: #FFA031;
-            border: none;
-        }
-        .pro-sale button:hover{
-            background-color: #ff9f31;
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: bold;
-            color: #ffffff;
-            border: none;
-        }
-
-        .price-down-home{
-            color: red;
-            font-weight: bold;
-            font-size: 16px;
-        }
-</style>
 </head>  
 <body>  
   <header>
   <!-- menu phu -->
-    
 <h1 class="weywie">Sản phẩm yêu thích</h1>
 <section class="product-sale-home">
+<?php foreach ($products as $item) { ?>
     <div class="pro-sale">
-        <img src="../public/image/mc-chinh.webp" alt="">
+        <img src="public/image/<?=$item["HinhAnh"]?>" alt="">
         <div class="circle">
             <a href="">
                 <i class="fa-solid fa-heart"></i>
@@ -151,82 +62,18 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
 
         <div>
-            <p class="p-product-sale-name">Áo Manchester City</p>
+            <p class="p-product-sale-name"><?=$item["TenSanPham"]?></p>
             <div class="p-product-sale">
-                <p class="price-sale-home">230000 đ</p>
+                <p class="price-sale-home"><?=$item["Gia"]?> đ</p>
                 <p class="price-down-home">190000 đ</p>
             </div>
             <button>Thêm giỏ hàng</button>
         </div>
     </div>
-    <div class="pro-sale">
-        <img src="../public/image/mc-chinh.webp" alt="">
-        <div class="circle">
-            <a href="">
-                <i class="fa-solid fa-heart"></i>
-            </a>
-        </div>
+    <?php } ?>
+    <div style="width: 100%; height: 50px;">
+</div>
 
-        <div>
-            <p class="p-product-sale-name">Áo Manchester City</p>
-            <div class="p-product-sale">
-                <p class="price-sale-home">230000 đ</p>
-                <p class="price-down-home">190000 đ</p>
-            </div>
-            <button>Thêm giỏ hàng</button>
-        </div>
-    </div>
-    <div class="pro-sale">
-        <img src="../public/image/mc-chinh.webp" alt="">
-        <div class="circle">
-            <a href="">
-                <i class="fa-solid fa-heart"></i>
-            </a>
-        </div>
-
-        <div>
-            <p class="p-product-sale-name">Áo Manchester City</p>
-            <div class="p-product-sale">
-                <p class="price-sale-home">230000 đ</p>
-                <p class="price-down-home">190000 đ</p>
-            </div>
-            <button>Thêm giỏ hàng</button>
-        </div>
-    </div>
-    <div class="pro-sale">
-        <img src="../public/image/mc-chinh.webp" alt="">
-        <div class="circle">
-            <a href="">
-                <i class="fa-solid fa-heart"></i>
-            </a>
-        </div>
-
-        <div>
-            <p class="p-product-sale-name">Áo Manchester City</p>
-            <div class="p-product-sale">
-                <p class="price-sale-home">230000 đ</p>
-                <p class="price-down-home">190000 đ</p>
-            </div>
-            <button>Thêm giỏ hàng</button>
-        </div>
-    </div>
-    <div class="pro-sale">
-        <img src="../public/image/mc-chinh.webp" alt="">
-        <div class="circle">
-            <a href="">
-                <i class="fa-solid fa-heart"></i>
-            </a>
-        </div>
-
-        <div>
-            <p class="p-product-sale-name">Áo Manchester City</p>
-            <div class="p-product-sale">
-                <p class="price-sale-home">230000 đ</p>
-                <p class="price-down-home">190000 đ</p>
-            </div>
-            <button>Thêm giỏ hàng</button>
-        </div>
-    </div>
 </section>
          
     
