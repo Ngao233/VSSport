@@ -53,9 +53,24 @@ textarea {
     resize: none;
     height: 60px;
 }
-.shipping-options, .payment-options {
-    margin-top: 15px;
+.payment-container {
+    display: flex;
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 200px; /* Khoảng cách giữa các khối */
 }
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+}
+
+#qr-container {
+    display: none;
+    text-align: center;
+    margin-left: 10%;
+}
+
+
 button {
     width: 100%;
     padding: 10px;

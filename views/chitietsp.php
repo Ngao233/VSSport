@@ -1,8 +1,11 @@
 <?php  
 session_start();   
-if (isset($_SESSION['id_KhachHang'])) {  
-    $id_KhachHang = $_SESSION['id_KhachHang']; 
-
+if (isset($_SESSION['id_KhachHang'])) {
+    $id_KhachHang = $_SESSION['id_KhachHang'];
+} else {
+    header("Location: dangnhap"); 
+    exit();
+} 
 $id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
 // Truy vấn giỏ hàng của khách hàng
 $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
@@ -10,10 +13,6 @@ $stmt = $conn->prepare($sql);
 $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
 $stmt->execute();
 $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} else {
-    $id_KhachHang = null;   
-}
-
 ?> 
 <!DOCTYPE html>
     <html lang="vi">
@@ -33,6 +32,24 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             rel="stylesheet">
         <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
 <style>
+    .formSearchhome{
+    position: absolute;
+    right: 180px;
+    top: 35px;
+}
+.searchhome {
+    padding: 8px !important;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    display: none;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+}
+.searchhome.show {  
+    display: block; 
+    transform: translateX(0);  
+}
                     body h2 {
                         font-family: 'Montserrat', sans-serif;
                         margin-left: 10%;
@@ -380,7 +397,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             margin-left: 10%;
             gap: 27px;
             grid-template-columns: 18% 18% 18% 18% 18%;
-            grid-template-rows: 350px;
+            grid-template-rows: 370px;
             margin-right: 10%;
             text-align: center;
             font-family: 'Montserrat', sans-serif;   
@@ -472,7 +489,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <!-- menu phu -->
             <nav class="menu-one">
                 <ul>
-                    <li><a href="#">VSSport.vn</a></li>
+                    <li><a href="home">VSSport.vn</a></li>
                     <div>
                         <li><a href="#">Giúp đỡ</a></li>
                         <li><a href="#">Ngôn ngữ</a></li>
@@ -481,9 +498,10 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </nav>
             <!-- menu chinh -->
             <nav class="menu-two">
-                <a href="#"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
+                <a href="#"><img src="../public/image/logo.png" alt="" style="width: 155px ;"></a>
+
                 <ul>
-                    <li><a href="#">TRANG CHỦ</a></li>
+                    <li><a href="home/../..">TRANG CHỦ</a></li>
                     <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
                     <li><a href="#">THÔNG TIN</a></li>
                     <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
@@ -491,9 +509,10 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 </ul>
                 <!-- icon bao gom "shoping" "user" "seach" -->
                 <div class="icon">
+
+                <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
                     <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
                     <a href="#"><i class="fa-solid fa-user"></i></a>
-                    <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
                 </div>
     
             </nav>
@@ -564,6 +583,9 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             this.classList.add('active');  
                         });  
                     });  
+                    document.getElementById('search').addEventListener('click',()=>{
+  document.getElementById('searchInput').classList.toggle('show');
+})
                 </script>  
                 <button class="minh add-to-cart">Thêm giỏ hàng</button>  
 <a href="#"><button class="minh buy-now">Mua Ngay</button></a>  
@@ -573,106 +595,15 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </section><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         <h1 class="weywie">Sản phẩm tương tự</h1>
         <section class="product-sale-home">
-            <div class="pro-sale">
-                <img src="../public/image/mc-chinh.webp" alt="">
-                <div class="circle">
-                    <a href="">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
-                </div>
-    
-                <div>
-                    <p class="p-product-sale-name">Áo Manchester City</p>
-                    <div class="p-product-sale">
-                        <p class="price-sale-home">230000 đ</p>
-                        <p class="price-down-home">190000 đ</p>
-                    </div>
-                    <button>Thêm giỏ hàng</button>
-                </div>
-            </div>
-            <div class="pro-sale">
-                <img src="../public/image/mc-chinh.webp" alt="">
-                <div class="circle">
-                    <a href="">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
-                </div>
-    
-                <div>
-                    <p class="p-product-sale-name">Áo Manchester City</p>
-                    <div class="p-product-sale">
-                        <p class="price-sale-home">230000 đ</p>
-                        <p class="price-down-home">190000 đ</p>
-                    </div>
-                    <button>Thêm giỏ hàng</button>
-                </div>
-            </div>
-            <div class="pro-sale">
-                <img src="../public/image/mc-chinh.webp" alt="">
-                <div class="circle">
-                    <a href="">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
-                </div>
-    
-                <div>
-                    <p class="p-product-sale-name">Áo Manchester City</p>
-                    <div class="p-product-sale">
-                        <p class="price-sale-home">230000 đ</p>
-                        <p class="price-down-home">190000 đ</p>
-                    </div>
-                    <button>Thêm giỏ hàng</button>
-                </div>
-            </div>
-            <div class="pro-sale">
-                <img src="../public/image/mc-chinh.webp" alt="">
-                <div class="circle">
-                    <a href="">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
-                </div>
-    
-                <div>
-                    <p class="p-product-sale-name">Áo Manchester City</p>
-                    <div class="p-product-sale">
-                        <p class="price-sale-home">230000 đ</p>
-                        <p class="price-down-home">190000 đ</p>
-                    </div>
-                    <button>Thêm giỏ hàng</button>
-                </div>
-            </div>
-            <div class="pro-sale">
-                <img src="../public/image/mc-chinh.webp" alt="">
-                <div class="circle">
-                    <a href="">
-                        <i class="fa-solid fa-heart"></i>
-                    </a>
-                </div>
-    
-                <div>
-                    <p class="p-product-sale-name">Áo Manchester City</p>
-                    <div class="p-product-sale">
-                        <p class="price-sale-home">230000 đ</p>
-                        <p class="price-down-home">190000 đ</p>
-                    </div>
-                    <button>Thêm giỏ hàng</button>
-                </div>
-            </div>
-        </section><br><br>
-        <section class="DI">
-<div><h2>Chi Tiết Sản Phẩm</h2>
-<p>Tên Sản Phẩm: <?=$product['TenSanPham']?><br> 
-   Giá: <?=$product['Gia']?><br>
-   Màu Sắc: <?=$product['MauSac']?><br>
-   Kích Thước: <?=$product['KichThuoc']?><br>
-   Số Lượng: <?=$product['SoLuong']?><b<section class="product-sale-home">
     <?php foreach ($product1 as $productItem): 
         // Tính toán giá giảm
         $giagiam = $productItem['Gia'] * ($productItem['GiamGia'] / 100);
         $saugiam = $productItem['Gia'] - $giagiam;
     ?> 
         <div class="pro-sale">
-            <img src="public/image/<?=$productItem['HinhAnh']?>" alt="">
+            <a href="chitietsp/<?=$productItem['id_SanPham']?>">
+            <img src="../public/image/<?=$productItem['HinhAnh']?>" alt="">
+                
             <div class="circle">
                 <a href="">
                     <i class="fa-solid fa-heart"></i>
@@ -685,17 +616,30 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <p class="price-sale-home"><?= number_format($productItem['Gia'], 0, ',', '.'); ?>đ</p> <!-- Giá ban đầu -->
                     <p class="price-down-home"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p> <!-- Giá sau giảm -->
                 </div>
-                <button>Thêm giỏ hàng</button>
+                <form id="addToCartForm" class="formhome" onsubmit="return false;">  
+                <input type="hidden" name="id_SanPham" value="<?=$productItem['id_SanPham']?>">  
+                <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
+                <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$productItem['id_SanPham']?>', this)">  
+                    Thêm vào giỏ hàng  
+                </button>  
+                </form>
+
 
             </div>
         </div>
     <?php endforeach; ?>
-</section>
-r>
+</section><br><br>
+        <section class="DI">
+<div><h2>Chi Tiết Sản Phẩm</h2>
+<p>Tên Sản Phẩm: <?=$productdetail['TenSanPham']?><br> 
+   Giá: <?=$productdetail['Gia']?><br>
+   Màu Sắc: <?=$productdetail['MauSac']?><br>
+   Kích Thước: <?=$productdetail['KichThuoc']?><br>
+   Số Lượng: <?=$product['SoLuong']?><br>
     -Gửi từ: TP. Hồ Chí Minh</p>
 </div>
 <div><h2>Mô tả Sản Phẩm</h2>
-<p><?=$product['MoTa']?></p>
+<p><?=$productdetail['MoTa']?></p>
 </div>
         </section><br><br><br><br>
 <section class="min">
@@ -725,8 +669,36 @@ r>
                     alert('Vui lòng nhập bình luận!');  
                 }  
             }  
+            function updateQuantity(productName, delta) {
+  let product = cartItems.find(item => item.name === productName);
+  if (product) {
+    product.quantity += delta;
+
+    if (product.quantity <= 0) {
+      removeFromCart(productName);
+    } else {
+      updateCartPopup();
+      updateCartCount();
+    }
+  }
+}
+
+function showCart() {
+  const cartPopup = document.getElementById("cart-popup");
+  cartPopup.style.display = "block";
+}
+
+function hideCart() {
+  const cartPopup = document.getElementById("cart-popup");
+  setTimeout(() => {
+    if (!cartPopup.matches(":hover") && !document.querySelector(".cart-icon").matches(":hover")) {
+      cartPopup.style.display = "none";
+    }
+  }, 200)}
         </script>  
+        <script></script>
     </div>
 </section>
+
     </body>
 </html>

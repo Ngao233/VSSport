@@ -74,6 +74,17 @@ function getInfoDetail($id){
     return $getInfoDetail; 
 }
 
+function getTinTucLimit($limit = 2, $sort = "DESC") {
+    global $conn;
+    $sql = "SELECT * FROM tintuc ORDER BY id_TinTuc $sort LIMIT :limit";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT); // Ràng buộc tham số để tránh lỗi SQL Injection
+    $stmt->execute();
+    $tintuc = $stmt->fetchAll(PDO::FETCH_ASSOC); // Lấy dữ liệu dạng mảng liên kết
+    return $tintuc;
+}
+
+
 function layNgayHienTai() {
     // Đặt định dạng cho ngày và giờ
     $format = 'd-m-Y'; 
