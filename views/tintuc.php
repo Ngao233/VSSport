@@ -234,14 +234,14 @@
                 </ul>
                 <!-- icon bao gom "shoping" "user" "seach" -->
                 <div class="icon">
-                <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
-                    <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
-                    <a href="#"><i class="fa-solid fa-user"></i></a>
-                </div>
+      <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
+        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="hoso"><i class="fa-solid fa-user"></i></a>
         
-                <form action="searchhome" class="formSearchhome">
-                <input type="text" class="searchhome" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
-                </form>
+      </div>
+      <form action="searchome" class="formSearchhome" method="post" style="top:30px">
+                <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
+            </form>
 
     <style>
     .formSearchhome{
