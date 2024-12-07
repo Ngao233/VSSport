@@ -101,7 +101,7 @@ if (isset($_SESSION['id_KhachHang'])) {
 
               <li class="fa fa-book"></li><a href="#">Lịch sử mua</a><br>
 
-              <li class="fa fa-heart"></li><a href="#">Sản phẩm yêu thích</a><br>
+              <li class="fa fa-heart"></li><a href="spyeuthich">Sản phẩm yêu thích</a><br>
 
               <a href="dangxuat">Đăng xuất</a><br>
             </ul>
