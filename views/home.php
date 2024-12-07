@@ -173,22 +173,36 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </section>
     <div class="News-home">
-        <h2>Tin Tức Mới</h2>
-        <a href="tonghoptt" class="btn-xem-them">Xem thêm</a>
+        <h2 class="">Tin Tức Mới</h2>
+        <a class="button-tintuc" href="tonghoptt" class="btn-xem-them">Xem thêm</a>
     </div>
     <section>
-    <?php foreach ($tintuc as $tintuc2): ?>
     <div class="tinTuc">
+    <?php foreach ($tintuc as $tintuc2): ?>
         <div class="oTinTuc">
             <a href="tintuc/<?=$tintuc2['id_TinTuc']?>">
                 <img src="public/image/<?=$tintuc2['HinhAnh']?>" alt="">
                 <p><?=$tintuc2['TieuDe']?></p>
             </a>
         </div>
+    <?php endforeach; ?>
     </div>
-<?php endforeach; ?>
-
     </section>
+    
+    <style>
+        .button-tintuc{
+    float: right;
+    margin-right: 11%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: none;
+    background-color: #FFA031;
+    color: black;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 10px;
+    font-weight: bold;
+    }
+    </style>
 
     <!-- Footer-->
 
