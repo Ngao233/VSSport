@@ -61,7 +61,7 @@ if (isset($_SESSION['id_KhachHang'])) {
         </ul>
     </nav>
     <nav class="menu-two">
-        <a href="#"><img src="image/logo.png" alt="Logo" style="width: 155px;"></a>
+        <a href="#"><img src="public/image/logo.png" alt="Logo" style="width: 155px;"></a>
         <ul>
             <li><a href="home">TRANG CHỦ</a></li>
             <li><a href="sanpham">SẢN PHẨM</a></li>
@@ -70,14 +70,14 @@ if (isset($_SESSION['id_KhachHang'])) {
             <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
         </ul>
         <div class="icon">
-        <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
-            <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a href="hoso"><i class="fa-solid fa-user"></i></a>
-        </div>
-
-        <form action="searchhome" class="formSearchhome">
-        <input type="text" class="searchhome" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
-      </form>
+      <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
+        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="hoso"><i class="fa-solid fa-user"></i></a>
+        
+      </div>
+      <form action="searchome" class="formSearchhome" method="post" style="top:30px">
+                <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
+            </form>
 
     <style>
     .formSearchhome{
