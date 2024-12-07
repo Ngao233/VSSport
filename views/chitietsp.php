@@ -1,11 +1,8 @@
 <?php  
 session_start();   
-if (isset($_SESSION['id_KhachHang'])) {
-    $id_KhachHang = $_SESSION['id_KhachHang'];
-} else {
-    header("Location: dangnhap"); 
-    exit();
-} 
+if (isset($_SESSION['id_KhachHang'])) {  
+    $id_KhachHang = $_SESSION['id_KhachHang']; 
+
 $id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
 // Truy vấn giỏ hàng của khách hàng
 $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
@@ -13,6 +10,10 @@ $stmt = $conn->prepare($sql);
 $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
 $stmt->execute();
 $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $id_KhachHang = null;   
+}
+
 ?> 
 <!DOCTYPE html>
     <html lang="vi">
@@ -664,33 +665,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
    Giá: <?=$product['Gia']?><br>
    Màu Sắc: <?=$product['MauSac']?><br>
    Kích Thước: <?=$product['KichThuoc']?><br>
-   Số Lượng: <?=$product['SoLuong']?><b<section class="product-sale-home">
-    <?php foreach ($product1 as $productItem): 
-        // Tính toán giá giảm
-        $giagiam = $productItem['Gia'] * ($productItem['GiamGia'] / 100);
-        $saugiam = $productItem['Gia'] - $giagiam;
-    ?> 
-        <div class="pro-sale">
-            <img src="public/image/<?=$productItem['HinhAnh']?>" alt="">
-            <div class="circle">
-                <a href="">
-                    <i class="fa-solid fa-heart"></i>
-                </a>
-            </div>
-
-            <div>
-                <p class="p-product-sale-name"><?=$productItem['TenSanPham']?></p>
-                <div class="p-product-sale">
-                    <p class="price-sale-home"><?= number_format($productItem['Gia'], 0, ',', '.'); ?>đ</p> <!-- Giá ban đầu -->
-                    <p class="price-down-home"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p> <!-- Giá sau giảm -->
-                </div>
-                <button>Thêm giỏ hàng</button>
-
-            </div>
-        </div>
-    <?php endforeach; ?>
-</section>
-r>
+   Số Lượng: <?=$product['SoLuong']?><br>
     -Gửi từ: TP. Hồ Chí Minh</p>
 </div>
 <div><h2>Mô tả Sản Phẩm</h2>
