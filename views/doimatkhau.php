@@ -40,7 +40,7 @@ try {
 <header>
     <nav class="menu-one">
         <ul>
-            <li><a href="#">VSSport.vn</a></li>
+            <li><a href="home">VSSport.vn</a></li>
             <div>
                 <li><a href="#">Giúp đỡ</a></li>
                 <li><a href="#">Ngôn ngữ</a></li>
@@ -48,7 +48,7 @@ try {
         </ul>
     </nav>
     <nav class="menu-two">
-        <a href="#"><img src="image/logo.png" alt="Logo" style="width: 155px;"></a>
+        <a href="home"><img src="image/logo.png" alt="Logo" style="width: 155px;"></a>
         <ul>
             <li><a href="">TRANG CHỦ</a></li>
             <li><a href="sanpham">SẢN PHẨM</a></li>
@@ -57,10 +57,42 @@ try {
             <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
         </ul>
         <div class="icon">
+        <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
             <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
             <a href="hoso"><i class="fa-solid fa-user"></i></a>
-            <a href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
         </div>
+
+        <form action="searchhome" class="formSearchhome">
+        <input type="text" class="searchhome" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
+      </form>
+
+    <style>
+    .formSearchhome{
+    position: absolute;
+    right: 180px;
+    top: 35px;
+     }
+    .searchhome {
+    padding: 8px !important;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    display: none;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+     }
+    .searchhome.show {  
+    display: block; 
+    transform: translateX(0);  
+     }
+    </style>
+
+    <script>
+      document.getElementById('search').addEventListener('click',()=>{
+      document.getElementById('searchInput').classList.toggle('show');
+     })
+    </script>
+
     </nav>
 </header>
 

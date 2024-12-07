@@ -1,5 +1,279 @@
 <!DOCTYPE html>
-<html lang="vi">
+    <html lang="vi">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang Chủ</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
+<style>
+                    
+        /**/
+
+        header{
+            display: flex;
+            flex-direction: column;
+            font-family:'Poppins', sans-serif;
+            
+        }
+
+        /* menu chinh */
+        .menu-two {
+            background-color: #FFA031;
+            display: flex;
+            flex-direction: Row;
+            justify-content: space-between;
+            height: 50px;
+        }
+        .menu-two ul{
+            font-weight: bold;
+            font-size: 14px;
+            padding: 0;
+            display: flex;
+            flex-direction: Row;
+            color: white;
+        }
+        .menu-two ul li{
+            list-style-type: none;
+            margin-right: 20px;
+            letter-spacing: 2px;
+            color: white;
+        }
+        .menu-two ul li a{
+            color: white;
+            text-decoration: none;
+        }
+        .menu-two img{
+            margin-left: 25px;
+        }
+        /* menu phu */
+        .menu-one ul{
+            margin: inherit;
+            justify-content: space-between;
+            font-size: 12px;
+            display: flex;
+            flex-direction: Row;
+            color: white ;
+
+        }
+        .menu-one{
+            background-color: #5c3911;
+        }
+        .menu-one ul div{
+            display: flex;
+            flex-direction: Row;
+            
+        }
+        .menu-one ul li {
+            list-style-type: none;
+            margin-right: 20px;
+            letter-spacing: 2px;
+        }
+        .menu-one ul li a{
+            color: white;
+            text-decoration: none;
+        }   
+        /* Icon (Giỏ hàng, người dùng, tìm kiếm) */
+        .icon{
+            display: flex;
+            flex-direction: row;
+            align-items: Center;
+            margin-right: 4%;
+        }
+
+        .icon form {
+            display: flex;
+            margin-right: 20px;
+        }
+
+        .icon input[type="text"] {
+            padding: 8px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .icon button {
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .icon a {
+            margin-left: 15px;
+            color: white;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+        .product-sale-home{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            width: 80%;
+            margin-left: 10%;
+            gap: 27px;
+            grid-template-columns: 18% 18% 18% 18% 18%;
+            grid-template-rows: 350px;
+            margin-right: 10%;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;   
+            
+        }
+        .product-sale-home div{
+            border-radius: 5px;
+            background-color: #ffffff;
+            
+        }
+
+        .product-sale-home .pro-sale img{
+            width: 100%;
+            margin-top: 15px;
+
+        }
+
+
+        .pro-sale {
+            position: relative;
+            border:solid 1px #FFA031;
+            box-shadow: 1px 0px 0px 0px #FFA031,   
+                    -1px 0px 0px 0px #FFA031,  
+                        0px 1px 0px 0px #FFA031,   
+                        0px -1px 0px 0px #FFA031;
+        }
+        .pro-sale .circle {
+            border-radius: 50px;
+        }
+        .circle i{
+            padding: 13px;
+            color:#a8a8a8;
+        }
+        .circle{
+            background-color: white;
+            position: absolute;
+            border-radius: 50px;
+            top: 5px;
+            right: 6px;
+            border:solid 1px #888;
+        }
+        .circle :hover{
+            background-color: #FFA031;
+            border-radius: 50px;
+            color: white;
+            border:solid 1px white;
+        }
+        .p-product-sale{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            margin-top: -20px;
+            width: 80%;
+            margin-left: 10%;
+        }
+        .p-product-sale .price-sale-home{
+            text-decoration: line-through;  
+            color: #c9c7c7;
+            font-size: 12px;
+            margin-top: 19px;
+        }
+        .pro-sale button{
+            background-color: #ff9f313e;
+            padding: 8px;
+            margin-top: -20px;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: bold;
+            color: #FFA031;
+            border: none;
+        }
+        .pro-sale button:hover{
+            background-color: #ff9f31;
+            font-family: 'Montserrat', sans-serif; 
+            font-weight: bold;
+            color: #ffffff;
+            border: none;
+        }
+
+        .price-down-home{
+            color: red;
+            font-weight: bold;
+            font-size: 16px;
+        }
+</style>
+    </head>
+    
+    <body>
+        <header>
+            <!-- menu phu -->
+            <nav class="menu-one">
+                <ul>
+                    <li><a href="#">VSSport.vn</a></li>
+                    <div>
+                        <li><a href="#">Giúp đỡ</a></li>
+                        <li><a href="#">Ngôn ngữ</a></li>
+                    </div>
+                </ul>
+            </nav>
+            <!-- menu chinh -->
+            <nav class="menu-two">
+                <a href="#"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
+                <ul>
+                    <li><a href="#">TRANG CHỦ</a></li>
+                    <li><a href="sanpham">SẢN PHẨM</a></li>
+                    <li><a href="">THÔNG TIN</a></li>
+                    <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
+                    <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+                </ul>
+                <!-- icon bao gom "shoping" "user" "seach" -->
+                <div class="icon">
+                <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
+                    <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                </div>
+        
+                <form action="searchhome" class="formSearchhome">
+                <input type="text" class="searchhome" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
+                </form>
+
+    <style>
+    .formSearchhome{
+    position: absolute;
+    right: 180px;
+    top: 35px;
+     }
+    .searchhome {
+    padding: 8px !important;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    display: none;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+     }
+    .searchhome.show {  
+    display: block; 
+    transform: translateX(0);  
+     }
+      </style>
+
+    <script>
+      document.getElementById('search').addEventListener('click',()=>{
+      document.getElementById('searchInput').classList.toggle('show');
+     })
+    </script>
+
+    
+            </nav>
+            </section>
+        </header><br>
 
 <head>
   <meta charset="UTF-8">
