@@ -19,6 +19,26 @@
 
 </head>  
 <body>
+  <style>
+    .formSearchhome{
+    position: absolute;
+    right: 180px;
+    top: 35px;
+}
+.searchhome {
+    padding: 8px !important;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    display: none;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+}
+.searchhome.show {  
+    display: block; 
+    transform: translateX(0);  
+}
+  </style>
 <header>
   <!-- menu phu -->
     <nav class="menu-one">
@@ -42,11 +62,14 @@
       </ul>
       <!-- icon bao gom "shoping" "user" "seach" -->
       <div class="icon">
+      <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
         <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
         <a href="hoso"><i class="fa-solid fa-user"></i></a>
-        <a href=""><i class="fa-solid fa-magnifying-glass"></i></a>
+        
       </div>
-      
+      <form action="searchome" class="formSearchhome">
+                <input type="text" class="searchhome" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
+            </form>
     </nav>
   </header>
 <div class="khungDN">  
@@ -75,7 +98,7 @@
         </form>  
     </div>  
 </div>  
-<script src="../js/javascrip.js">
+<script src="public/js/javascrip.js">
 
 </script>
 
@@ -103,5 +126,10 @@
 
     </div>
 </footer>
+<script>
+  document.getElementById('search').addEventListener('click',()=>{
+    document.getElementById('searchInput').classList.toggle('show');
+  });
+</script>
 </body>  
 </html>

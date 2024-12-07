@@ -188,6 +188,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 <?php endforeach; ?>
 
+
     </section>
 
     <!-- Footer-->
