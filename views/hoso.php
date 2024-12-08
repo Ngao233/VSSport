@@ -1,9 +1,9 @@
 <?php
-session_start();
+
 
 if (isset($_SESSION['id_KhachHang'])) {
     $id_KhachHang = $_SESSION['id_KhachHang'];
-    
+
     // Thực hiện truy vấn để lấy thông tin vai trò từ cơ sở dữ liệu
     $query = "SELECT VaiTro FROM khachhang WHERE id_KhachHang = :id_KhachHang";
     $stmt = $conn->prepare($query);
@@ -29,7 +29,6 @@ if (isset($_SESSION['id_KhachHang'])) {
             exit();
         }
 
-        
     } catch (PDOException $e) {
         exit('Lỗi kết nối: ' . $e->getMessage());
     }
@@ -37,49 +36,12 @@ if (isset($_SESSION['id_KhachHang'])) {
     header("Location: dangnhap");
     exit();
 }
-?>
-<!DOCTYPE html>  
-<html lang="vi">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Trang Chủ</title>  
-    <link rel="stylesheet" href="public/css/style1.css">
-    <link rel="stylesheet" href="public/css/hoso.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>  
-<body>  
-<header>
-    <nav class="menu-one">
-        <ul>
-            <li><a href="#">VSSport.vn</a></li>
-            <div>
-                <li><a href="#">Giúp đỡ</a></li>
-                <li><a href="#">Ngôn ngữ</a></li>
-            </div>
-        </ul>
-    </nav>
-    <nav class="menu-two">
-        <a href="#"><img src="public/image/logo.png" alt="Logo" style="width: 155px;"></a>
-        <ul>
-            <li><a href="home">TRANG CHỦ</a></li>
-            <li><a href="sanpham">SẢN PHẨM</a></li>
-            <li><a href="#">THÔNG TIN</a></li>
-            <li><a href="dangky">ĐĂNG KÝ</a></li>
-            <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
-        </ul>
-        <div class="icon">
-      <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
-        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="hoso"><i class="fa-solid fa-user"></i></a>
-        
-      </div>
-      <form action="searchome" class="formSearchhome" method="post" style="top:30px">
-                <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
-            </form>
 
-    <style>
+
+?>
+
+<link rel="stylesheet" href="public/css/hoso.css">
+<style>
     .formSearchhome{
     position: absolute;
     right: 180px;
@@ -105,10 +67,6 @@ if (isset($_SESSION['id_KhachHang'])) {
       document.getElementById('searchInput').classList.toggle('show');
      })
     </script>
-
-    </nav>
-</header>
-
 <div class="khung">
     <div class="background-image"></div>
     <div class="left-box">
@@ -139,6 +97,7 @@ if (isset($_SESSION['id_KhachHang'])) {
             </ul>
         </div>
     </div>
+    
     <div class="right-box">
         <div class="leftin-box">
         <h2>Hồ sơ của tôi</h2> 
@@ -227,36 +186,3 @@ if (isset($_SESSION['id_KhachHang'])) {
 </body>
 </html>
 
-
-<!-- Footer-->
-
-    <script src="../js/javascrip.js">
-
-    </script>
-
-    <footer>
-        <div class="footer-column-left">
-            <h3>Liên hệ</h3>
-            <hr>
-            <h3>Hotline: </h3>
-            <p>(+84)098765432</p>
-            <h3>Email: </h3>
-            <p>support@gmail.com</p>
-            <h3>Thời gian làm việc</h3>
-            <p>06:00 - 18:00 hằng ngày</p>
-        </div>
-        <div class="footer-column-left">
-            
-        </div>
-        <div class="footer-column-right">
-            <h3>Theo dõi tại</h3>
-            <hr>
-            <a href="#">Facebook</a><br>
-            <a href="#">Twitter</a><br>
-            <a href="#">Youtube</a><br>
-            <a href="#">Instagram</a><br>
-
-        </div>
-    </footer>
-</body>  
-</html>
