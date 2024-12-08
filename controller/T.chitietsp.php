@@ -1,6 +1,7 @@
 <?php
 include_once "model/chitietsp.php";
-include_once "model/product.php";  
+include_once "model/product.php";
+include_once "model/addtocart.php";  
 
 switch ($action) {   
     case 'chitietsp': 
