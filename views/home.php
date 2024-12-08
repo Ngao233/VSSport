@@ -142,7 +142,11 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class="product-home1">
         
-        <?php foreach ($product as $product) { ?>  
+        <?php foreach ($product as $product) {
+            $giagiam = $product['Gia'] * ($product['GiamGia'] / 100);
+            $saugiam = $product['Gia'] - $giagiam;
+             ?>  
+            
     <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">  
         <a href="chitietsp/<?=$product['id_SanPham']?>" class="product-home-one-link">  
             <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />  
@@ -151,9 +155,8 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <div class="circle">  
                 <i class="fa-solid fa-heart"></i>  
         </div> 
-        </a> 
-
-
+        
+        </a>
         <div class="product-home-one-info">   
         <form id="addToCartForm" class="formhome" onsubmit="return false;">  
     <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>">  
@@ -163,11 +166,12 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </button>  
 </form>
         </div>  
-
         <p class="product-home-one-name"><?=$product["TenSanPham"]?></p>  
-        <p class="product-home-one-price"><?=$product["Gia"]?> đ</p>  
-        
+        <p class="product-home-one-price" style="font-size:12px; color:gray;" ><?=$product["Gia"]?> đ</p>  
+        <p class="price-down-home" style="margin-top:-1px"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p>
+        <p >Phần Trăm Giảm Giá -<?=$product["GiamGia"]?>%</p>
     </div>  
+    
 <?php } ?>
            
         </div>

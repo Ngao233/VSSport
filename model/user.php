@@ -7,4 +7,12 @@ function getUser($sort="DESC"){
     $user = $stmt->fetchAll();
     return $user; 
 }
-
+function getUserid($id){
+    global $conn;
+    $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id";   
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $id);
+    $stmt->execute();
+    $user = $stmt->fetch();
+    return $user; 
+}

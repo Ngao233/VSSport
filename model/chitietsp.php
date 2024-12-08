@@ -8,4 +8,5 @@ function getProductDetail($id){
     $getproductdetail = $stmt->fetch();
     return $getproductdetail; 
 }
+
 ?>
