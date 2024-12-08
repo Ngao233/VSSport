@@ -266,7 +266,7 @@ document.querySelectorAll('.formhome').forEach(form => {
         method: 'POST',  
         body: formData  
     })  
-    .then(response => response.json())  
+    .then(response => response.json()) 
     .then(data => {  
         console.log(data);  
         updateCartDisplay(data.cartDetails);   
