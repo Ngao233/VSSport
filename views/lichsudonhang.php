@@ -1,7 +1,9 @@
 <?php
 
 // Kiểm tra khách hàng đã đăng nhập chưa
-session_start();
+if (session_status() == PHP_SESSION_NONE) {  
+    session_start();  
+}
 if (!isset($_SESSION['id_KhachHang'])) {
     echo "Bạn cần đăng nhập để xem lịch sử đơn hàng.";
     exit();

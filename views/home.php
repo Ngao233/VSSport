@@ -169,7 +169,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p class="product-home-one-name"><?=$product["TenSanPham"]?></p>  
         <p class="product-home-one-price" style="font-size:12px; color:gray;" ><?=$product["Gia"]?> đ</p>  
         <p class="price-down-home" style="margin-top:-1px"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p>
-        <p >Phần Trăm Giảm Giá -<?=$product["GiamGia"]?>%</p>
+        <p style="position: absolute; top: 10px; left: 5px; background-color:rgba(255, 0, 0, 0.5); border-radius:5px ; padding:5px;">   - <?=$product["GiamGia"]?>%  </p>
     </div>  
     
 <?php } ?>

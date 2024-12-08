@@ -1,6 +1,7 @@
 <?php  
-session_start();  
- 
+if (session_status() == PHP_SESSION_NONE) {  
+    session_start();  
+}
 
 if (isset($_POST['id_SanPham'], $_POST['quantity'], $_SESSION['id_KhachHang'])) {  
     $id_KhachHang = $_SESSION['id_KhachHang'];  
@@ -38,6 +39,6 @@ if (isset($_POST['id_SanPham'], $_POST['quantity'], $_SESSION['id_KhachHang'])) 
     exit();  
 } else {  
     // Xử lý lỗi  
-    echo "Có lỗi xảy ra. Vui lòng thử lại.";  
+     
 }  
 ?>
