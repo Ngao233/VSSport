@@ -131,7 +131,7 @@ if (isset($_SESSION['id_KhachHang'])) {
 
               <a href="doimatkhau" class="little">Đổi mật khẩu</a><br>
 
-              <li class="fa fa-book"></li><a href="#">Lịch sử mua</a><br>
+              <li class="fa fa-book"></li><a href="lichsu">Lịch sử mua</a><br>
 
               <li class="fa fa-heart"></li><a href="spyeuthich">Sản phẩm yêu thích</a><br>
 
