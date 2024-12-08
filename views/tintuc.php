@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+    <html lang="vi">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Trang Chủ</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
+            rel="stylesheet">
+        <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
 <style>
                     
         /**/
@@ -247,6 +264,21 @@
      }
       </style>
 
+    <script>
+      document.getElementById('search').addEventListener('click',()=>{
+      document.getElementById('searchInput').classList.toggle('show');
+     })
+    </script>
+
+    
+            </nav>
+            </section>
+        </header><br>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tin Tức Áo Thun Thể Thao</title>
   <link rel="stylesheet" href="../public/css/tintuc.css">
   <style>
     .add-comment-a form{

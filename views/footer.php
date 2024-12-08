@@ -1,11 +1,7 @@
-<script src="./public/js/javascrip.js">
+<script src="js/javascrip.js">
 
 </script>
-<script>
-          document.getElementById('search').addEventListener('click',()=>{
-      document.getElementById('searchInput').classList.toggle('show');
-     })
-</script>
+
 <footer>
     <div class="footer-column-left">
         <h3>Liên hệ</h3>

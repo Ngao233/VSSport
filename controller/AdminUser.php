@@ -12,9 +12,8 @@ switch ($action) {
                         include "admin/FooterAdmin.php";
                         break;
                 case 'hoso':
-                        include_once "views/header.php";
+                        $user = getUser();
                         include_once "views/hoso.php";
-                        include_once "views/footer.php";
                         
                         break;
                 case 'update_profile':
@@ -22,20 +21,16 @@ switch ($action) {
                         include_once "model/update_profile.php";
                         break;
                 case 'doimatkhau':
-                        include_once "views/header.php";
+                        $user = getUser();
                         include_once "views/doimatkhau.php";
-                        include_once "views/footer.php";
-
                         break;
                 case 'update_password':
                         $user = getUser();
                         include_once "model/update_password.php";
                         break;
                 case 'diachi':
-                        include_once "views/header.php";
+                        $user = getUser();
                         include_once "views/diachi.php";
-                        include_once "views/footer.php";
-
                         break;
                 case 'save_address':
                         $user = getUser();

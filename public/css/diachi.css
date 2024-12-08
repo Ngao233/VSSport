@@ -13,7 +13,7 @@
 .khung .background-image{
 
   position: relative;
-  height: 600px;
+  height: 500px;
   width: 100%;
   background-image: url('../image/banner2.png');
   background-size: cover;
@@ -85,7 +85,7 @@ button {
 .left-box{
   font-family: 'Montserrat', sans-serif;
   position: absolute;
-  height: 500px;
+  height: 400px;
   top: 10%;
   left: 10%;
   width: 25%;
@@ -125,7 +125,7 @@ button {
 
 .right-box{
   font-family: 'Montserrat', sans-serif;
-  height: 500px;
+  height: 400px;
   display: flex;
   flex-direction: column;
   position: absolute;

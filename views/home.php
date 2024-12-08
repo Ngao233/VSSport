@@ -1,4 +1,5 @@
 <?php  
+session_start();   
 
 // Kiểm tra nếu khách hàng đã đăng nhập  
 if (isset($_SESSION['id_KhachHang'])) {  
