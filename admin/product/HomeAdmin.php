@@ -19,7 +19,6 @@
         <th>Giá</th>  
         <th>Số lượng</th>  
         <th>Hình Ảnh</th>    
-   
         <th>Thao Tác</th>  
       </tr>  
     </thead>  

@@ -16,7 +16,9 @@ switch ($action) {
         $productdetail = getProductDetail($id);
         $product1 = getProductWithDiscount();
         $product = getProductid($id);
+        
         include "views/cặc.php";
+        include "views/footer.php";
         break;
         
 }   
