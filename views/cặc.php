@@ -1,3 +1,8 @@
+<style>
+     .formhome input{
+                display:none;
+            }
+</style>
 <section class="duy">  
     <img src="../public/image/<?=$product['HinhAnh']?>" alt="<?=$product['HinhAnh']?>" id="hoa" onmouseover="mouseover()" onmouseout="mouseout()" width="540px"/>  
     <h1 class="hhhhh"><?=$product['TenSanPham']?></h1>  
