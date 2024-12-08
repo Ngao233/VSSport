@@ -1,6 +1,6 @@
 <?php  
 session_start();  
-include 'init/config.php'; // Đảm bảo đã kết nối với cơ sở dữ liệu  
+ // Đảm bảo đã kết nối với cơ sở dữ liệu  
 
 // Kiểm tra người dùng đã đăng nhập hay chưa  
 if (!isset($_SESSION['id_KhachHang'])) {  
