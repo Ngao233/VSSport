@@ -64,7 +64,6 @@
             <a href="home"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
             <ul>
                 <li><a href="home">TRANG CHỦ</a></li>
-                <li><a href="sanpham">SẢN PHẨM</a></li>
                 <li><a href="tonghoptt">THÔNG TIN</a></li>
                 <li><a href="dangky">ĐĂNG KÝ</a></li>
                 <li><a href="dangnhap">ĐĂNG NHẬP</a></li>

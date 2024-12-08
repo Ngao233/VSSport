@@ -52,7 +52,7 @@ try {
         <ul>
             <li><a href="">TRANG CHỦ</a></li>
             <li><a href="sanpham">SẢN PHẨM</a></li>
-            <li><a href="#">THÔNG TIN</a></li>
+            <li><a href="tonghoptt">THÔNG TIN</a></li>
             <li><a href="dangky">ĐĂNG KÝ</a></li>
             <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
         </ul>
