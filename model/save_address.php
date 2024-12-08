@@ -26,6 +26,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':fullAddress', $fullAddress);
         $stmt->execute();
 
+        // Lấy Id_DiaChi vừa tạo
+        $id_DiaChi = $conn->lastInsertId();
+
+        // Cập nhật Id_DiaChi cho khách hàng
+        $updateSql = "UPDATE khachhang SET Id_DiaChi = :id_DiaChi WHERE id_KhachHang = :id_KhachHang";
+        $updateStmt = $conn->prepare($updateSql);
+        $updateStmt->bindParam(':id_DiaChi', $id_DiaChi, PDO::PARAM_INT);
+        $updateStmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
+        $updateStmt->execute();
+
         // Chuyển hướng về trang hồ sơ với thông báo thành công
         header("Location: diachi");
         exit();

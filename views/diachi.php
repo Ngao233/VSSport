@@ -40,7 +40,7 @@ try {
 <header>
     <nav class="menu-one">
         <ul>
-            <li><a href="#">VSSport.vn</a></li>
+            <li><a href="home">VSSport.vn</a></li>
             <div>
                 <li><a href="#">Giúp đỡ</a></li>
                 <li><a href="#">Ngôn ngữ</a></li>
@@ -48,7 +48,7 @@ try {
         </ul>
     </nav>
     <nav class="menu-two">
-        <a href="#"><img src="image/logo.png" alt="Logo" style="width: 155px;"></a>
+        <a href="home"><img src="public/image/logo.png" alt="Logo" style="width: 155px;"></a>
         <ul>
             <li><a href="home">TRANG CHỦ</a></li>
             <li><a href="tonghoptt">THÔNG TIN</a></li>

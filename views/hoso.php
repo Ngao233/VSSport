@@ -124,15 +124,15 @@ if (isset($_SESSION['id_KhachHang'])) {
             <ul>
               <li class="fa fa-user"></li><a href="hoso">Tài khoảng của tôi</a><br>
 
-              <a href="hoso" class="little">Hồ sơ</a><br>
+              <a href="<?= $base_url ?>/hoso" class="little">Hồ sơ</a><br>
 
-              <a href="diachi" class="little">Địa chỉ</a><br>
+              <a href="<?= $base_url ?>/diachi" class="little">Địa chỉ</a><br>
 
-              <a href="doimatkhau" class="little">Đổi mật khẩu</a><br>
+              <a href="<?= $base_url ?>/doimatkhau" class="little">Đổi mật khẩu</a><br>
 
-              <li class="fa fa-book"></li><a href="#">Lịch sử mua</a><br>
+              <li class="fa fa-book"></li><a href="lichsu">Lịch sử mua</a><br>
 
-              <li class="fa fa-heart"></li><a href="spyeuthich">Sản phẩm yêu thích</a><br>
+              <li class="fa fa-heart"></li><a href="<?= $base_url ?>/spyeuthich">Sản phẩm yêu thích</a><br>
 
               <a href="dangxuat">Đăng xuất</a><br>
             </ul>

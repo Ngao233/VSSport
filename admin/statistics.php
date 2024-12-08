@@ -108,7 +108,6 @@
               </nav>  
 
 <?php
-include '../init/config.php';  // Bao gồm tệp cấu hình
 
 // Hàm để lấy thông tin sản phẩm
 function getProductCount($conn) {
@@ -220,7 +219,7 @@ $salesStats = getSalesStats($conn);
         <div class="col-lg-3 col-md-6 mb-4">
             <div class="stat-card">
                 <h5>Thống kê bán hàng</h5>
-                <p>Tổng doanh thu: $<?php echo number_format($salesStats['revenue'], 2); ?></p>
+                <p>Tổng doanh thu: $<?php echo number_format($salesStats['revenue'],0); ?></p>
                 <p>Đơn hàng đã xử lý: <?php echo $salesStats['total_orders']; ?></p>
             </div>
         </div>

@@ -44,7 +44,7 @@
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="statistics.php">  
+              <a class="nav-link" href="statistics">  
                 <i data-feather="bar-chart-2"></i> Thống kê  
               </a>  
             </li> 
