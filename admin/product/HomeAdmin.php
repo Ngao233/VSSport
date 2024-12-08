@@ -16,12 +16,11 @@
         <th>ID sản Phẩm</th>
         <th>ID Danh Mục</th>  
         <th>Tên sản phẩm</th>  
-        <th>Mô Tả</th>  
+          
         <th>Giá</th>  
         <th>Số lượng</th>  
         <th>Hình Ảnh</th>  
-        <th>Kích Thước</th>  
-        <th>Màu Sắc</th>  
+          
         <th>Thao Tác</th>  
       </tr>  
     </thead>  
@@ -37,12 +36,11 @@
 
         <td><?= htmlspecialchars($categoryName) ?></td> <!-- Đây là tên danh mục -->  
         <td><?=$product["TenSanPham"]?></td>  
-        <td><?=$product["MoTa"]?></td>  
+         
         <td><?=$product["Gia"]?></td>  
         <td><?=$product["SoLuong"]?></td>  
         <td><img src="public/image/<?=$product["HinhAnh"]?>" alt="<?=$product["TenSanPham"]?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->  
-        <td><?=$product["KichThuoc"]?></td>  
-        <td><?=$product["MauSac"]?></td>  
+          
         <td>  
             <a href="editproduct/<?=$product["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
             <br>  

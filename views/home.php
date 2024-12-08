@@ -82,7 +82,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $saugiam = $productItem['Gia'] - $giagiam;
     ?> 
         <div class="pro-sale">
-            <a href="chitietsp/<?=$productItem['id_SanPham']?>">
+            <a href="cac/<?=$productItem['id_SanPham']?>">
             <img src="public/image/<?=$productItem['HinhAnh']?>" alt="">
                 
             <a href="themspyt<?=$productItem['id_SanPham']?>">
@@ -148,7 +148,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
              ?>  
             
     <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">  
-        <a href="chitietsp/<?=$product['id_SanPham']?>" class="product-home-one-link">  
+        <a href="cac/<?=$product['id_SanPham']?>" class="product-home-one-link">  
             <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />  
         </a>  
         <a href="themspyt/<?=$product['id_SanPham']?>">
