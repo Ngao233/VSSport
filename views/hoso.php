@@ -53,7 +53,7 @@ if (isset($_SESSION['id_KhachHang'])) {
 <header>
     <nav class="menu-one">
         <ul>
-            <li><a href="#">VSSport.vn</a></li>
+            <li><a href="home">VSSport.vn</a></li>
             <div>
                 <li><a href="#">Giúp đỡ</a></li>
                 <li><a href="#">Ngôn ngữ</a></li>
@@ -61,18 +61,17 @@ if (isset($_SESSION['id_KhachHang'])) {
         </ul>
     </nav>
     <nav class="menu-two">
-        <a href="#"><img src="public/image/logo.png" alt="Logo" style="width: 155px;"></a>
+        <a href="home"><img src="public/image/logo.png" alt="Logo" style="width: 155px;"></a>
         <ul>
-            <li><a href="home">TRANG CHỦ</a></li>
-            <li><a href="sanpham">SẢN PHẨM</a></li>
-            <li><a href="#">THÔNG TIN</a></li>
-            <li><a href="dangky">ĐĂNG KÝ</a></li>
-            <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
+        <li><a href="<?= $base_url ?>/home">TRANG CHỦ</a></li>
+                <li><a href="<?= $base_url ?>/tonghoptt">Thông Tin</a></li>
+                <li><a href="<?= $base_url ?>/dangky">ĐĂNG KÝ</a></li>
+                <li><a href="<?= $base_url ?>/dangnhap">ĐĂNG NHẬP</a></li>
         </ul>
         <div class="icon">
       <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
-        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="hoso"><i class="fa-solid fa-user"></i></a>
+        <a href="<?= $base_url ?>/giohang"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="<?= $base_url ?>/hoso"><i class="fa-solid fa-user"></i></a>
         
       </div>
       <form action="searchome" class="formSearchhome" method="post" style="top:30px">

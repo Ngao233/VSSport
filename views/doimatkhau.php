@@ -50,15 +50,14 @@ try {
     <nav class="menu-two">
         <a href="home"><img src="image/logo.png" alt="Logo" style="width: 155px;"></a>
         <ul>
-            <li><a href="">TRANG CHỦ</a></li>
-            <li><a href="sanpham">SẢN PHẨM</a></li>
-            <li><a href="#">THÔNG TIN</a></li>
-            <li><a href="dangky">ĐĂNG KÝ</a></li>
-            <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
+                <li><a href="home">TRANG CHỦ</a></li>
+                <li><a href="tonghoptt">THÔNG TIN</a></li>
+                <li><a href="dangky">ĐĂNG KÝ</a></li>
+                <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
         </ul>
         <div class="icon">
       <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
-        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="<?= $base_url ?>/giohang"><i class="fa-solid fa-cart-shopping"></i></a>
         <a href="hoso"><i class="fa-solid fa-user"></i></a>
         
       </div>

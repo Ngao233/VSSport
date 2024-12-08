@@ -326,6 +326,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
         .menu-two ul li a{
             color: white;
+            text-decoration: none;
         }
         .menu-two img{
             margin-left: 25px;
@@ -502,18 +503,17 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <a href="#"><img src="../public/image/logo.png" alt="" style="width: 155px ;"></a>
 
                 <ul>
-                    <li><a href="home/../..">TRANG CHỦ</a></li>
-                    <li><a href="views/sanpham.html">SẢN PHẨM</a></li>
-                    <li><a href="#">THÔNG TIN</a></li>
-                    <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
-                    <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+                <li><a href="<?= $base_url ?>/home">TRANG CHỦ</a></li>
+                <li><a href="<?= $base_url ?>/tonghoptt">Thông Tin</a></li>
+                <li><a href="<?= $base_url ?>/dangky">ĐĂNG KÝ</a></li>
+                <li><a href="<?= $base_url ?>/dangnhap">ĐĂNG NHẬP</a></li>
                 </ul>
                 <!-- icon bao gom "shoping" "user" "seach" -->
                 <div class="icon">
 
                 <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
-                    <a href=""><i class="fa-solid fa-cart-shopping"></i></a>
-                    <a href="#"><i class="fa-solid fa-user"></i></a>
+                    <a href="<?= $base_url ?>/giohang"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="<?= $base_url ?>/hoso"><i class="fa-solid fa-user"></i></a>
                 </div>
                 <form action="searchome" class="formSearchhome" method="post">
                 <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">

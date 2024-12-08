@@ -95,7 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmtDeleteCart->bindParam(':id_KhachHang', $id_KhachHang);  
                 $stmtDeleteCart->execute();  
 
-                header("Location: donhangchitiet.");  
+                header("Location: hoadon");  
                 exit();  
             } else {  
                 $feedback = "Có lỗi trong quá trình tạo đơn hàng.";  

@@ -11,8 +11,8 @@ switch ($action) {
         include "views/thanhtoan.php";
         include "views/footer.php";
         break;
-        case 'paymentpost':  
-            include 'views/lồn.php';
+        case 'hoadon':
+            include 'views/hoadon.php';
             break;
 }
 

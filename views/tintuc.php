@@ -226,17 +226,16 @@
             <nav class="menu-two">
                 <a href="#"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
                 <ul>
-                    <li><a href="#">TRANG CHỦ</a></li>
-                    <li><a href="sanpham">SẢN PHẨM</a></li>
-                    <li><a href="">THÔNG TIN</a></li>
-                    <li><a href="views/dangky.html">ĐĂNG KÝ</a></li>
-                    <li><a href="views/dangnhap.html">ĐĂNG NHẬP</a></li>
+                <li><a href="<?= $base_url ?>/home">TRANG CHỦ</a></li>
+                <li><a href="<?= $base_url ?>/tonghoptt">Thông Tin</a></li>
+                <li><a href="<?= $base_url ?>/dangky">ĐĂNG KÝ</a></li>
+                <li><a href="<?= $base_url ?>/dangnhap">ĐĂNG NHẬP</a></li>
                 </ul>
                 <!-- icon bao gom "shoping" "user" "seach" -->
                 <div class="icon">
       <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
-        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="hoso"><i class="fa-solid fa-user"></i></a>
+                    <a href="<?= $base_url ?>/giohang"><i class="fa-solid fa-cart-shopping"></i></>
+                    <a href="<?= $base_url ?>/hoso"><i class="fa-solid fa-user"></i></a>
         
       </div>
       <form action="searchome" class="formSearchhome" method="post" style="top:30px">
@@ -248,7 +247,7 @@
     position: absolute;
     right: 180px;
     top: 35px;
-     }
+     }  
     .searchhome {
     padding: 8px !important;
     border: none;

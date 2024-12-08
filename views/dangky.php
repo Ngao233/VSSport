@@ -55,15 +55,14 @@
       <a href="#"><img src="image/logo.png" alt="" style="width: 155px ;"></a>
       <ul>
         <li><a href="home">TRANG CHỦ</a></li>
-        <li><a href="sanpham">SẢN PHẨM</a></li>
-        <li><a href="tintuc">THÔNG TIN</a></li>
+        <li><a href="tonghoptt">THÔNG TIN</a></li>
         <li><a href="dangky">ĐĂNG KÝ</a></li>
         <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
       </ul>
       <!-- icon bao gom "shoping" "user" "seach" -->
       <div class="icon">
       <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
-        <a href="cart"><i class="fa-solid fa-cart-shopping"></i></a>
+        <a href="<?= $base_url ?>/giohang"><i class="fa-solid fa-cart-shopping"></i></a>
         <a href="hoso"><i class="fa-solid fa-user"></i></a>
         
       </div>
