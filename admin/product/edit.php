@@ -1,12 +1,10 @@
 <h3>Sửa Sản Phẩm</h3>  
 <form action="<?=($base_url) ?>/updateproduct/<?= ($product['id_SanPham']) ?>" method="post">  
     <input type="text" name="TenSanPham" placeholder="Nhập tên" value="<?=($_POST['TenSanPham'] ?? $product['TenSanPham'] ?? '') ?>"><br>  
-    <input type="text" name="MoTa" placeholder="Nhập mô tả" value="<?=($_POST['MoTa'] ?? $product['MoTa'] ?? '') ?>"><br>  
+  
     <input type="text" name="Gia" placeholder="Nhập giá" value="<?=($_POST['Gia'] ?? $product['Gia'] ?? '') ?>"><br>  
     <input type="text" name="SoLuong" placeholder="Nhập số lượng" value="<?=($_POST['SoLuong'] ?? $product['SoLuong'] ?? '') ?>"><br>  
-    <input type="text" name="HinhAnh" placeholder="Nhập hình ảnh" value="<?=($_POST['HinhAnh'] ?? $product['HinhAnh'] ?? '') ?>"><br>  
-    <input type="text" name="KichThuoc" placeholder="Nhập kích thước" value="<?=($_POST['KichThuoc'] ?? $product['KichThuoc'] ?? '') ?>"><br>  
-    <input type="text" name="MauSac" placeholder="Nhập màu sắc" value="<?=($_POST['MauSac'] ?? $product['MauSac'] ?? '') ?>"><br>  
+    <input type="text" name="HinhAnh" placeholder="Nhập hình ảnh" value="<?=($_POST['HinhAnh'] ?? $product['HinhAnh'] ?? '') ?>"><br>    
 
     <!-- Dropdown chọn danh mục -->  
     <label for="id_DanhMuc">Chọn Danh Mục:</label>  
