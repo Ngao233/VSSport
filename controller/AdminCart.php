@@ -4,6 +4,7 @@ include_once "model/cart.php";
 // include_once "models/contact.php";
 switch ($action) {
     case 'giohang':
+        
         include "views/header.php";
         include "views/giohang.php";
         include "views/footer.php";
