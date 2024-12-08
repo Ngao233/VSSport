@@ -500,7 +500,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </nav>
             <!-- menu chinh -->
             <nav class="menu-two">
-                <a href="#"><img src="../public/image/logo.png" alt="" style="width: 155px ;"></a>
+                <a href="home"><img src="../public/image/logo.png" alt="" style="width: 155px ;"></a>
 
                 <ul>
                 <li><a href="<?= $base_url ?>/home">TRANG CHỦ</a></li>
