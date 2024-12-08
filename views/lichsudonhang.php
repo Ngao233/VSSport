@@ -25,7 +25,67 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lịch Sử Đơn Hàng</title>
-    <link rel="stylesheet" href="../public/css/style.css"> <!-- Đường dẫn tới tệp CSS -->
+            <style>
+        h1 {
+            text-align: center;
+            color: #ff6600;
+            margin-top: 20px;
+            font-size: 32px;
+        }
+
+        /* Kiểu dáng cho bảng lịch sử đơn hàng */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #ff6600;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td a {
+            color: #ff6600;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        /* Khi không có đơn hàng */
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Định dạng cho các thông báo lỗi hoặc yêu cầu đăng nhập */
+        .alert {
+            text-align: center;
+            color: red;
+            font-size: 18px;
+        }
+            </style>
 </head>
 <body>
     <h1>Lịch Sử Đơn Hàng</h1>
