@@ -28,7 +28,7 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <style>
         h1 {
             text-align: center;
-            color: #ff6600;
+            color: black;
             margin-top: 20px;
             font-size: 32px;
         }
@@ -49,7 +49,7 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         th {
-            background-color: #ff6600;
+            background-color: #FFA031;
             color: white;
             font-weight: bold;
         }
@@ -63,7 +63,7 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
 
         td a {
-            color: #ff6600;
+            color: #FFA031;
             text-decoration: none;
             font-weight: bold;
         }
@@ -94,8 +94,8 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php if (!empty($orderHistory)): ?>
         <table border="1" cellspacing="0" cellpadding="10" style="width: 80%; margin: 20px auto; border-collapse: collapse;">
             <thead>
-                <tr style="background-color: #ff6600; color: white;">
-                    <th>ID Đơn Hàng</th>
+                <tr style="background-color: #FFA031; color: white;">
+                    <th>Đơn Hàng</th>
                     <th>Ngày Đặt Hàng</th>
                     <th>Trạng Thái</th>
                     <th>Tổng Tiền</th>
@@ -105,7 +105,7 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php foreach ($orderHistory as $order): ?>
                     <tr>
-                        <td><?= htmlspecialchars($order['id_DonHang']) ?></td>
+                        <td>Số <?= htmlspecialchars($order['id_DonHang']) ?></td>
                         <td><?= date('Y/m/d H:i:s', strtotime($order['NgayDatHang'])) ?></td>
                         <td><?= htmlspecialchars($order['TrangThai']) ?></td>
                         <td><?= number_format($order['Tong'], 0, ',', '.') ?> đ</td>

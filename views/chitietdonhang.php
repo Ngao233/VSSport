@@ -35,49 +35,136 @@ $address = $addressStmt->fetch(PDO::FETCH_ASSOC);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chi Tiết Hóa Đơn</title>
     <link rel="stylesheet" href="../public/css/style.css">
+    <style>
+        
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #ff6600;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user-info {
+            width: 30%;
+            float: left;
+            padding-right: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .order-info {
+            width: 65%;
+            margin: 0 auto; /* Căn giữa */
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #ff6600;
+            color: white;
+        }
+
+        .total {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Đảm bảo layout không bị xô đẩy khi thu nhỏ màn hình */
+        @media screen and (max-width: 768px) {
+            .container {
+                width: 95%;
+            }
+
+            .user-info, .order-info {
+                width: 100%;
+                float: none;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Chi Tiết Hóa Đơn</h1>
 
-    <!-- Hiển thị thông tin khách hàng -->
-    <?php if ($orderDetails): ?>
-        <div style="text-align: center;">
-            <p><strong>Tên khách hàng:</strong> <?= htmlspecialchars($orderDetails[0]['Ten']) ?></p>
-            <p><strong>Email:</strong> <?= htmlspecialchars($orderDetails[0]['Email']) ?></p>
-            <!-- Hiển thị địa chỉ -->
-            <?php if ($address): ?>
-                <p><strong>Địa chỉ:</strong> <?= htmlspecialchars($address['DiaChi']) ?></p>
+    <div class="container">
+        <h1>Chi Tiết Hóa Đơn</h1>
+
+        <div class="user-info">
+            <!-- Hiển thị thông tin khách hàng -->
+            <?php if ($orderDetails): ?>
+                <p><strong>Tên khách hàng:</strong> <?= htmlspecialchars($orderDetails[0]['Ten']) ?></p>
+                <p><strong>Email:</strong> <?= htmlspecialchars($orderDetails[0]['Email']) ?></p>
+                <!-- Hiển thị địa chỉ -->
+                <?php if ($address): ?>
+                    <p><strong>Địa chỉ:</strong> <?= htmlspecialchars($address['DiaChi']) ?></p>
+                <?php else: ?>
+                    <p><strong>Địa chỉ không có sẵn.</strong></p>
+                <?php endif; ?>
             <?php else: ?>
-                <p><strong>Địa chỉ không có sẵn.</strong></p>
+                <p>Không tìm thấy thông tin chi tiết cho đơn hàng này.</p>
             <?php endif; ?>
         </div>
 
-        <!-- Hiển thị thông tin đơn hàng -->
-        <table border="1" cellspacing="0" cellpadding="10" style="width: 80%; margin: 20px auto; border-collapse: collapse;">
-            <thead>
-                <tr style="background-color: #ff6600; color: white;">
-                    <th>Sản phẩm</th>
-                    <th>Số lượng</th>
-                    <th>Giá</th>
-                    <th>Tổng</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($orderDetails as $item): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($item['TenSanPham']) ?></td>
-                        <td><?= htmlspecialchars($item['SoLuong']) ?></td>
-                        <td><?= number_format($item['TongTien'] / max($item['SoLuong'], 1), 0, ',', '.') ?> đ</td>
-                        <td><?= number_format($item['TongTien'], 0, ',', '.') ?> đ</td>
-                    </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+        <div class="order-info">
+            <!-- Hiển thị thông tin đơn hàng -->
+            <?php if ($orderDetails): ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Tổng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($orderDetails as $item): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($item['TenSanPham']) ?></td>
+                                <td><?= htmlspecialchars($item['SoLuong']) ?></td>
+                                <td><?= number_format($item['TongTien'] / max($item['SoLuong'], 1), 0, ',', '.') ?> đ</td>
+                                <td><?= number_format($item['TongTien'], 0, ',', '.') ?> đ</td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
 
-        <!-- Hiển thị tổng cộng đơn hàng -->
-        <p><strong>Tổng cộng:</strong> <?= number_format($orderDetails[0]['Tong'], 0, ',', '.') ?> đ</p>
-    <?php else: ?>
-        <p>Không tìm thấy thông tin chi tiết cho đơn hàng này.</p>
-    <?php endif; ?>
+                <!-- Hiển thị tổng cộng đơn hàng -->
+                <div class="total">
+                    <p><strong>Tổng cộng:</strong> <?= number_format($orderDetails[0]['Tong'], 0, ',', '.') ?> đ</p>
+                </div>
+            <?php endif; ?>
+        </div>
+
+        <div style="clear: both;"></div>
+    </div>
+
 </body>
 </html>
