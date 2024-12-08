@@ -27,9 +27,9 @@ switch ($action) {
             }
         
             // Bao gồm các file giao diện
-            include "admin/HeaderAdmin.php";
+            include "views/Header.php";
             include "views/giohang.php";
-            include "admin/FooterAdmin.php";
+            include "views/Footer.php";
             break;
             case 'addtocart':
             include 'model/addtocart.php';
@@ -46,9 +46,9 @@ switch ($action) {
                 }
             
                 // Bao gồm các file giao diện
-                include "admin/HeaderAdmin.php";
+                include "admin/Header.php";
                 include "views/giohang.php";
-                include "admin/FooterAdmin.php";
+                include "admin/Footer.php";
                 break;
               
 

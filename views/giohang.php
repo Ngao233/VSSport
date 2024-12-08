@@ -26,7 +26,6 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">  
     <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <title>Trang Chủ</title>  
-    <link rel="stylesheet" href="public/css/style1.css">
 
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
@@ -39,6 +38,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
    <style>
+          
     body {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -179,6 +179,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php else: ?>  
         <p>Giỏ hàng của bạn đang trống.</p>  
     <?php endif; ?>  
+    <a href="thanhtoan/<?=$_SESSION['id_KhachHang']?>"><button type="submit" class="remove-btn">Thanh Toán</button></a>
 </div>  
 
 </body>
