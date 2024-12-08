@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -45,6 +48,28 @@
                 display:none;
             }
         </style>
+        <style>
+    .formSearchhome{
+    position: absolute;
+    right: 180px;
+    top: 35px;
+     }
+    .searchhome {
+    padding: 8px !important;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    display: none;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+     }
+    .searchhome.show {  
+    display: block; 
+    transform: translateX(0);  
+     }
+    </style>
+
+
     </head>
 
 <body>

@@ -23,7 +23,7 @@
   <!-- menu phu -->
     <nav class="menu-one">
       <ul>
-        <li><a href="#">VSSport.vn</a></li>
+        <li><a href="home">VSSport.vn</a></li>
         <div>
           <li><a href="#">Giúp đỡ</a></li>
           <li><a href="#">Ngôn ngữ</a></li>
@@ -36,7 +36,7 @@
       <ul>
         <li><a href="home">TRANG CHỦ</a></li>
         <li><a href="sanpham">SẢN PHẨM</a></li>
-        <li><a href="tintuc">THÔNG TIN</a></li>
+        <li><a href="tonghoptt">THÔNG TIN</a></li>
         <li><a href="dangky">ĐĂNG KÝ</a></li>
         <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
       </ul>
