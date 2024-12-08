@@ -25,11 +25,9 @@ switch ($action) {
             } else {
                 echo "Dữ liệu không hợp lệ hoặc thiếu thông tin!";
             }
-        
-            // Bao gồm các file giao diện
             include "views/Header.php";
-            include "views/giohang.php";
-            include "views/Footer.php";
+                include "views/giohang.php";
+                include "views/Footer.php";
             break;
             case 'addtocart':
             include 'model/addtocart.php';
@@ -46,9 +44,9 @@ switch ($action) {
                 }
             
                 // Bao gồm các file giao diện
-                include "admin/Header.php";
+                include "views/Header.php";
                 include "views/giohang.php";
-                include "admin/Footer.php";
+                include "views/Footer.php";
                 break;
               
 

@@ -12,13 +12,18 @@ switch ($action) {
         include "views/footer.php";
         break;
     case 'hoadon':
+        
         include 'views/hoadon.php';
         break;
     case 'lichsu':
-        include 'views/lichsudonhang.php';
+        include "views/Header.php";
+        include "views/lichsudonhang.php";
+        include "views/Footer.php";
         break;
     case 'chitiet':
-        include 'views/chitietdonhang.php';
+        include "views/Header.php";
+        include "views/chitietdonhang.php";
+        include "views/Footer.php";
         break;
 }
 

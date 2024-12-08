@@ -25,7 +25,67 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lịch Sử Đơn Hàng</title>
-    <link rel="stylesheet" href="../public/css/style.css"> <!-- Đường dẫn tới tệp CSS -->
+            <style>
+        h1 {
+            text-align: center;
+            color: black;
+            margin-top: 20px;
+            font-size: 32px;
+        }
+
+        /* Kiểu dáng cho bảng lịch sử đơn hàng */
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #FFA031;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td a {
+            color: #FFA031;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        td a:hover {
+            text-decoration: underline;
+        }
+
+        /* Khi không có đơn hàng */
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #555;
+        }
+
+        /* Định dạng cho các thông báo lỗi hoặc yêu cầu đăng nhập */
+        .alert {
+            text-align: center;
+            color: red;
+            font-size: 18px;
+        }
+            </style>
 </head>
 <body>
     <h1>Lịch Sử Đơn Hàng</h1>
@@ -34,8 +94,8 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php if (!empty($orderHistory)): ?>
         <table border="1" cellspacing="0" cellpadding="10" style="width: 80%; margin: 20px auto; border-collapse: collapse;">
             <thead>
-                <tr style="background-color: #ff6600; color: white;">
-                    <th>ID Đơn Hàng</th>
+                <tr style="background-color: #FFA031; color: white;">
+                    <th>Đơn Hàng</th>
                     <th>Ngày Đặt Hàng</th>
                     <th>Trạng Thái</th>
                     <th>Tổng Tiền</th>
@@ -45,7 +105,7 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <tbody>
                 <?php foreach ($orderHistory as $order): ?>
                     <tr>
-                        <td><?= htmlspecialchars($order['id_DonHang']) ?></td>
+                        <td>Số <?= htmlspecialchars($order['id_DonHang']) ?></td>
                         <td><?= date('Y/m/d H:i:s', strtotime($order['NgayDatHang'])) ?></td>
                         <td><?= htmlspecialchars($order['TrangThai']) ?></td>
                         <td><?= number_format($order['Tong'], 0, ',', '.') ?> đ</td>
