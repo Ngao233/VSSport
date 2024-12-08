@@ -1,18 +1,20 @@
 <?php  
 session_start();   
-if (isset($_SESSION['id_KhachHang'])) {
-    $id_KhachHang = $_SESSION['id_KhachHang'];
-} else {
-    header("Location: dangnhap"); 
-    exit();
-} 
-$id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
-// Truy vấn giỏ hàng của khách hàng
-$sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
-$stmt->execute();
-$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Kiểm tra nếu khách hàng đã đăng nhập  
+if (isset($_SESSION['id_KhachHang'])) {  
+    $id_KhachHang = $_SESSION['id_KhachHang'];  
+
+    // Truy vấn giỏ hàng của khách hàng  
+    $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
+    $stmt->execute();  
+    $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+} else {  
+    $id_KhachHang = null;   
+    $cartItems = []; 
+}  
 ?> 
 
 <!DOCTYPE html>
@@ -37,20 +39,20 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     position: absolute;
     right: 180px;
     top: 35px;
-}
-.searchhome {
-    padding: 8px !important;
-    border: none;
-    border-radius: 5px;
-    width: 180px;
-    display: none;
-    transition: transform 1s ease;
-    transform: translateX(100%);
-}
-.searchhome.show {  
-    display: block; 
-    transform: translateX(0);  
-}
+        }
+        .searchhome {
+            padding: 8px !important;
+            border: none;
+            border-radius: 5px;
+            width: 180px;
+            display: none;
+            transition: transform 1s ease;
+            transform: translateX(100%);
+        }
+        .searchhome.show {  
+            display: block; 
+            transform: translateX(0);  
+        }
                     body h2 {
                         font-family: 'Montserrat', sans-serif;
                         margin-left: 10%;
@@ -538,8 +540,21 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                   
                   
                    
-                   <script>
-                   var imgArr = [];
+                  
+                  <p class="ngum">Giá Sản Phẩm</p><p class="ngu"><?=$product['Gia']?> đ</p>
+                <button class="time" ><i class="fa-solid fa-heart"></i>Thêm vào yêu thích</button>  
+             
+                <a href="#"><button class="food"><i class="fa-solid fa-pen-to-square"></i>Tùy chỉnh</button></a>  
+                <div class="size-selection">  
+                    <p class="p-product-sale-name">Chọn kích thước:</p>  
+                    <button class="size">S</button>  
+                    <button class="size">M</button>  
+                    <button class="size">L</button>  
+                    <button class="size">XL</button>  
+                    <button class="size">XXL</button>  
+                </div> <br>
+                <script>  
+                 var imgArr = [];
                     var curIndex = 0;
                     
                     function loadImgs(){
@@ -552,11 +567,6 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                       document.getElementById("hoa").src = imgArr[i].src;
                       console.log(document.getElementById("hoa").src);
                     }
-                    </script>
-                  <p class="ngum">Giá Sản Phẩm</p><p class="ngu"><?=$product['Gia']?> đ</p>
-                <button class="time" ><i class="fa-solid fa-heart"></i>Thêm vào yêu thích</button>  
-                <script>  
-                     
                     document.querySelector('.time').addEventListener('click', function() {  
                         this.classList.toggle('active'); // Thay đổi trạng thái của lớp 'active'  
                         if (this.classList.contains('active')) {  
@@ -565,17 +575,6 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             this.textContent = 'Thêm vào yêu thích'; // Trả lại chữ cũ  
                         }  
                     });  
-                </script>  
-                <a href="#"><button class="food"><i class="fa-solid fa-pen-to-square"></i>Tùy chỉnh</button></a>  
-                <div class="size-selection">  
-                    <p class="p-product-sale-name">Chọn kích thước:</p>  
-                    <button class="size">S</button>  
-                    <button class="size">M</button>  
-                    <button class="size">L</button>  
-                    <button class="size">XL</button>  
-                    <button class="size">XXL</button>  
-                </div> <br>
-                <script>  
                     const sizeButtons = document.querySelectorAll('.size');  
                 
                     sizeButtons.forEach(button => {  
@@ -698,8 +697,9 @@ function hideCart() {
       cartPopup.style.display = "none";
     }
   }, 200)}
+  
         </script>  
-        <script></script>
+        
     </div>
 </section>
 

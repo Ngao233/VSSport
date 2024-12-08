@@ -24,5 +24,8 @@ switch ($action) {
         include "views/spyeuthich.php";  
         include_once "views/footer.php";
     break;
+    case 'addchitietsp':
+        include "model/addtocartctsp.php";
+        break;
     
 }
