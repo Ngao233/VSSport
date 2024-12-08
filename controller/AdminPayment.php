@@ -12,7 +12,6 @@ switch ($action) {
         include "views/footer.php";
         break;
     case 'hoadon':
-        
         include 'views/hoadon.php';
         break;
     case 'lichsu':

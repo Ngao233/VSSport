@@ -30,7 +30,7 @@
                         <td>
                             <!-- Nút Duyệt thay vì Sửa -->
                             <?php if ($oder["TrangThai"] !== 'Đã xử lý'): ?>
-                                <a href="/<?=$oder["id_DonHang"]?>" class="btn btn-sm btn-success">
+                                <a href="editoder/<?=$oder["id_DonHang"]?>" class="btn btn-sm btn-warning">
                                     Duyệt
                                 </a>
                             <?php else: ?>
