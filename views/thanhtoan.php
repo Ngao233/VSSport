@@ -20,6 +20,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // Lấy thông tin khách hàng  
 $customers = getCustomerById($conn, $id_KhachHang) ?: ['Ten' => '', 'Email' => '', 'Sdt' => ''];  
 
+
 // Khởi tạo biến cho thông tin thanh toán  
 $feedback = '';  
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
@@ -95,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $stmtDeleteCart->bindParam(':id_KhachHang', $id_KhachHang);  
                 $stmtDeleteCart->execute();  
 
-                header("Location: hoadon");  
+                header("Location: {$base_url}/hoadon/" . $orderId); 
                 exit();  
             } else {  
                 $feedback = "Có lỗi trong quá trình tạo đơn hàng.";  
@@ -105,6 +106,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }  
     }  
 }
+
+    $ngayDatHang = date('Y-m-d H:i:s');
+    $sqlOrder = "INSERT INTO donhang (id_KhachHang, Tong, NgayDatHang) VALUES (:id_KhachHang, :Tong, :NgayDatHang)";  
+    $stmtOrder = $conn->prepare($sqlOrder);  
+    $stmtOrder->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
+    $stmtOrder->bindParam(':Tong', $total);  
+    $stmtOrder->bindParam(':NgayDatHang', $ngayDatHang);  
+
+ 
 ?>  
 
 <!DOCTYPE html>  

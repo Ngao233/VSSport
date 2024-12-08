@@ -130,7 +130,7 @@ if (isset($_SESSION['id_KhachHang'])) {
 
               <a href="<?= $base_url ?>/doimatkhau" class="little">Đổi mật khẩu</a><br>
 
-              <li class="fa fa-book"></li><a href="#">Lịch sử mua</a><br>
+              <li class="fa fa-book"></li><a href="lichsu">Lịch sử mua</a><br>
 
               <li class="fa fa-heart"></li><a href="<?= $base_url ?>/spyeuthich">Sản phẩm yêu thích</a><br>
 
