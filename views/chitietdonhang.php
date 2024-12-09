@@ -1,17 +1,14 @@
 <?php
-// Lấy id_DonHang từ URL
-$requestUri = $_SERVER['REQUEST_URI'];  
-$parts = explode('/', $requestUri);  
-$orderId = intval(end($parts)); // Đảm bảo orderId là số nguyên  
+$orderId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
-// Kiểm tra nếu không có orderId hoặc không hợp lệ  
-if (!$orderId) {  
-    echo "Không tìm thấy ID đơn hàng.";  
-    exit();  
-}  
+// Kiểm tra id_DonHang có hợp lệ không
+if ($orderId === 0) {
+    echo "ID đơn hàng không hợp lệ.";
+    exit();
+}
 
 try {
-    // Truy vấn lấy thông tin chi tiết của đơn hàng và thông tin người dùng
+    // Truy vấn thông tin đơn hàng
     $sql = "SELECT donhang.NgayDatHang, donhang.TrangThai, donhang.Tong,
                     chitietdonhang.SoLuong, chitietdonhang.TongTien, sanpham.TenSanPham,
                     khachhang.Ten, khachhang.Email, khachhang.id_KhachHang
@@ -27,29 +24,31 @@ try {
     $orderDetails = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     if (empty($orderDetails)) {
-        echo "Không tìm thấy thông tin đơn hàng.";
+        echo "Không tìm thấy đơn hàng. ID: " . htmlspecialchars($orderId);
         exit();
     }
 
-    // Lấy id_KhachHang từ kết quả đơn hàng
+    // Lấy id_KhachHang
     $idKhachHang = $orderDetails[0]['id_KhachHang'];
 
-    // Truy vấn để lấy thông tin địa chỉ từ bảng diachinguoidung
+    // Truy vấn địa chỉ
     $addressSql = "SELECT DiaChi FROM diachinguoidung WHERE id_KhachHang = :idKhachHang";
     $addressStmt = $conn->prepare($addressSql);
     $addressStmt->bindParam(':idKhachHang', $idKhachHang, PDO::PARAM_INT);
     $addressStmt->execute();
     $address = $addressStmt->fetch(PDO::FETCH_ASSOC);
 
-    // Kiểm tra nếu không tìm thấy địa chỉ
+    if (empty($address)) {
+        echo "Không tìm thấy địa chỉ cho khách hàng ID: " . htmlspecialchars($idKhachHang);
+        exit();
+    }
+
     $customerAddress = $address['DiaChi'] ?? 'Không có địa chỉ';
 } catch (PDOException $e) {
-    echo "Lỗi truy vấn: " . $e->getMessage();
+    echo "Lỗi: " . $e->getMessage();
     exit();
 }
 ?>
-    
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -162,41 +161,86 @@ try {
     </style>
 </head>
 <body>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi Tiết Đơn Hàng</title>
-</head>
-<body>
-    <h1>Chi Tiết Đơn Hàng</h1>
-    <p><strong>Tên khách hàng:</strong> <?= htmlspecialchars($orderDetails[0]['Ten']) ?></p>
-    <p><strong>Email:</strong> <?= htmlspecialchars($orderDetails[0]['Email']) ?></p>
-    <p><strong>Địa chỉ:</strong> <?= htmlspecialchars($customerAddress) ?></p>
+<nav class="menu-one">
+            <ul>
+                <li><a href="home">VSSport.vn</a></li>
+                <div>
+                    <li><a href="#">Giúp đỡ</a></li>
+                    <li><a href="#">Ngôn ngữ</a></li>
+                </div>
+            </ul>
+        </nav>
+        <!-- menu chinh -->
+        <nav class="menu-two">
+            <a href="../home"><img src="../public/image/logo.png" alt="" style="width: 155px ;"></a>
+            <ul>
+                <li><a href="../home">TRANG CHỦ</a></li>
+                <li><a href="../tonghoptt">THÔNG TIN</a></li>
+                <li><a href="../dangky">ĐĂNG KÝ</a></li>
+                <li><a href="../dangnhap">ĐĂNG NHẬP</a></li>
+            </ul>
+            <!-- icon bao gom "shoping" "user" "seach" -->
+            <div class="icon">
+            <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
+                <a href="../giohang"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="../hoso"><i class="fa-solid fa-user"></i></a>
+                
+            </div>
+            <form action="searchome" class="formSearchhome" method="post">
+                <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
+            </form>
 
-    <h2>Chi tiết sản phẩm:</h2>
-    <table border="1" cellspacing="0" cellpadding="10">
-        <thead>
-            <tr>
-                <th>Tên sản phẩm</th>
-                <th>Số lượng</th>
-                <th>Tổng tiền</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($orderDetails as $item): ?>
-                <tr>
-                    <td><?= htmlspecialchars($item['TenSanPham']) ?></td>
-                    <td><?= htmlspecialchars($item['SoLuong']) ?></td>
-                    <td><?= number_format($item['TongTien'], 0, ',', '.') ?> đ</td>
-                </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
+        </nav>
+ 
+    <div class="container">
+        <h1>Chi Tiết Hóa Đơn</h1>
 
-    <p><strong>Tổng cộng:</strong> <?= number_format($orderDetails[0]['Tong'], 0, ',', '.') ?> đ</p>
+        <div class="user-info">
+            <!-- Hiển thị thông tin khách hàng -->
+            <?php if ($orderDetails): ?>
+                <p><strong>Tên khách hàng:</strong> <?= htmlspecialchars($orderDetails[0]['Ten']) ?></p>
+                <p><strong>Email:</strong> <?= htmlspecialchars($orderDetails[0]['Email']) ?></p>
+                <!-- Hiển thị địa chỉ -->
+                <?php if ($address): ?>
+                    <p><strong>Địa chỉ:</strong> <?= htmlspecialchars($address['DiaChi']) ?></p>
+                <?php else: ?>
+                    <p><strong>Địa chỉ không có sẵn.</strong></p>
+                <?php endif; ?>
+            <?php else: ?>
+                <p>Không tìm thấy thông tin chi tiết cho đơn hàng này.</p>
+            <?php endif; ?>
+        </div>
 
+        <div class="order-info">
+            <!-- Hiển thị thông tin đơn hàng -->
+            <?php if ($orderDetails): ?>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sản phẩm</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Tổng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($orderDetails as $item): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($item['TenSanPham']) ?></td>
+                                <td><?= htmlspecialchars($item['SoLuong']) ?></td>
+                                <td><?= number_format($item['TongTien'] / max($item['SoLuong'], 1), 0, ',', '.') ?> đ</td>
+                                <td><?= number_format($item['TongTien'], 0, ',', '.') ?> đ</td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+
+                <!-- Hiển thị tổng cộng đơn hàng -->
+                <div class="total">
+                    <p><strong>Tổng cộng:</strong> <?= number_format($orderDetails[0]['Tong'], 0, ',', '.') ?> đ</p>
+                </div>
+            <?php endif; ?>
+        </div>
 
         <div style="clear: both;"></div>
     </div>
