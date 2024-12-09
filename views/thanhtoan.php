@@ -1,5 +1,7 @@
 <?php  
-session_start();  
+if (session_status() == PHP_SESSION_NONE) {  
+    session_start();  
+}
  // Đảm bảo đã kết nối với cơ sở dữ liệu  
 
 // Kiểm tra người dùng đã đăng nhập hay chưa  

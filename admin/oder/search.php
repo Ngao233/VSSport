@@ -87,9 +87,9 @@
         <td><?=$oder["NgayDatHang"]?></td>  
         <td><?=$oder["TrangThai"]?></td>  
         <td>  
-          <a href="editoder/<?=$oder["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
+          <a href="editoder/<?=$oder["id_DonHang"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
           <br>  
-          <a href="oder/<?=$oder["id_SanPham"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
+          <a href="oder/<?=$oder["id_DonHang"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger"><i data-feather="trash-2"></i>Delete</a>
         </td>  
       </tr> 
       <?php endforeach; ?>  

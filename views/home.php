@@ -22,6 +22,7 @@ $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
 $stmt->execute();
 $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
 ?>
+
 <section class="banner">
             <div class="slides" id="slides">
                 <div class="slide"><img src="public/image/banner1.png" alt="Hình ảnh 1"></div>
@@ -35,7 +36,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <section class="Category">
 
         <div class="block-top-left">
-            <a href="">
+            <a href="searchgiaythethao">
                 <img src="public/image/Category1.png" alt="">
                 <p>Giày Thể Thao</p>
             </a>
@@ -75,14 +76,14 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </section>
 
     <h2>Sản Phẩm Khuyến Mại</h2>
-    <section class="product-sale-home">
+    <section class="product-sale-home" style="height:390px;">
     <?php foreach ($product1 as $productItem): 
         // Tính toán giá giảm
         $giagiam = $productItem['Gia'] * ($productItem['GiamGia'] / 100);
         $saugiam = $productItem['Gia'] - $giagiam;
     ?> 
         <div class="pro-sale">
-            <a href="chitietsp/<?=$productItem['id_SanPham']?>">
+            <a href="cac/<?=$productItem['id_SanPham']?>">
             <img src="public/image/<?=$productItem['HinhAnh']?>" alt="">
                 
             <a href="themspyt<?=$productItem['id_SanPham']?>">
@@ -125,7 +126,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="Category-product-home" data-category="3">
                 <br>
-                <a href="#"> Áo Bóng Đá</a>
+                <a href="searchaobongda"> Áo Bóng Đá</a>
             </div>
             <div class="Category-product-home" data-category="4">
                 <br>
@@ -148,7 +149,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
              ?>  
             
     <div class="product-home-one" data-product-category="<?=$product["id_DanhMuc"]?>">  
-        <a href="chitietsp/<?=$product['id_SanPham']?>" class="product-home-one-link">  
+        <a href="cac/<?=$product['id_SanPham']?>" class="product-home-one-link">  
             <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />  
         </a>  
         <a href="themspyt/<?=$product['id_SanPham']?>">
@@ -169,7 +170,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <p class="product-home-one-name"><?=$product["TenSanPham"]?></p>  
         <p class="product-home-one-price" style="font-size:12px; color:gray;" ><?=$product["Gia"]?> đ</p>  
         <p class="price-down-home" style="margin-top:-1px"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p>
-        <p >Phần Trăm Giảm Giá -<?=$product["GiamGia"]?>%</p>
+        <p style="position: absolute; top: 10px; left: 5px; background-color:rgba(255, 0, 0, 0.5); border-radius:5px ; padding:5px;">   - <?=$product["GiamGia"]?>%  </p>
     </div>  
     
 <?php } ?>
@@ -266,7 +267,7 @@ document.querySelectorAll('.formhome').forEach(form => {
         method: 'POST',  
         body: formData  
     })  
-    .then(response => response.json())  
+    .then(response => response.json()) 
     .then(data => {  
         console.log(data);  
         updateCartDisplay(data.cartDetails);   

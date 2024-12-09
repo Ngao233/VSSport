@@ -24,16 +24,13 @@ switch ($action) {
             $id = $_GET["id"] ?? "";  
             $product = getProductid($id);  
         
-            $TenSanPham = trim($_POST["TenSanPham"] ?? "");  
-            $MoTa = trim($_POST["MoTa"] ?? "");  
+            $TenSanPham = trim($_POST["TenSanPham"] ?? "");    
             $Gia = trim($_POST["Gia"] ?? "");  
             $SoLuong = trim($_POST["SoLuong"] ?? "");  
-            $HinhAnh = trim($_POST["HinhAnh"] ?? "");  
-            $KichThuoc = trim($_POST["KichThuoc"] ?? "");  
-            $MauSac = trim($_POST["MauSac"] ?? "");  
+            $HinhAnh = trim($_POST["HinhAnh"] ?? "");      
             $id_DanhMuc = $_POST["id_DanhMuc"] ?? "";  
         
-            updateProduct($id, $TenSanPham, $MoTa, $Gia, $SoLuong, $HinhAnh, $KichThuoc, $MauSac, $id_DanhMuc);  
+            updateProduct($id, $TenSanPham, $Gia, $SoLuong, $HinhAnh,   $id_DanhMuc);  
             header("Location: $base_url/admin2");  
             exit;
 

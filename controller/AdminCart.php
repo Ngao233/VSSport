@@ -1,6 +1,7 @@
 <?php 
 //include_once "models/Category.php";
 include_once "model/cart.php";
+
 // include_once "models/contact.php";
 switch ($action) {
     case 'giohang':
@@ -29,9 +30,7 @@ switch ($action) {
                 include "views/giohang.php";
                 include "views/Footer.php";
             break;
-            case 'addtocart':
-            include 'model/addtocart.php';
-            break;
+            
             case 'cart_delete':
                 if (isset($_POST['id_GioHang'])) {
                     $cartId = $_POST['id_GioHang'];

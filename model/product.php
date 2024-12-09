@@ -16,43 +16,34 @@ function getProductid($id){
     $product = $stmt->fetch();
     return $product; 
 }
-function updateProduct($id, $TenSanPham, $MoTa, $Gia, $SoLuong, $HinhAnh, $KichThuoc, $MauSac, $id_DanhMuc) {  
+function updateProduct($id, $TenSanPham, $Gia, $SoLuong, $HinhAnh,  $id_DanhMuc) {  
     global $conn;  
     $sql = "UPDATE sanpham   
-            SET TenSanPham = :TenSanPham,   
-                MoTa = :MoTa,   
+            SET TenSanPham = :TenSanPham,     
                 Gia = :Gia,   
                 SoLuong = :SoLuong,   
                 HinhAnh = :HinhAnh,   
-                KichThuoc = :KichThuoc,   
-                MauSac = :MauSac,   
                 id_DanhMuc = :id_DanhMuc   
             WHERE id_SanPham = :id";  
             
     $stmt = $conn->prepare($sql);  
-    $stmt->bindParam(':TenSanPham', $TenSanPham);  
-    $stmt->bindParam(':MoTa', $MoTa);  
+    $stmt->bindParam(':TenSanPham', $TenSanPham);    
     $stmt->bindParam(':Gia', $Gia);  
     $stmt->bindParam(':SoLuong', $SoLuong);  
-    $stmt->bindParam(':HinhAnh', $HinhAnh);  
-    $stmt->bindParam(':KichThuoc', $KichThuoc);  
-    $stmt->bindParam(':MauSac', $MauSac);  
+    $stmt->bindParam(':HinhAnh', $HinhAnh);      
     $stmt->bindParam(':id_DanhMuc', $id_DanhMuc);  
     $stmt->bindParam(':id', $id);  
     $stmt->execute();  
 }
-function addProduct($TenSanPham,$MoTa,$Gia,$SoLuong,$HinhAnh,$KichThuoc,$MauSac)
+function addProduct($TenSanPham,$Gia,$SoLuong,$HinhAnh)
 {  
     global $conn;  
-    $sql = "INSERT INTO sanpham( TenSanPham,MoTa, Gia, SoLuong,HinhAnh,KichThuoc,MauSac) VALUES( :TenSanPham,:MoTa, :Gia, :SoLuong, :HinhAnh, :KichThuoc, :MauSac)";  
+    $sql = "INSERT INTO sanpham( TenSanPham, Gia, SoLuong,HinhAnh) VALUES( :TenSanPham, :Gia, :SoLuong, :HinhAnh)";  
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':TenSanPham', $TenSanPham); 
-    $stmt->bindParam(':MoTa', $MoTa); 
+    $stmt->bindParam(':TenSanPham', $TenSanPham);  
     $stmt->bindParam(':Gia', $Gia);  
     $stmt->bindParam(':SoLuong', $SoLuong); 
     $stmt->bindParam(':HinhAnh', $HinhAnh);
-    $stmt->bindParam(':KichThuoc', $KichThuoc);
-    $stmt->bindParam(':MauSac', $MauSac);
     $stmt->execute();
 }
 function searchProduct($search, $sort="DESC") {  

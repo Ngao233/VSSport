@@ -23,10 +23,8 @@ switch ($action) {
             echo "Email đã được sử dụng, vui lòng nhập email khác.";  
         } else {  
             $hashedPassword = password_hash($MatKhau, PASSWORD_DEFAULT);
-            $Id_DiaChi = 1;
-            $Id_SanPhamYeuThich = 1;
             $VaiTro = 0; // Giá trị mặc định cho VaiTro
-            addUser($Ho, $Ten, $hashedPassword, $Email, $Sdt, $Id_DiaChi, $Id_SanPhamYeuThich, $VaiTro);  
+            addUser($Ho, $Ten, $hashedPassword, $Email, $Sdt,  $VaiTro);  
             header("Location: $base_url/");  
             exit; 
         }

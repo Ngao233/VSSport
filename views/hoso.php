@@ -12,7 +12,7 @@ if (isset($_SESSION['id_KhachHang'])) {
     $vaiTro = $stmt->fetchColumn();
 
     if ($vaiTro == 1) {
-        header("Location: admin"); // Chuyển hướng đến trang admin
+        header("Location: $base_url/admin2");// Chuyển hướng đến trang admin
         exit();
     }
 

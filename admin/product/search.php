@@ -74,13 +74,10 @@
     <thead class="table-dark">  
       <tr>  
         <th>#</th>  
-        <th>Tên sản phẩm</th>  
-        <th>Mô Tả</th>  
+        <th>Tên sản phẩm</th>    
         <th>Giá</th>  
         <th>Số lượng</th>  
-        <th>Hình Ảnh</th>  
-        <th>Kích Thước</th>  
-        <th>Màu Sắc</th>  
+        <th>Hình Ảnh</th>      
         <th>Thao Tác</th>  
       </tr>  
     </thead>  
@@ -89,13 +86,10 @@
         <?php foreach ($product as $product): ?> 
       <tr>  
         <td><?=htmlspecialchars($product["id_SanPham"])?></td>  
-        <td><?=htmlspecialchars($product["TenSanPham"])?></td>  
-        <td><?=htmlspecialchars($product["MoTa"])?></td>  
+        <td><?=htmlspecialchars($product["TenSanPham"])?></td>   
         <td><?=htmlspecialchars($product["Gia"])?></td>  
         <td><?=htmlspecialchars($product["SoLuong"])?></td>  
-        <td><img src="<?=htmlspecialchars($product["HinhAnh"])?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->  
-        <td><?=htmlspecialchars($product["KichThuoc"])?></td>  
-        <td><?=htmlspecialchars($product["MauSac"])?></td>  
+        <td><img src="public/image/<?=htmlspecialchars($product["HinhAnh"])?>" width="50"></td> <!-- Hiển thị hình ảnh nhỏ -->    
         <td>  
           <a href="editproduct/<?=$product["id_SanPham"]?>" class="btn btn-sm btn-warning"><i data-feather="edit"></i>Sửa</a>  
           <br>  
