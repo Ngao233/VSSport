@@ -30,7 +30,9 @@ switch ($action) {
                 include "views/giohang.php";
                 include "views/Footer.php";
             break;
-            
+            case 'addtocart':
+                include "views/addtocart.php";
+                break;
             case 'cart_delete':
                 if (isset($_POST['id_GioHang'])) {
                     $cartId = $_POST['id_GioHang'];
@@ -47,6 +49,7 @@ switch ($action) {
                 include "views/giohang.php";
                 include "views/Footer.php";
                 break;
+        
               
 
             
