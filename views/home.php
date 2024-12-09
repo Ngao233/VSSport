@@ -1,33 +1,52 @@
 <?php  
-session_start(); 
-
+session_start();  
 if (isset($_SESSION['id_KhachHang'])) {  
     $id_KhachHang = $_SESSION['id_KhachHang'];  
     
-    // Truy vấn giỏ hàng của khách hàng  
+    // Kiểm tra xem có giỏ hàng nào cho khách hàng này không  
     $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
     $stmt = $conn->prepare($sql);  
     $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
     $stmt->execute();  
-    $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
-    
-    // Nếu không có giỏ hàng, tạo giỏ hàng mới  
-    if (empty($cartItems)) {  
-        // Tạo giỏ hàng mới  
+    $cart = $stmt->fetch(PDO::FETCH_ASSOC);  
+
+    // Nếu giỏ hàng không tồn tại, tạo giỏ hàng mới  
+    if (!$cart) {  
         $sql = "INSERT INTO giohang (id_KhachHang) VALUES (:id_KhachHang)";  
         $stmt = $conn->prepare($sql);  
-        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
+        $stmt->bindParam(':id_KhachHang', $id_KhachHang);  
         $stmt->execute();  
+
+        // Lấy ID của giỏ hàng mới tạo  
+        $id_GioHang = $conn->lastInsertId();  
         
-        // Thông báo hoặc xử lý sau khi tạo giỏ hàng nếu cần  
-        $cartItems = []; // Cập nhật lại giỏ hàng thành rỗng hoặc lấy lại từ DB nếu cần  
+        // Trong trường hợp bạn có sản phẩm đã thêm gì đó, bạn có thể tạo chi tiết giỏ hàng ở đây  
+        // Ví dụ thêm sản phẩm với id lĩnh vực 1 và số lượng 1  
+        $id_SanPham = 1; // Thay thế bằng id sản phẩm thực  
+        $soLuong = 1; // Số lượng bất kỳ bạn muốn thêm  
+        
+        // Thêm sản phẩm vào chi tiết giỏ hàng  
+        $sql = "INSERT INTO chitietgiohang (id_GioHang, id_SanPham, SoLuong) VALUES (:id_GioHang, :id_SanPham, :SoLuong)";  
+        $stmt = $conn->prepare($sql);  
+        $stmt->bindParam(':id_GioHang', $id_GioHang);  
+        $stmt->bindParam(':id_SanPham', $id_SanPham);  
+        $stmt->bindParam(':SoLuong', $soLuong);  
+        $stmt->execute();  
+    } else {  
+        $id_GioHang = $cart['id_GioHang']; // Lấy ID giỏ hàng nếu đã tồn tại  
     }  
+
+    // Truy vấn sản phẩm trong giỏ hàng nếu cần  
+    $sql = "SELECT c.*, s.TenSanPham FROM chitietgiohang c JOIN sanpham s ON c.id_SanPham = s.id_SanPham WHERE c.id_GioHang = :id_GioHang";  
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);  
+    $stmt->execute();  
+    $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+
 } else {  
     $id_KhachHang = null;  
     $cartItems = [];  
-} 
-
-
+}  
 ?>
 
 <section class="banner">
