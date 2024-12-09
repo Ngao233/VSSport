@@ -1,7 +1,7 @@
 <?php
 include_once "model/chitietsp.php";
 include_once "model/product.php";
-include_once "model/addtocart.php";  
+include_once "views/addtocart.php";  
 
 switch ($action) {   
   
