@@ -22,6 +22,7 @@ $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
 $stmt->execute();
 $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
 ?>
+
 <section class="banner">
             <div class="slides" id="slides">
                 <div class="slide"><img src="public/image/banner1.png" alt="Hình ảnh 1"></div>
@@ -75,7 +76,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </section>
 
     <h2>Sản Phẩm Khuyến Mại</h2>
-    <section class="product-sale-home">
+    <section class="product-sale-home" style="height:390px;">
     <?php foreach ($product1 as $productItem): 
         // Tính toán giá giảm
         $giagiam = $productItem['Gia'] * ($productItem['GiamGia'] / 100);

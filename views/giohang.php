@@ -7,8 +7,6 @@ if (isset($_SESSION['id_KhachHang'])) {
     header("Location: dangnhap"); 
     exit();
 } 
- 
-
 $id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
 
 // Truy vấn giỏ hàng của khách hàng
@@ -17,8 +15,6 @@ $stmt = $conn->prepare($sql);
 $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
 $stmt->execute();
 $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);     
-
-
 ?>  
 <!DOCTYPE html>  
 <html lang="vi">  
