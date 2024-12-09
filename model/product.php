@@ -35,15 +35,17 @@ function updateProduct($id, $TenSanPham, $Gia, $SoLuong, $HinhAnh,  $id_DanhMuc)
     $stmt->bindParam(':id', $id);  
     $stmt->execute();  
 }
-function addProduct($TenSanPham,$Gia,$SoLuong,$HinhAnh)
+function addProduct($TenSanPham,$Gia,$SoLuong,$HinhAnh,$id_DanhMuc)
 {  
     global $conn;  
-    $sql = "INSERT INTO sanpham( TenSanPham, Gia, SoLuong,HinhAnh) VALUES( :TenSanPham, :Gia, :SoLuong, :HinhAnh)";  
+    $sql = "INSERT INTO sanpham( TenSanPham, Gia, SoLuong,HinhAnh,id_DanhMuc) VALUES( :TenSanPham, :Gia, :SoLuong, :HinhAnh,:id_DanhMuc)";  
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':TenSanPham', $TenSanPham);  
     $stmt->bindParam(':Gia', $Gia);  
     $stmt->bindParam(':SoLuong', $SoLuong); 
     $stmt->bindParam(':HinhAnh', $HinhAnh);
+    $stmt->bindParam(':id_DanhMuc', $id_DanhMuc);
+
     $stmt->execute();
 }
 function searchProduct($search, $sort="DESC") {  
