@@ -400,7 +400,7 @@
 
                 <ul>
                 <li><a href="<?= $base_url ?>/home">TRANG CHỦ</a></li>
-                <li><a href="<?= $base_url ?>/tonghoptt">Thông Tin</a></li>
+                <li><a href="<?= $base_url ?>/tonghoptt">THÔNG TIN</a></li>
                 <li><a href="<?= $base_url ?>/dangky">ĐĂNG KÝ</a></li>
                 <li><a href="<?= $base_url ?>/dangnhap">ĐĂNG NHẬP</a></li>
                 </ul>
