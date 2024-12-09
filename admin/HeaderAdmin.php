@@ -25,7 +25,7 @@
           <img src="public/image/VSSp rt.png" alt="Logo">  
           <ul class="nav flex-column mt-4">  
             <li class="nav-item">  
-              <a class="nav-link active" href="admin.html">  
+              <a class="nav-link active" href="home">  
                 <i data-feather="home"></i> Home  
               </a>  
             </li>  

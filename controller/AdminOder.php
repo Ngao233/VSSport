@@ -71,5 +71,11 @@ switch ($action) {
                 
                 }  
             }  
+       
             
-        }
+    case 'statistics':
+        include "admin/HeaderAdmin.php";
+        include "admin/statistics.php";
+        include "admin/FooterAdmin.php";
+        break;
+}
