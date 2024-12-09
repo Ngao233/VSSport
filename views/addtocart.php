@@ -1,45 +1,63 @@
+ 
+
 <?php  
 if (session_status() == PHP_SESSION_NONE) {  
     session_start();  
 }
-if (isset($_POST['id_SanPham'], $_POST['quantity'], $_SESSION['id_KhachHang'])) {  
- 
-
-    $id_KhachHang = $_SESSION['id_KhachHang'];  
-    $id_SanPham = $_POST['id_SanPham'];  
-    $quantity = (int)$_POST['quantity'];  
-
-    $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang AND id_SanPham = :id_SanPham";  
-    $stmt = $conn->prepare($sql);  
-    $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
-    $stmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);  
-    $stmt->execute();  
-    $existingItem = $stmt->fetch(PDO::FETCH_ASSOC);  
-
-    if ($existingItem) {  
-
-        $newQuantity = $existingItem['SoLuong'] + $quantity; 
-        $sql = "UPDATE giohang SET SoLuong = :SoLuong WHERE id_KhachHang = :id_KhachHang AND id_SanPham = :id_SanPham";  
-        $stmt = $conn->prepare($sql);  
-        $stmt->bindParam(':SoLuong', $newQuantity, PDO::PARAM_INT);  
-        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
-        $stmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);  
-        $stmt->execute();  
-    } else {  
-  
-        $sql = "INSERT INTO giohang (id_KhachHang, id_SanPham, SoLuong) VALUES (:id_KhachHang, :id_SanPham, :SoLuong)";  
-        $stmt = $conn->prepare($sql);  
-        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
-        $stmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);  
-        $stmt->bindParam(':SoLuong', $quantity, PDO::PARAM_INT);  
-        $stmt->execute();  
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
+    // Kiểm tra xem người dùng đã đăng nhập chưa  
+    if (!isset($_SESSION['id_KhachHang'])) {  
+        echo json_encode(['success' => false, 'message' => 'Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.']);  
+        exit();  
     }  
 
- 
-    header("Location: $base_url");
-    exit();  
-} else {  
-    // Xử lý lỗi  
-     
+    $id_KhachHang = $_SESSION['id_KhachHang']; // Lấy ID khách hàng  
+    $id_SanPham = $_POST['id_SanPham'];  
+    $quantity = intval($_POST['quantity']);  
+    $response = addProductToCart($id_KhachHang, $id_SanPham, $quantity);  
+    echo json_encode($response);  
 }  
+
+function addProductToCart($id_KhachHang, $id_SanPham, $quantity) {  
+    global $conn;  
+    $id_GioHang = getCartIdByUserId($id_KhachHang);  
+    if ($id_GioHang === null) {  
+        $sql = "INSERT INTO giohang (id_KhachHang) VALUES (:id_KhachHang)";  
+        $stmt = $conn->prepare($sql);  
+        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
+        $stmt->execute();  
+        $id_GioHang = $conn->lastInsertId(); 
+    }  
+
+    $sql = "SELECT * FROM chitietgiohang WHERE id_GioHang = :id_GioHang AND id_SanPham = :id_SanPham";  
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);  
+    $stmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);  
+    $stmt->execute();  
+
+    if ($stmt->rowCount() > 0) {  
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);  
+        $newQuantity = $row['SoLuong'] + $quantity;  
+
+        $updateQuery = "UPDATE chitietgiohang SET SoLuong = :SoLuong WHERE id_GioHang = :id_GioHang AND id_SanPham = :id_SanPham";  
+        $updateStmt = $conn->prepare($updateQuery);  
+        $updateStmt->bindParam(':SoLuong', $newQuantity, PDO::PARAM_INT);  
+        $updateStmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);  
+        $updateStmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);  
+        $updateStmt->execute();  
+        return ['success' => true, 'message' => 'Cập nhật giỏ hàng thành công!'];  
+    } else {  
+        // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới  
+        $insertQuery = "INSERT INTO chitietgiohang (id_GioHang, id_SanPham, SoLuong) VALUES (:id_GioHang, :id_SanPham, :SoLuong)";  
+        $insertStmt = $conn->prepare($insertQuery);  
+        $insertStmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);  
+        $insertStmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);  
+        $insertStmt->bindParam(':SoLuong', $quantity, PDO::PARAM_INT);  
+        $insertStmt->execute();  
+        return ['success' => true, 'message' => 'Sản phẩm đã được thêm vào giỏ hàng!'];  
+    }  
+}  
+
+
+
 ?>

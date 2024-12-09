@@ -23,15 +23,7 @@ if (isset($_SESSION['id_KhachHang'])) {
         // Trong trường hợp bạn có sản phẩm đã thêm gì đó, bạn có thể tạo chi tiết giỏ hàng ở đây  
         // Ví dụ thêm sản phẩm với id lĩnh vực 1 và số lượng 1  
         $id_SanPham = 1; // Thay thế bằng id sản phẩm thực  
-        $soLuong = 1; // Số lượng bất kỳ bạn muốn thêm  
-        
-        // Thêm sản phẩm vào chi tiết giỏ hàng  
-        $sql = "INSERT INTO chitietgiohang (id_GioHang, id_SanPham, SoLuong) VALUES (:id_GioHang, :id_SanPham, :SoLuong)";  
-        $stmt = $conn->prepare($sql);  
-        $stmt->bindParam(':id_GioHang', $id_GioHang);  
-        $stmt->bindParam(':id_SanPham', $id_SanPham);  
-        $stmt->bindParam(':SoLuong', $soLuong);  
-        $stmt->execute();  
+        $soLuong = 1; // Số lượng bất kỳ bạn muốn thêm    
     } else {  
         $id_GioHang = $cart['id_GioHang']; // Lấy ID giỏ hàng nếu đã tồn tại  
     }  
@@ -185,13 +177,13 @@ if (isset($_SESSION['id_KhachHang'])) {
         
         </a>
         <div class="product-home-one-info">   
-        <form id="addToCartForm" class="formhome" onsubmit="return false;">  
+        <form id="addtocart" class="formhome" onsubmit="return false;">  
     <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>">  
     <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
     <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$product['id_SanPham']?>', this)">  
         Thêm vào giỏ hàng  
     </button>  
-</form>
+</form> 
         </div>  
         <p class="product-home-one-name"><?=$product["TenSanPham"]?></p>  
         <p class="product-home-one-price" style="font-size:12px; color:gray;" ><?=$product["Gia"]?> đ</p>  
@@ -240,6 +232,37 @@ if (isset($_SESSION['id_KhachHang'])) {
 
 
     <script>
+        function addToCart(idSanPham, button) {  
+    const form = button.closest('form');   
+    const quantity = form.querySelector('input[name="quantity"]').value;   
+    const formData = new FormData();  
+    formData.append('id_SanPham', idSanPham);  
+    formData.append('quantity', quantity);  
+    
+    const btn = button;  
+
+    fetch('addtocart', {  // Đảm bảo đường dẫn chính xác  
+        method: 'POST',  
+        body: formData  
+    })  
+    .then(response => response.json())   
+    .then(data => {  
+        // Kiểm tra nếu có thông báo thành công hay lỗi  
+        if (data.success) {  
+            alert(data.message); // Hiển thị thông báo thành công  
+            btn.innerText = "Đã thêm vào giỏ hàng"; // Thay đổi văn bản  
+            btn.disabled = true; // Vô hiệu hóa button để tránh nhấn nhiều lần  
+            btn.style.backgroundColor = "#4CAF50"; // Thay đổi màu nền thành màu xanh  
+            btn.style.color = "white"; // Thay đổi màu chữ thành trắng  
+        } else {  
+            alert(data.message); // Hiển thị thông báo lỗi nếu có  
+        }  
+    })  
+    .catch(error => {  
+        console.error('Error:', error);  
+    });  
+}  ;
+
         const categoriProductH = document.querySelectorAll('.Category-product-home');  
 const products = document.querySelectorAll('.product-home-one');   
  
@@ -279,33 +302,7 @@ document.querySelectorAll('.formhome').forEach(form => {
             }  
         });  
     }); 
-    function addToCart(idSanPham, button) {  
-    const form = button.closest('form');   
-    const quantity = form.querySelector('input[name="quantity"]').value;   
-    const formData = new FormData();  
-    formData.append('id_SanPham', idSanPham);  
-    formData.append('quantity', quantity);  
-
-    // Sử dụng button mà bạn đã nhấn thay vì lấy lại từ id  
-    const btn = button; // Sử dụng button được truyền vào  
-
-    fetch('addtocart', {  
-        method: 'POST',  
-        body: formData  
-    })  
-    .then(response => response.json()) 
-    .then(data => {  
-        console.log(data);  
-        updateCartDisplay(data.cartDetails);   
-        btn.innerText = "Đã thêm vào giỏ hàng"; // Thay đổi văn bản  
-        btn.disabled = true; // Vô hiệu hóa button để tránh nhấn nhiều lần  
-        btn.style.backgroundColor = "#4CAF50"; // Thay đổi màu nền thành màu xanh  
-        btn.style.color = "white"; // Thay đổi màu chữ thành trắng  
-    })  
-    .catch(error => {  
-        console.error('Error:', error);  
-    });  
-}
+    
 document.getElementById('search').addEventListener('click',()=>{
   document.getElementById('searchInput').classList.toggle('show');
 })
