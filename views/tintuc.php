@@ -327,7 +327,7 @@
           if ($news) {
               echo '<h1 class="article-title-a">' . htmlspecialchars($news['TieuDe']) . '</h1>';
               echo '<div class="article-meta-a">';
-              echo '<span>Ngày đăng: ' . htmlspecialchars($news['NgayDang']) . '</span>';
+              echo '<span>Ngày đăng: ' . htmlspecialchars(date('d/m/Y', strtotime($news['NgayDang']))) . '</span>';
               echo '</div>';
               echo '<div class="article-intro-a">';
               echo '<p>' . htmlspecialchars($news['NoiDung']) . '</p>';
