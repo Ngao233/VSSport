@@ -1,20 +1,31 @@
 <?php  
-session_start();   
+session_start(); 
 
-// Kiểm tra nếu khách hàng đã đăng nhập  
 if (isset($_SESSION['id_KhachHang'])) {  
     $id_KhachHang = $_SESSION['id_KhachHang'];  
-
+    
     // Truy vấn giỏ hàng của khách hàng  
     $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
     $stmt = $conn->prepare($sql);  
     $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
     $stmt->execute();  
     $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+    
+    // Nếu không có giỏ hàng, tạo giỏ hàng mới  
+    if (empty($cartItems)) {  
+        // Tạo giỏ hàng mới  
+        $sql = "INSERT INTO giohang (id_KhachHang) VALUES (:id_KhachHang)";  
+        $stmt = $conn->prepare($sql);  
+        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
+        $stmt->execute();  
+        
+        // Thông báo hoặc xử lý sau khi tạo giỏ hàng nếu cần  
+        $cartItems = []; // Cập nhật lại giỏ hàng thành rỗng hoặc lấy lại từ DB nếu cần  
+    }  
 } else {  
-    $id_KhachHang = null;   
-    $cartItems = []; 
-}  
+    $id_KhachHang = null;  
+    $cartItems = [];  
+} 
 
 
 ?>

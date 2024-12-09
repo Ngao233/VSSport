@@ -1,21 +1,24 @@
 <?php  
-session_start();   
-
-if (isset($_SESSION['id_KhachHang'])) {
-    $id_KhachHang = $_SESSION['id_KhachHang'];
-} else {
-    header("Location: dangnhap"); 
-    exit();
+if (session_status() == PHP_SESSION_NONE) {  
+    session_start();  
 } 
-$id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
+// Kiểm tra nếu khách hàng đã đăng nhập  
+if (isset($_SESSION['id_KhachHang'])) {  
+    $id_KhachHang = $_SESSION['id_KhachHang'];  
 
-// Truy vấn giỏ hàng của khách hàng
-$sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
-$stmt->execute();
-$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);     
-?>  
+    // Truy vấn giỏ hàng của khách hàng  
+    $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
+    $stmt = $conn->prepare($sql);  
+    $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
+    $stmt->execute();  
+    $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+} else {  
+    $id_KhachHang = null;   
+    $cartItems = []; 
+}  
+
+?>
+
 <!DOCTYPE html>  
 <html lang="vi">  
 <head>  
@@ -131,59 +134,71 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <body>  
 
 
-<div class="cart-container">  
-    <h1>Giỏ hàng của bạn</h1>  
-    <?php if ($cartItems): ?>  
-        <?php   
-        $total = 0; // Khởi tạo tổng ở đây  
-        foreach ($cartItems as $item):   
-            // Lấy thông tin sản phẩm từ id_SanPham  
-            $product = getProductDetailsByCartId($item['id_SanPham']); // Hàm lấy chi tiết sản phẩm  
-            $discount = getDiscountByProductId($item['id_SanPham']); // Lấy giá trị giảm giá từ bảng sản phẩm  
-
-            // Tính tổng tiền sản phẩm sau giảm giá  
-            $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);  
-            $total += $itemTotal;   
+<?php  
+$id_GioHang = getCartIdByUserId($id_KhachHang);  
+if ($id_GioHang) {  
+    $cartItems = getCartItemsByCartId($id_GioHang);  
+    if ($cartItems) {  
+        $total = 0;  
         ?>  
+
+        <div class="cart-container">  
+            <h1>Giỏ hàng của bạn</h1>  
+
+            <?php   
+            foreach ($cartItems as $item):  
+
+                $product = getProductDetailsByCartId($item['id_SanPham']);   
+                $discount = getDiscountByProductId($item['id_SanPham']);  
+                $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);  
+                $total += $itemTotal;  
+            ?>  
+
             <div class="cart-item">  
                 <img src="public/image/<?= htmlspecialchars($product['HinhAnh']); ?>" alt="<?= htmlspecialchars($product['TenSanPham']); ?>">  
                 <div class="item-details">  
                     <h2><?= htmlspecialchars($product['TenSanPham']); ?></h2>  
                     <p>Giá: <?= number_format($product['Gia'], 0, ',', '.');?>đ </p>  
-                   
                     <p>Danh mục: <?= getCategoryNameByProductId($product['id_DanhMuc']); ?></p>  
+
                     <form method="POST" action="cart_update">  
                         <div class="quantity">  
                             <input type="number" name="SoLuong" value="<?= htmlspecialchars($item['SoLuong']); ?>" min="1" max="100">  
                             <button type="submit">Cập nhật</button>     
                         </div>  
-                        <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">  
+                        <input type="hidden" name="id_ChiTietGioHang" value="<?= $item['id_ChiTietGioHang']; ?>"> 
                     </form>  
+
                     <form method="POST" action="cart_delete">  
-                        <input type="hidden" name="id_GioHang" value="<?= $item['id_GioHang']; ?>">  
+                        <input type="hidden" name="id_ChiTietGioHang" value="<?= $item['id_ChiTietGioHang']; ?>"> 
                         <button type="submit" class="remove-btn">Xóa</button>  
                     </form>  
                 </div>  
             </div>  
-        <?php endforeach; ?>  
-        
-        <!-- Hiển thị tổng sau vòng lặp -->  
-        <div class="total">  
-            <p>Tổng cộng: <?= number_format($total, 0, ',', '.');?>đ</p>  
+
+            <?php endforeach; ?>  
+            <div class="total">  
+                <p>Tổng cộng: <?= number_format($total, 0, ',', '.');?>đ</p>  
+            </div>  
+
+            <a href="thanhtoan/<?=$_SESSION['id_KhachHang']?>"><button type="button" class="remove-btn">Thanh Toán</button></a>  
         </div>  
 
-    <?php else: ?>  
-        <p>Giỏ hàng của bạn đang trống.</p>  
-    <?php endif; ?>  
-    <a href="thanhtoan/<?=$_SESSION['id_KhachHang']?>"><button type="submit" class="remove-btn">Thanh Toán</button></a>
-</div>  
+        <?php  
+    } else {  
+        echo "<p>Giỏ hàng của bạn đang trống.</p>";  
+    }  
+} else {  
+    echo "<p>Không tìm thấy giỏ hàng.</p>";  
+}  
+?>
 
 </body>
 </html>
 
-    
 
 
-<!-- Footer-->
+
+
 
     
