@@ -88,7 +88,7 @@ function getProductCount($conn) {
 // Hàm để lấy thông tin đơn hàng
 function getOrderStats($conn) {
     $todaySql = "SELECT COUNT(*) AS today FROM donhang WHERE DATE(NgayDatHang) = CURDATE()";
-    $confirmedSql = "SELECT COUNT(*) AS confirmed FROM donhang WHERE TrangThai = 'đã xác thực'";
+    $confirmedSql = "SELECT COUNT(*) AS confirmed FROM donhang WHERE TrangThai = 'Đã xử lý'";
     
     $todayResult = $conn->query($todaySql);
     $confirmedResult = $conn->query($confirmedSql);
@@ -109,11 +109,11 @@ function getUserCount($conn) {
 // Hàm để lấy thông tin thống kê bán hàng
 function getSalesStats($conn) {
   // Tính tổng doanh thu
-  $revenueSql = "SELECT SUM(TongTien) AS revenue FROM chitietdonhang WHERE TrangThai = 'đã xác thực'";
+  $revenueSql = "SELECT SUM(TongTien) AS revenue FROM chitietdonhang WHERE TrangThai = 'Đã xử lý'";
   $revenueResult = $conn->query($revenueSql);
   
   // Tính số đơn hàng chưa xử lý
-  $pendingSql = "SELECT COUNT(*) AS pending FROM donhang WHERE TrangThai = 'chưa xác thực'";
+  $pendingSql = "SELECT COUNT(*) AS pending FROM donhang WHERE TrangThai = 'Chưa xử lý'";
   $pendingResult = $conn->query($pendingSql);
   
   // Tính tổng số lượng đơn hàng
@@ -128,7 +128,7 @@ function getSalesStats($conn) {
 }
 
 // Lấy thông tin
-$productStats = getProductCount($conn);
+$productStats = getCountP($conn);
 $orderStats = getOrderStats($conn);
 $userCount = getUserCount($conn);
 $salesStats = getSalesStats($conn);
