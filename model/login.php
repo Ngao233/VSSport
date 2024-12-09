@@ -37,12 +37,9 @@ function Islogin(){
         $vaiTro = $stmt->fetchColumn();
 
         if($vaiTro == 0) {
-            header("Location: hoso"); // Chuyển hướng đến trang hoso
+            header("hoso"); 
             exit();
-        } elseif($vaiTro == 1) {
-            header("Location: admin"); // Chuyển hướng đến trang admin
-            exit();
-        }
+        } 
     }
 }
 

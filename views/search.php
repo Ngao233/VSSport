@@ -67,7 +67,7 @@
           <Section id="san-pham-WebSp-section">
           <?php foreach ($product as $product): ?>
           <div class="san-pham-WebSp">
-                <a href="chi-tiet-san-pham.html" class="san-pham-WebSp-link">
+                <a href="cac/<?=$product['id_SanPham']?>" class="san-pham-WebSp-link">
                   <img src="public/image/<?=htmlspecialchars($product["HinhAnh"])?>" alt="<?=htmlspecialchars($product["TenSanPham"])?>" class="san-pham-WebSp-image" />
                 </a>
                 <div class="circle">

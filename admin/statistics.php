@@ -74,27 +74,27 @@
                   <img src="VSSp rt.png" alt="Logo">  
                   <ul class="nav flex-column mt-4">  
                     <li class="nav-item">  
-                      <a class="nav-link active" href="admin.html">  
+                      <a class="nav-link active" href="home">  
                         <i data-feather="home"></i> Home  
                       </a>  
                     </li>  
                     <li class="nav-item">  
-                      <a class="nav-link" href="products.html">  
+                      <a class="nav-link" href="home">  
                         <i data-feather="box"></i> Quản lý sản phẩm  
                       </a>  
                     </li>  
                     <li class="nav-item">  
-                      <a class="nav-link" href="orders.html">  
+                      <a class="nav-link" href="oderAdmin">  
                         <i data-feather="shopping-cart"></i> Đơn hàng  
                       </a>  
                     </li>  
                     <li class="nav-item">  
-                      <a class="nav-link" href="users.html">  
+                      <a class="nav-link" href="user">  
                         <i data-feather="users"></i> Người dùng  
                       </a>  
                     </li>  
                     <li class="nav-item">  
-                      <a class="nav-link" href="statistics.html">  
+                      <a class="nav-link" href="statistics">  
                         <i data-feather="bar-chart-2"></i> Thống kê  
                       </a>  
                     </li>  

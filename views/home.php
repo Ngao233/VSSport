@@ -35,7 +35,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <section class="Category">
 
         <div class="block-top-left">
-            <a href="">
+            <a href="searchgiaythethao">
                 <img src="public/image/Category1.png" alt="">
                 <p>Giày Thể Thao</p>
             </a>
@@ -125,7 +125,7 @@ $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="Category-product-home" data-category="3">
                 <br>
-                <a href="#"> Áo Bóng Đá</a>
+                <a href="searchaobongda"> Áo Bóng Đá</a>
             </div>
             <div class="Category-product-home" data-category="4">
                 <br>

@@ -30,7 +30,7 @@
               </a>  
             </li>  
             <li class="nav-item">  
-              <a class="nav-link" href="products.html">  
+              <a class="nav-link" href="admin2">  
                 <i data-feather="box"></i> Quản lý sản phẩm  
               </a>  
             </li>  
