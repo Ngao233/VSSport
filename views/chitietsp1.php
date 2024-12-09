@@ -380,7 +380,264 @@
             font-size: 20px;
             transition: color 0.3s;
         }
-        
+        .product-sale-home{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    width: 80%;
+    margin-left: 10%;
+    gap: 27px;
+    grid-template-columns: 18% 18% 18% 18% 18%;
+    grid-template-rows: 390px;
+    margin-right: 10%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;   
+    
+}
+.product-sale-home div{
+    border-radius: 5px;
+    background-color: #ffffff;
+    
+}
+
+.product-sale-home .pro-sale img{
+    width: 100%;
+    margin-top: 15px;
+
+}
+
+
+.pro-sale {
+    position: relative;
+    border:solid 1px #FFA031;
+    box-shadow: 1px 0px 0px 0px #FFA031,   
+               -1px 0px 0px 0px #FFA031,  
+                0px 1px 0px 0px #FFA031,   
+                0px -1px 0px 0px #FFA031;
+}
+.pro-sale .circle {
+    border-radius: 50px;
+}
+.circle i{
+    padding: 13px;
+    color:#a8a8a8;
+}
+.circle{
+    background-color: white;
+    position: absolute;
+    border-radius: 50px;
+    top: 5px;
+    right: 6px;
+    border:solid 1px #888;
+}
+ .circle :hover{
+    background-color: #FFA031;
+    border-radius: 50px;
+    color: white;
+    border:solid 1px white;
+}
+.p-product-sale{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: -20px;
+    width: 80%;
+    margin-left: 10%;
+}
+.p-product-sale .price-sale-home{
+    text-decoration: line-through;  
+    color: #c9c7c7;
+    font-size: 12px;
+    margin-top: 19px;
+}
+.pro-sale button{
+    background-color: #ff9f313e;
+    padding: 8px;
+    margin-top: -20px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold;
+    color: #FFA031;
+    border: none;
+}
+.pro-sale button:hover{
+    background-color: #ff9f31;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+}
+
+.price-down-home{
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+/* Sản phẩm ở trang chủ  */
+.Product-home-Product{
+    width: 79%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;   
+    font-size: 14px;
+}
+.product-home1{
+    width:90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    margin-left: 40px;
+    padding: 20px;
+}
+
+.menu-product-home{
+    height: 50px;
+    background-color: white;
+    border: solid 1px #FFA031;
+    border-radius: 10px;  
+   
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    text-align: center;
+   
+    
+}
+
+.menu-product-home div a{
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 35px;
+    
+}
+.menu-product-home div a img{
+    height: auto;
+    width: 30px;
+    border-radius: 50px;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    background-color: white;
+    
+}
+.Category-product-home{
+    border-right: solid 1px #FFA031;
+    border-radius: 5px;
+    position: relative;  
+    cursor: pointer;
+}
+.Category-product-home.active {
+    background-color: #FFA031;
+}
+
+.Category-product-home-ĐB{
+    position: relative;
+}
+.web-Sp-container { 
+    display: flex; /* Sử dụng Flexbox để bố trí */  
+    margin: 0 0 2% 4%   ;
+
+  } 
+
+  .product-home-one {  
+    display: none; /* Ẩn tất cả sản phẩm mặc định */  
+}  
+
+.product-home-one.active {  
+    display: block; /* Hiển thị sản phẩm được chọn */  
+}
+.product-home-one{
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(150deg, #FFA031 50%, #f0f0f0 50%); /* Tạo dải chéo */
+    padding: 20px; /* Khoảng cách bên trong */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .product-home-one img{
+    width: 100%;
+    height: auto;
+  }
+  .product-home-one:hover img{
+    transform: scale(1.05);
+  }
+  .product-home-one-name {
+    font-size: 14px;
+    color: #333;
+    padding: 2% 0;
+    margin: 0;
+  }
+  .product-home-one-info {
+    position: absolute;
+    visibility: hidden;
+    bottom: 26%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    background-color: #FFA031;
+  }
+  
+  .product-home-one:hover .product-home-one-info {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .product-home-one-price{
+    font-size: 100%;
+    color:#FFA031;
+    margin: 0;
+  }
+  .product-home-one-button {
+    background-color: #FFA500; /* Màu cam */
+    color: white; /* Chữ màu trắng */
+    border: none; /* Bỏ viền */
+    padding: 10px 20px; /* Căn chỉnh kích thước */
+    font-size: 16px; /* Kích thước chữ */
+  }
+  .product-home-one-link{
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Đảm bảo thẻ <a> bao toàn bộ khối sản phẩm */
+  }
+  footer{
+    background-image: url("../image/banner4.png");
+    width: 100%;
+    height: 320px;
+    background-size: cover; 
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+}
+footer .footer-column-left{
+    text-align: left;
+    margin-left: 200px;
+    color: white;
+    font-family: sans-serif;
+
+}
+footer .footer-column-right{
+    text-align: center;
+    margin-right: 200px;
+    color: white;
+    font-family: sans-serif;
+    font-size: larger;
+    line-height: 1.5;
+}
+footer .footer-column-right a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+
+}
 </style>
 <body>
         <header>
@@ -459,6 +716,7 @@
 <p><?=$productdetail['MoTa']?></p>
 </div>
         </section>
+        
 <script>  
 document.querySelectorAll('.formhome').forEach(form => {  
         const quantityInput = form.querySelector('.quantity-input');  
@@ -498,3 +756,27 @@ document.querySelectorAll('.formhome').forEach(form => {
     });  
 }
 </script>
+<footer>
+    <div class="footer-column-left">
+        <h3>Liên hệ</h3>
+        <hr>
+        <h3>Hotline: </h3>
+        <p>(+84)098765432</p>
+        <h3>Email: </h3>
+        <p>support@gmail.com</p>
+        <h3>Thời gian làm việc</h3>
+        <p>06:00 - 18:00 hằng ngày</p>
+    </div>
+    <div class="footer-column-left">
+
+    </div>
+    <div class="footer-column-right">
+        <h3>Theo dõi tại</h3>
+        <hr>
+        <a href="#">Facebook</a><br>
+        <a href="#">Twitter</a><br>
+        <a href="#">Youtube</a><br>
+        <a href="#">Instagram</a><br>
+
+    </div>
+</footer>
