@@ -1,9 +1,9 @@
 <?php  
-function addUser($Ho, $Ten, $MatKhau, $Email, $Sdt, $Id_DiaChi, $Id_SanPhamYeuThich, $VaiTro) {
+function addUser($Ho, $Ten, $MatKhau, $Email, $Sdt,  $VaiTro) {
     global $conn;
 
-    $query = "INSERT INTO khachhang (Ho, Ten, MatKhau, Email, Sdt, Id_DiaChi, Id_SanPhamYeuThich, VaiTro) 
-              VALUES (:Ho, :Ten, :MatKhau, :Email, :Sdt, :Id_DiaChi, :Id_SanPhamYeuThich, :VaiTro)";
+    $query = "INSERT INTO khachhang (Ho, Ten, MatKhau, Email, Sdt, VaiTro) 
+              VALUES (:Ho, :Ten, :MatKhau, :Email, :Sdt,  :VaiTro)";
     $stmt = $conn->prepare($query);
 
     $stmt->bindParam(':Ho', $Ho);
@@ -11,8 +11,6 @@ function addUser($Ho, $Ten, $MatKhau, $Email, $Sdt, $Id_DiaChi, $Id_SanPhamYeuTh
     $stmt->bindParam(':MatKhau', $MatKhau);
     $stmt->bindParam(':Email', $Email);
     $stmt->bindParam(':Sdt', $Sdt);
-    $stmt->bindParam(':Id_DiaChi', $Id_DiaChi);
-    $stmt->bindParam(':Id_SanPhamYeuThich', $Id_SanPhamYeuThich);
     $stmt->bindParam(':VaiTro', $VaiTro);
 
     $stmt->execute();
