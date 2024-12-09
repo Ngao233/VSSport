@@ -4,6 +4,7 @@ include_once "model/product.php";
 include_once "model/tintuc.php";
 
 
+
 switch ($action) {  
     case '':  
         $product1 = getProductWithDiscount();
@@ -38,6 +39,9 @@ switch ($action) {
                 }  
             }  
         }  
+    case 'danhmuc1':
+        
+        include "views/danhmuc.php";
     break;
 
 }

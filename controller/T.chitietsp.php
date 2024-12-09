@@ -12,6 +12,6 @@ switch ($action) {
         $product = getProductid($id);
         
         include "views/chitietsp1.php";
-        include "views/footer.php";
+        
         break;     
 }   
