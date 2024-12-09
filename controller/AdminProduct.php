@@ -37,17 +37,16 @@ switch ($action) {
     case 'addproduct':
             include "admin/product/add.php";
         break;
-        
+         
     case "postproduct":
         $TenSanPham=trim($_POST["TenSanPham"]) ?? "";
-        $MoTa=trim($_POST["MoTa"]) ?? "";
         $Gia=trim($_POST["Gia"]) ?? "";
         $SoLuong=trim($_POST["SoLuong"]) ?? "";
         $HinhAnh=trim($_POST["HinhAnh"]) ?? "";
-        $KichThuoc=trim($_POST["KichThuoc"]) ?? "";
-        $MauSac=trim($_POST["MauSac"]) ?? "";
+        $id_DanhMuc=trim($_POST["id_DanhMuc"]) ?? "";
+
         include "admin/product/add.php";
-            addProduct($TenSanPham,$MoTa,$Gia,$SoLuong,$HinhAnh,$KichThuoc,$MauSac);
+            addProduct($TenSanPham,$Gia,$SoLuong,$HinhAnh,$id_DanhMuc);
             header("Location: $base_url/admin2");    
         break;   
         

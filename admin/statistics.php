@@ -128,7 +128,7 @@ function getSalesStats($conn) {
 }
 
 // Lấy thông tin
-$productStats = getProductCount($conn);
+$productStats = getCountP($conn);
 $orderStats = getOrderStats($conn);
 $userCount = getUserCount($conn);
 $salesStats = getSalesStats($conn);
@@ -158,7 +158,7 @@ $salesStats = getSalesStats($conn);
                 <h5>Đơn hàng</h5>
                 <p>Tổng số đơn hàng: <?php echo $salesStats['total_orders']; ?></p>
                 <p>Hôm nay: <?php echo $orderStats['today']; ?></p>
-                <p>Đã xử lý: <?php echo $orderStats['confirmed']; ?></p>
+                <p>Đã xác nhận: <?php echo $orderStats['confirmed']; ?></p>
                 <p>Đơn hàng chưa xử lý: <?php echo $salesStats['pending']; ?></p>
             </div>
         </div>
