@@ -28,6 +28,7 @@ $stmt->bindParam(':orderId', $orderId, PDO::PARAM_INT);
 $stmt->execute();  
 $orderDetails = $stmt->fetchAll(PDO::FETCH_ASSOC);  
 
+
 // Kiểm tra xem có dữ liệu trả về không  
 if (empty($orderDetails)) {  
     echo "Không tìm thấy đơn hàng với ID này.";  
