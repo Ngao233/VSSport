@@ -13,9 +13,7 @@ switch ($action) {
         include "views/home.php";  
         include_once "views/footer.php";
     break;
-    case 'statistics':
-        include "admin/statistics.php";
-        break;
+
     case 'home':  
         $product1 = getProductWithDiscount();
         $product = getProduct();
