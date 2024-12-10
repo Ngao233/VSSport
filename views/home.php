@@ -320,5 +320,7 @@ document.querySelectorAll('.formhome').forEach(form => {
         });  
     }); 
     
-
+    document.getElementById('search').addEventListener('click',()=>{
+  document.getElementById('searchInput').classList.toggle('show');
+})
     </script>
