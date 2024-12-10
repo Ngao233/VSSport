@@ -29,7 +29,6 @@ function Islogin(){
         $id_KhachHang = $_SESSION['id_KhachHang'];
         global $conn;  
 
-        // Thực hiện truy vấn để lấy thông tin vai trò từ cơ sở dữ liệu
         $query = "SELECT VaiTro FROM khachhang WHERE id_KhachHang = :id_KhachHang";
         $stmt = $conn->prepare($query);
         $stmt->bindParam(':id_KhachHang', $id_KhachHang);
@@ -59,7 +58,6 @@ function Logout(){
 }
 
 function kiemTraDangNhap($conn, $email, $matKhau) {
-    // Truy vấn lấy thông tin từ cơ sở dữ liệu
     $sql = "SELECT id_KhachHang, MatKhau FROM khachhang WHERE Email = :Email";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':Email', $email);
@@ -68,16 +66,16 @@ function kiemTraDangNhap($conn, $email, $matKhau) {
     if ($stmt->rowCount() > 0) {
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // So sánh mật khẩu đã hash trong cơ sở dữ liệu với mật khẩu người dùng nhập vào
+
         if (password_verify($matKhau, $row['MatKhau'])) {
-            session_start(); // Khởi động session nếu chưa có
+            session_start(); 
             $_SESSION['id_KhachHang'] = $row['id_KhachHang'];
-            return true; // Đăng nhập thành công
+            return true; 
         } else {
-            return false; // Mật khẩu không chính xác
+            return false; 
         }
     } else {
-        return false; // Tài khoản không tồn tại
+        return false; 
     }
 }
 ?>

@@ -28,11 +28,11 @@
         <td><?=$product["id_SanPham"]?></td>  
         
         <?php   
-        // Gọi hàm để lấy tên danh mục từ id_DanhMuc  
+
         $categoryName = getCategoryNameByProductId($product["id_DanhMuc"]);   
         ?>  
 
-        <td><?= htmlspecialchars($categoryName) ?></td> <!-- Đây là tên danh mục -->  
+        <td><?= htmlspecialchars($categoryName) ?></td>
         <td><?=$product["TenSanPham"]?></td>    
         <td><?=$product["Gia"]?></td>  
         <td><?=$product["SoLuong"]?></td>  

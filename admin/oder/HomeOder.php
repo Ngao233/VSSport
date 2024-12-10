@@ -21,23 +21,23 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($oder as $oder): ?>
+                <?php foreach ($oder as $order): ?>
                     <tr>
-                        <td><?=$oder["id_DonHang"]?></td>
-                        <td><?=$oder["id_KhachHang"]?></td>
-                        <td><?=$oder["NgayDatHang"]?></td>
-                        <td><?=$oder["TrangThai"]?></td>
+                        <td><?= htmlspecialchars($order["id_DonHang"]) ?></td>
+                        <td><?= htmlspecialchars($order["id_KhachHang"]) ?></td>
+                        <td><?= htmlspecialchars($order["NgayDatHang"]) ?></td>
+                        <td><?= htmlspecialchars($order["TrangThai"]) ?></td>
                         <td>
-                            <!-- Nút Duyệt thay vì Sửa -->
-                            <?php if ($oder["TrangThai"] !== 'Đã xử lý'): ?>
-                                <a href="editoder/<?=$oder["id_DonHang"]?>" class="btn btn-sm btn-warning">
-                                    Duyệt
-                                </a>
+
+                            <?php if ($order["TrangThai"] === 'Đang xử lý'): ?>
+                                <a href="editoder/<?= $order["id_DonHang"] ?>" class="btn btn-sm btn-warning">Duyệt</a>
+                            <?php elseif ($order["TrangThai"] === 'Đã xử lý'): ?>
+                                <button class="btn btn-sm btn-secondary" disabled>Đã xử lý</button>
                             <?php else: ?>
-                                <span class="btn btn-sm btn-secondary" disabled>Đã xử lý</span>
+                                <button class="btn btn-sm btn-secondary" disabled>Đã huỷ</button>
                             <?php endif; ?>
                             <br>
-                            <a href="deleteoder/<?=$oder["id_DonHang"]?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger">
+                            <a href="deleteoder/<?= $order["id_DonHang"] ?>" onclick="return confirm('Bạn có thực sự muốn xóa?')" class="btn btn-sm btn-danger">
                                 <i data-feather="trash-2"></i>Delete
                             </a>
                         </td>

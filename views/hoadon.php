@@ -1,19 +1,15 @@
 <?php  
-// Kết nối lại với cơ sở dữ liệu nếu cần  
-// Đoạn mã này sẽ được thực hiện trên trang hiển thị hóa đơn  
 
-// Kiểm tra và lấy orderId từ URL  
 $requestUri = $_SERVER['REQUEST_URI'];  
 $parts = explode('/', $requestUri);  
-$orderId = intval(end($parts)); // Đảm bảo orderId là số nguyên  
+$orderId = intval(end($parts));
 
-// Kiểm tra nếu không có orderId hoặc không hợp lệ  
+
 if (!$orderId) {  
     echo "Không tìm thấy ID đơn hàng.";  
     exit();  
 }  
 
-// Truy vấn lấy thông tin đơn hàng và chi tiết sản phẩm, cùng với tên khách hàng từ bảng khachhang
 $sql = "SELECT donhang.NgayDatHang, donhang.TrangThai, donhang.Tong, donhang.id_KhachHang,   
                chitietdonhang.SoLuong, chitietdonhang.TongTien,   
                sanpham.TenSanPham, sanpham.HinhAnh, khachhang.Ten  
@@ -28,13 +24,11 @@ $stmt->bindParam(':orderId', $orderId, PDO::PARAM_INT);
 $stmt->execute();  
 $orderDetails = $stmt->fetchAll(PDO::FETCH_ASSOC);  
 
-// Kiểm tra xem có dữ liệu trả về không  
+
 if (empty($orderDetails)) {  
     echo "Không tìm thấy đơn hàng với ID này.";  
     exit();  
 }  
-
-// Lấy thông tin chung của đơn hàng từ phần tử đầu tiên  
 $orderInfo = $orderDetails[0];  
 ?>  
 

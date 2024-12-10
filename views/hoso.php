@@ -4,7 +4,7 @@ session_start();
 if (isset($_SESSION['id_KhachHang'])) {
     $id_KhachHang = $_SESSION['id_KhachHang'];
     
-    // Thực hiện truy vấn để lấy thông tin vai trò từ cơ sở dữ liệu
+
     $query = "SELECT VaiTro FROM khachhang WHERE id_KhachHang = :id_KhachHang";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(':id_KhachHang', $id_KhachHang);
@@ -12,12 +12,12 @@ if (isset($_SESSION['id_KhachHang'])) {
     $vaiTro = $stmt->fetchColumn();
 
     if ($vaiTro == 1) {
-        header("Location: $base_url/admin2");// Chuyển hướng đến trang admin
+        header("Location: $base_url/admin2");
         exit();
     }
 
     try {
-        // Truy vấn thông tin khách hàng
+
         $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id_KhachHang";
         $stmt = $conn->prepare($sql);
         $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);

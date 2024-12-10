@@ -6,7 +6,6 @@
     <input type="text" name="SoLuong" placeholder="Nhập số lượng" value="<?=($_POST['SoLuong'] ?? $product['SoLuong'] ?? '') ?>"><br>  
     <input type="text" name="HinhAnh" placeholder="Nhập hình ảnh" value="<?=($_POST['HinhAnh'] ?? $product['HinhAnh'] ?? '') ?>"><br>    
 
-    <!-- Dropdown chọn danh mục -->  
     <label for="id_DanhMuc">Chọn Danh Mục:</label>  
     <select name="id_DanhMuc" id="id_DanhMuc" required>  
         <?php foreach ($categories as $category): ?>  

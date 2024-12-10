@@ -1,9 +1,7 @@
 <?php 
-//include_once "models/Category.php";
-
 include_once "model/product.php";
 include_once "model/category.php";
-// include_once "models/contact.php";
+
 switch ($action) {
    case 'admin2':
         
@@ -52,7 +50,7 @@ switch ($action) {
         
         case 'searchproduct':  
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
-                $search = trim($_POST["search"] ?? ""); // Nhận từ khóa tìm kiếm  
+                $search = trim($_POST["search"] ?? ""); 
             
                 if ($search != "") {  
                    

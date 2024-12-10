@@ -90,7 +90,6 @@ if (isset($_SESSION['id_KhachHang'])) {
     <h2>Sản Phẩm Khuyến Mại</h2>
     <section class="product-sale-home">
     <?php foreach ($product1 as $productItem): 
-        // Tính toán giá giảm
         $giagiam = $productItem['Gia'] * ($productItem['GiamGia'] / 100);
         $saugiam = $productItem['Gia'] - $giagiam;
     ?> 

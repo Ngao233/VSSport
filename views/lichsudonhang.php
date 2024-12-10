@@ -1,25 +1,5 @@
 <?php
-
-// Kiểm tra khách hàng đã đăng nhập chưa
-if (session_status() == PHP_SESSION_NONE) {  
-    session_start();  
-}
-if (!isset($_SESSION['id_KhachHang'])) {
-    echo "Bạn cần đăng nhập để xem lịch sử đơn hàng.";
-    exit();
-}
-
-$id_KhachHang = $_SESSION['id_KhachHang'];  // Lấy id khách hàng từ session
-
-// Truy vấn lịch sử đơn hàng của khách hàng
-$sql = "SELECT donhang.id_DonHang, donhang.NgayDatHang, donhang.TrangThai, donhang.Tong
-        FROM donhang
-        WHERE donhang.id_KhachHang = :id_KhachHang
-        ORDER BY donhang.NgayDatHang DESC";  // Sắp xếp theo ngày đặt hàng giảm dần
-$stmt = $conn->prepare($sql);
-$stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
-$stmt->execute();
-$orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
+include_once 'model/lichsu.php'
 ?>
 <!DOCTYPE html>
 <html lang="vi">
@@ -27,15 +7,13 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lịch Sử Đơn Hàng</title>
-            <style>
+    <style>
         h1 {
             text-align: center;
             color: black;
             margin-top: 20px;
             font-size: 32px;
         }
-
-        /* Kiểu dáng cho bảng lịch sử đơn hàng */
         table {
             width: 80%;
             margin: 20px auto;
@@ -69,39 +47,46 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
             text-decoration: none;
             font-weight: bold;
         }
-
         td a:hover {
             text-decoration: underline;
         }
-
-        /* Khi không có đơn hàng */
         p {
             text-align: center;
             font-size: 18px;
             color: #555;
         }
-
-        /* Định dạng cho các thông báo lỗi hoặc yêu cầu đăng nhập */
         .alert {
             text-align: center;
             color: red;
             font-size: 18px;
         }
-            </style>
+
+        input[type="submit"] {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:disabled {
+            background-color: grey;
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <h1>Lịch Sử Đơn Hàng</h1>
-    
-    <!-- Hiển thị danh sách đơn hàng -->
     <?php if (!empty($orderHistory)): ?>
-        <table border="1" cellspacing="0" cellpadding="10" style="width: 80%; margin: 20px auto; border-collapse: collapse;">
+        <table>
             <thead>
-                <tr style="background-color: #FFA031; color: white;">
+                <tr>
                     <th>Đơn Hàng</th>
                     <th>Ngày Đặt Hàng</th>
                     <th>Trạng Thái</th>
                     <th>Tổng Tiền</th>
                     <th>Chi Tiết</th>
+                    <th>Hủy Đơn</th>
                 </tr>
             </thead>
             <tbody>
@@ -112,6 +97,17 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <td><?= htmlspecialchars($order['TrangThai']) ?></td>
                         <td><?= number_format($order['Tong'], 0, ',', '.') ?> đ</td>
                         <td><a href="chitiet/<?= $order['id_DonHang'] ?>">Xem chi tiết</a></td>
+                        <td>
+                            <!-- Hiển thị nút hủy chỉ khi trạng thái không phải là "Đã hủy" và "Đã xử lý" -->
+                            <?php if ($order['TrangThai'] != 'Đã hủy' && $order['TrangThai'] != 'Đã xử lý'): ?>
+                                <form method="POST" style="margin: 0;">
+                                    <input type="hidden" name="order_id" value="<?= $order['id_DonHang'] ?>">
+                                    <input type="submit" name="cancel_order" value="Hủy Đơn">
+                                </form>
+                            <?php else: ?>
+                                <input type="submit" value="Không thể hủy" disabled>
+                            <?php endif; ?>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -121,4 +117,3 @@ $orderHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php endif; ?>
 </body>
 </html>
-

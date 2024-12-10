@@ -1,10 +1,10 @@
 <?php 
-//include_once "models/Category.php";
+
 include_once "model/tintuc.php";
 include_once "model/comment.php";
 
 
-// include_once "models/contact.php";
+
 switch ($action) {
     case 'tintucAdmin':
         $tintuc = getTinTuc();
@@ -18,7 +18,7 @@ switch ($action) {
         $tintuc = getTinTucid($id);
         include "admin/tintuc/edit.php";
         break;
-        //update tin tuc//
+
             
     case "updatetintuc":
         $id = $_GET["id"] ?? "";
@@ -43,8 +43,7 @@ switch ($action) {
         include "admin/tintuc/add.php";
         break;
 
-                
-            //ghi ra tin tuc//
+
     case "posttintuc":
         $tintuc = getTinTucid($id); 
 
@@ -63,7 +62,7 @@ switch ($action) {
                 
         case 'searchtintuc':  
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
-                $search = trim($_POST["search"] ?? ""); // Nhận từ khóa tìm kiếm  
+                $search = trim($_POST["search"] ?? ""); 
                     
                 if ($search != "") {  
                            

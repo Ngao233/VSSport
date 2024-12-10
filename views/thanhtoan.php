@@ -2,15 +2,15 @@
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-// Kiểm tra người dùng đã đăng nhập hay chưa
+
 if (!isset($_SESSION['id_KhachHang'])) {
     header("Location: dangnhap");
     exit();
 }
 
-$id_KhachHang = $_SESSION['id_KhachHang']; // ID khách hàng từ session
+$id_KhachHang = $_SESSION['id_KhachHang']; 
 
-// Truy vấn giỏ hàng của khách hàng
+
 $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
 $stmt = $conn->prepare($sql);
 $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
@@ -27,10 +27,10 @@ if ($cart) {
     $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-// Lấy thông tin khách hàng
+
 $customers = getCustomerById($conn, $id_KhachHang) ?: ['Ten' => '', 'Email' => '', 'Sdt' => ''];
 
-// Khởi tạo biến cho thông tin thanh toán
+
 $feedback = '';
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Lấy dữ liệu từ form
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $paymentMethodId = $_POST['payment'] ?? '';
 }
 
-// Tính tổng tiền đơn hàng
+
 $total = 0;
 foreach ($cartItems as $item) {
     $product = getProductDetailsByCartId($item['id_SanPham']);
@@ -51,11 +51,10 @@ foreach ($cartItems as $item) {
     $total += $itemTotal;
 }
 
-// Thực hiện giao dịch trong cơ sở dữ liệu
+
 try {
     $conn->beginTransaction();
 
-    // Lưu thông tin địa chỉ người dùng
     $sqlAddress = "INSERT INTO diachinguoidung (DiaChi, id_KhachHang) VALUES (:DiaChi, :id_KhachHang)";
     $stmtAddress = $conn->prepare($sqlAddress);
     $stmtAddress->bindParam(':DiaChi', $diaChi);
@@ -63,7 +62,7 @@ try {
     $stmtAddress->execute();
     $addressId = $conn->lastInsertId();
 
-    // Lưu thông tin đơn hàng
+
     $ngayDatHang = date('Y-m-d H:i:s');
     $sqlOrder = "INSERT INTO donhang (id_KhachHang, Tong, NgayDatHang, id_GioHang) VALUES (:id_KhachHang, :Tong, :NgayDatHang, :id_GioHang)";
     $stmtOrder = $conn->prepare($sqlOrder);
@@ -75,7 +74,7 @@ try {
     if ($stmtOrder->execute()) {
         $orderId = $conn->lastInsertId();
 
-        // Lưu chi tiết đơn hàng
+
         $sqlDetail = "INSERT INTO chitietdonhang (id_DonHang, id_SanPham, SoLuong, TongTien, id_DiaChi, id_PhuongThucThanhToan, GhiChu)
                       VALUES (:id_DonHang, :id_SanPham, :SoLuong, :TongTien, :id_DiaChi, :id_PhuongThucThanhToan, :GhiChu)";
         $stmtDetail = $conn->prepare($sqlDetail);
@@ -95,29 +94,26 @@ try {
             $stmtDetail->execute();
         }
 
-        // Xóa các sản phẩm trong giỏ hàng sau khi hoàn tất đơn hàng
         if ($cart) {
-            $id_GioHang = $cart['id_GioHang']; // Lấy id giỏ hàng
+            $id_GioHang = $cart['id_GioHang'];
 
-            // Xóa tất cả sản phẩm trong giỏ hàng
             $sqlDeleteProducts = "DELETE FROM chitietgiohang WHERE id_GioHang = :id_GioHang";
             $stmtDeleteProducts = $conn->prepare($sqlDeleteProducts);
             $stmtDeleteProducts->bindParam(':id_GioHang', $id_GioHang);
             $stmtDeleteProducts->execute();
         }
 
-        // Cam kết giao dịch
         $conn->commit();
         header("Location: {$base_url}/hoadon/" . $orderId);
-        exit(); // Dừng script sau khi chuyển hướng
+        exit(); 
     } else {
-        // Nếu đơn hàng không được tạo, hủy giao dịch
+
         $conn->rollBack();
     }
 } catch (PDOException $e) {
-    // Nếu có lỗi trong quá trình xử lý đơn hàng, hủy giao dịch
+
     $conn->rollBack();
-    // Xử lý lỗi
+
 }
 ?>
 
@@ -153,7 +149,7 @@ try {
 </style>
 <body>  
 <header>
-        <!-- menu phu -->
+
         <nav class="menu-one">
             <ul>
                 <li><a href="home">VSSport.vn</a></li>
@@ -163,7 +159,7 @@ try {
                 </div>
             </ul>
         </nav>
-        <!-- menu chinh -->
+
         <nav class="menu-two">
             <a href="home"><img src="public/image/logo.png" alt="" style="width: 155px ;"></a>
             <ul>
@@ -172,7 +168,7 @@ try {
                 <li><a href="<?= $base_url ?>/dangky">ĐĂNG KÝ</a></li>
                 <li><a href="<?= $base_url ?>/dangnhap">ĐĂNG NHẬP</a></li>
             </ul>
-            <!-- icon bao gom "shoping" "user" "seach" -->
+
             <div class="icon">
             <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
                 <a href="giohang"><i class="fa-solid fa-cart-shopping"></i></a>

@@ -1,8 +1,8 @@
 <?php 
-//include_once "models/Category.php";
+
 include_once "model/oder.php";
 
-// include_once "models/contact.php";
+
 switch ($action) {
     case 'oderAdmin':
         $oder = getOder();
@@ -14,15 +14,15 @@ switch ($action) {
             $id = $_GET["id"] ?? "";  
             $oder = getOderid($id);
             if (isset($_GET['id'])) {
-                $orderId = intval($_GET['id']);
+                $orderId = intval($_GET['id']); 
             
-                // Cập nhật trạng thái của đơn hàng trong database
+
                 $sql = "UPDATE donhang SET TrangThai = 'Đã xử lý' WHERE id_DonHang = :orderId";
                 $stmt = $conn->prepare($sql);
                 $stmt->bindParam(':orderId', $orderId, PDO::PARAM_INT);
             
                 if ($stmt->execute()) {
-                    // Chuyển hướng về danh sách đơn hàng sau khi cập nhật
+
                     header("Location: {$base_url}/oderAdmin");
                     exit();
                 } else {
@@ -55,7 +55,7 @@ switch ($action) {
             break;
         case 'searchoder':  
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
-                $search = trim($_POST["search"] ?? ""); // Nhận từ khóa tìm kiếm  
+                $search = trim($_POST["search"] ?? ""); 
             
                 if ($search != "") {  
                     

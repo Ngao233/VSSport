@@ -7,10 +7,9 @@ if (!isset($_SESSION['id_KhachHang'])) {
     exit();
 } 
 
-$id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
-
+$id_KhachHang = $_SESSION['id_KhachHang']; 
 try {
-    // Truy vấn id của khách hàng
+
     $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id_KhachHang";
     $stmt = $conn->prepare($sql);
     $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);

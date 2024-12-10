@@ -26,7 +26,7 @@ switch ($action) {
         break;
     case 'searchome':
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {  
-            $search = trim($_POST["search"] ?? ""); // Nhận từ khóa tìm kiếm  
+            $search = trim($_POST["search"] ?? ""); 
         
             if ($search != "") {  
                

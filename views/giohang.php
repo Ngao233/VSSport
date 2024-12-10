@@ -4,25 +4,22 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 $id_KhachHang = null;
-$cartItems = [];  // Khởi tạo mảng giỏ hàng mặc định
+$cartItems = []; 
 
-// Kiểm tra nếu khách hàng đã đăng nhập
 if (isset($_SESSION['id_KhachHang'])) {
     $id_KhachHang = $_SESSION['id_KhachHang'];
-    
-    // Lấy id_GioHang từ database dựa trên id_KhachHang
-    $id_GioHang = getCartIdByUserId($id_KhachHang);  // Hàm này phải trả về id giỏ hàng hợp lệ
+    $id_GioHang = getCartIdByUserId($id_KhachHang); 
     
     if ($id_GioHang) {
-        // Nếu có giỏ hàng, lấy các sản phẩm trong giỏ hàng
-        $cartItems = getCartItemsByCartId($id_GioHang);  // Lấy danh sách sản phẩm trong giỏ hàng
+        
+        $cartItems = getCartItemsByCartId($id_GioHang); 
     }
 } else {
-    // Nếu chưa đăng nhập, set id_KhachHang là null và giỏ hàng là rỗng
+   
     $id_KhachHang = null;
-    $cartItems = [];  // Giỏ hàng rỗng
+    $cartItems = [];  
 }
-    // Truy vấn giỏ hàng của khách hàng  
+
     $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
     $stmt = $conn->prepare($sql);  
     $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
