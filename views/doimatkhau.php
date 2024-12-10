@@ -1,99 +1,46 @@
-<?php  
-session_start();   
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-if (!isset($_SESSION['id_KhachHang'])) {
-    exit();
-} 
+<?php
+session_start();
 
-$id_KhachHang = $_SESSION['id_KhachHang']; // Lấy id khách hàng từ session
-
-try {
-    // Truy vấn id của khách hàng
-    $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id_KhachHang";
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
-    $stmt->execute();
-    $khach = $stmt->fetch(PDO::FETCH_ASSOC);
+if (isset($_SESSION['id_KhachHang'])) {
+    $id_KhachHang = $_SESSION['id_KhachHang'];
     
-    if (!$khach) {
-        exit('Không tìm thấy khách hàng.');
+    // Thực hiện truy vấn để lấy thông tin vai trò từ cơ sở dữ liệu
+    $query = "SELECT VaiTro FROM khachhang WHERE id_KhachHang = :id_KhachHang";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id_KhachHang', $id_KhachHang);
+    $stmt->execute();
+    $vaiTro = $stmt->fetchColumn();
+
+    if ($vaiTro == 1) {
+        header("Location: $base_url/admin2");// Chuyển hướng đến trang admin
+        exit();
     }
-} catch (PDOException $e) {
-    exit('Lỗi kết nối: ' . $e->getMessage());
-}
-?> 
 
-<!DOCTYPE html>  
-<html lang="vi">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Trang Chủ</title>  
-    <link rel="stylesheet" href="public/css/style1.css">
-    <link rel="stylesheet" href="public/css/doimatkhau.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>  
-<body>  
-<header>
-    <nav class="menu-one">
-        <ul>
-            <li><a href="home">VSSport.vn</a></li>
-            <div>
-                <li><a href="#">Giúp đỡ</a></li>
-                <li><a href="#">Ngôn ngữ</a></li>
-            </div>
-        </ul>
-    </nav>
-    <nav class="menu-two">
-        <a href="home"><img src="public/image/logo.png" alt="Logo" style="width: 155px;"></a>
-        <ul>
-                <li><a href="home">TRANG CHỦ</a></li>
-                <li><a href="tonghoptt">THÔNG TIN</a></li>
-                <li><a href="dangky">ĐĂNG KÝ</a></li>
-                <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
-        </ul>
-        <div class="icon">
-      <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
-        <a href="<?= $base_url ?>/giohang"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="hoso"><i class="fa-solid fa-user"></i></a>
+    try {
+        // Truy vấn thông tin khách hàng
+        $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id_KhachHang";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
+        $stmt->execute();
+        $khach = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$khach) {
+            header("Location: dangnhap");
+            exit();
+        }
+
         
-      </div>
-      <form action="searchome" class="formSearchhome" method="post" style="top:30px">
-                <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
-            </form>
+    } catch (PDOException $e) {
+        exit('Lỗi kết nối: ' . $e->getMessage());
+    }
+} else {
+    header("Location: dangnhap");
+    exit();
+}
+?>
 
-    <style>
-    .formSearchhome{
-    position: absolute;
-    right: 180px;
-    top: 35px;
-     }
-    .searchhome {
-    padding: 8px !important;
-    border: none;
-    border-radius: 5px;
-    width: 180px;
-    display: none;
-    transition: transform 1s ease;
-    transform: translateX(100%);
-     }
-    .searchhome.show {  
-    display: block; 
-    transform: translateX(0);  
-     }
-    </style>
+<link rel="stylesheet" href="public/css/doimatkhau.css">
 
-    <script>
-      document.getElementById('search').addEventListener('click',()=>{
-      document.getElementById('searchInput').classList.toggle('show');
-     })
-    </script>
-
-    </nav>
-</header>
 
 <div class="khung">
     <div class="background-image"></div>
@@ -144,38 +91,4 @@ try {
       </div>
     </div>
     
-    
-
-
-<!-- Footer-->
-
-    <script src="../js/javascrip.js">
-
-    </script>
-
-    <footer>
-        <div class="footer-column-left">
-            <h3>Liên hệ</h3>
-            <hr>
-            <h3>Hotline: </h3>
-            <p>(+84)098765432</p>
-            <h3>Email: </h3>
-            <p>support@gmail.com</p>
-            <h3>Thời gian làm việc</h3>
-            <p>06:00 - 18:00 hằng ngày</p>
-        </div>
-        <div class="footer-column-left">
-            
-        </div>
-        <div class="footer-column-right">
-            <h3>Theo dõi tại</h3>
-            <hr>
-            <a href="#">Facebook</a><br>
-            <a href="#">Twitter</a><br>
-            <a href="#">Youtube</a><br>
-            <a href="#">Instagram</a><br>
-
-        </div>
-    </footer>
-</body>  
-</html>
+ 

@@ -22,7 +22,10 @@ switch ($action) {
                         break;
                 case 'doimatkhau':
                         $user = getUser();
+                        include_once "views/header.php";
                         include_once "views/doimatkhau.php";
+                        include_once "views/footer.php";
+
                         break;
                 case 'update_password':
                         $user = getUser();
