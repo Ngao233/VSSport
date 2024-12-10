@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "da1";
+$dbname = "vssport";
 try {  
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);  
     // Thiết lập chế độ báo lỗi  

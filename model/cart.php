@@ -97,60 +97,7 @@ function updateCartQuantity($id_ChiTietGioHang, $SoLuong, $conn) {
     $stmt->execute();
 }
 
-function addProductToCart($id_KhachHang, $id_SanPham, $SoLuong) {  
-    global $conn;  
 
-    // Lấy ID giỏ hàng dựa vào khách hàng  
-    $id_GioHang = getCartIdByUserId($id_KhachHang);  
-    
-    // Nếu chưa có giỏ hàng, tạo giỏ hàng mới  
-    if (is_null($id_GioHang)) {  
-        $id_GioHang = createNewCart($id_KhachHang);  
-    }  
-
-    // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa  
-    $query = "SELECT * FROM chitietgiohang WHERE id_GioHang = :id_GioHang AND id_SanPham = :id_SanPham";  
-    $stmt = $conn->prepare($query);  
-    $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);  
-    $stmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);  
-    $stmt->execute();  
-
-    if ($stmt->rowCount() > 0) {  
-        // Sản phẩm đã có trong giỏ hàng, cập nhật số lượng  
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);  
-        $newQuantity = $row['SoLuong'] + $SoLuong;  
-
-        $updateQuery = "UPDATE chitietgiohang SET SoLuong = :SoLuong WHERE id_GioHang = :id_GioHang AND id_SanPham = :id_SanPham";  
-        $updateStmt = $conn->prepare($updateQuery);  
-        $updateStmt->bindParam(':SoLuong', $newQuantity, PDO::PARAM_INT);  
-        $updateStmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);  
-        $updateStmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);  
-        $updateStmt->execute();  
-        echo "Cập nhật giỏ hàng thành công!";  
-    } else {  
-        // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới  
-        $insertQuery = "INSERT INTO chitietgiohang (id_GioHang, id_SanPham, SoLuong) VALUES (:id_GioHang, :id_SanPham, :SoLuong)";  
-        $insertStmt = $conn->prepare($insertQuery);  
-        $insertStmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);  
-        $insertStmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);  
-        $insertStmt->bindParam(':SoLuong', $SoLuong, PDO::PARAM_INT);  
-        $insertStmt->execute();  
-        echo "Sản phẩm đã được thêm vào giỏ hàng!";  
-    }  
-}
-function createNewCart($id_KhachHang) {
-    global $conn;
-
-    // Thêm giỏ hàng mới vào cơ sở dữ liệu
-    $query = "INSERT INTO giohang (id_KhachHang) VALUES (:id_KhachHang)";
-    $stmt = $conn->prepare($query);
-    $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
-    if ($stmt->execute()) {
-        return $conn->lastInsertId();  // Trả về ID giỏ hàng mới tạo
-    } else {
-        return false;  // Nếu có lỗi, trả về false
-    }
-}
 
 function deleteCartItem($id_GioHang, $conn) {
     $sql = "DELETE FROM giohang WHERE id_GioHang = :id_GioHang";
@@ -180,6 +127,7 @@ function getDiscountByProductId($productId) {
         return 0; // Nếu không có giảm giá, trả về 0
     }
 }
+
 ?>
 
 

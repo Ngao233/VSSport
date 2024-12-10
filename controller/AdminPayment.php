@@ -20,7 +20,6 @@ switch ($action) {
         include "views/Footer.php";
         break;
     case 'chitiet':
-
         include "views/chitietdonhang.php";
 
         break;

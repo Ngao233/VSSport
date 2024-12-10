@@ -1,123 +1,125 @@
-<?php  
-if (session_status() == PHP_SESSION_NONE) {  
-    session_start();  
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
 }
- // Đảm bảo đã kết nối với cơ sở dữ liệu  
-
-// Kiểm tra người dùng đã đăng nhập hay chưa  
-if (!isset($_SESSION['id_KhachHang'])) {  
-    header("Location: dangnhap");  
-    exit();  
-}  
-
-$id_KhachHang = $_SESSION['id_KhachHang']; // ID khách hàng từ session  
-
-// Truy vấn giỏ hàng của khách hàng  
-$sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
-$stmt = $conn->prepare($sql);  
-$stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
-$stmt->execute();  
-$cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);  
-
-// Lấy thông tin khách hàng  
-$customers = getCustomerById($conn, $id_KhachHang) ?: ['Ten' => '', 'Email' => '', 'Sdt' => ''];  
-
-
-// Khởi tạo biến cho thông tin thanh toán  
-$feedback = '';  
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {  
-    // Lấy dữ liệu từ form  
-    $ten = trim($_POST['Ten'] ?? '');  
-    $email = trim($_POST['Email'] ?? '');  
-    $sdt = trim($_POST['Sdt'] ?? '');  
-    $diaChi = trim($_POST['DiaChi'] ?? '');  
-    $ghiChu = trim($_POST['GhiChu'] ?? '');  
-    $paymentMethodId = $_POST['payment'] ?? '';  
-
-    if (empty($ten) || empty($email) || empty($sdt) || empty($diaChi) || empty($paymentMethodId)) {  
-        $feedback = "Vui lòng điền đầy đủ mọi thông tin.";  
-    }  else {  
-        try {   
-                $sqlAddress = "INSERT INTO diachinguoidung (DiaChi, id_KhachHang) VALUES (:DiaChi, :id_KhachHang)";  
-                $stmtAddress = $conn->prepare($sqlAddress);  
-                $stmtAddress->bindParam(':DiaChi', $diaChi);  
-                $stmtAddress->bindParam(':id_KhachHang', $id_KhachHang);  
-                $stmtAddress->execute();  
-                $addressId = $conn->lastInsertId();
-
-             
-            $total = 0;   
-            foreach ($cartItems as $item) {  
-                $product = getProductDetailsByCartId($item['id_SanPham']);  
-                $discount = getDiscountByProductId($item['id_SanPham']);  
-                $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);  
-                $total += $itemTotal;  
-            }  
-
-           
-            $sqlOrder = "INSERT INTO donhang (id_KhachHang, Tong) VALUES (:id_KhachHang, :Tong)";  
-            $stmtOrder = $conn->prepare($sqlOrder);  
-            $stmtOrder->bindParam(':id_KhachHang', $id_KhachHang);  
-            $stmtOrder->bindParam(':Tong', $total);  
-
-           
-            if ($stmtOrder->execute()) {  
-                $orderId = $conn->lastInsertId();   
-
-                $sqlDetail = "INSERT INTO chitietdonhang (id_DonHang, id_SanPham, SoLuong, TongTien, id_DiaChi, id_PhuongThucThanhToan, GhiChu)   
-                              VALUES (:id_DonHang, :id_SanPham, :SoLuong, :TongTien, :id_DiaChi, :id_PhuongThucThanhToan, :GhiChu)";  
-                $stmtDetail = $conn->prepare($sqlDetail);  
-
-                foreach ($cartItems as $item) {  
-                    $product = getProductDetailsByCartId($item['id_SanPham']); 
-                
-                    
-                    $discount = getDiscountByProductId($item['id_SanPham']);  
-                    $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);   
-                
-                    $stmtDetail->bindParam(':id_DonHang', $orderId);  
-                    $stmtDetail->bindParam(':id_SanPham', $item['id_SanPham']);  
-                    $stmtDetail->bindParam(':SoLuong', $item['SoLuong']);  
-                    $stmtDetail->bindParam(':TongTien', $itemTotal); 
-                    $stmtDetail->bindParam(':id_DiaChi', $addressId);   
-                    $stmtDetail->bindParam(':id_PhuongThucThanhToan', $paymentMethodId);
-                    $stmtDetail->bindParam(':GhiChu', $ghiChu);   
-                    $stmtDetail->execute();   
-                }  
-                $detailId = $conn->lastInsertId();  
-
-                $sqlUpdateOrder = "UPDATE donhang SET id_ChiTietDonHang = :id_ChiTietDonHang WHERE id_DonHang = :id_DonHang";  
-                $stmtUpdateOrder = $conn->prepare($sqlUpdateOrder);  
-                $stmtUpdateOrder->bindParam(':id_ChiTietDonHang', $detailId); 
-                $stmtUpdateOrder->bindParam(':id_DonHang', $orderId);  
-                $stmtUpdateOrder->execute();
-
-
-
-                $stmtDeleteCart = $conn->prepare("DELETE FROM giohang WHERE id_KhachHang = :id_KhachHang");  
-                $stmtDeleteCart->bindParam(':id_KhachHang', $id_KhachHang);  
-                $stmtDeleteCart->execute();  
-
-                header("Location: {$base_url}/hoadon/" . $orderId); 
-                exit();  
-            } else {  
-                $feedback = "Có lỗi trong quá trình tạo đơn hàng.";  
-            }  
-        } catch (Exception $e) {  
-            $feedback = "Có lỗi xảy ra: " . $e->getMessage();  
-        }  
-    }  
+// Kiểm tra người dùng đã đăng nhập hay chưa
+if (!isset($_SESSION['id_KhachHang'])) {
+    header("Location: dangnhap");
+    exit();
 }
 
+$id_KhachHang = $_SESSION['id_KhachHang']; // ID khách hàng từ session
+
+// Truy vấn giỏ hàng của khách hàng
+$sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";
+$stmt = $conn->prepare($sql);
+$stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
+$stmt->execute();
+$cart = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$cartItems = [];
+if ($cart) {
+    $id_GioHang = $cart['id_GioHang'];
+    $sql = "SELECT * FROM chitietgiohang WHERE id_GioHang = :id_GioHang";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);
+    $stmt->execute();
+    $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
+// Lấy thông tin khách hàng
+$customers = getCustomerById($conn, $id_KhachHang) ?: ['Ten' => '', 'Email' => '', 'Sdt' => ''];
+
+// Khởi tạo biến cho thông tin thanh toán
+$feedback = '';
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Lấy dữ liệu từ form
+    $ten = trim($_POST['Ten'] ?? '');
+    $email = trim($_POST['Email'] ?? '');
+    $sdt = trim($_POST['Sdt'] ?? '');
+    $diaChi = trim($_POST['DiaChi'] ?? '');
+    $ghiChu = trim($_POST['GhiChu'] ?? '');
+    $paymentMethodId = $_POST['payment'] ?? '';
+}
+
+// Tính tổng tiền đơn hàng
+$total = 0;
+foreach ($cartItems as $item) {
+    $product = getProductDetailsByCartId($item['id_SanPham']);
+    $discount = getDiscountByProductId($item['id_SanPham']);
+    $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);
+    $total += $itemTotal;
+}
+
+// Thực hiện giao dịch trong cơ sở dữ liệu
+try {
+    $conn->beginTransaction();
+
+    // Lưu thông tin địa chỉ người dùng
+    $sqlAddress = "INSERT INTO diachinguoidung (DiaChi, id_KhachHang) VALUES (:DiaChi, :id_KhachHang)";
+    $stmtAddress = $conn->prepare($sqlAddress);
+    $stmtAddress->bindParam(':DiaChi', $diaChi);
+    $stmtAddress->bindParam(':id_KhachHang', $id_KhachHang);
+    $stmtAddress->execute();
+    $addressId = $conn->lastInsertId();
+
+    // Lưu thông tin đơn hàng
     $ngayDatHang = date('Y-m-d H:i:s');
-    $sqlOrder = "INSERT INTO donhang (id_KhachHang, Tong, NgayDatHang) VALUES (:id_KhachHang, :Tong, :NgayDatHang)";  
-    $stmtOrder = $conn->prepare($sqlOrder);  
-    $stmtOrder->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
-    $stmtOrder->bindParam(':Tong', $total);  
-    $stmtOrder->bindParam(':NgayDatHang', $ngayDatHang);  
+    $sqlOrder = "INSERT INTO donhang (id_KhachHang, Tong, NgayDatHang, id_GioHang) VALUES (:id_KhachHang, :Tong, :NgayDatHang, :id_GioHang)";
+    $stmtOrder = $conn->prepare($sqlOrder);
+    $stmtOrder->bindParam(':id_KhachHang', $id_KhachHang);
+    $stmtOrder->bindParam(':Tong', $total);
+    $stmtOrder->bindParam(':NgayDatHang', $ngayDatHang);
+    $stmtOrder->bindParam(':id_GioHang', $id_GioHang);
 
- 
-?>  
+    if ($stmtOrder->execute()) {
+        $orderId = $conn->lastInsertId();
+
+        // Lưu chi tiết đơn hàng
+        $sqlDetail = "INSERT INTO chitietdonhang (id_DonHang, id_SanPham, SoLuong, TongTien, id_DiaChi, id_PhuongThucThanhToan, GhiChu)
+                      VALUES (:id_DonHang, :id_SanPham, :SoLuong, :TongTien, :id_DiaChi, :id_PhuongThucThanhToan, :GhiChu)";
+        $stmtDetail = $conn->prepare($sqlDetail);
+
+        foreach ($cartItems as $item) {
+            $product = getProductDetailsByCartId($item['id_SanPham']);
+            $discount = getDiscountByProductId($item['id_SanPham']);
+            $itemTotal = $product['Gia'] * $item['SoLuong'] * (1 - $discount / 100);
+
+            $stmtDetail->bindParam(':id_DonHang', $orderId);
+            $stmtDetail->bindParam(':id_SanPham', $item['id_SanPham']);
+            $stmtDetail->bindParam(':SoLuong', $item['SoLuong']);
+            $stmtDetail->bindParam(':TongTien', $itemTotal);
+            $stmtDetail->bindParam(':id_DiaChi', $addressId);
+            $stmtDetail->bindParam(':id_PhuongThucThanhToan', $paymentMethodId);
+            $stmtDetail->bindParam(':GhiChu', $ghiChu);
+            $stmtDetail->execute();
+        }
+
+        // Xóa các sản phẩm trong giỏ hàng sau khi hoàn tất đơn hàng
+        if ($cart) {
+            $id_GioHang = $cart['id_GioHang']; // Lấy id giỏ hàng
+
+            // Xóa tất cả sản phẩm trong giỏ hàng
+            $sqlDeleteProducts = "DELETE FROM chitietgiohang WHERE id_GioHang = :id_GioHang";
+            $stmtDeleteProducts = $conn->prepare($sqlDeleteProducts);
+            $stmtDeleteProducts->bindParam(':id_GioHang', $id_GioHang);
+            $stmtDeleteProducts->execute();
+        }
+
+        // Cam kết giao dịch
+        $conn->commit();
+        header("Location: {$base_url}/hoadon/" . $orderId);
+        exit(); // Dừng script sau khi chuyển hướng
+    } else {
+        // Nếu đơn hàng không được tạo, hủy giao dịch
+        $conn->rollBack();
+    }
+} catch (PDOException $e) {
+    // Nếu có lỗi trong quá trình xử lý đơn hàng, hủy giao dịch
+    $conn->rollBack();
+    // Xử lý lỗi
+}
+?>
 
 <!DOCTYPE html>  
 <html lang="vi">  
