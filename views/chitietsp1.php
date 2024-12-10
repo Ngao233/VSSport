@@ -380,11 +380,268 @@
             font-size: 20px;
             transition: color 0.3s;
         }
-        
+        .product-sale-home{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    width: 80%;
+    margin-left: 10%;
+    gap: 27px;
+    grid-template-columns: 18% 18% 18% 18% 18%;
+    grid-template-rows: 400px;
+    margin-right: 10%;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;   
+    margin-bottom:50px;
+}
+.product-sale-home div{
+    border-radius: 5px;
+    background-color: #ffffff;
+    
+}
+
+.product-sale-home .pro-sale img{
+    width: 100%;
+    margin-top: 15px;
+
+}
+
+
+.pro-sale {
+    position: relative;
+    border:solid 1px #FFA031;
+    box-shadow: 1px 0px 0px 0px #FFA031,   
+               -1px 0px 0px 0px #FFA031,  
+                0px 1px 0px 0px #FFA031,   
+                0px -1px 0px 0px #FFA031;
+}
+.pro-sale .circle {
+    border-radius: 50px;
+}
+.circle i{
+    padding: 13px;
+    color:#a8a8a8;
+}
+.circle{
+    background-color: white;
+    position: absolute;
+    border-radius: 50px;
+    top: 5px;
+    right: 6px;
+    border:solid 1px #888;
+}
+ .circle :hover{
+    background-color: #FFA031;
+    border-radius: 50px;
+    color: white;
+    border:solid 1px white;
+}
+.p-product-sale{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: -20px;
+    width: 80%;
+    margin-left: 10%;
+}
+.p-product-sale .price-sale-home{
+    text-decoration: line-through;  
+    color: #c9c7c7;
+    font-size: 12px;
+    margin-top: 19px;
+}
+.pro-sale button{
+    background-color: #ff9f313e;
+    padding: 8px;
+    margin-top: -20px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold;
+    color: #FFA031;
+    border: none;
+}
+.pro-sale button:hover{
+    background-color: #ff9f31;
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: bold;
+    color: #ffffff;
+    border: none;
+}
+
+.price-down-home{
+    color: red;
+    font-weight: bold;
+    font-size: 16px;
+}
+/* Sản phẩm ở trang chủ  */
+.Product-home-Product{
+    width: 79%;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;   
+    font-size: 14px;
+}
+.product-home1{
+    width:90%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 15px;
+    margin-left: 40px;
+    padding: 20px;
+}
+
+.menu-product-home{
+    height: 50px;
+    background-color: white;
+    border: solid 1px #FFA031;
+    border-radius: 10px;  
+   
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    text-align: center;
+   
+    
+}
+
+.menu-product-home div a{
+    padding: 10px;
+    border-radius: 5px;
+    margin-left: 35px;
+    
+}
+.menu-product-home div a img{
+    height: auto;
+    width: 30px;
+    border-radius: 50px;
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    background-color: white;
+    
+}
+.Category-product-home{
+    border-right: solid 1px #FFA031;
+    border-radius: 5px;
+    position: relative;  
+    cursor: pointer;
+}
+.Category-product-home.active {
+    background-color: #FFA031;
+}
+
+.Category-product-home-ĐB{
+    position: relative;
+}
+.web-Sp-container { 
+    display: flex; /* Sử dụng Flexbox để bố trí */  
+    margin: 0 0 2% 4%   ;
+
+  } 
+
+  .product-home-one {  
+    display: none; /* Ẩn tất cả sản phẩm mặc định */  
+}  
+
+.product-home-one.active {  
+    display: block; /* Hiển thị sản phẩm được chọn */  
+}
+.product-home-one{
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    text-align: center;
+    background: linear-gradient(150deg, #FFA031 50%, #f0f0f0 50%); /* Tạo dải chéo */
+    padding: 20px; /* Khoảng cách bên trong */
+    border-radius: 10px; /* Bo góc */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .product-home-one img{
+    width: 100%;
+    height: auto;
+  }
+  .product-home-one:hover img{
+    transform: scale(1.05);
+  }
+  .product-home-one-name {
+    font-size: 14px;
+    color: #333;
+    padding: 2% 0;
+    margin: 0;
+  }
+  .product-home-one-info {
+    position: absolute;
+    visibility: hidden;
+    bottom: 26%;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    background-color: #FFA031;
+  }
+  
+  .product-home-one:hover .product-home-one-info {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .product-home-one-price{
+    font-size: 100%;
+    color:#FFA031;
+    margin: 0;
+  }
+  .product-home-one-button {
+    background-color: #FFA500; /* Màu cam */
+    color: white; /* Chữ màu trắng */
+    border: none; /* Bỏ viền */
+    padding: 10px 20px; /* Căn chỉnh kích thước */
+    font-size: 16px; /* Kích thước chữ */
+  }
+  .product-home-one-link{
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Đảm bảo thẻ <a> bao toàn bộ khối sản phẩm */
+  }
+  footer{
+    background-image: url("../image/banner4.png");
+    width: 100%;
+    height: 320px;
+    background-size: cover; 
+    background-position: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+}
+footer .footer-column-left{
+    text-align: left;
+    margin-left: 200px;
+    color: white;
+    font-family: sans-serif;
+
+}
+footer .footer-column-right{
+    text-align: center;
+    margin-right: 200px;
+    color: white;
+    font-family: sans-serif;
+    font-size: larger;
+    line-height: 1.5;
+}
+footer .footer-column-right a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+
+}
 </style>
 <body>
         <header>
-            <!-- menu phu -->
+            
             <nav class="menu-one">
                 <ul>
                     <li><a href="home">VSSport.vn</a></li>
@@ -394,7 +651,7 @@
                     </div>
                 </ul>
             </nav>
-            <!-- menu chinh -->
+            
             <nav class="menu-two">
                 <a href="home"><img src="../public/image/logo.png" alt="" style="width: 155px ;"></a>
 
@@ -404,7 +661,7 @@
                 <li><a href="<?= $base_url ?>/dangky">ĐĂNG KÝ</a></li>
                 <li><a href="<?= $base_url ?>/dangnhap">ĐĂNG NHẬP</a></li>
                 </ul>
-                <!-- icon bao gom "shoping" "user" "seach" -->
+                
                 <div class="icon">
 
                 <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
@@ -448,17 +705,53 @@
 </section>  
 <section class="DI">
 <div><h2>Chi Tiết Sản Phẩm</h2>
-<p>Tên Sản Phẩm: <?=$productdetail['TenSanPham']?><br> 
-   Giá: <?=$productdetail['Gia']?><br>
-   Màu Sắc: <?=$productdetail['MauSac']?><br>
-   Kích Thước: <?=$productdetail['KichThuoc']?><br>
+<p>Tên Sản Phẩm: <?=$product['TenSanPham']?><br> 
+   Giá: <?=$product['Gia']?><br>
+   Kích Thước: <?=$product['KichThuoc']?><br>
    Số Lượng: <?=$product['SoLuong']?><br>
     -Gửi từ: TP. Hồ Chí Minh</p>
 </div>
 <div><h2>Mô tả Sản Phẩm</h2>
-<p><?=$productdetail['MoTa']?></p>
+<p><?=$product['MoTa']?></p>
 </div>
         </section>
+        <h2>Sản Phẩm Khuyến Mại</h2>
+    <section class="product-sale-home">
+    <?php foreach ($product1 as $productItem): 
+        
+        $giagiam = $productItem['Gia'] * ($productItem['GiamGia'] / 100);
+        $saugiam = $productItem['Gia'] - $giagiam;
+    ?> 
+        <div class="pro-sale">
+            <a href="cac/<?=$productItem['id_SanPham']?>">
+            <img src="../public/image/<?=$productItem['HinhAnh']?>" alt="">
+                
+            <a href="themspyt<?=$productItem['id_SanPham']?>">
+            <div class="circle">  
+                <i class="fa-solid fa-heart"></i>  
+            </div> 
+            </a> 
+
+            <div>
+                <p class="p-product-sale-name"><?=$productItem['TenSanPham']?></p>
+                <div class="p-product-sale">
+                    <p class="price-sale-home"><?= number_format($productItem['Gia'], 0, ',', '.'); ?>đ</p>
+                    <p class="price-down-home"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p> 
+                </div>
+                <form id="addToCartForm" class="formhome" onsubmit="return false;">  
+                <input type="hidden" name="id_SanPham" value="<?=$productItem['id_SanPham']?>">  
+                <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
+                <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$productItem['id_SanPham']?>', this)">  
+                    Thêm vào giỏ hàng  
+                </button>  
+                </form>
+
+
+            </div>
+        </div>
+    <?php endforeach; ?>
+</section> 
+
 <script>  
 document.querySelectorAll('.formhome').forEach(form => {  
         const quantityInput = form.querySelector('.quantity-input');  
@@ -477,8 +770,8 @@ document.querySelectorAll('.formhome').forEach(form => {
     formData.append('id_SanPham', idSanPham);  
     formData.append('quantity', quantity);  
 
-    // Sử dụng button mà bạn đã nhấn thay vì lấy lại từ id  
-    const btn = button; // Sử dụng button được truyền vào  
+      
+    const btn = button;   
 
     fetch('addtocart', {  
         method: 'POST',  
@@ -488,10 +781,10 @@ document.querySelectorAll('.formhome').forEach(form => {
     .then(data => {  
         console.log(data);  
         updateCartDisplay(data.cartDetails);   
-        btn.innerText = "Đã thêm vào giỏ hàng"; // Thay đổi văn bản  
-        btn.disabled = true; // Vô hiệu hóa button để tránh nhấn nhiều lần  
-        btn.style.backgroundColor = "#4CAF50"; // Thay đổi màu nền thành màu xanh  
-        btn.style.color = "white"; // Thay đổi màu chữ thành trắng  
+        btn.innerText = "Đã thêm vào giỏ hàng";   
+        btn.disabled = true;   
+        btn.style.backgroundColor = "#4CAF50";   
+        btn.style.color = "white";   
     })  
     .catch(error => {  
         console.error('Error:', error);  
