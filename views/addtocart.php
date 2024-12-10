@@ -18,8 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($id_SanPham && $quantity > 0) {
         $response = addProductToCart($id_KhachHang, $id_SanPham, $quantity);
         echo json_encode($response);
-    } else {
-        echo json_encode(['success' => false, 'message' => 'Thông tin sản phẩm hoặc số lượng không hợp lệ.']);
     }
 }
 

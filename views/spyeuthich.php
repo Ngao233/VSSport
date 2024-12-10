@@ -1,11 +1,6 @@
 <?php  
-
-
-// Kiểm tra nếu khách hàng đã đăng nhập  
         if (isset($_SESSION['id_KhachHang'])) {  
             $id_KhachHang = $_SESSION['id_KhachHang'];  
-
-            // Truy vấn bảng sản phẩm yêu thích 
         $sql = "SELECT id_SanPham FROM sanphamyeuthich WHERE id_KhachHang = :id_KhachHang";  
         $stmt = $conn->prepare($sql);  
         $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
