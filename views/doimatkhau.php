@@ -1,3 +1,46 @@
+<?php
+session_start();
+
+if (isset($_SESSION['id_KhachHang'])) {
+    $id_KhachHang = $_SESSION['id_KhachHang'];
+    
+    // Thực hiện truy vấn để lấy thông tin vai trò từ cơ sở dữ liệu
+    $query = "SELECT VaiTro FROM khachhang WHERE id_KhachHang = :id_KhachHang";
+    $stmt = $conn->prepare($query);
+    $stmt->bindParam(':id_KhachHang', $id_KhachHang);
+    $stmt->execute();
+    $vaiTro = $stmt->fetchColumn();
+
+    if ($vaiTro == 1) {
+        header("Location: $base_url/admin2");// Chuyển hướng đến trang admin
+        exit();
+    }
+
+    try {
+        // Truy vấn thông tin khách hàng
+        $sql = "SELECT * FROM khachhang WHERE id_KhachHang = :id_KhachHang";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);
+        $stmt->execute();
+        $khach = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$khach) {
+            header("Location: dangnhap");
+            exit();
+        }
+
+        
+    } catch (PDOException $e) {
+        exit('Lỗi kết nối: ' . $e->getMessage());
+    }
+} else {
+    header("Location: dangnhap");
+    exit();
+}
+?>
+
+<link rel="stylesheet" href="public/css/doimatkhau.css">
+
 <?php  
 session_start();   
 ini_set('display_errors', 1);
@@ -143,38 +186,4 @@ try {
       </div>
     </div>
     
-    
-
-
-<!-- Footer-->
-
-    <script src="../js/javascrip.js">
-
-    </script>
-
-    <footer>
-        <div class="footer-column-left">
-            <h3>Liên hệ</h3>
-            <hr>
-            <h3>Hotline: </h3>
-            <p>(+84)098765432</p>
-            <h3>Email: </h3>
-            <p>support@gmail.com</p>
-            <h3>Thời gian làm việc</h3>
-            <p>06:00 - 18:00 hằng ngày</p>
-        </div>
-        <div class="footer-column-left">
-            
-        </div>
-        <div class="footer-column-right">
-            <h3>Theo dõi tại</h3>
-            <hr>
-            <a href="#">Facebook</a><br>
-            <a href="#">Twitter</a><br>
-            <a href="#">Youtube</a><br>
-            <a href="#">Instagram</a><br>
-
-        </div>
-    </footer>
-</body>  
-</html>
+ 

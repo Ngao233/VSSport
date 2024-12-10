@@ -9,7 +9,7 @@ if (!isset($_SESSION['id_KhachHang'])) {
 $id_KhachHang = $_SESSION['id_KhachHang'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
- 
+    // Lấy dữ liệu từ biểu mẫu
     $city = $_POST['city'];
     $province = $_POST['province'];
     $district = $_POST['district'];

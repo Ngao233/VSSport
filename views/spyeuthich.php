@@ -40,7 +40,21 @@
         href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
+<style>
+        .product-sale-home{
+            display: grid;
+            grid-template-columns: repeat(5,1fr);
+            width: 80%;
+            margin-left: 10%;
+            gap: 27px;
+            grid-template-columns: 18% 18% 18% 18% 18%;
+            grid-template-rows: 400px;
+            margin-right: 10%;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;   
+            margin-bottom:50px;
+        }
+</style>
 </head>  
 <body>  
   <header>
@@ -50,11 +64,13 @@
 <?php foreach ($products as $item) { ?>
     <div class="pro-sale">
         <img src="public/image/<?=$item["HinhAnh"]?>" alt="">
-        <div class="circle">
-            <a href="">
+        
+            <a href="<?=$item["id_SanPham"]?>">
+            <div class="circle">
                 <i class="fa-solid fa-heart"></i>
+                </div>
             </a>
-        </div>
+        
 
         <div>
             <p class="p-product-sale-name"><?=$item["TenSanPham"]?></p>
@@ -65,6 +81,7 @@
             <button>Thêm giỏ hàng</button>
         </div>
     </div>
+
     <?php } ?>
     <div style="width: 100%; height: 50px;">
 </div>
