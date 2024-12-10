@@ -25,76 +25,7 @@ try {
 }
 ?> 
 
-<!DOCTYPE html>  
-<html lang="vi">  
-<head>  
-    <meta charset="UTF-8">  
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-    <title>Trang Chủ</title>  
-    <link rel="stylesheet" href="public/css/style1.css">
     <link rel="stylesheet" href="public/css/diachi.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>  
-<body>  
-<header>
-    <nav class="menu-one">
-        <ul>
-            <li><a href="home">VSSport.vn</a></li>
-            <div>
-                <li><a href="#">Giúp đỡ</a></li>
-                <li><a href="#">Ngôn ngữ</a></li>
-            </div>
-        </ul>
-    </nav>
-    <nav class="menu-two">
-        <a href="home"><img src="public/image/logo.png" alt="Logo" style="width: 155px;"></a>
-        <ul>
-            <li><a href="home">TRANG CHỦ</a></li>
-            <li><a href="tonghoptt">THÔNG TIN</a></li>
-            <li><a href="dangky">ĐĂNG KÝ</a></li>
-            <li><a href="dangnhap">ĐĂNG NHẬP</a></li>
-        </ul>
-        <div class="icon">
-      <i id="search" style="color: white; font-size: 20px;margin-top:-2px" class="fa-solid fa-magnifying-glass"></i>
-        <a href="<?= $base_url ?>/giohang"><i class="fa-solid fa-cart-shopping"></i></a>
-        <a href="<?= $base_url ?>/hoso"><i class="fa-solid fa-user"></i></a>
-        
-      </div>
-      <form action="searchome" class="formSearchhome" method="post" style="top:30px">
-                <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
-            </form>
-
-    <style>
-    .formSearchhome{
-    position: absolute;
-    right: 180px;
-    top: 35px;
-     }
-    .searchhome {
-    padding: 8px !important;
-    border: none;
-    border-radius: 5px;
-    width: 180px;
-    display: none;
-    transition: transform 1s ease;
-    transform: translateX(100%);
-     }
-    .searchhome.show {  
-    display: block; 
-    transform: translateX(0);  
-     }
-    </style>
-
-    <script>
-      document.getElementById('search').addEventListener('click',()=>{
-      document.getElementById('searchInput').classList.toggle('show');
-     })
-    </script>
-
-    </nav>
-</header>
-
 <div class="khung">
     <div class="background-image"></div>
     <div class="left-box">
@@ -128,65 +59,93 @@ try {
     <div class="right-box">
       <h2>Hồ sơ của tôi</h2>
       <form method="POST" action="save_address">
-          <label for="city">Thành phố/Tỉnh:</label>
-          <select name="city" id="city" required>
-              <option value="Hà Nội">Hà Nội</option>
-              <option value="Hồ Chí Minh">Hồ Chí Minh</option>
-          </select>
-          <br>
-          <label for="province">Quận/Huyện:</label>
-          <select name="province" id="province" required>
-              <option value="Ba Đình">Ba Đình</option>
-              <option value="Hoàn Kiếm">Hoàn Kiếm</option>
-          </select>
-          <br>
-          <label for="district">Phường/Xã:</label>
-          <select name="district" id="district" required>
-              <option value="Kim Mã">Kim Mã</option>
-              <option value="Vĩnh Phúc">Vĩnh Phúc</option>
-          </select>
+        <div class="css_select_div">
+        <select class="css_select" id="tinh" name="tinh" title="Chọn Tỉnh Thành">
+            <option value="0">Tỉnh Thành</option>
+        </select> 
+        <select class="css_select" id="quan" name="quan" title="Chọn Quận Huyện">
+            <option value="0">Quận Huyện</option>
+        </select> 
+        <select class="css_select" id="phuong" name="phuong" title="Chọn Phường Xã">
+            <option value="0">Phường Xã</option>
+        </select>
+        </div>
           <label>Chi tiết:</label>
           <input type="text" name="address" id="address" placeholder="Nhập địa chỉ chi tiết" required>
           <br>
+          <input type="hidden" id="tinh_name" name="tinh_name">
+          <input type="hidden" id="quan_name" name="quan_name">
+          <input type="hidden" id="phuong_name" name="phuong_name">
           <button type="submit"><i class="fas fa-sign-in-alt"></i> Cập nhật</button>
       </form>
   </div>
   
       </div>
     </div>
+
+    <script src="https://esgoo.net/scripts/jquery.js"></script>
+<style type="text/css">
+    .css_select_div{ text-align: center;}
+    .css_select{ display: inline-table; width: 25%; padding: 5px; margin: 5px 2%; border: solid 1px #686868; border-radius: 5px;}
+</style>
+<script>
+    $(document).ready(function() {
+        //Lấy tỉnh thành
+        $.getJSON('https://esgoo.net/api-tinhthanh/1/0.htm',function(data_tinh){	       
+            if(data_tinh.error==0){
+               $.each(data_tinh.data, function (key_tinh,val_tinh) {
+                  $("#tinh").append('<option value="'+val_tinh.id+'">'+val_tinh.full_name+'</option>');
+               });
+               $("#tinh").change(function(e) {
+                    var idtinh = $(this).val();
+                    var selected_tinh_name = $("#tinh option:selected").text();
+                    $("#tinh_name").val(selected_tinh_name); // Lưu tên tỉnh vào trường ẩn
+                    // Tiếp tục với việc lấy dữ liệu quận huyện và phường xã
+                });
+               $("#tinh").change(function(e){
+                    var idtinh=$(this).val();
+                    //Lấy quận huyện
+                    $.getJSON('https://esgoo.net/api-tinhthanh/2/'+idtinh+'.htm',function(data_quan){	       
+                        if(data_quan.error==0){
+                           $("#quan").html('<option value="0">Quận Huyện</option>');  
+                           $("#phuong").html('<option value="0">Phường Xã</option>');   
+                           $.each(data_quan.data, function (key_quan,val_quan) {
+                              $("#quan").append('<option value="'+val_quan.id+'">'+val_quan.full_name+'</option>');
+                           });
+                           $("#quan").change(function(e) {
+                                var idquan = $(this).val();
+                                var selected_quan_name = $("#quan option:selected").text();
+                                $("#quan_name").val(selected_quan_name); // Lưu tên tỉnh vào trường ẩn
+                                // Tiếp tục với việc lấy dữ liệu quận huyện và phường xã
+                            });
+                           //Lấy phường xã  
+                           $("#quan").change(function(e){
+                                var idquan=$(this).val();
+                                $.getJSON('https://esgoo.net/api-tinhthanh/3/'+idquan+'.htm',function(data_phuong){	       
+                                    if(data_phuong.error==0){
+                                       $("#phuong").html('<option value="0">Phường Xã</option>');   
+                                       $.each(data_phuong.data, function (key_phuong,val_phuong) {
+                                          $("#phuong").append('<option value="'+val_phuong.id+'">'+val_phuong.full_name+'</option>');
+                                       });
+                                       $("#phuong").change(function(e) {
+                                            var idphuong = $(this).val();
+                                            var selected_phuong_name = $("#phuong option:selected").text();
+                                            $("#phuong_name").val(selected_phuong_name); // Lưu tên tỉnh vào trường ẩn
+                                            // Tiếp tục với việc lấy dữ liệu quận huyện và phường xã
+                                        });
+                                    }
+                                });
+                           });
+                            
+                        }
+                    });
+               });   
+                
+            }
+        });
+     });	    
+ </script>
     
     
 
 
-<!-- Footer-->
-
-    <script src="../js/javascrip.js">
-
-    </script>
-
-    <footer>
-        <div class="footer-column-left">
-            <h3>Liên hệ</h3>
-            <hr>
-            <h3>Hotline: </h3>
-            <p>(+84)098765432</p>
-            <h3>Email: </h3>
-            <p>support@gmail.com</p>
-            <h3>Thời gian làm việc</h3>
-            <p>06:00 - 18:00 hằng ngày</p>
-        </div>
-        <div class="footer-column-left">
-            
-        </div>
-        <div class="footer-column-right">
-            <h3>Theo dõi tại</h3>
-            <hr>
-            <a href="#">Facebook</a><br>
-            <a href="#">Twitter</a><br>
-            <a href="#">Youtube</a><br>
-            <a href="#">Instagram</a><br>
-
-        </div>
-    </footer>
-</body>  
-</html>
