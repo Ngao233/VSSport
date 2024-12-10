@@ -74,10 +74,10 @@ switch ($action) {
        
             
     case 'statistics':
-        include_once "model/oder.php";
 
         include "admin/HeaderAdmin.php";
         include "admin/statistics.php";
+
         include "admin/FooterAdmin.php";
         break;
 }
