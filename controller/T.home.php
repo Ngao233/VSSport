@@ -39,6 +39,9 @@ switch ($action) {
             }  
         }  
     break;
+    case 'searchgiaythethao':
+        include "views/danhmucid1.php";
+        break;
 
 }
         

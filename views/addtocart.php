@@ -4,17 +4,17 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Kiểm tra xem người dùng đã đăng nhập chưa
+
     if (!isset($_SESSION['id_KhachHang'])) {
         echo json_encode(['success' => false, 'message' => 'Bạn cần đăng nhập để thêm sản phẩm vào giỏ hàng.']);
         exit();
     }
 
-    $id_KhachHang = $_SESSION['id_KhachHang']; // Lấy ID khách hàng
+    $id_KhachHang = $_SESSION['id_KhachHang']; 
     $id_SanPham = isset($_POST['id_SanPham']) ? $_POST['id_SanPham'] : null;
     $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : 0;
 
-    // Kiểm tra sự tồn tại của các giá trị trước khi thực hiện các bước tiếp theo
+    
     if ($id_SanPham && $quantity > 0) {
         $response = addProductToCart($id_KhachHang, $id_SanPham, $quantity);
         echo json_encode($response);
@@ -52,7 +52,6 @@ function addProductToCart($id_KhachHang, $id_SanPham, $quantity) {
         $updateStmt->execute();
         return ['success' => true, 'message' => 'Cập nhật giỏ hàng thành công!'];
     } else {
-        // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới
         $insertQuery = "INSERT INTO chitietgiohang (id_GioHang, id_SanPham, SoLuong) VALUES (:id_GioHang, :id_SanPham, :SoLuong)";
         $insertStmt = $conn->prepare($insertQuery);
         $insertStmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);

@@ -1,34 +1,28 @@
 <?php  
-session_start();  
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}  
 if (isset($_SESSION['id_KhachHang'])) {  
     $id_KhachHang = $_SESSION['id_KhachHang'];  
-    
-    // Kiểm tra xem có giỏ hàng nào cho khách hàng này không  
     $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
     $stmt = $conn->prepare($sql);  
     $stmt->bindParam(':id_KhachHang', $id_KhachHang, PDO::PARAM_INT);  
     $stmt->execute();  
     $cart = $stmt->fetch(PDO::FETCH_ASSOC);  
 
-    // Nếu giỏ hàng không tồn tại, tạo giỏ hàng mới  
     if (!$cart) {  
         $sql = "INSERT INTO giohang (id_KhachHang) VALUES (:id_KhachHang)";  
         $stmt = $conn->prepare($sql);  
         $stmt->bindParam(':id_KhachHang', $id_KhachHang);  
         $stmt->execute();  
-
-        // Lấy ID của giỏ hàng mới tạo  
         $id_GioHang = $conn->lastInsertId();  
-        
-        // Trong trường hợp bạn có sản phẩm đã thêm gì đó, bạn có thể tạo chi tiết giỏ hàng ở đây  
-        // Ví dụ thêm sản phẩm với id lĩnh vực 1 và số lượng 1  
-        $id_SanPham = 1; // Thay thế bằng id sản phẩm thực  
-        $soLuong = 1; // Số lượng bất kỳ bạn muốn thêm    
+        $id_SanPham = 1; 
+        $soLuong = 1;  
     } else {  
-        $id_GioHang = $cart['id_GioHang']; // Lấy ID giỏ hàng nếu đã tồn tại  
+        $id_GioHang = $cart['id_GioHang'];
     }  
 
-    // Truy vấn sản phẩm trong giỏ hàng nếu cần  
+  
     $sql = "SELECT c.*, s.TenSanPham FROM chitietgiohang c JOIN sanpham s ON c.id_SanPham = s.id_SanPham WHERE c.id_GioHang = :id_GioHang";  
     $stmt = $conn->prepare($sql);  
     $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);  
@@ -177,13 +171,13 @@ if (isset($_SESSION['id_KhachHang'])) {
         
         </a>
         <div class="product-home-one-info">   
-        <form id="addtocart" class="formhome" onsubmit="return false;">  
-    <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>">  
-    <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
-    <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$product['id_SanPham']?>', this)">  
-        Thêm vào giỏ hàng  
-    </button>  
-</form> 
+        <form id="addToCartForm" class="formhome" onsubmit="return false;">  
+                <input type="hidden" name="id_SanPham" value="<?=$productItem['id_SanPham']?>">  
+                <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
+                <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$productItem['id_SanPham']?>', this)">  
+                    Thêm vào giỏ hàng  
+                </button>  
+                </form>
         </div>  
         <p class="product-home-one-name"><?=$product["TenSanPham"]?></p>  
         <p class="product-home-one-price" style="font-size:12px; color:gray;" ><?=$product["Gia"]?> đ</p>  
@@ -241,27 +235,27 @@ if (isset($_SESSION['id_KhachHang'])) {
     
     const btn = button;  
 
-    fetch('addtocart', {  // Đảm bảo đường dẫn chính xác  
+    fetch('addtocart', {  
         method: 'POST',  
         body: formData  
     })  
     .then(response => response.json())   
     .then(data => {  
-        // Kiểm tra nếu có thông báo thành công hay lỗi  
-        if (data.success) {  
-            alert(data.message); // Hiển thị thông báo thành công  
-            btn.innerText = "Đã thêm vào giỏ hàng"; // Thay đổi văn bản  
-            btn.disabled = true; // Vô hiệu hóa button để tránh nhấn nhiều lần  
-            btn.style.backgroundColor = "#4CAF50"; // Thay đổi màu nền thành màu xanh  
-            btn.style.color = "white"; // Thay đổi màu chữ thành trắng  
+       
+        if (data.success) {   
+            btn.innerText = "Đã thêm vào giỏ hàng";
+            btn.disabled = true; 
+            btn.style.backgroundColor = "#4CAF50"; 
+            btn.style.color = "white"; 
         } else {  
-            alert(data.message); // Hiển thị thông báo lỗi nếu có  
+            alert(data.message); 
         }  
     })  
     .catch(error => {  
         console.error('Error:', error);  
     });  
 }  ;
+
 
         const categoriProductH = document.querySelectorAll('.Category-product-home');  
 const products = document.querySelectorAll('.product-home-one');   
@@ -303,7 +297,5 @@ document.querySelectorAll('.formhome').forEach(form => {
         });  
     }); 
     
-document.getElementById('search').addEventListener('click',()=>{
-  document.getElementById('searchInput').classList.toggle('show');
-})
+
     </script>

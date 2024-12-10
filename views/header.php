@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -17,13 +18,6 @@
      <link rel="stylesheet" href="public/css/styleAdmin.css">
      <!-- <link rel="stylesheet" href="public/css/thanhtoan.css"> -->
      <link rel="stylesheet" href="public/css/tintuc.css">
-    <!DOCTYPE html>
-    <html lang="vi">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Trang Chủ</title>
 
         <link
             href="https://fonts.googleapis.com/css2?family=Poppins&family=Montserrat&family=Raleway&family=Lato&family=Rubik&display=swap"
@@ -35,6 +29,7 @@
             href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&family=Nunito&family=Source+Sans+Pro&family=Josefin+Sans&display=swap"
             rel="stylesheet">
         <script src="https://kit.fontawesome.com/d4c9783f89.js" crossorigin="anonymous"></script>
+        <script src=""></script>
         <style>
             body h2 {
                 font-family: 'Montserrat', sans-serif;
@@ -44,7 +39,26 @@
             .formhome input{
                 display:none;
             }
+            .formSearchhome{
+    position: absolute;
+    right: 180px;
+    top: 35px;
+}
+.searchhome {
+    padding: 8px !important;
+    border: none;
+    border-radius: 5px;
+    width: 180px;
+    display: none;
+    transition: transform 1s ease;
+    transform: translateX(100%);
+}
+.searchhome.show {  
+    display: block; 
+    transform: translateX(0);  
+}
         </style>
+        
     </head>
 
 <body>
@@ -78,9 +92,11 @@
             <form action="searchome" class="formSearchhome" method="post">
                 <input type="search" class="searchhome" name = "search" id="searchInput" placeholder="Tìm Kiếm Sản Phẩm">
             </form>
-
+           
         </nav>
 
         <img src="" alt="">
+        
         </section>
+        
         
