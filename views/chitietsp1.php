@@ -387,11 +387,11 @@
     margin-left: 10%;
     gap: 27px;
     grid-template-columns: 18% 18% 18% 18% 18%;
-    grid-template-rows: 390px;
+    grid-template-rows: 400px;
     margin-right: 10%;
     text-align: center;
     font-family: 'Montserrat', sans-serif;   
-    
+    margin-bottom:50px;
 }
 .product-sale-home div{
     border-radius: 5px;
@@ -641,7 +641,7 @@ footer .footer-column-right a{
 </style>
 <body>
         <header>
-            <!-- menu phu -->
+            
             <nav class="menu-one">
                 <ul>
                     <li><a href="home">VSSport.vn</a></li>
@@ -651,7 +651,7 @@ footer .footer-column-right a{
                     </div>
                 </ul>
             </nav>
-            <!-- menu chinh -->
+            
             <nav class="menu-two">
                 <a href="home"><img src="../public/image/logo.png" alt="" style="width: 155px ;"></a>
 
@@ -661,7 +661,7 @@ footer .footer-column-right a{
                 <li><a href="<?= $base_url ?>/dangky">ĐĂNG KÝ</a></li>
                 <li><a href="<?= $base_url ?>/dangnhap">ĐĂNG NHẬP</a></li>
                 </ul>
-                <!-- icon bao gom "shoping" "user" "seach" -->
+                
                 <div class="icon">
 
                 <i id="search" style="color: white; font-size: 20px;" class="fa-solid fa-magnifying-glass"></i>
@@ -705,18 +705,53 @@ footer .footer-column-right a{
 </section>  
 <section class="DI">
 <div><h2>Chi Tiết Sản Phẩm</h2>
-<p>Tên Sản Phẩm: <?=$productdetail['TenSanPham']?><br> 
-   Giá: <?=$productdetail['Gia']?><br>
-   Màu Sắc: <?=$productdetail['MauSac']?><br>
-   Kích Thước: <?=$productdetail['KichThuoc']?><br>
+<p>Tên Sản Phẩm: <?=$product['TenSanPham']?><br> 
+   Giá: <?=$product['Gia']?><br>
+   Kích Thước: <?=$product['KichThuoc']?><br>
    Số Lượng: <?=$product['SoLuong']?><br>
     -Gửi từ: TP. Hồ Chí Minh</p>
 </div>
 <div><h2>Mô tả Sản Phẩm</h2>
-<p><?=$productdetail['MoTa']?></p>
+<p><?=$product['MoTa']?></p>
 </div>
         </section>
+        <h2>Sản Phẩm Khuyến Mại</h2>
+    <section class="product-sale-home">
+    <?php foreach ($product1 as $productItem): 
         
+        $giagiam = $productItem['Gia'] * ($productItem['GiamGia'] / 100);
+        $saugiam = $productItem['Gia'] - $giagiam;
+    ?> 
+        <div class="pro-sale">
+            <a href="cac/<?=$productItem['id_SanPham']?>">
+            <img src="../public/image/<?=$productItem['HinhAnh']?>" alt="">
+                
+            <a href="themspyt<?=$productItem['id_SanPham']?>">
+            <div class="circle">  
+                <i class="fa-solid fa-heart"></i>  
+            </div> 
+            </a> 
+
+            <div>
+                <p class="p-product-sale-name"><?=$productItem['TenSanPham']?></p>
+                <div class="p-product-sale">
+                    <p class="price-sale-home"><?= number_format($productItem['Gia'], 0, ',', '.'); ?>đ</p>
+                    <p class="price-down-home"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p> 
+                </div>
+                <form id="addToCartForm" class="formhome" onsubmit="return false;">  
+                <input type="hidden" name="id_SanPham" value="<?=$productItem['id_SanPham']?>">  
+                <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
+                <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$productItem['id_SanPham']?>', this)">  
+                    Thêm vào giỏ hàng  
+                </button>  
+                </form>
+
+
+            </div>
+        </div>
+    <?php endforeach; ?>
+</section> 
+
 <script>  
 document.querySelectorAll('.formhome').forEach(form => {  
         const quantityInput = form.querySelector('.quantity-input');  
@@ -735,8 +770,8 @@ document.querySelectorAll('.formhome').forEach(form => {
     formData.append('id_SanPham', idSanPham);  
     formData.append('quantity', quantity);  
 
-    // Sử dụng button mà bạn đã nhấn thay vì lấy lại từ id  
-    const btn = button; // Sử dụng button được truyền vào  
+      
+    const btn = button;   
 
     fetch('addtocart', {  
         method: 'POST',  
@@ -746,37 +781,13 @@ document.querySelectorAll('.formhome').forEach(form => {
     .then(data => {  
         console.log(data);  
         updateCartDisplay(data.cartDetails);   
-        btn.innerText = "Đã thêm vào giỏ hàng"; // Thay đổi văn bản  
-        btn.disabled = true; // Vô hiệu hóa button để tránh nhấn nhiều lần  
-        btn.style.backgroundColor = "#4CAF50"; // Thay đổi màu nền thành màu xanh  
-        btn.style.color = "white"; // Thay đổi màu chữ thành trắng  
+        btn.innerText = "Đã thêm vào giỏ hàng";   
+        btn.disabled = true;   
+        btn.style.backgroundColor = "#4CAF50";   
+        btn.style.color = "white";   
     })  
     .catch(error => {  
         console.error('Error:', error);  
     });  
 }
 </script>
-<footer>
-    <div class="footer-column-left">
-        <h3>Liên hệ</h3>
-        <hr>
-        <h3>Hotline: </h3>
-        <p>(+84)098765432</p>
-        <h3>Email: </h3>
-        <p>support@gmail.com</p>
-        <h3>Thời gian làm việc</h3>
-        <p>06:00 - 18:00 hằng ngày</p>
-    </div>
-    <div class="footer-column-left">
-
-    </div>
-    <div class="footer-column-right">
-        <h3>Theo dõi tại</h3>
-        <hr>
-        <a href="#">Facebook</a><br>
-        <a href="#">Twitter</a><br>
-        <a href="#">Youtube</a><br>
-        <a href="#">Instagram</a><br>
-
-    </div>
-</footer>

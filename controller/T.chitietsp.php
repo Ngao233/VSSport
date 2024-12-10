@@ -7,11 +7,11 @@ switch ($action) {
   
     case 'cac':
         $id = $_GET["id"] ?? "";  
-        $productdetail = getProductDetail($id);
+        
         $product1 = getProductWithDiscount();
         $product = getProductid($id);
         
         include "views/chitietsp1.php";
-        include "views/footer.php";
+        
         break;     
 }   
