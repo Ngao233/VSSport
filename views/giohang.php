@@ -17,7 +17,8 @@ if (isset($_SESSION['id_KhachHang'])) {
 } else {
    
     $id_KhachHang = null;
-    $cartItems = [];  
+    $cartItems = [];
+    $id_GioHang = [];    
 }
 
     $sql = "SELECT * FROM giohang WHERE id_KhachHang = :id_KhachHang";  
@@ -201,8 +202,9 @@ if (isset($_SESSION['id_KhachHang'])) {
     } else {
         ?>
         <div class="empty-cart">
-            <img src="public/image/empty_cart.png" alt="Không tìm thấy giỏ hàng">
-            <a href="sanpham.php">Quay lại mua sắm</a>
+            <img src="public/image/giohangtron.png" alt="Không tìm thấy giỏ hàng">
+            <p>Giỏ hàng của bạn không có.</p>
+            <a href="dangnhap">Đăng nhập</a>
         </div>
         <?php
     }
