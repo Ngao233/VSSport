@@ -169,10 +169,12 @@ if ($id_GioHang) {
                         <input type="hidden" name="id_ChiTietGioHang" value="<?= $item['id_ChiTietGioHang']; ?>"> 
                     </form>  
 
-                    <form method="POST" action="cart_delete">  
-                        <input type="hidden" name="id_ChiTietGioHang" value="<?= $item['id_ChiTietGioHang']; ?>"> 
-                        <button type="submit" class="remove-btn">Xóa</button>  
-                    </form>  
+                    <form method="POST" action="cart_delete">
+                        <input type="hidden" name="action" value="cart_delete"> <!-- Thêm action để định nghĩa hành động -->
+                        <input type="hidden" name="id_ChiTietGioHang" value="<?= htmlspecialchars($item['id_ChiTietGioHang']); ?>"> <!-- Bảo mật dữ liệu -->
+                        <button type="submit" class="remove-btn">Xóa</button>
+                    </form>
+  
                 </div>  
             </div>  
 

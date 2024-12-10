@@ -99,19 +99,31 @@ function updateCartQuantity($id_ChiTietGioHang, $SoLuong, $conn) {
 
 
 
-function deleteCartItem($id_GioHang, $conn) {
-    $sql = "DELETE FROM giohang WHERE id_GioHang = :id_GioHang";
+function deleteCartItem($conn, $id_GioHang, $id_SanPham = null) {
+    try {
+        if ($id_SanPham) {
+            // Xóa một sản phẩm cụ thể trong giỏ hàng
+            $sql = "DELETE FROM chitietgiohang WHERE id_GioHang = :id_GioHang AND id_SanPham = :id_SanPham";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);
+            $stmt->bindParam(':id_SanPham', $id_SanPham, PDO::PARAM_INT);
+        } else {
+            // Xóa toàn bộ giỏ hàng
+            $sql = "DELETE FROM giohang WHERE id_GioHang = :id_GioHang";
+            $stmt = $conn->prepare($sql);
+            $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);
+        }
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':id_GioHang', $id_GioHang, PDO::PARAM_INT);
-
-    if ($stmt->execute()) {
-        return "";
-    } else {
-        return "Lỗi khi xóa sản phẩm!";
+        // Thực thi câu lệnh SQL
+        if ($stmt->execute()) {
+            return "Xóa thành công!";
+        } else {
+            return "Lỗi khi xóa!";
+        }
+    } catch (Exception $e) {
+        return "Lỗi hệ thống: " . $e->getMessage();
     }
 }
-
 
 function getDiscountByProductId($productId) {
     global $conn; // Giả sử kết nối CSDL của bạn đã có trong biến $conn

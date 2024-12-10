@@ -42,15 +42,24 @@ switch ($action) {
                 include "views/addtocart.php";
                 break;
             case 'cart_delete':
-                if (isset($_POST['id_GioHang'])) {
-                    $cartId = $_POST['id_GioHang'];
-                    
-                    // Gọi hàm xóa sản phẩm
-                    $result = deleteCartItem($cartId, $conn);
-                    echo $result;
+                if (isset($_POST['id_ChiTietGioHang'])) {
+                    $id_ChiTietGioHang = $_POST['id_ChiTietGioHang'];
+            
+                    // Câu lệnh xóa trong bảng chitietgiohang
+                    $sql = "DELETE FROM chitietgiohang WHERE id_ChiTietGioHang = :id_ChiTietGioHang";
+                    $stmt = $conn->prepare($sql);
+                    $stmt->bindParam(':id_ChiTietGioHang', $id_ChiTietGioHang, PDO::PARAM_INT);
+            
+                    // Thực thi và phản hồi
+                    if ($stmt->execute()) {
+                        header("Location: " . $_SERVER['HTTP_REFERER']);
+                    } else {
+                        echo "Lỗi khi xóa sản phẩm!";
+                    }
                 } else {
                     echo "Dữ liệu không hợp lệ!";
                 }
+                break;
             
                 // Bao gồm các file giao diện
                 include "views/Header.php";
