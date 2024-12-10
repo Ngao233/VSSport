@@ -20,7 +20,21 @@ if (isset($_SESSION['id_KhachHang'])) {
         $soLuong = 1;  
     } else {  
         $id_GioHang = $cart['id_GioHang'];
-    }  
+    } 
+    if (isset($_POST['form_type'])) {  
+        $formType = $_POST['form_type'];  
+        if ($formType === 'yeu_thich') {  
+            $idSanPham = $_POST['id_SanPham'];  
+            $id_KhachHang = $_SESSION['id_KhachHang'];  
+            $stmt = $conn->prepare("INSERT INTO sanphamyeuthich (id_SanPham, id_KhachHang) VALUES (:idSanPham, :idKhachHang)");  
+            $stmt->bindValue(':idSanPham', $idSanPham, PDO::PARAM_INT);  
+            $stmt->bindValue(':idKhachHang', $id_KhachHang, PDO::PARAM_INT);  
+            $stmt->execute();  
+        
+        } elseif ($formType === 'form_khac') {  
+            //
+        }
+    }
 
   
     $sql = "SELECT c.*, s.TenSanPham FROM chitietgiohang c JOIN sanpham s ON c.id_SanPham = s.id_SanPham WHERE c.id_GioHang = :id_GioHang";  
@@ -33,6 +47,7 @@ if (isset($_SESSION['id_KhachHang'])) {
     $id_KhachHang = null;  
     $cartItems = [];  
 }  
+
 ?>
 
 <section class="banner">
@@ -98,7 +113,7 @@ if (isset($_SESSION['id_KhachHang'])) {
             <a href="cac/<?=$productItem['id_SanPham']?>">
             <img src="public/image/<?=$productItem['HinhAnh']?>" alt="">
                 
-            <a href="themspyt<?=$productItem['id_SanPham']?>">
+            <a style="display:none" href="themspyt<?=$productItem['id_SanPham']?>">
             <div class="circle">  
                 <i class="fa-solid fa-heart"></i>  
             </div> 
@@ -113,9 +128,14 @@ if (isset($_SESSION['id_KhachHang'])) {
                 <form id="addToCartForm" class="formhome" onsubmit="return false;">  
                 <input type="hidden" name="id_SanPham" value="<?=$productItem['id_SanPham']?>">  
                 <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
-                <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$productItem['id_SanPham']?>', this)">  
+                <button  class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$productItem['id_SanPham']?>', this)">  
                     Thêm vào giỏ hàng  
                 </button>  
+                </form>
+                <form action="" method="post" style="position: absolute; width: 50px; top: 10px ; right:0px">  
+                    <input type="hidden" name="form_type" value="yeu_thich">  
+                    <input type="hidden" name="id_SanPham" value="<?=$productItem['id_SanPham']?>">  
+                    <button><i class="fa-solid fa-heart"></i></button>  
                 </form>
 
 
@@ -164,21 +184,25 @@ if (isset($_SESSION['id_KhachHang'])) {
         <a href="cac/<?=$product['id_SanPham']?>" class="product-home-one-link">  
             <img src="public/image/<?=$product["HinhAnh"]?>" alt="" class="product-home-one-public/image" />  
         </a>  
-        <a href="themspyt/<?=$product['id_SanPham']?>">
-        <div class="circle">  
+        <a style="display:none" href="themspyt<?=$productItem['id_SanPham']?>">
+            <div class="circle">  
                 <i class="fa-solid fa-heart"></i>  
-        </div> 
-        
-        </a>
+            </div> 
+            </a>
         <div class="product-home-one-info">   
-        <form id="addToCartForm" class="formhome" onsubmit="return false;">  
-                <input type="hidden" name="id_SanPham" value="<?=$productItem['id_SanPham']?>">  
+                <form id="addToCartForm" class="formhome" onsubmit="return false;">  
+                <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>">  
                 <input type="number" name="quantity" value="1" min="1" class="quantity-input" style="width: 50px; text-align: center;">  
-                <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$productItem['id_SanPham']?>', this)">  
+                <button class="product-home-one-button" id="btn" type="button" onclick="addToCart('<?=$product['id_SanPham']?>', this)">  
                     Thêm vào giỏ hàng  
                 </button>  
                 </form>
         </div>  
+        <form  action="" method="post" style="position: absolute; width: 50px; top: 10px ; right:0px; ">  
+                    <input type="hidden" name="form_type" value="yeu_thich">  
+                    <input type="hidden" name="id_SanPham" value="<?=$product['id_SanPham']?>">  
+                    <button style="border:none;background-color:white;padding:8px ;border-radius:5px; color:orange"><i class="fa-solid fa-heart"></i></button>  
+                </form>
         <p class="product-home-one-name"><?=$product["TenSanPham"]?></p>  
         <p class="product-home-one-price" style="font-size:12px; color:gray;" ><?=$product["Gia"]?> đ</p>  
         <p class="price-down-home" style="margin-top:-1px"><?= number_format($saugiam, 0, ',', '.'); ?>đ</p>

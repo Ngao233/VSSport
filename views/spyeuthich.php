@@ -50,11 +50,13 @@
 <?php foreach ($products as $item) { ?>
     <div class="pro-sale">
         <img src="public/image/<?=$item["HinhAnh"]?>" alt="">
-        <div class="circle">
-            <a href="">
+        
+            <a href="<?=$item["id_SanPham"]?>">
+            <div class="circle">
                 <i class="fa-solid fa-heart"></i>
+                </div>
             </a>
-        </div>
+        
 
         <div>
             <p class="p-product-sale-name"><?=$item["TenSanPham"]?></p>
@@ -65,6 +67,7 @@
             <button>Thêm giỏ hàng</button>
         </div>
     </div>
+
     <?php } ?>
     <div style="width: 100%; height: 50px;">
 </div>
